@@ -1,0 +1,46 @@
+{
+    "name": "reduce",
+    "files": {
+        "p1.in": { "size": 52428800, "location": [ 0 ] },
+        "p2.in": { "size": 52428800, "location": [ 1 ] },
+        "p3.in": { "size": 52428800, "location": [ 2 ] },
+        "p4.in": { "size": 52428800, "location": [ 3 ] },
+        "p1.out": { "size": -1048576 },
+        "p2.out": { "size": -1048576 },
+        "p3.out": { "size": -1048576 },
+        "p4.out": { "size": -1048576 },
+        "r1.out": { "size": -10240 }
+    },
+    "tasks": {
+        "producer.1": {
+            "name": "producer.1",
+            "runtime": 10,
+            "input": [ "p1.in" ],
+            "output": [ "p1.out" ],
+        },
+        "producer.2": {
+            "name": "producer.2",
+            "runtime": 10,
+            "input": [ "p2.in" ],
+            "output": [ "p2.out" ],
+        },
+        "producer.3": {
+            "name": "producer.3",
+            "runtime": 10,
+            "input": [ "p3.in" ],
+            "output": [ "p3.out" ],
+        },
+        "producer.4": {
+            "name": "producer.4",
+            "runtime": 10,
+            "input": [ "p4.in" ],
+            "output": [ "p4.out" ],
+        },
+        "reducer.1": {
+            "name": "reducer.1",
+            "runtime": 20,
+            "input": [ "p1.out", "p2.out", "p3.out", "p4.out" ],
+            "output": [ "r1.out" ],
+        }
+    }
+}
