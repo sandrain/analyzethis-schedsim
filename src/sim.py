@@ -16,7 +16,7 @@ class Config:
         self.scheduler = 'rr'
 
         if 'netbw' in config:
-            netbw = config['netbw'] * (2**20)
+            netbw = config['netbw']
         if 'n_osds' in config:
             n_osds = config['n_osds']
         if 'placement' in config:
@@ -34,8 +34,24 @@ class Simulator(event.EventSimulator):
         self.afs.submit_job(js)
 
     def report(self):
+        print('\nTask statistics')
         for task in self.afs.job.tasks.values():
             task.report()
+
+        print('\nOSD busy intervals')
+        for i in range(len(self.afs.osds)):
+            intervals = [ (t.stat.t_submit, t.stat.t_complete) \
+                          for t in self.afs.job.tasks.values() if t.osd == i]
+            print('OSD', i, intervals)
+
+        print('\nSSD RW statistics')
+        for i in range(len(self.afs.osds)):
+            total_read = self.afs.osds[i].get_total_read()
+            total_write = self.afs.osds[i].get_total_write()
+            extra_read = self.afs.osds[i].get_extra_read()
+            extra_write = self.afs.osds[i].get_extra_write()
+            print('OSD', i, '(Total RW, Extra RW):',
+                    total_read, total_write, extra_read, extra_write)
 
 
 def main(argv=None):
@@ -64,3 +80,4 @@ def main(argv=None):
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))
+

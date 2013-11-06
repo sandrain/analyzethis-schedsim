@@ -34,7 +34,13 @@ class TimeoutEvent:
 class TimeoutEventHandler:
     """abstract class for components
     """
+    def get_name(self):
+        pass
+
     def handle_timeout(self, event):
+        pass
+
+    def report(self):
         pass
 
 
@@ -90,4 +96,13 @@ class EventSimulator:
                     e.execute_handler()
 
         return self.current
+
+    def report(self):
+        pass
+        """
+        for module in self.modules:
+            print('\n=====', module.get_name(), '=====')
+            module.report()
+            """
+
 

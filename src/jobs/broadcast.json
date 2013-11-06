@@ -1,0 +1,43 @@
+{
+    "name": "broadcast",
+    "files": {
+        "p1.in": { "size": 52428800, "location": [ 0 ] },
+        "p1.out": { "size": -52428800 },
+        "c1.out": { "size": -10485760 },
+        "c2.out": { "size": -10485760 },
+        "c3.out": { "size": -10485760 },
+        "c4.out": { "size": -10485760 }
+    },
+    "tasks": {
+        "producer.1": {
+            "name": "producer.1",
+            "runtime": 10,
+            "input": [ "p1.in" ],
+            "output": [ "p1.out" ]
+        },
+        "consumer.1": {
+            "name": "consumer.1",
+            "runtime": 10,
+            "input": [ "p1.out" ],
+            "output": [ "c1.out" ]
+        },
+        "consumer.2": {
+            "name": "consumer.2",
+            "runtime": 10,
+            "input": [ "p1.out" ],
+            "output": [ "c2.out" ]
+        },
+        "consumer.3": {
+            "name": "consumer.3",
+            "runtime": 10,
+            "input": [ "p1.out" ],
+            "output": [ "c3.out" ]
+        },
+        "consumer.4": {
+            "name": "consumer.4",
+            "runtime": 10,
+            "input": [ "p1.out" ],
+            "output": [ "c4.out" ]
+        }
+    }
+}

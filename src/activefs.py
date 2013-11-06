@@ -11,7 +11,6 @@ class ActiveFlash(event.TimeoutEventHandler):
     """Active flash element
     """
     def __init__(self, ev, id, afs):
-        self.exit = False
         self.id = id
         self.ev = ev
         self.afs = afs
@@ -21,6 +20,14 @@ class ActiveFlash(event.TimeoutEventHandler):
         self.idle_event.set_disposable()
         self.task_event = event.TimeoutEvent('task', 0, self)
         self.running = None
+        """statistics"""
+        self.n_read = 0         # how much is read/written?
+        self.n_written = 0
+        self.n_extra_read = 0   # how much rw for data transfer?
+        self.n_extra_written = 0
+
+    def get_name(self):
+        return 'ActiveFlash-' + str(self.id)
 
     def submit_task(self, task):
         self.tq.append(task)
@@ -38,23 +45,14 @@ class ActiveFlash(event.TimeoutEventHandler):
             self.task_event.set_context(task)
             task.started(self.ev.now())
             self.ev.register_event(self.task_event)
-            """
-        else:
-            pass
-            if not self.exit:
-                self.ev.register_event(self.idle_event)
-                """
 
     def handle_timeout(self, e):
-        print('ActiveFlash[', self.id,']: event=', e.name)
+        print(self.get_name(), ': event', e.name)
 
-        if e.name == 'exit':
-            self.exit = True
-            return
-        elif e.name == 'task':
+        if e.name == 'task':
             self.handle_timeout_task(e)
-        else:   # idle falls here
-            self.try_execute_task()
+        self.try_execute_task()
+
 
     """Handles task completion event
     """
@@ -65,8 +63,39 @@ class ActiveFlash(event.TimeoutEventHandler):
 
         task.completed(self.ev.now())
         self.afs.task_completed(task, self)
+        self.update_data_rw(task)
         self.running = None
         self.try_execute_task()
+
+    def update_data_rw(self, task):
+        r = reduce(lambda x, y: x+y, [ f.size for f in task.input ])
+        self.data_read(r)
+        w = reduce(lambda x, y: x+y, [ f.size for f in task.output ])
+        self.data_write(w)
+
+    def data_read(self, count):
+        self.n_read += count
+
+    def data_write(self, count):
+        self.n_written += count
+
+    def data_transfer_read(self, count):
+        self.n_extra_read += count
+
+    def data_transfer_write(self, count):
+        self.n_extra_written += count
+
+    def get_total_read(self):
+        return self.n_read + self.n_extra_read
+
+    def get_total_write(self):
+        return self.n_written + self.n_extra_written
+
+    def get_extra_read(self):
+        return self.n_extra_read
+
+    def get_extra_write(self):
+        return self.n_extra_written
 
 
 class ActiveFS(event.TimeoutEventHandler):
@@ -74,7 +103,6 @@ class ActiveFS(event.TimeoutEventHandler):
     Currently, we assume that only a single job is submitted
     """
     def __init__(self, ev, config):
-        self.exit = False
         self.ev = ev
         self.config = config
         self.osds = [ ActiveFlash(ev, n, self) \
@@ -86,6 +114,9 @@ class ActiveFS(event.TimeoutEventHandler):
             self.scheduler = sched.SchedInput(self)
         else:
             self.scheduler = sched.SchedRR(self)
+
+    def get_name(self):
+        return 'ActiveFS'
 
     def submit_job(self, js):
         try:
@@ -116,23 +147,25 @@ class ActiveFS(event.TimeoutEventHandler):
 
     def check_termination(self):
         if len(self.tq) + len(self.pq) == 0:
-            self.ev.terminate()
             return True
         else:
             return False
 
     def request_data_transfer(self, task):
         transfer_from = [ 0 for x in range(len(self.osds)) ]
-        transfer_list = [ task.osd ]
+        transfer_list = [ task.osd ]    # first element is the destination
         for f in task.input:
             if not f.is_replicated(task.osd):
                 transfer_from[f.location] += f.size
                 task.account_transfer(f)
-                transfer_list += [ f ]
+                transfer_list += [ f ]  # rests are the files
 
         transfer_total = reduce(lambda x, y: x+y, transfer_from)
         if transfer_total > 0:
-            delay = max(transfer_from) / self.config.netbw
+            """the exact estimation??? this is a very conservative approach,
+            which considers the worst case.
+            """
+            delay = 3 * max(transfer_from) / self.config.netbw
             e = event.TimeoutEvent('transfer', delay, self)
             e.set_context(transfer_list)
             self.ev.register_event(e)
@@ -142,6 +175,9 @@ class ActiveFS(event.TimeoutEventHandler):
         osd = li[0]
         for f in li[1:]:
             f.add_replica(osd)
+            """update the rw statistics"""
+            self.osds[osd].data_transfer_write(f.size)
+            self.osds[f.location].data_transfer_read(f.size)
 
     def advance(self):
         if self.check_termination():
@@ -172,14 +208,9 @@ class ActiveFS(event.TimeoutEventHandler):
                 self.osds[task.osd].submit_task(task)
 
     def handle_timeout(self, e):
-        print('ActiveFS: event=', e.name)
-        if self.exit:
-            return
+        print(self.get_name(), ': event', e.name)
 
-        if e.name == 'exit':
-            self.exit = True
-            return
-        elif e.name == 'transfer':
+        if e.name == 'transfer':
             self.handle_transfer_complete(e)
         else:
             pass
