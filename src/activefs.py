@@ -25,6 +25,7 @@ class ActiveFlash(event.TimeoutEventHandler):
     def submit_task(self, task):
         self.tq.append(task)
         task.submitted(self.ev.now())
+        self.try_execute_task()
 
     def try_execute_task(self):
         if self.running != None:
@@ -37,9 +38,12 @@ class ActiveFlash(event.TimeoutEventHandler):
             self.task_event.set_context(task)
             task.started(self.ev.now())
             self.ev.register_event(self.task_event)
+            """
         else:
+            pass
             if not self.exit:
                 self.ev.register_event(self.idle_event)
+                """
 
     def handle_timeout(self, e):
         print('ActiveFlash[', self.id,']: event=', e.name)
