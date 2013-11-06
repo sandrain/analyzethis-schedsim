@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from itertools import *
+from functools import reduce
 import activefs
 
 class Scheduler:
@@ -12,6 +13,10 @@ class Scheduler:
     def job_submitted(self):
         pass
 
+    """all input files are created, will be transferred according to the
+    scheduling decision.
+    @ready_list: list of tasks ready
+    """
     def task_prepared(self, ready_list):
         pass
 
@@ -34,5 +39,9 @@ class SchedInput(Scheduler):
     """Input-Locality, a task is scheduled to osd where its largest input file
     is stored.
     """
-    pass
+    def task_prepared(self, ready_list):
+        for task in ready_list:
+            task.osd = reduce(lambda x, y: x if x.size > y.size else y,
+                              task.input).location
+
 

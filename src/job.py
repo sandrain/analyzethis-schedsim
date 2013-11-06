@@ -120,6 +120,7 @@ class ActiveTask:
 
     def report(self):
         print('\ntask:', self.name)
+        print('osd      =', self.osd)
         self.stat.dump()
 
 

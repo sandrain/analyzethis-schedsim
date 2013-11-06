@@ -16,13 +16,13 @@ class Config:
         self.scheduler = 'rr'
 
         if 'netbw' in config:
-            netbw = config['netbw']
+            self.netbw = config['netbw']
         if 'n_osds' in config:
-            n_osds = config['n_osds']
+            self.n_osds = config['n_osds']
         if 'placement' in config:
-            placement = config['placement']
+            self.placement = config['placement']
         if 'scheduler' in config:
-            scheduler = config['schedule']
+            self.scheduler = config['scheduler']
 
 
 class Simulator(event.EventSimulator):
@@ -34,6 +34,9 @@ class Simulator(event.EventSimulator):
         self.afs.submit_job(js)
 
     def report(self):
+        print('\n-----------------------------------------')
+        print('job:', self.afs.job.name)
+        print('scheduler:', self.afs.config.scheduler)
         print('\nTask statistics')
         for task in self.afs.job.tasks.values():
             task.report()
@@ -74,7 +77,7 @@ def main(argv=None):
     finish = sim.run()
     sim.report()
 
-    print("\nsimulation finished at ", finish)
+    print('\nsimulation finished at', finish)
     return 0
 
 
