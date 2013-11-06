@@ -106,7 +106,7 @@ class ActiveFS(event.TimeoutEventHandler):
         self.ev = ev
         self.config = config
         self.osds = [ ActiveFlash(ev, n, self) \
-                        for n in range(self.config.n_osds) ]
+                        for n in range(self.config.osds) ]
         self.ev.register_module(self)
         self.pq = []    # pre(pared) q, all data files are ready
 
@@ -139,7 +139,7 @@ class ActiveFS(event.TimeoutEventHandler):
                                 sorted(self.job.files.items())))
             valid_files = list(filter(lambda x: x.size > 0, sorted_files))
             for (f, osd) in zip(valid_files,
-                                cycle(range(self.config.n_osds))):
+                                cycle(range(self.config.osds))):
                 f.set_location(osd)
 
     def task_completed(self, task, osd):

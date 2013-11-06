@@ -31,7 +31,7 @@ class SchedRR(Scheduler):
         sorted_tasks = list(map(lambda x: x[1],
                             sorted(self.afs.job.tasks.items())))
         for (task, osd) in zip(sorted_tasks,
-                               cycle(range(self.afs.config.n_osds))):
+                               cycle(range(self.afs.config.osds))):
             task.osd = osd
 
 

@@ -1,36 +1,22 @@
 #!/usr/bin/env python
 
-import pdb
 import sys
+import argparse
 import json
+import pdb
+
 import event
 import activefs
-
-class Config:
-    """simulation configurations
-    """
-    def __init__(self, config):
-        self.netbw = 104857600.0       # 100 MB/s
-        self.n_osds = 4                # 4 osds
-        self.placement = 'rr'
-        self.scheduler = 'rr'
-
-        if 'netbw' in config:
-            self.netbw = config['netbw']
-        if 'n_osds' in config:
-            self.n_osds = config['n_osds']
-        if 'placement' in config:
-            self.placement = config['placement']
-        if 'scheduler' in config:
-            self.scheduler = config['scheduler']
-
 
 class Simulator(event.EventSimulator):
     """Active Flash simulator
     """
-    def __init__(self, conf, js):
+    def __init__(self, options):
         super(Simulator, self).__init__()
-        self.afs = activefs.ActiveFS(self, Config(conf))
+        self.afs = activefs.ActiveFS(self, options)
+
+        with open(options.script) as f:
+            js = json.load(f)
         self.afs.submit_job(js)
 
     def report(self):
@@ -45,11 +31,6 @@ class Simulator(event.EventSimulator):
         for i in range(len(self.afs.osds)):
             intervals = [ (t.stat.t_submit, t.stat.t_complete) \
                           for t in self.afs.job.tasks.values() if t.osd == i]
-            #print('OSD', i, intervals)
-            """
-            print('OSD', i, ['(%.2f,%.2f)' % \
-                    (x,y) for x,y in sorted(intervals, key=lambda x: x[0])])
-            """
             print('OSD', i,
                   '[%s]' % ', '.join('(%.2f,%.2f)' % (x,y) for x,y in \
                    sorted(intervals, key=lambda x: x[0])))
@@ -63,23 +44,33 @@ class Simulator(event.EventSimulator):
             print('OSD', i, '(Total RW, Extra RW):',
                     total_read, total_write, ',', extra_read, extra_write)
 
-
+"""main program
+"""
 def main(argv=None):
-    if argv == None or len(argv) != 2:
-        print('Usage: sim.py <conf file> <job file>')
-        return 1
+    args_description = "ActiveFS scheduling simulator. Default options: " \
+                       "--netbw 104857600 --osds 4 --scheduler rr " \
+                       "--placement rr --debug"
 
-    try:
-        with open(argv[0]) as f:
-            conf = json.load(f)
-        with open(argv[1]) as f:
-            js = json.load(f)
-    except:
-        raise
+    parser = argparse.ArgumentParser(description=args_description)
+    parser.add_argument('-b', '--netbw', type=int, default=104857600,
+                help='set the network bandwith (bytes/sec)')
+    parser.add_argument('-n', '--osds', type=int, default=4,
+                        help='set the number of osds')
+    parser.add_argument('-s', '--scheduler', type=str, default='rr',
+                        help='set the scheduler, rr or input')
+    parser.add_argument('-p', '--placement', type=str, default='rr',
+                    help='set dataplacement policy (rr, explicit, or random)')
+    parser.add_argument('-d', '--debug', default=False,
+                        help='launch pdb in the main',
+                        action='store_true')
+    parser.add_argument('script', type=str, help='job script in JSON')
+    args = parser.parse_args()
 
-    pdb.set_trace()
+    if args.debug:
+        print("debug is enabled, launch pdb...")
+        pdb.set_trace()     # comment out this to disable pdb
 
-    sim = Simulator(conf, js)
+    sim = Simulator(args)
     sim.prepare()
     finish = sim.run()
     sim.report()
