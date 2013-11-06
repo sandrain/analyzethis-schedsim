@@ -1,0 +1,153 @@
+{
+    "name": "montage",
+    "files": {
+        "mProjectPP.1.in": { "size": 4225762 },
+        "mProjectPP.2.in": { "size": 4225762 },
+        "mProjectPP.3.in": { "size": 4225762 },
+        "mProjectPP.4.in": { "size": 4225762 },
+        "mProjectPP.1.out": { "size": -8388608 },
+        "mProjectPP.2.out": { "size": -8388608 },
+        "mProjectPP.3.out": { "size": -8388608 },
+        "mProjectPP.4.out": { "size": -8388608 },
+        "mDiffFit.1.out": { "size": -524288 },
+        "mDiffFit.2.out": { "size": -524288 },
+        "mDiffFit.3.out": { "size": -524288 },
+        "mDiffFit.4.out": { "size": -524288 },
+        "mDiffFit.5.out": { "size": -524288 },
+        "mDiffFit.6.out": { "size": -524288 },
+        "mConcatFit.1.out": { "size": -20480 },
+        "mBgModel.1.out": { "size": -4096 },
+        "mBackground.1.out": { "size": -8388608 },
+        "mBackground.2.out": { "size": -8388608 },
+        "mBackground.3.out": { "size": -8388608 },
+        "mBackground.4.out": { "size": -8388608 },
+        "mImgTbl.1.out": { "size": -4096 },
+        "mAdd.1.out": { "size": -347078656 },
+        "mShrink.1.out": { "size": -7340032 },
+        "mJPEG.1.out": { "size": -335543 }
+    },
+    "tasks": {
+        "mProjectPP.1": {
+            "name": "mProjectPP.1",
+            "runtime": 14,
+            "input": [ "mProjectPP.1.in" ],
+            "output": [ "mProjectPP.1.out" ]
+        },
+        "mProjectPP.2": {
+            "name": "mProjectPP.2",
+            "runtime": 14,
+            "input": [ "mProjectPP.2.in" ],
+            "output": [ "mProjectPP.2.out" ]
+        },
+        "mProjectPP.3": {
+            "name": "mProjectPP.3",
+            "runtime": 14,
+            "input": [ "mProjectPP.3.in" ],
+            "output": [ "mProjectPP.3.out" ]
+        },
+        "mProjectPP.4": {
+            "name": "mProjectPP.4",
+            "runtime": 14,
+            "input": [ "mProjectPP.4.in" ],
+            "output": [ "mProjectPP.4.out" ]
+        },
+        "mDiffFit.1": {
+            "name": "mDiffFit.1",
+            "runtime": 11,
+            "input": [ "mProjectPP.1.out", "mProjectPP.2.out" ],
+            "output": [ "mDiffFit.1.out" ]
+        },
+        "mDiffFit.2": {
+            "name": "mDiffFit.2",
+            "runtime": 11,
+            "input": [ "mProjectPP.1.out", "mProjectPP.2.out" ],
+            "output": [ "mDiffFit.2.out" ]
+        },
+        "mDiffFit.3": {
+            "name": "mDiffFit.3",
+            "runtime": 11,
+            "input": [ "mProjectPP.2.out", "mProjectPP.3.out" ],
+            "output": [ "mDiffFit.3.out" ]
+        },
+        "mDiffFit.4": {
+            "name": "mDiffFit.4",
+            "runtime": 11,
+            "input": [ "mProjectPP.3.out", "mProjectPP.4.out" ],
+            "output": [ "mDiffFit.4.out" ]
+        },
+        "mDiffFit.5": {
+            "name": "mDiffFit.5",
+            "runtime": 11,
+            "input": [ "mProjectPP.2.out", "mProjectPP.4.out" ],
+            "output": [ "mDiffFit.5.out" ]
+        },
+        "mDiffFit.6": {
+            "name": "mDiffFit.6",
+            "runtime": 11,
+            "input": [ "mProjectPP.4.out" ],
+            "output": [ "mDiffFit.6.out" ]
+        },
+        "mConcatFit.1": {
+            "name": "mConcatFit.1",
+            "runtime": 14,
+            "input": [ "mDiffFit.1.out", "mDiffFit.2.out", "mDiffFit.3.out",
+                       "mDiffFit.4.out", "mDiffFit.5.out", "mDiffFit.6.out" ],
+            "output": [ "mConcatFit.1.out" ]
+        },
+        "mBgModel.1": {
+            "name": "mBgModel.1",
+            "runtime": 11,
+            "input": [ "mConcatFit.1.out" ],
+            "output": [ "mBgModel.1.out" ]
+        },
+        "mBackground.1": {
+            "name": "mBackground.1",
+            "runtime": 11,
+            "input": [ "mProjectPP.1.out", "mBgModel.1.out" ],
+            "output": [ "mBackground.1.out" ]
+        },
+        "mBackground.2": {
+            "name": "mBackground.2",
+            "runtime": 11,
+            "input": [ "mProjectPP.2.out", "mBgModel.1.out" ],
+            "output": [ "mBackground.2.out" ]
+        },
+        "mBackground.3": {
+            "name": "mBackground.3",
+            "runtime": 11,
+            "input": [ "mProjectPP.3.out", "mBgModel.1.out" ],
+            "output": [ "mBackground.3.out" ]
+        },
+        "mBackground.4": {
+            "name": "mBackground.4",
+            "runtime": 11,
+            "input": [ "mProjectPP.4.out", "mBgModel.1.out" ],
+            "output": [ "mBackground.4.out" ]
+        },
+        "mImgTbl.1": {
+            "name": "mImgTbl.1",
+            "runtime": 11,
+            "input": [ "mBackground.1.out", "mBackground.2.out",
+                       "mBackground.3.out", "mBackground.4.out" ],
+            "output": [ "mImgTbl.1.out" ]
+        },
+        "mAdd.1": {
+            "name": "mAdd.1",
+            "runtime": 31,
+            "input": [ "mImgTbl.1.out" ],
+            "output": [ "mAdd.1.out" ]
+        },
+        "mShrink.1": {
+            "name": "mShrink.1",
+            "runtime": 13,
+            "input": [ "mAdd.1.out" ],
+            "output": [ "mShrink.1.out" ]
+        },
+        "mJPEG.1": {
+            "name": "mJPEG.1",
+            "runtime": 11,
+            "input": [ "mShrink.1.out" ],
+            "output": [ "mJPEG.1.out" ]
+        }
+    }
+}

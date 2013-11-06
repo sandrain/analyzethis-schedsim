@@ -45,7 +45,14 @@ class Simulator(event.EventSimulator):
         for i in range(len(self.afs.osds)):
             intervals = [ (t.stat.t_submit, t.stat.t_complete) \
                           for t in self.afs.job.tasks.values() if t.osd == i]
-            print('OSD', i, intervals)
+            #print('OSD', i, intervals)
+            """
+            print('OSD', i, ['(%.2f,%.2f)' % \
+                    (x,y) for x,y in sorted(intervals, key=lambda x: x[0])])
+            """
+            print('OSD', i,
+                  '[%s]' % ', '.join('(%.2f,%.2f)' % (x,y) for x,y in \
+                   sorted(intervals, key=lambda x: x[0])))
 
         print('\nSSD RW statistics')
         for i in range(len(self.afs.osds)):
@@ -54,7 +61,7 @@ class Simulator(event.EventSimulator):
             extra_read = self.afs.osds[i].get_extra_read()
             extra_write = self.afs.osds[i].get_extra_write()
             print('OSD', i, '(Total RW, Extra RW):',
-                    total_read, total_write, extra_read, extra_write)
+                    total_read, total_write, ',', extra_read, extra_write)
 
 
 def main(argv=None):
@@ -77,7 +84,7 @@ def main(argv=None):
     finish = sim.run()
     sim.report()
 
-    print('\nsimulation finished at', finish)
+    print('\nsimulation finished at %.3f' % finish)
     return 0
 
 

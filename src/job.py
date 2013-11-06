@@ -62,9 +62,9 @@ class ActiveTaskStat:
         self.t_complete = now
 
     def dump(self):
-        print('submit   =', self.t_submit)
-        print('start    =', self.t_start)
-        print('complete =', self.t_complete)
+        print('submit   = {0:.3f}'.format(self.t_submit))
+        print('start    = {0:.3f}'.format(self.t_start))
+        print('complete = {0:.3f}'.format(self.t_complete))
         print('transfer =', len(self.f_transfers))
 
 
