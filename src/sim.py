@@ -2,6 +2,7 @@
 
 import sys
 import argparse
+import textwrap
 import json
 import pdb
 
@@ -46,12 +47,17 @@ class Simulator(event.EventSimulator):
 
 """main program
 """
-def main(argv=None):
-    args_description = "ActiveFS scheduling simulator. Default options: " \
-                       "--netbw 104857600 --osds 4 --scheduler rr " \
-                       "--placement rr --debug"
+def main():
+    args_description = textwrap.dedent("""\
+            ActiveFS scheduling simulator. Currently only simulates a single
+            job execution. The default options are identical to:
+                --netbw 1048576 --osds 4 --scheduler rr --placement rr
 
-    parser = argparse.ArgumentParser(description=args_description)
+            """)
+
+    parser = argparse.ArgumentParser(
+                formatter_class=argparse.RawDescriptionHelpFormatter,
+                description=args_description)
     parser.add_argument('-b', '--netbw', type=int, default=104857600,
                 help='set the network bandwith (bytes/sec)')
     parser.add_argument('-n', '--osds', type=int, default=4,
@@ -80,5 +86,5 @@ def main(argv=None):
 
 
 if __name__ == '__main__':
-    sys.exit(main(sys.argv[1:]))
+    sys.exit(main())
 
