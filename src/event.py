@@ -10,14 +10,17 @@ class TimeoutEvent:
         self.timeout = timeout
         self.handler = handler
 
-    def timeout(self):
-        self.handler.timeout(self)
+    def __lt__(self, other):
+        return self.timeout < other.timeout
+
+    def execute_handler(self):
+        self.handler.handle_timeout(self)
 
 
 class TimeoutEventHandler:
     """abstract class for components
     """
-    def timeout(self, event):
+    def handle_timeout(self, event):
         pass
 
 
@@ -27,18 +30,26 @@ class EventSimulator:
     def __init__(self):
         self.eq = []         # heap
         self.current = 0     # current time
+        self.modules = []
+
+    def register_module(self, module):
+        self.modules += [ module ]
 
     def register_event(self, event):
         event.timeout += self.current
-        entry = [ event.timeout, event ]
-        heapq.heappush(self.eq, entry)
+        heapq.heappush(self.eq, event)
 
-    def simloop(self):
+    def prepare(self):
+        for module in self.modules:
+            self.register_event(TimeoutEvent('_init', 0, module))
+
+    def run(self):
         while len(self.eq) > 0:
-            events = [ heapq.heappop(self.eq) ]
-            self.current = event.timeout
+            e = heapq.heappop(self.eq)
+            self.current = e.timeout
+            events = [ e ]
 
-            while True:
+            while len(self.eq) > 0:     # pop others with same timestamp
                 next_event = heapq.heappop(self.eq)
                 if next_event.timeout == self.current:
                     events += [ next_event ]
@@ -46,9 +57,8 @@ class EventSimulator:
                     heapq.heappush(self.eq, next_event)
                     break
 
-            for ev in events:
-                ev[1].timeout()
+            for e in events:
+                e.execute_handler()
 
         return self.current
-
 

@@ -16,31 +16,31 @@
             "name": "producer.1",
             "runtime": 10,
             "input": [ "p1.in" ],
-            "output": [ "p1.out" ],
+            "output": [ "p1.out" ]
         },
         "producer.2": {
             "name": "producer.2",
             "runtime": 10,
             "input": [ "p2.in" ],
-            "output": [ "p2.out" ],
+            "output": [ "p2.out" ]
         },
         "producer.3": {
             "name": "producer.3",
             "runtime": 10,
             "input": [ "p3.in" ],
-            "output": [ "p3.out" ],
+            "output": [ "p3.out" ]
         },
         "producer.4": {
             "name": "producer.4",
             "runtime": 10,
             "input": [ "p4.in" ],
-            "output": [ "p4.out" ],
+            "output": [ "p4.out" ]
         },
         "reducer.1": {
             "name": "reducer.1",
             "runtime": 20,
             "input": [ "p1.out", "p2.out", "p3.out", "p4.out" ],
-            "output": [ "r1.out" ],
+            "output": [ "r1.out" ]
         }
     }
 }

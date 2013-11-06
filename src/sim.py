@@ -1,36 +1,9 @@
 #!/usr/bin/env python
 
 import sys
-import heapq
-from itertools import count
-from json import load
+import json
 import sched
-
-class TimeoutEvent:
-    def __init__(self, timeout, handler):
-        self.timeout = timeout
-        self.handler = handler
-
-    def timeout(self):
-        self.handler.timeout(self)
-
-
-class TimeoutEventHandler:
-    def timeout(self, event):
-        pass
-
-
-class Events:
-    """Main event queue for the simulation
-    """
-    def __init__(self):
-        self.pq = []
-        self.counter = itertools.count()
-
-    def register(self, event):
-        heapq.heappush(self.pq,
-                    [event.timeout, next(self.counter), event])
-
+import event
 
 class Config:
     """simulation configurations
@@ -44,28 +17,32 @@ class Config:
             n_osds = config['n_osds']
 
 
-class ActiveFlash(TimeoutEventHandler):
+class ActiveFlash(event.TimeoutEventHandler):
     """Active flash element
     """
-    def __init__(self, id):
+    def __init__(self, ev, id):
         self.id = id
+        self.ev = ev
         self.tq = []
+        self.ev.register_module(self)
 
     def submit_task(self, task):
         pass
 
-    def timeout(self, event):
-        pass
+    def handle_timeout(self, event):
+        print('ActiveFlash[', self.id,']: event=', event.name)
 
 
-class ActiveFS(TimeoutEventHandler):
+class ActiveFS(event.TimeoutEventHandler):
     """ActiveFS
     """
     def __init__(self, ev, config):
         self.ev = ev
         self.config = config
-        for n in range(self.config_n_osds):
-            self.osds += [ ActiveFlash(n) ]
+        self.osds = []
+        for n in range(self.config['n_osds']):
+            self.osds += [ ActiveFlash(ev, n) ]
+        self.ev.register_module(self)
 
     def submit_job(self, js):
         try:
@@ -75,27 +52,20 @@ class ActiveFS(TimeoutEventHandler):
 
         self.populate_files()
 
-    def timeout(self, event):
-        pass
+    def handle_timeout(self, event):
+        print('ActiveFS: event=', event.name)
 
     def populate_files(self):
         pass
 
 
-class Simulator:
-    """Main simulation framework
+class Simulator(event.EventSimulator):
+    """Active Flash simulator
     """
-    def __init__(self, config):
-        try:
-            afs = ActiveFs(Events(), Config(config))
-        except:
-            raise
-
-    def start(self, js):
-        try:
-            afs.submit_job(js)
-        except:
-            raise
+    def __init__(self, config, js):
+        super(Simulator, self).__init__()
+        afs = ActiveFS(self, config)
+        afs.populate_files()
 
     def report(self):
         pass
@@ -111,12 +81,15 @@ if __name__ == '__main__':
             config = json.load(f)
         with open(sys.argv[2]) as f:
             js = json.load(f)
-
-        sim = Simulator(config)
-        sim.start(js)
     except:
         raise
-    else:
-        sim.report()
-        sys.exit(0)
+
+    sim = Simulator(config, js)
+    sim.prepare()
+    finish = sim.run()
+    sim.report()
+
+    print("simulation finished at ", finish)
+
+    sys.exit(0)
 
