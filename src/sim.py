@@ -60,7 +60,7 @@ def main():
     args_description = textwrap.dedent("""\
             ActiveFS scheduling simulator. Currently only simulates a single
             job execution. The default options are identical to:
-                --netbw 1048576 --osds 4 --scheduler rr --placement rr
+                --netbw 104857600 --osds 4 --scheduler rr --placement rr
 
             """)
 
