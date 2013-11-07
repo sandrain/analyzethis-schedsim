@@ -59,15 +59,15 @@ def main():
                 formatter_class=argparse.RawDescriptionHelpFormatter,
                 description=args_description)
     parser.add_argument('-b', '--netbw', type=int, default=104857600,
-                help='set the network bandwith (bytes/sec)')
+                        help='network bandwith (bytes/sec)')
     parser.add_argument('-n', '--osds', type=int, default=4,
-                        help='set the number of osds')
+                        help='number of osds')
     parser.add_argument('-s', '--scheduler', type=str, default='rr',
-                        help='set the scheduler, rr or input')
+                        help='job scheduler, rr or input')
     parser.add_argument('-p', '--placement', type=str, default='rr',
-                    help='set dataplacement policy (rr, explicit, or random)')
+                        help='dataplacement policy (rr, explicit, or random)')
     parser.add_argument('-d', '--debug', default=False,
-                        help='launch pdb in the main',
+                        help='enters pdb session for debugging',
                         action='store_true')
     parser.add_argument('script', type=str, help='job script in JSON')
     args = parser.parse_args()

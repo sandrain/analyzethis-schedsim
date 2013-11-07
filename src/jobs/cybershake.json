@@ -1,0 +1,156 @@
+{
+    "name": "cybershake",
+    "files": {
+        "ExtractSGT.1.in": { "size": 40670739825 },
+        "ExtractSGT.2.in": { "size": 40670739825 },
+        "ExtractSGT.1.out": { "size": -463439135 },
+        "ExtractSGT.2.out": { "size": -463439135 },
+        "SeismogramSynthesis.1.out": { "size": -20972 },
+        "SeismogramSynthesis.2.out": { "size": -20972 },
+        "SeismogramSynthesis.3.out": { "size": -20972 },
+        "SeismogramSynthesis.4.out": { "size": -20972 },
+        "SeismogramSynthesis.5.out": { "size": -20972 },
+        "SeismogramSynthesis.6.out": { "size": -20972 },
+        "SeismogramSynthesis.7.out": { "size": -20972 },
+        "SeismogramSynthesis.8.out": { "size": -20972 },
+        "ZipSeis.1.out": { "size": -2149581 },
+        "PeakValCalcOkaya.1.out": { "size": -4096 },
+        "PeakValCalcOkaya.2.out": { "size": -4096 },
+        "PeakValCalcOkaya.3.out": { "size": -4096 },
+        "PeakValCalcOkaya.4.out": { "size": -4096 },
+        "PeakValCalcOkaya.5.out": { "size": -4096 },
+        "PeakValCalcOkaya.6.out": { "size": -4096 },
+        "PeakValCalcOkaya.7.out": { "size": -4096 },
+        "PeakValCalcOkaya.8.out": { "size": -4096 },
+        "ZipPSA.1.out": { "size": -124560344 }
+    },
+    "tasks": {
+        "ExtractSGT.1": {
+            "name": "ExtractSGT.1",
+            "runtime": 356,
+            "input": [ "ExtractSGT.1.in" ],
+            "output": [ "ExtractSGT.1.out" ]
+        },
+        "ExtractSGT.2": {
+            "name": "ExtractSGT.2",
+            "runtime": 356,
+            "input": [ "ExtractSGT.2.in" ],
+            "output": [ "ExtractSGT.2.out" ]
+        },
+        "SeismogramSynthesis.1": {
+            "name": "SeismogramSynthesis.1",
+            "runtime": 64,
+            "input": [ "ExtractSGT.1.out" ],
+            "output": [ "SeismogramSynthesis.1.out" ]
+        },
+        "SeismogramSynthesis.2": {
+            "name": "SeismogramSynthesis.1",
+            "runtime": 64,
+            "input": [ "ExtractSGT.1.out" ],
+            "output": [ "SeismogramSynthesis.2.out" ]
+        },
+        "SeismogramSynthesis.3": {
+            "name": "SeismogramSynthesis.1",
+            "runtime": 64,
+            "input": [ "ExtractSGT.1.out" ],
+            "output": [ "SeismogramSynthesis.3.out" ]
+        },
+        "SeismogramSynthesis.4": {
+            "name": "SeismogramSynthesis.1",
+            "runtime": 64,
+            "input": [ "ExtractSGT.1.out" ],
+            "output": [ "SeismogramSynthesis.4.out" ]
+        },
+        "SeismogramSynthesis.5": {
+            "name": "SeismogramSynthesis.1",
+            "runtime": 64,
+            "input": [ "ExtractSGT.2.out" ],
+            "output": [ "SeismogramSynthesis.5.out" ]
+        },
+        "SeismogramSynthesis.6": {
+            "name": "SeismogramSynthesis.1",
+            "runtime": 64,
+            "input": [ "ExtractSGT.2.out" ],
+            "output": [ "SeismogramSynthesis.6.out" ]
+        },
+        "SeismogramSynthesis.7": {
+            "name": "SeismogramSynthesis.1",
+            "runtime": 64,
+            "input": [ "ExtractSGT.2.out" ],
+            "output": [ "SeismogramSynthesis.7.out" ]
+        },
+        "SeismogramSynthesis.8": {
+            "name": "SeismogramSynthesis.1",
+            "runtime": 64,
+            "input": [ "ExtractSGT.2.out" ],
+            "output": [ "SeismogramSynthesis.8.out" ]
+        },
+        "ZipSeis.1": {
+            "name": "ZipSeis.1",
+            "runtime": 943,
+            "input": [ "SeismogramSynthesis.1.out", "SeismogramSynthesis.2.out",
+                       "SeismogramSynthesis.3.out", "SeismogramSynthesis.4.out",
+                       "SeismogramSynthesis.5.out", "SeismogramSynthesis.6.out",
+                       "SeismogramSynthesis.7.out", "SeismogramSynthesis.8.out" ],
+            "output": [ "ZipSeis.1.out" ]
+        },
+        "PeakValCalcOkaya.1": {
+            "name": "PeakValCalcOkaya.1",
+            "runtime": 2,
+            "input": [ "SeismogramSynthesis.1.out" ],
+            "output": [ "PeakValCalcOkaya.1.out" ]
+        },
+        "PeakValCalcOkaya.2": {
+            "name": "PeakValCalcOkaya.2",
+            "runtime": 2,
+            "input": [ "SeismogramSynthesis.2.out" ],
+            "output": [ "PeakValCalcOkaya.2.out" ]
+        },
+        "PeakValCalcOkaya.3": {
+            "name": "PeakValCalcOkaya.3",
+            "runtime": 2,
+            "input": [ "SeismogramSynthesis.3.out" ],
+            "output": [ "PeakValCalcOkaya.3.out" ]
+        },
+        "PeakValCalcOkaya.4": {
+            "name": "PeakValCalcOkaya.4",
+            "runtime": 2,
+            "input": [ "SeismogramSynthesis.4.out" ],
+            "output": [ "PeakValCalcOkaya.4.out" ]
+        },
+        "PeakValCalcOkaya.5": {
+            "name": "PeakValCalcOkaya.5",
+            "runtime": 2,
+            "input": [ "SeismogramSynthesis.5.out" ],
+            "output": [ "PeakValCalcOkaya.5.out" ]
+        },
+        "PeakValCalcOkaya.6": {
+            "name": "PeakValCalcOkaya.6",
+            "runtime": 2,
+            "input": [ "SeismogramSynthesis.6.out" ],
+            "output": [ "PeakValCalcOkaya.6.out" ]
+        },
+        "PeakValCalcOkaya.7": {
+            "name": "PeakValCalcOkaya.7",
+            "runtime": 2,
+            "input": [ "SeismogramSynthesis.7.out" ],
+            "output": [ "PeakValCalcOkaya.7.out" ]
+        },
+        "PeakValCalcOkaya.8": {
+            "name": "PeakValCalcOkaya.8",
+            "runtime": 2,
+            "input": [ "SeismogramSynthesis.8.out" ],
+            "output": [ "PeakValCalcOkaya.8.out" ]
+        },
+        "ZipPSA.1": {
+            "name": "ZipPSA.1",
+            "runtime": 398.79,
+            "input": [ "PeakValCalcOkaya.1.out", "PeakValCalcOkaya.2.out",
+                       "PeakValCalcOkaya.3.out", "PeakValCalcOkaya.4.out",
+                       "PeakValCalcOkaya.5.out", "PeakValCalcOkaya.6.out",
+                       "PeakValCalcOkaya.7.out", "PeakValCalcOkaya.8.out" ],
+            "output": [ "ZipPSA.1.out" ]
+        }
+    }
+}
+
