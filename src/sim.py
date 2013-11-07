@@ -13,7 +13,7 @@ class Simulator(event.EventSimulator):
     """Active Flash simulator
     """
     def __init__(self, options):
-        super(Simulator, self).__init__()
+        event.EventSimulator.__init__(self)
         self.afs = activefs.ActiveFS(self, options)
 
         with open(options.script) as f:
@@ -22,8 +22,8 @@ class Simulator(event.EventSimulator):
 
     def report(self):
         print('\n-----------------------------------------')
-        print('job:', self.afs.job.name)
-        print('scheduler:', self.afs.config.scheduler)
+        print('job: %s' % self.afs.job.name)
+        print('scheduler %s:' % self.afs.config.scheduler)
         print('\nTask statistics')
         for task in self.afs.job.tasks.values():
             task.report()
@@ -32,18 +32,26 @@ class Simulator(event.EventSimulator):
         for i in range(len(self.afs.osds)):
             intervals = [ (t.stat.t_submit, t.stat.t_complete) \
                           for t in self.afs.job.tasks.values() if t.osd == i]
-            print('OSD', i,
-                  '[%s]' % ', '.join('(%.2f,%.2f)' % (x,y) for x,y in \
+            """
+            print('\nOSD %d' % i)
+            print('[%s]' % ', '.join('(%.2f,%.2f)' % (x,y) for x,y in \
                    sorted(intervals, key=lambda x: x[0])))
+            """
+            print('OSD %d [%s]' % \
+                    (i, ', '.join('(%.2f, %.2f)' % (x,y) for x,y in \
+                             sorted(intervals, key=lambda x: x[0]))))
 
         print('\nSSD RW statistics')
+        print '%-3s%11s%11s%11s%11s' % \
+                ('OSD', 'Total R', 'Total W', 'Extra R', 'Extra W')
         for i in range(len(self.afs.osds)):
             total_read = self.afs.osds[i].get_total_read()
             total_write = self.afs.osds[i].get_total_write()
             extra_read = self.afs.osds[i].get_extra_read()
             extra_write = self.afs.osds[i].get_extra_write()
-            print('OSD', i, '(Total RW, Extra RW):',
-                    total_read, total_write, ',', extra_read, extra_write)
+            print repr(i).rjust(3),
+            print repr(total_read).rjust(10), repr(total_write).rjust(10),
+            print repr(extra_read).rjust(10), repr(extra_write).rjust(10)
 
 """main program
 """

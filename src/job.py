@@ -65,7 +65,7 @@ class ActiveTaskStat:
         print('submit   = {0:.3f}'.format(self.t_submit))
         print('start    = {0:.3f}'.format(self.t_start))
         print('complete = {0:.3f}'.format(self.t_complete))
-        print('transfer =', len(self.f_transfers))
+        print('transfer = %d' % len(self.f_transfers))
 
 
 class ActiveTask:
@@ -119,8 +119,8 @@ class ActiveTask:
         return True
 
     def report(self):
-        print('\ntask:', self.name)
-        print('osd      =', self.osd)
+        print('\ntask: %s' % self.name)
+        print('osd      = %d' % self.osd)
         self.stat.dump()
 
 
