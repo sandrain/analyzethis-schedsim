@@ -60,7 +60,18 @@ def main():
     args_description = textwrap.dedent("""\
             ActiveFS scheduling simulator. Currently only simulates a single
             job execution. The default options are identical to:
+
                 --netbw 104857600 --osds 4 --scheduler rr --placement rr
+
+            The following job schedulers are available:
+              rr: round-robin (default)
+              input: input-locality, task is placed where input file is
+              input-enhanced: input based, but also tries to parallelize
+
+            The following data placement policies are available:
+              rr: round-robin (default)
+              random: input files are placed randomly
+              explit: follows the 'location' field in json job script
 
             """)
 
@@ -72,9 +83,9 @@ def main():
     parser.add_argument('-n', '--osds', type=int, default=4,
                         help='number of osds')
     parser.add_argument('-s', '--scheduler', type=str, default='rr',
-                        help='job scheduler, rr or input')
+                        help='job scheduler')
     parser.add_argument('-p', '--placement', type=str, default='rr',
-                        help='dataplacement policy (rr, explicit, or random)')
+                        help='dataplacement policy')
     parser.add_argument('-d', '--debug', default=False,
                         help='enters pdb session for debugging',
                         action='store_true')
