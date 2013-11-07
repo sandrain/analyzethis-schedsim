@@ -21,27 +21,22 @@ class Simulator(event.EventSimulator):
         self.afs.submit_job(js)
 
     def report(self):
-        print('\n-----------------------------------------')
-        print('job: %s' % self.afs.job.name)
-        print('scheduler %s:' % self.afs.config.scheduler)
-        print('\nTask statistics')
+        print '\n-----------------------------------------'
+        print 'job: %s' % self.afs.job.name
+        print 'scheduler %s:' % self.afs.config.scheduler
+        print '\nTask statistics'
         for task in self.afs.job.tasks.values():
             task.report()
 
-        print('\nOSD busy intervals')
+        print '\nOSD busy intervals'
         for i in range(len(self.afs.osds)):
-            intervals = [ (t.stat.t_submit, t.stat.t_complete) \
+            intervals = [ (t.stat.t_start, t.stat.t_complete)
                           for t in self.afs.job.tasks.values() if t.osd == i]
-            """
-            print('\nOSD %d' % i)
-            print('[%s]' % ', '.join('(%.2f,%.2f)' % (x,y) for x,y in \
-                   sorted(intervals, key=lambda x: x[0])))
-            """
-            print('OSD %d [%s]' % \
-                    (i, ', '.join('(%.2f, %.2f)' % (x,y) for x,y in \
-                             sorted(intervals, key=lambda x: x[0]))))
+            print 'OSD %d [%s]' % \
+                    (i, ', '.join('(%.2f, %.2f)' % (x,y) for x,y in
+                             sorted(intervals, key=lambda x: x[0])))
 
-        print('\nSSD RW statistics')
+        print '\nSSD RW statistics'
         print '%-3s%11s%11s%11s%11s' % \
                 ('OSD', 'Total R', 'Total W', 'Extra R', 'Extra W')
         for i in range(len(self.afs.osds)):
@@ -52,6 +47,12 @@ class Simulator(event.EventSimulator):
             print repr(i).rjust(3),
             print repr(total_read).rjust(10), repr(total_write).rjust(10),
             print repr(extra_read).rjust(10), repr(extra_write).rjust(10)
+
+        total_transfer = reduce(lambda x, y: x+y,
+                           [ osd.get_extra_read() for osd in self.afs.osds ])
+
+        print '\nTotal data transfer = %d bytes (%.3f MB)' % \
+                    (total_transfer, total_transfer / (2**20))
 
 """main program
 """
@@ -77,6 +78,8 @@ def main():
     parser.add_argument('-d', '--debug', default=False,
                         help='enters pdb session for debugging',
                         action='store_true')
+    parser.add_argument('-e', '--eventlog', default=False,
+                        help='prints eventlogs', action='store_true')
     parser.add_argument('script', type=str, help='job script in JSON')
     args = parser.parse_args()
 

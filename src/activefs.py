@@ -47,7 +47,8 @@ class ActiveFlash(event.TimeoutEventHandler):
             self.ev.register_event(self.task_event)
 
     def handle_timeout(self, e):
-        print(self.get_name(), ': event', e.name)
+        if self.afs.config.eventlog:
+            print '%s: [e] %s' % (self.get_name(), e.name)
 
         if e.name == 'task':
             self.handle_timeout_task(e)
@@ -165,7 +166,8 @@ class ActiveFS(event.TimeoutEventHandler):
             """the exact estimation??? this is a very conservative approach,
             which considers the worst case.
             """
-            delay = 3 * max(transfer_from) / self.config.netbw
+            delay = 3 * (float(max(transfer_from)) / self.config.netbw)
+            print 'transfer delay: %f' % delay
             e = event.TimeoutEvent('transfer', delay, self)
             e.set_context(transfer_list)
             self.ev.register_event(e)
@@ -208,7 +210,8 @@ class ActiveFS(event.TimeoutEventHandler):
                 self.osds[task.osd].submit_task(task)
 
     def handle_timeout(self, e):
-        print(self.get_name(), ': event', e.name)
+        if self.config.eventlog:
+            print '%s: [e] %s' % (self.get_name(), e.name)
 
         if e.name == 'transfer':
             self.handle_transfer_complete(e)

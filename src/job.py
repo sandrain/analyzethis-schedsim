@@ -62,10 +62,17 @@ class ActiveTaskStat:
         self.t_complete = now
 
     def dump(self):
-        print('submit   = {0:.3f}'.format(self.t_submit))
-        print('start    = {0:.3f}'.format(self.t_start))
-        print('complete = {0:.3f}'.format(self.t_complete))
-        print('transfer = %d' % len(self.f_transfers))
+        print 'submit    = {0:.3f}'.format(self.t_submit)
+        print 'start     = {0:.3f}'.format(self.t_start)
+        print 'complete  = {0:.3f}'.format(self.t_complete)
+        if len(self.f_transfers) == 0:
+            print 'No data transfers'
+            return
+
+        print 'transferB = %d' % \
+                reduce(lambda x, y: x+y, [tf.size for tf in self.f_transfers])
+        print 'transfers = %d %s' %  (len(self.f_transfers),
+             [(str(tf.name), tf.location, tf.size) for tf in self.f_transfers])
 
 
 class ActiveTask:
@@ -119,8 +126,8 @@ class ActiveTask:
         return True
 
     def report(self):
-        print('\ntask: %s' % self.name)
-        print('osd      = %d' % self.osd)
+        print '\ntask: %s' % self.name
+        print 'osd      = %d' % self.osd
         self.stat.dump()
 
 

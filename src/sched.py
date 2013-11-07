@@ -41,7 +41,7 @@ class SchedInput(Scheduler):
     """
     def task_prepared(self, ready_list):
         for task in ready_list:
-            task.osd = reduce(lambda x, y: x if x.size > y.size else y,
+            task.osd = reduce(lambda x, y: y if x.size < y.size else x,
                               task.input).location
 
 
