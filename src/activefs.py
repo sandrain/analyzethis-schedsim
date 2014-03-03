@@ -154,6 +154,7 @@ class ActiveFS(event.TimeoutEventHandler):
         else:
             return False
 
+
     def request_data_transfer(self, task):
         transfer_from = [ 0 for x in range(len(self.osds)) ]
         transfer_list = [ task.osd ]    # first element is the destination
@@ -167,8 +168,16 @@ class ActiveFS(event.TimeoutEventHandler):
         if transfer_total > 0:
             """the exact estimation??? this is a very conservative approach,
             which considers the worst case.
+            updated on 3/3/2014: this calculation is too simplified. actually,
+            replicating a file involves host system to intervene; host
+            filesystem should move the file by reading it into its memory and
+            write it back to a desired osd. it can be seen, as the worst case,
+            that the file transfers work serially.
             """
-            delay = 3 * (float(max(transfer_from)) / self.config.netbw)
+            # the following old calculation is replaced.
+            #delay = 3 * (float(max(transfer_from)) / self.config.netbw)
+            delay = 2 * (float(transfer_total) / self.config.netbw)
+
             print 'transfer delay: %f' % delay
             e = event.TimeoutEvent('transfer', delay, self)
             e.set_context(transfer_list)
