@@ -9,7 +9,13 @@ import pdb
 import event
 import activefs
 
-class Simulator(event.EventSimulator):
+class PassiveSimulator(event.EventSimulator):
+    """This class has been added to simulate the situations when the jobs are
+    running in the host system.
+    """
+    pass
+
+class ActiveSimulator(event.EventSimulator):
     """Active Flash simulator
     """
     def __init__(self, options):
@@ -98,7 +104,7 @@ def main():
         print("debug is enabled, launch pdb...")
         pdb.set_trace()     # comment out this to disable pdb
 
-    sim = Simulator(args)
+    sim = ActiveSimulator(args)
     sim.prepare()
     finish = sim.run()
     sim.report()
