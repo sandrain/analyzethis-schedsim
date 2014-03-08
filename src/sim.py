@@ -34,13 +34,11 @@ class ActiveSimulator(event.EventSimulator):
 
         self.afs.submit_workflow(root)
 
-"""
         # the json is now replaced by xml, the format of pegasus workflow
         # generator
-        with open(options.script) as f:
-            js = json.load(f)
-        self.afs.submit_job(js)
-"""
+#        with open(options.script) as f:
+#            js = json.load(f)
+#        self.afs.submit_job(js)
 
     def report(self):
         print '\n-----------------------------------------'
