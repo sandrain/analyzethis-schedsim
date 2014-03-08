@@ -122,6 +122,8 @@ class ActiveFS(event.TimeoutEventHandler):
         return 'ActiveFS'
 
     def submit_job(self, js):
+        """deprecated, use the submit_workflow()
+        """
         try:
             self.job = job.ActiveJob(js)
         except:

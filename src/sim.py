@@ -5,6 +5,7 @@ import argparse
 import textwrap
 import json
 import pdb
+from lxml import etree
 
 import event
 import activefs
@@ -22,9 +23,24 @@ class ActiveSimulator(event.EventSimulator):
         event.EventSimulator.__init__(self)
         self.afs = activefs.ActiveFS(self, options)
 
+        tree = None
+        with open(options.script) as f:
+            try:
+                tree = etree.parse(f)
+            except:
+                raise
+
+        root = tree.getroot()
+
+        self.afs.submit_workflow(tree)
+
+"""
+        # the json is now replaced by xml, the format of pegasus workflow
+        # generator
         with open(options.script) as f:
             js = json.load(f)
         self.afs.submit_job(js)
+"""
 
     def report(self):
         print '\n-----------------------------------------'
