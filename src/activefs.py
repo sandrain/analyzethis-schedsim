@@ -133,6 +133,9 @@ class ActiveFS(event.TimeoutEventHandler):
         self.tq = list(self.job.tasks.values())
         self.scheduler.job_submitted()
 
+    def submit_workflow(self, root):
+        pass
+
     def populate_files(self):
         if self.config.placement == 'explicit':
             return

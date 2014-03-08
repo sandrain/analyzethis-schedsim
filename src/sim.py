@@ -32,7 +32,7 @@ class ActiveSimulator(event.EventSimulator):
 
         root = tree.getroot()
 
-        self.afs.submit_workflow(tree)
+        self.afs.submit_workflow(root)
 
 """
         # the json is now replaced by xml, the format of pegasus workflow

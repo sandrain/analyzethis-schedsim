@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from functools import reduce
+from lxml import etree
 
 class DataFile:
     """Data file representation
@@ -145,6 +146,21 @@ class ActiveJob:
                                       job['tasks'].keys(),
                                       job['tasks'].values(),
                                       [self.files]*len(job['tasks']))))
+        except:
+            raise
+
+class Workflow:
+    """Workflow description"""
+    def __init__(self, root):
+        try:
+            ns = { 'ns': 'http://pegasus.isi.edu/schema/DAX' }
+            jobs = root.findall('ns:job', namespaces=ns)
+            self.name = jobs[0].attrib['namespace'] + '_' + str(len(jobs))
+
+            for job in jobs:
+                task = {}
+                task['runtime'] = float(job.attrib['runtime'])
+
         except:
             raise
 
