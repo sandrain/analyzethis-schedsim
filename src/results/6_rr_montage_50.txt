@@ -1,0 +1,473 @@
+transfer delay: 0.500006
+transfer delay: 0.500006
+transfer delay: 0.500006
+transfer delay: 0.500006
+transfer delay: 0.500006
+transfer delay: 0.500006
+transfer delay: 0.500006
+transfer delay: 0.658398
+transfer delay: 0.816842
+transfer delay: 0.658681
+transfer delay: 0.817126
+transfer delay: 0.658891
+transfer delay: 0.658891
+transfer delay: 0.816779
+transfer delay: 0.817062
+transfer delay: 0.817272
+transfer delay: 0.658381
+transfer delay: 0.816899
+transfer delay: 0.658445
+transfer delay: 0.817392
+transfer delay: 0.817182
+transfer delay: 0.658501
+transfer delay: 0.817392
+transfer delay: 0.658501
+transfer delay: 0.817166
+transfer delay: 0.817062
+transfer delay: 0.658665
+transfer delay: 0.658665
+transfer delay: 0.817653
+transfer delay: 0.658988
+transfer delay: 0.658988
+transfer delay: 0.658988
+transfer delay: 0.658988
+transfer delay: 0.817386
+transfer delay: 0.817669
+transfer delay: 0.637239
+transfer delay: 0.500138
+transfer delay: 0.500008
+transfer delay: 0.500008
+transfer delay: 0.500008
+transfer delay: 0.500008
+transfer delay: 0.500008
+transfer delay: 0.500008
+transfer delay: 0.500008
+transfer delay: 1.611649
+transfer delay: 0.500046
+transfer delay: 2.701965
+transfer delay: 0.544057
+
+-----------------------------------------
+job: Montage_50
+scheduler rr:
+
+Task statistics
+
+task: ID00028-mDiffFit
+osd      = 4
+submit    = 15.357
+start     = 36.157
+complete  = 46.717
+transferB = 16614614
+transfers = 4 [('p2mass-atlas-ID00005s-jID00005.fits', 5, 4152296), ('p2mass-atlas-ID00005s-jID00005_area.fits', 5, 4152296), ('p2mass-atlas-ID00003s-jID00003.fits', 3, 4155011), ('p2mass-atlas-ID00003s-jID00003_area.fits', 3, 4155011)]
+
+task: ID00008-mDiffFit
+osd      = 2
+submit    = 28.518
+start     = 56.777
+complete  = 67.357
+transferB = 16654154
+transfers = 4 [('p2mass-atlas-ID00000s-jID00000.fits', 0, 4159298), ('p2mass-atlas-ID00000s-jID00000_area.fits', 0, 4159298), ('p2mass-atlas-ID00001s-jID00001.fits', 1, 4167779), ('p2mass-atlas-ID00001s-jID00001_area.fits', 1, 4167779)]
+
+task: ID00039-mBackground
+osd      = 3
+submit    = 76.237
+start     = 76.237
+complete  = 87.167
+transferB = 425
+transfers = 1 [('corrections.tbl', 1, 425)]
+
+task: ID00007-mProjectPP
+osd      = 1
+submit    = 0.500
+start     = 0.500
+complete  = 14.000
+transferB = 304
+transfers = 1 [('region.hdr', 5, 304)]
+
+task: ID00002-mProjectPP
+osd      = 2
+submit    = 0.500
+start     = 0.500
+complete  = 14.210
+transferB = 304
+transfers = 1 [('region.hdr', 5, 304)]
+
+task: ID00025-mDiffFit
+osd      = 1
+submit    = 14.859
+start     = 38.270
+complete  = 48.890
+transferB = 8330484
+transfers = 2 [('p2mass-atlas-ID00004s-jID00004.fits', 4, 4165242), ('p2mass-atlas-ID00004s-jID00004_area.fits', 4, 4165242)]
+
+task: ID00016-mDiffFit
+osd      = 4
+submit    = 15.027
+start     = 15.027
+complete  = 25.567
+transferB = 16608322
+transfers = 4 [('p2mass-atlas-ID00002s-jID00002.fits', 2, 4151865), ('p2mass-atlas-ID00002s-jID00002_area.fits', 2, 4151865), ('p2mass-atlas-ID00005s-jID00005.fits', 5, 4152296), ('p2mass-atlas-ID00005s-jID00005_area.fits', 5, 4152296)]
+
+task: ID00034-mDiffFit
+osd      = 4
+submit    = 15.027
+start     = 25.567
+complete  = 36.157
+transferB = 16623176
+transfers = 4 [('p2mass-atlas-ID00007s-jID00007.fits', 1, 4159723), ('p2mass-atlas-ID00007s-jID00007_area.fits', 1, 4159723), ('p2mass-atlas-ID00002s-jID00002.fits', 2, 4151865), ('p2mass-atlas-ID00002s-jID00002_area.fits', 2, 4151865)]
+
+task: ID00017-mDiffFit
+osd      = 5
+submit    = 28.467
+start     = 57.189
+complete  = 67.709
+transferB = 16628618
+transfers = 4 [('p2mass-atlas-ID00003s-jID00003.fits', 3, 4155011), ('p2mass-atlas-ID00003s-jID00003_area.fits', 3, 4155011), ('p2mass-atlas-ID00000s-jID00000.fits', 0, 4159298), ('p2mass-atlas-ID00000s-jID00000_area.fits', 0, 4159298)]
+
+task: ID00023-mDiffFit
+osd      = 5
+submit    = 28.359
+start     = 35.869
+complete  = 46.729
+transferB = 8335558
+transfers = 2 [('p2mass-atlas-ID00001s-jID00001.fits', 1, 4167779), ('p2mass-atlas-ID00001s-jID00001_area.fits', 1, 4167779)]
+
+task: ID00041-mBackground
+osd      = 5
+submit    = 76.237
+start     = 76.237
+complete  = 86.797
+transferB = 425
+transfers = 1 [('corrections.tbl', 1, 425)]
+
+task: ID00029-mDiffFit
+osd      = 5
+submit    = 14.859
+start     = 25.259
+complete  = 35.869
+transferB = 8330484
+transfers = 2 [('p2mass-atlas-ID00004s-jID00004.fits', 4, 4165242), ('p2mass-atlas-ID00004s-jID00004_area.fits', 4, 4165242)]
+
+task: ID00035-mDiffFit
+osd      = 5
+submit    = 14.659
+start     = 14.659
+complete  = 25.259
+transferB = 8319446
+transfers = 2 [('p2mass-atlas-ID00007s-jID00007.fits', 1, 4159723), ('p2mass-atlas-ID00007s-jID00007_area.fits', 1, 4159723)]
+
+task: ID00021-mDiffFit
+osd      = 3
+submit    = 15.198
+start     = 25.587
+complete  = 36.297
+transferB = 8307068
+transfers = 2 [('p2mass-atlas-ID00006s-jID00006.fits', 0, 4153534), ('p2mass-atlas-ID00006s-jID00006_area.fits', 0, 4153534)]
+
+task: ID00020-mDiffFit
+osd      = 2
+submit    = 15.357
+start     = 35.707
+complete  = 46.117
+transferB = 16640506
+transfers = 4 [('p2mass-atlas-ID00003s-jID00003.fits', 3, 4155011), ('p2mass-atlas-ID00003s-jID00003_area.fits', 3, 4155011), ('p2mass-atlas-ID00004s-jID00004.fits', 4, 4165242), ('p2mass-atlas-ID00004s-jID00004_area.fits', 4, 4165242)]
+
+task: ID00006-mProjectPP
+osd      = 0
+submit    = 0.500
+start     = 0.500
+complete  = 13.870
+transferB = 304
+transfers = 1 [('region.hdr', 5, 304)]
+
+task: ID00022-mDiffFit
+osd      = 4
+submit    = 15.357
+start     = 46.717
+complete  = 57.447
+transferB = 16629468
+transfers = 4 [('p2mass-atlas-ID00003s-jID00003.fits', 3, 4155011), ('p2mass-atlas-ID00003s-jID00003_area.fits', 3, 4155011), ('p2mass-atlas-ID00007s-jID00007.fits', 1, 4159723), ('p2mass-atlas-ID00007s-jID00007_area.fits', 1, 4159723)]
+
+task: ID00011-mDiffFit
+osd      = 5
+submit    = 28.359
+start     = 46.729
+complete  = 57.189
+transferB = 8335558
+transfers = 2 [('p2mass-atlas-ID00001s-jID00001.fits', 1, 4167779), ('p2mass-atlas-ID00001s-jID00001_area.fits', 1, 4167779)]
+
+task: ID00015-mDiffFit
+osd      = 3
+submit    = 15.027
+start     = 15.027
+complete  = 25.587
+transferB = 16634214
+transfers = 4 [('p2mass-atlas-ID00002s-jID00002.fits', 2, 4151865), ('p2mass-atlas-ID00002s-jID00002_area.fits', 2, 4151865), ('p2mass-atlas-ID00004s-jID00004.fits', 4, 4165242), ('p2mass-atlas-ID00004s-jID00004_area.fits', 4, 4165242)]
+
+task: ID00004-mProjectPP
+osd      = 4
+submit    = 0.500
+start     = 0.500
+complete  = 14.200
+transferB = 304
+transfers = 1 [('region.hdr', 5, 304)]
+
+task: ID00019-mDiffFit
+osd      = 1
+submit    = 15.199
+start     = 59.500
+complete  = 70.280
+transferB = 8310022
+transfers = 2 [('p2mass-atlas-ID00003s-jID00003.fits', 3, 4155011), ('p2mass-atlas-ID00003s-jID00003_area.fits', 3, 4155011)]
+
+task: ID00012-mDiffFit
+osd      = 0
+submit    = 28.359
+start     = 48.890
+complete  = 59.670
+transferB = 8335558
+transfers = 2 [('p2mass-atlas-ID00001s-jID00001.fits', 1, 4167779), ('p2mass-atlas-ID00001s-jID00001_area.fits', 1, 4167779)]
+
+task: ID00038-mBackground
+osd      = 2
+submit    = 76.237
+start     = 76.237
+complete  = 86.847
+transferB = 425
+transfers = 1 [('corrections.tbl', 1, 425)]
+
+task: ID00044-mBackground
+osd      = 2
+submit    = 76.237
+start     = 86.847
+complete  = 97.797
+transferB = 425
+transfers = 1 [('corrections.tbl', 1, 425)]
+
+task: ID00013-mDiffFit
+osd      = 1
+submit    = 14.868
+start     = 48.890
+complete  = 59.500
+transferB = 8303730
+transfers = 2 [('p2mass-atlas-ID00002s-jID00002.fits', 2, 4151865), ('p2mass-atlas-ID00002s-jID00002_area.fits', 2, 4151865)]
+
+task: ID00024-mDiffFit
+osd      = 0
+submit    = 15.357
+start     = 38.330
+complete  = 48.890
+transferB = 16640506
+transfers = 4 [('p2mass-atlas-ID00004s-jID00004.fits', 4, 4165242), ('p2mass-atlas-ID00004s-jID00004_area.fits', 4, 4165242), ('p2mass-atlas-ID00003s-jID00003.fits', 3, 4155011), ('p2mass-atlas-ID00003s-jID00003_area.fits', 3, 4155011)]
+
+task: ID00049-mJPEG
+osd      = 1
+submit    = 116.995
+start     = 116.995
+complete  = 117.815
+transferB = 2309851
+transfers = 1 [('shrunken_ID00048_ID00048.fits', 0, 2309851)]
+
+task: ID00000-mProjectPP
+osd      = 0
+submit    = 0.500
+start     = 13.870
+complete  = 27.650
+transferB = 304
+transfers = 1 [('region.hdr', 5, 304)]
+
+task: ID00042-mBackground
+osd      = 0
+submit    = 76.237
+start     = 76.237
+complete  = 86.997
+transferB = 425
+transfers = 1 [('corrections.tbl', 1, 425)]
+
+task: ID00031-mDiffFit
+osd      = 1
+submit    = 14.687
+start     = 27.700
+complete  = 38.270
+transferB = 16611660
+transfers = 4 [('p2mass-atlas-ID00005s-jID00005.fits', 5, 4152296), ('p2mass-atlas-ID00005s-jID00005_area.fits', 5, 4152296), ('p2mass-atlas-ID00006s-jID00006.fits', 0, 4153534), ('p2mass-atlas-ID00006s-jID00006_area.fits', 0, 4153534)]
+
+task: ID00001-mProjectPP
+osd      = 1
+submit    = 0.500
+start     = 14.000
+complete  = 27.700
+transferB = 304
+transfers = 1 [('region.hdr', 5, 304)]
+
+task: ID00037-mBgModel
+osd      = 1
+submit    = 73.657
+start     = 73.657
+complete  = 75.737
+transferB = 7218
+transfers = 2 [('pimages.tbl', 4, 1340), ('fits.tbl', 0, 5878)]
+
+task: ID00018-mDiffFit
+osd      = 0
+submit    = 28.359
+start     = 59.670
+complete  = 70.100
+transferB = 8335558
+transfers = 2 [('p2mass-atlas-ID00001s-jID00001.fits', 1, 4167779), ('p2mass-atlas-ID00001s-jID00001_area.fits', 1, 4167779)]
+
+task: ID00046-mImgTbl
+osd      = 4
+submit    = 99.429
+start     = 99.429
+complete  = 103.519
+transferB = 58282402
+transfers = 15 [('cimages.tbl', 2, 1340), ('c2mass-atlas-ID00000s-jID00000_area.fits', 2, 4172330), ('c2mass-atlas-ID00000s-jID00000.fits', 2, 4172330), ('c2mass-atlas-ID00001s-jID00001_area.fits', 3, 4150955), ('c2mass-atlas-ID00001s-jID00001.fits', 3, 4150955), ('c2mass-atlas-ID00003s-jID00003.fits', 5, 4162339), ('c2mass-atlas-ID00003s-jID00003_area.fits', 5, 4162339), ('c2mass-atlas-ID00004s-jID00004.fits', 0, 4175356), ('c2mass-atlas-ID00004s-jID00004_area.fits', 0, 4175356), ('c2mass-atlas-ID00005s-jID00005_area.fits', 1, 4158308), ('c2mass-atlas-ID00005s-jID00005.fits', 1, 4158308), ('c2mass-atlas-ID00006s-jID00006_area.fits', 2, 4160668), ('c2mass-atlas-ID00006s-jID00006.fits', 2, 4160668), ('c2mass-atlas-ID00007s-jID00007.fits', 3, 4160575), ('c2mass-atlas-ID00007s-jID00007_area.fits', 3, 4160575)]
+
+task: ID00005-mProjectPP
+osd      = 5
+submit    = 0.000
+start     = 0.000
+complete  = 13.800
+No data transfers
+
+task: ID00027-mDiffFit
+osd      = 3
+submit    = 28.517
+start     = 46.907
+complete  = 57.687
+transferB = 16640150
+transfers = 4 [('p2mass-atlas-ID00005s-jID00005.fits', 5, 4152296), ('p2mass-atlas-ID00005s-jID00005_area.fits', 5, 4152296), ('p2mass-atlas-ID00001s-jID00001.fits', 1, 4167779), ('p2mass-atlas-ID00001s-jID00001_area.fits', 1, 4167779)]
+
+task: ID00030-mDiffFit
+osd      = 0
+submit    = 14.458
+start     = 27.650
+complete  = 38.330
+transferB = 8304592
+transfers = 2 [('p2mass-atlas-ID00005s-jID00005.fits', 5, 4152296), ('p2mass-atlas-ID00005s-jID00005_area.fits', 5, 4152296)]
+
+task: ID00014-mDiffFit
+osd      = 2
+submit    = 15.199
+start     = 25.237
+complete  = 35.707
+transferB = 8310022
+transfers = 2 [('p2mass-atlas-ID00003s-jID00003.fits', 3, 4155011), ('p2mass-atlas-ID00003s-jID00003_area.fits', 3, 4155011)]
+
+task: ID00026-mDiffFit
+osd      = 2
+submit    = 28.467
+start     = 46.117
+complete  = 56.777
+transferB = 16623188
+transfers = 4 [('p2mass-atlas-ID00005s-jID00005.fits', 5, 4152296), ('p2mass-atlas-ID00005s-jID00005_area.fits', 5, 4152296), ('p2mass-atlas-ID00000s-jID00000.fits', 0, 4159298), ('p2mass-atlas-ID00000s-jID00000_area.fits', 0, 4159298)]
+
+task: ID00033-mDiffFit
+osd      = 3
+submit    = 28.518
+start     = 57.687
+complete  = 68.287
+transferB = 16655004
+transfers = 4 [('p2mass-atlas-ID00007s-jID00007.fits', 1, 4159723), ('p2mass-atlas-ID00007s-jID00007_area.fits', 1, 4159723), ('p2mass-atlas-ID00001s-jID00001.fits', 1, 4167779), ('p2mass-atlas-ID00001s-jID00001_area.fits', 1, 4167779)]
+
+task: ID00032-mDiffFit
+osd      = 2
+submit    = 14.817
+start     = 14.817
+complete  = 25.237
+transferB = 16626514
+transfers = 4 [('p2mass-atlas-ID00006s-jID00006.fits', 0, 4153534), ('p2mass-atlas-ID00006s-jID00006_area.fits', 0, 4153534), ('p2mass-atlas-ID00007s-jID00007.fits', 1, 4159723), ('p2mass-atlas-ID00007s-jID00007_area.fits', 1, 4159723)]
+
+task: ID00010-mDiffFit
+osd      = 4
+submit    = 28.309
+start     = 57.447
+complete  = 68.057
+transferB = 8318596
+transfers = 2 [('p2mass-atlas-ID00000s-jID00000.fits', 0, 4159298), ('p2mass-atlas-ID00000s-jID00000_area.fits', 0, 4159298)]
+
+task: ID00047-mAdd
+osd      = 5
+submit    = 104.019
+start     = 104.019
+complete  = 108.869
+transferB = 2400
+transfers = 1 [('newcimages.tbl', 4, 2400)]
+
+task: ID00043-mBackground
+osd      = 1
+submit    = 75.737
+start     = 75.737
+complete  = 86.607
+No data transfers
+
+task: ID00003-mProjectPP
+osd      = 3
+submit    = 0.500
+start     = 0.500
+complete  = 14.540
+transferB = 304
+transfers = 1 [('region.hdr', 5, 304)]
+
+task: ID00048-mShrink
+osd      = 0
+submit    = 111.571
+start     = 111.571
+complete  = 116.451
+transferB = 115446392
+transfers = 2 [('mosaic_ID00047_ID00047.fits', 5, 57723196), ('mosaic_ID00047_ID00047_area.fits', 5, 57723196)]
+
+task: ID00036-mConcatFit
+osd      = 0
+submit    = 70.917
+start     = 70.917
+complete  = 73.157
+transferB = 7195292
+transfers = 49 [('fits_list.tbl', 3, 763), ('fitID00008.txt', 2, 285), ('diffID00008.txt', 2, 277457), ('fitID00009.txt', 3, 262), ('diffID00009.txt', 3, 334782), ('fitID00010.txt', 4, 285), ('diffID00010.txt', 4, 283493), ('fitID00011.txt', 5, 274), ('diffID00011.txt', 5, 368619), ('fitID00013.txt', 1, 284), ('diffID00013.txt', 1, 279433), ('fitID00014.txt', 2, 268), ('diffID00014.txt', 2, 329914), ('fitID00015.txt', 3, 284), ('diffID00015.txt', 3, 301562), ('fitID00016.txt', 4, 269), ('diffID00016.txt', 4, 338519), ('fitID00017.txt', 5, 277), ('diffID00017.txt', 5, 301575), ('fitID00019.txt', 1, 273), ('diffID00019.txt', 1, 352310), ('fitID00020.txt', 2, 269), ('diffID00020.txt', 2, 411826), ('fitID00021.txt', 3, 277), ('diffID00021.txt', 3, 290079), ('fitID00022.txt', 4, 271), ('diffID00022.txt', 4, 159408), ('fitID00023.txt', 5, 284), ('diffID00023.txt', 5, 354535), ('fitID00025.txt', 1, 266), ('diffID00025.txt', 1, 299006), ('fitID00026.txt', 2, 285), ('diffID00026.txt', 2, 364820), ('fitID00027.txt', 3, 264), ('diffID00027.txt', 3, 267867), ('fitID00028.txt', 4, 268), ('diffID00028.txt', 4, 421179), ('fitID00029.txt', 5, 274), ('diffID00029.txt', 5, 250916), ('fitID00031.txt', 1, 273), ('diffID00031.txt', 1, 267284), ('fitID00032.txt', 2, 269), ('diffID00032.txt', 2, 197632), ('fitID00033.txt', 3, 265), ('diffID00033.txt', 3, 298586), ('fitID00034.txt', 4, 273), ('diffID00034.txt', 4, 154582), ('fitID00035.txt', 5, 280), ('diffID00035.txt', 5, 282566)]
+
+task: ID00040-mBackground
+osd      = 4
+submit    = 76.237
+start     = 76.237
+complete  = 87.067
+transferB = 425
+transfers = 1 [('corrections.tbl', 1, 425)]
+
+task: ID00045-mBackground
+osd      = 3
+submit    = 76.237
+start     = 87.167
+complete  = 97.817
+transferB = 425
+transfers = 1 [('corrections.tbl', 1, 425)]
+
+task: ID00009-mDiffFit
+osd      = 3
+submit    = 28.309
+start     = 36.297
+complete  = 46.907
+transferB = 8318596
+transfers = 2 [('p2mass-atlas-ID00000s-jID00000.fits', 0, 4159298), ('p2mass-atlas-ID00000s-jID00000_area.fits', 0, 4159298)]
+
+OSD busy intervals
+OSD 0 [(0.50, 13.87), (13.87, 27.65), (27.65, 38.33), (38.33, 48.89), (48.89, 59.67), (59.67, 70.10), (70.92, 73.16), (76.24, 87.00), (111.57, 116.45)]
+OSD 1 [(0.50, 14.00), (14.00, 27.70), (27.70, 38.27), (38.27, 48.89), (48.89, 59.50), (59.50, 70.28), (73.66, 75.74), (75.74, 86.61), (117.00, 117.82)]
+OSD 2 [(0.50, 14.21), (14.82, 25.24), (25.24, 35.71), (35.71, 46.12), (46.12, 56.78), (56.78, 67.36), (76.24, 86.85), (86.85, 97.80)]
+OSD 3 [(0.50, 14.54), (15.03, 25.59), (25.59, 36.30), (36.30, 46.91), (46.91, 57.69), (57.69, 68.29), (76.24, 87.17), (87.17, 97.82)]
+OSD 4 [(0.50, 14.20), (15.03, 25.57), (25.57, 36.16), (36.16, 46.72), (46.72, 57.45), (57.45, 68.06), (76.24, 87.07), (99.43, 103.52)]
+OSD 5 [(0.00, 13.80), (14.66, 25.26), (25.26, 35.87), (35.87, 46.73), (46.73, 57.19), (57.19, 67.71), (76.24, 86.80), (104.02, 108.87)]
+
+SSD RW statistics
+OSD    Total R    Total W    Extra R    Extra W
+  0  276036119  192757125   77180625  164258931
+  1  170088822   70487267  109464856   43873573
+  2  155473813  101408289   51465281   74855538
+  3  180336747   92983496   76288205   66556186
+  4  205256994  151075904   43014707  133077307
+  5  254282145  183587751  175160350   49952489
+
+Total data transfer = 532574024 bytes (507.000 MB)
+
+simulation finished at 117.815

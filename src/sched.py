@@ -73,8 +73,16 @@ class SchedInputEnhanced(Scheduler):
                 task.osd = osd
         else:
             for task in ready_list:
-                task.osd = reduce(lambda x, y: y if x.size < y.size else x,
-                                  task.input).location
+                osd = 0
+                if len(task.input) > 0:
+                    task.osd = reduce(lambda x, y: y if x.size < y.size else x,
+                                      task.input).location
+                else:
+                    if osd == self.afs.config.osds:
+                        osd, task.osd = 0, 0
+                    else:
+                        task.osd = osd
+                        osd = osd + 1
 
 
 

@@ -70,9 +70,12 @@ class ActiveFlash(event.TimeoutEventHandler):
         self.try_execute_task()
 
     def update_data_rw(self, task):
-        r = reduce(lambda x, y: x+y, [ f.size for f in task.input ])
+        r, w = 0, 0
+        if len(task.input) > 0:
+            r = reduce(lambda x, y: x+y, [ f.size for f in task.input ])
+        if len(task.output) > 0:
+            w = reduce(lambda x, y: x+y, [ f.size for f in task.output ])
         self.data_read(r)
-        w = reduce(lambda x, y: x+y, [ f.size for f in task.output ])
         self.data_write(w)
 
     def data_read(self, count):
@@ -214,7 +217,7 @@ class ActiveFS(event.TimeoutEventHandler):
             """
             # the following old calculation is replaced.
             #delay = 3 * (float(max(transfer_from)) / self.config.netbw)
-            delay = 2 * (float(transfer_total) / self.config.netbw)
+            delay = 0.5 + 2 * (float(transfer_total) / self.config.netbw)
 
             print 'transfer delay: %f' % delay
             e = event.TimeoutEvent('transfer', delay, self)
