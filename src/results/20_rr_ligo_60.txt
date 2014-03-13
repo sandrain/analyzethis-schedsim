@@ -1,0 +1,595 @@
+transfer delay: 1.112322
+transfer delay: 1.272402
+transfer delay: 1.272907
+transfer delay: 1.273295
+transfer delay: 1.273245
+transfer delay: 1.272746
+transfer delay: 1.272280
+transfer delay: 1.255820
+transfer delay: 1.273257
+transfer delay: 1.272675
+transfer delay: 1.272669
+transfer delay: 1.273391
+transfer delay: 1.272461
+transfer delay: 1.336848
+transfer delay: 1.160830
+transfer delay: 1.338485
+transfer delay: 1.159068
+transfer delay: 1.159524
+transfer delay: 1.337415
+transfer delay: 1.337696
+transfer delay: 1.337020
+transfer delay: 1.159618
+transfer delay: 1.337420
+transfer delay: 1.161097
+transfer delay: 1.160908
+transfer delay: 1.338176
+transfer delay: 0.516016
+transfer delay: 0.500905
+transfer delay: 0.500905
+transfer delay: 0.500905
+transfer delay: 1.095854
+transfer delay: 1.094966
+transfer delay: 1.095948
+transfer delay: 0.560593
+transfer delay: 0.500639
+transfer delay: 0.500639
+transfer delay: 0.500639
+transfer delay: 0.500639
+transfer delay: 0.500639
+transfer delay: 0.500639
+transfer delay: 0.500639
+transfer delay: 0.500639
+transfer delay: 0.500639
+transfer delay: 0.500639
+transfer delay: 0.500639
+transfer delay: 0.500639
+transfer delay: 1.095578
+transfer delay: 1.141320
+transfer delay: 1.095876
+transfer delay: 1.140964
+transfer delay: 1.095398
+transfer delay: 1.141943
+transfer delay: 1.141574
+transfer delay: 1.094903
+transfer delay: 1.095194
+transfer delay: 1.141154
+transfer delay: 1.141923
+transfer delay: 0.516099
+transfer delay: 1.095351
+transfer delay: 0.569866
+
+-----------------------------------------
+job: LIGO_60
+scheduler rr:
+
+Task statistics
+
+task: ID00037-TrigBank
+osd      = 17
+submit    = 658.245
+start     = 1269.846
+complete  = 1274.096
+transferB = 33484
+transfers = 1 [('H1-THINCA-864690927-2048.xml', 6, 33484)]
+
+task: ID00054-Inspiral
+osd      = 14
+submit    = 664.730
+start     = 664.730
+complete  = 1119.180
+transferB = 31190033
+transfers = 3 [('H-H1_RDS_L4-807878728-1024.gwf', 6, 15603736), ('H-H1_RDS_L4-777733151-1024.gwf', 13, 15574136), ('H1-TRIGBANK_H1-861262441-6460.xml', 19, 12161)]
+
+task: ID00000-TmpltBank
+osd      = 0
+submit    = 1.112
+start     = 1.112
+complete  = 18.462
+transferB = 32103330
+transfers = 3 [('H-H1_RDS_L4-807878717-1024.gwf', 15, 15601046), ('H-H1_RDS_L4-777733140-1024.gwf', 2, 15599950), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334)]
+
+task: ID00032-TrigBank
+osd      = 12
+submit    = 658.245
+start     = 658.245
+complete  = 663.075
+transferB = 33484
+transfers = 1 [('H1-THINCA-864690927-2048.xml', 6, 33484)]
+
+task: ID00011-TmpltBank
+osd      = 11
+submit    = 1.272
+start     = 1.272
+complete  = 19.152
+transferB = 40496128
+transfers = 4 [('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-807878728-1024.gwf', 6, 15603736), ('H-H1_RDS_L4-777733151-1024.gwf', 13, 15574136), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334)]
+
+task: ID00040-TrigBank
+osd      = 0
+submit    = 619.831
+start     = 619.831
+complete  = 624.521
+transferB = 47445
+transfers = 1 [('H1-THINCA-848283936-2048.xml', 7, 47445)]
+
+task: ID00022-Inspiral
+osd      = 2
+submit    = 20.742
+start     = 20.742
+complete  = 323.242
+transferB = 34582996
+transfers = 4 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-H1_RDS_L4-777733149-1024.gwf', 11, 15588693), ('H-H1_RDS_L4-807878726-1024.gwf', 4, 15607191), ('H1-TMPLTBANK-820730081-2048.xml', 9, 965689)]
+
+task: ID00003-TmpltBank
+osd      = 3
+submit    = 1.273
+start     = 1.273
+complete  = 19.613
+transferB = 40522577
+transfers = 4 [('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-807878720-1024.gwf', 18, 15585221), ('H-H1_RDS_L4-777733143-1024.gwf', 5, 15619100), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334)]
+
+task: ID00031-TrigBank
+osd      = 11
+submit    = 658.245
+start     = 658.245
+complete  = 663.575
+transferB = 33484
+transfers = 1 [('H1-THINCA-864690927-2048.xml', 6, 33484)]
+
+task: ID00056-Inspiral
+osd      = 16
+submit    = 626.027
+start     = 626.027
+complete  = 977.717
+transferB = 31244827
+transfers = 3 [('H-H2_RDS_L4-777733153-1024.gwf', 8, 15640600), ('H-H2_RDS_L4-807878730-1024.gwf', 10, 15589372), ('H1-TRIGBANK_H1-727814131-7342.xml', 1, 14855)]
+
+task: ID00052-Inspiral
+osd      = 12
+submit    = 1275.192
+start     = 1275.192
+complete  = 1806.542
+transferB = 31213514
+transfers = 3 [('H-H1_RDS_L4-777733149-1024.gwf', 11, 15588693), ('H-H1_RDS_L4-807878726-1024.gwf', 4, 15607191), ('H1-TRIGBANK_H1-724509157-6283.xml', 17, 17630)]
+
+task: ID00017-Inspiral
+osd      = 17
+submit    = 21.561
+start     = 21.561
+complete  = 316.301
+transferB = 43944578
+transfers = 6 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-777733144-1024.gwf', 6, 15608031), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334), ('H-H1_RDS_L4-807878721-1024.gwf', 19, 15583844), ('H1-TMPLTBANK-864690927-2048.xml', 4, 1013024)]
+
+task: ID00020-Inspiral
+osd      = 0
+submit    = 20.814
+start     = 20.814
+complete  = 440.444
+transferB = 34660507
+transfers = 4 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-H1_RDS_L4-807878724-1024.gwf', 2, 15614135), ('H-H1_RDS_L4-777733147-1024.gwf', 9, 15610547), ('H1-TMPLTBANK-752653057-2048.xml', 7, 1014402)]
+
+task: ID00007-TmpltBank
+osd      = 7
+submit    = 1.273
+start     = 1.273
+complete  = 19.653
+transferB = 40542938
+transfers = 4 [('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-807878724-1024.gwf', 2, 15614135), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334), ('H-H1_RDS_L4-777733147-1024.gwf', 9, 15610547)]
+
+task: ID00006-TmpltBank
+osd      = 6
+submit    = 1.273
+start     = 1.273
+complete  = 18.893
+transferB = 40540305
+transfers = 4 [('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-777733146-1024.gwf', 8, 15607908), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334), ('H-H1_RDS_L4-807878723-1024.gwf', 1, 15614141)]
+
+task: ID00039-TrigBank
+osd      = 19
+submit    = 658.245
+start     = 658.245
+complete  = 663.635
+transferB = 33484
+transfers = 1 [('H1-THINCA-864690927-2048.xml', 6, 33484)]
+
+task: ID00049-Inspiral
+osd      = 9
+submit    = 664.577
+start     = 664.577
+complete  = 972.977
+transferB = 33656325
+transfers = 4 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-H1_RDS_L4-777733146-1024.gwf', 8, 15607908), ('H-H1_RDS_L4-807878723-1024.gwf', 1, 15614141), ('H1-TRIGBANK_H1-847600038-2840.xml', 14, 12853)]
+
+task: ID00024-Inspiral
+osd      = 4
+submit    = 20.312
+start     = 20.312
+complete  = 459.852
+transferB = 34578076
+transfers = 4 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-H1_RDS_L4-807878728-1024.gwf', 6, 15603736), ('H-H1_RDS_L4-777733151-1024.gwf', 13, 15574136), ('H1-TMPLTBANK-738713730-2048.xml', 11, 978781)]
+
+task: ID00009-TmpltBank
+osd      = 9
+submit    = 1.273
+start     = 1.273
+complete  = 19.583
+transferB = 40514140
+transfers = 4 [('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-777733149-1024.gwf', 11, 15588693), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334), ('H-H1_RDS_L4-807878726-1024.gwf', 4, 15607191)]
+
+task: ID00041-TrigBank
+osd      = 1
+submit    = 619.831
+start     = 619.831
+complete  = 624.931
+transferB = 47445
+transfers = 1 [('H1-THINCA-848283936-2048.xml', 7, 47445)]
+
+task: ID00005-TmpltBank
+osd      = 5
+submit    = 1.272
+start     = 1.272
+complete  = 19.242
+transferB = 40489712
+transfers = 4 [('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-777733145-1024.gwf', 7, 15587994), ('H-H1_RDS_L4-807878722-1024.gwf', 0, 15583462), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334)]
+
+task: ID00018-Inspiral
+osd      = 18
+submit    = 20.580
+start     = 20.580
+complete  = 434.150
+transferB = 43904671
+transfers = 6 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-777733145-1024.gwf', 7, 15587994), ('H-H1_RDS_L4-807878722-1024.gwf', 0, 15583462), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334), ('H1-TMPLTBANK-751320024-2048.xml', 5, 993536)]
+
+task: ID00044-Inspiral
+osd      = 4
+submit    = 664.170
+start     = 664.170
+complete  = 1230.400
+transferB = 31225420
+transfers = 3 [('H-H1_RDS_L4-777733141-1024.gwf', 3, 15612047), ('H-H1_RDS_L4-807878718-1024.gwf', 16, 15598789), ('H1-TRIGBANK_H1-872131739-5313.xml', 9, 14584)]
+
+task: ID00047-Inspiral
+osd      = 7
+submit    = 664.216
+start     = 664.216
+complete  = 1155.636
+transferB = 33623618
+transfers = 4 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-H1_RDS_L4-777733144-1024.gwf', 6, 15608031), ('H-H1_RDS_L4-807878721-1024.gwf', 19, 15583844), ('H1-TRIGBANK_H1-819681102-8068.xml', 12, 10320)]
+
+task: ID00057-Inspiral
+osd      = 17
+submit    = 625.946
+start     = 625.946
+complete  = 1269.846
+transferB = 31193379
+transfers = 3 [('H-H2_RDS_L4-807878731-1024.gwf', 11, 15611884), ('H-H2_RDS_L4-777733154-1024.gwf', 9, 15564630), ('H1-TRIGBANK_H1-843180818-8096.xml', 2, 16865)]
+
+task: ID00026-Thinca
+osd      = 6
+submit    = 652.674
+start     = 652.674
+complete  = 657.744
+transferB = 3176834
+transfers = 12 [('H1-INSPIRAL-819949881-2048.xml', 13, 244861), ('H1-INSPIRAL-822826878-2048.xml', 14, 269376), ('H1-INSPIRAL-841224278-2048.xml', 15, 209427), ('H1-INSPIRAL-864623761-2048.xml', 16, 194436), ('H1-INSPIRAL-864690927-2048.xml', 17, 157115), ('H1-INSPIRAL-751320024-2048.xml', 18, 227259), ('H1-INSPIRAL-761713972-2048.xml', 19, 237196), ('H1-INSPIRAL-752653057-2048.xml', 0, 254000), ('H1-INSPIRAL-793071830-2048.xml', 1, 392037), ('H1-INSPIRAL-820730081-2048.xml', 2, 401212), ('H1-INSPIRAL-850636442-2048.xml', 3, 328293), ('H1-INSPIRAL-738713730-2048.xml', 4, 261622)]
+
+task: ID00038-TrigBank
+osd      = 18
+submit    = 658.245
+start     = 658.245
+complete  = 663.165
+transferB = 33484
+transfers = 1 [('H1-THINCA-864690927-2048.xml', 6, 33484)]
+
+task: ID00001-TmpltBank
+osd      = 1
+submit    = 1.256
+start     = 1.256
+complete  = 19.356
+transferB = 39626758
+transfers = 3 [('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-777733141-1024.gwf', 3, 15612047), ('H-H1_RDS_L4-807878718-1024.gwf', 16, 15598789)]
+
+task: ID00010-TmpltBank
+osd      = 10
+submit    = 1.273
+start     = 1.273
+complete  = 18.533
+transferB = 40540940
+transfers = 4 [('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-777733150-1024.gwf', 12, 15635412), ('H-H1_RDS_L4-807878727-1024.gwf', 5, 15587272), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334)]
+
+task: ID00042-TrigBank
+osd      = 2
+submit    = 619.831
+start     = 619.831
+complete  = 624.851
+transferB = 47445
+transfers = 1 [('H1-THINCA-848283936-2048.xml', 7, 47445)]
+
+task: ID00028-TrigBank
+osd      = 8
+submit    = 658.245
+start     = 658.245
+complete  = 663.325
+transferB = 33484
+transfers = 1 [('H1-THINCA-864690927-2048.xml', 6, 33484)]
+
+task: ID00036-TrigBank
+osd      = 16
+submit    = 658.245
+start     = 977.717
+complete  = 982.777
+transferB = 33484
+transfers = 1 [('H1-THINCA-864690927-2048.xml', 6, 33484)]
+
+task: ID00053-Inspiral
+osd      = 13
+submit    = 664.261
+start     = 664.261
+complete  = 1182.891
+transferB = 31241059
+transfers = 3 [('H-H1_RDS_L4-777733150-1024.gwf', 12, 15635412), ('H-H1_RDS_L4-807878727-1024.gwf', 5, 15587272), ('H1-TRIGBANK_H1-845666228-4211.xml', 18, 18375)]
+
+task: ID00016-Inspiral
+osd      = 16
+submit    = 20.950
+start     = 20.950
+complete  = 531.190
+transferB = 43904931
+transfers = 6 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-807878720-1024.gwf', 18, 15585221), ('H-H1_RDS_L4-777733143-1024.gwf', 5, 15619100), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334), ('H1-TMPLTBANK-864623761-2048.xml', 3, 960931)]
+
+task: ID00045-Inspiral
+osd      = 5
+submit    = 664.930
+start     = 664.930
+complete  = 1135.470
+transferB = 31205326
+transfers = 3 [('H-H1_RDS_L4-807878719-1024.gwf', 17, 15602870), ('H-H1_RDS_L4-777733142-1024.gwf', 4, 15589283), ('H1-TRIGBANK_H1-877171561-7217.xml', 10, 13173)]
+
+task: ID00035-TrigBank
+osd      = 15
+submit    = 658.245
+start     = 1093.467
+complete  = 1098.277
+transferB = 33484
+transfers = 1 [('H1-THINCA-864690927-2048.xml', 6, 33484)]
+
+task: ID00002-TmpltBank
+osd      = 2
+submit    = 1.273
+start     = 1.273
+complete  = 19.443
+transferB = 40510409
+transfers = 4 [('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-807878719-1024.gwf', 17, 15602870), ('H-H1_RDS_L4-777733142-1024.gwf', 4, 15589283), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334)]
+
+task: ID00029-TrigBank
+osd      = 9
+submit    = 658.245
+start     = 658.245
+complete  = 663.075
+transferB = 33484
+transfers = 1 [('H1-THINCA-864690927-2048.xml', 6, 33484)]
+
+task: ID00004-TmpltBank
+osd      = 4
+submit    = 1.273
+start     = 1.273
+complete  = 20.223
+transferB = 40510131
+transfers = 4 [('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-777733144-1024.gwf', 6, 15608031), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334), ('H-H1_RDS_L4-807878721-1024.gwf', 19, 15583844)]
+
+task: ID00050-Inspiral
+osd      = 10
+submit    = 1099.419
+start     = 1099.419
+complete  = 1657.549
+transferB = 33655247
+transfers = 4 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-H1_RDS_L4-807878724-1024.gwf', 2, 15614135), ('H-H1_RDS_L4-777733147-1024.gwf', 9, 15610547), ('H1-TRIGBANK_H1-837219397-8084.xml', 15, 9142)]
+
+task: ID00030-TrigBank
+osd      = 10
+submit    = 658.245
+start     = 658.245
+complete  = 663.835
+transferB = 33484
+transfers = 1 [('H1-THINCA-864690927-2048.xml', 6, 33484)]
+
+task: ID00019-Inspiral
+osd      = 19
+submit    = 20.232
+start     = 20.232
+complete  = 432.182
+transferB = 43960745
+transfers = 6 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-777733146-1024.gwf', 8, 15607908), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334), ('H-H1_RDS_L4-807878723-1024.gwf', 1, 15614141), ('H1-TMPLTBANK-761713972-2048.xml', 6, 999017)]
+
+task: ID00023-Inspiral
+osd      = 3
+submit    = 19.694
+start     = 19.694
+complete  = 581.874
+transferB = 34646522
+transfers = 4 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-H1_RDS_L4-777733150-1024.gwf', 12, 15635412), ('H-H1_RDS_L4-807878727-1024.gwf', 5, 15587272), ('H1-TMPLTBANK-850636442-2048.xml', 10, 1002415)]
+
+task: ID00058-Thinca
+osd      = 18
+submit    = 1807.111
+start     = 1807.111
+complete  = 1812.631
+transferB = 3662989
+transfers = 12 [('H1-INSPIRAL_H1-720890645-1130.xml', 3, 293810), ('H1-INSPIRAL_H1-872131739-5313.xml', 4, 173354), ('H1-INSPIRAL_H1-877171561-7217.xml', 5, 407512), ('H1-INSPIRAL_H1-825926983-9530.xml', 6, 269662), ('H1-INSPIRAL_H1-819681102-8068.xml', 7, 440086), ('H1-INSPIRAL_H1-804454749-3079.xml', 8, 268386), ('H1-INSPIRAL_H1-847600038-2840.xml', 9, 183796), ('H1-INSPIRAL_H1-837219397-8084.xml', 10, 235652), ('H1-INSPIRAL_H1-809281099-8960.xml', 11, 397092), ('H1-INSPIRAL_H1-724509157-6283.xml', 12, 256049), ('H1-INSPIRAL_H1-845666228-4211.xml', 13, 434955), ('H1-INSPIRAL_H1-861262441-6460.xml', 14, 302635)]
+
+task: ID00021-Inspiral
+osd      = 1
+submit    = 20.062
+start     = 20.062
+complete  = 428.972
+transferB = 34554119
+transfers = 4 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-H1_RDS_L4-777733148-1024.gwf', 10, 15607277), ('H-H1_RDS_L4-807878725-1024.gwf', 3, 15573650), ('H1-TMPLTBANK-793071830-2048.xml', 8, 951769)]
+
+task: ID00012-TmpltBank
+osd      = 12
+submit    = 1.273
+start     = 1.273
+complete  = 19.793
+transferB = 40547976
+transfers = 4 [('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-807878729-1024.gwf', 7, 15588868), ('H-H1_RDS_L4-777733152-1024.gwf', 14, 15640852), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334)]
+
+task: ID00025-Inspiral
+osd      = 5
+submit    = 20.954
+start     = 20.954
+complete  = 613.444
+transferB = 34650601
+transfers = 4 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-H1_RDS_L4-807878729-1024.gwf', 7, 15588868), ('H-H1_RDS_L4-777733152-1024.gwf', 14, 15640852), ('H1-TMPLTBANK-848283936-2048.xml', 12, 999458)]
+
+task: ID00046-Inspiral
+osd      = 6
+submit    = 664.716
+start     = 664.716
+complete  = 1041.586
+transferB = 33636962
+transfers = 4 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-H1_RDS_L4-807878720-1024.gwf', 18, 15585221), ('H-H1_RDS_L4-777733143-1024.gwf', 5, 15619100), ('H1-TRIGBANK_H1-825926983-9530.xml', 11, 11218)]
+
+task: ID00048-Inspiral
+osd      = 8
+submit    = 664.316
+start     = 664.316
+complete  = 1158.316
+transferB = 33604971
+transfers = 4 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-H1_RDS_L4-777733145-1024.gwf', 7, 15587994), ('H-H1_RDS_L4-807878722-1024.gwf', 0, 15583462), ('H1-TRIGBANK_H1-804454749-3079.xml', 13, 12092)]
+
+task: ID00033-TrigBank
+osd      = 13
+submit    = 658.245
+start     = 658.245
+complete  = 663.175
+transferB = 33484
+transfers = 1 [('H1-THINCA-864690927-2048.xml', 6, 33484)]
+
+task: ID00051-Inspiral
+osd      = 11
+submit    = 983.918
+start     = 983.918
+complete  = 1353.488
+transferB = 33614925
+transfers = 4 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-H1_RDS_L4-777733148-1024.gwf', 10, 15607277), ('H-H1_RDS_L4-807878725-1024.gwf', 3, 15573650), ('H1-TRIGBANK_H1-809281099-8960.xml', 16, 12575)]
+
+task: ID00034-TrigBank
+osd      = 14
+submit    = 658.245
+start     = 658.245
+complete  = 663.435
+transferB = 33484
+transfers = 1 [('H1-THINCA-864690927-2048.xml', 6, 33484)]
+
+task: ID00043-Inspiral
+osd      = 3
+submit    = 664.420
+start     = 664.420
+complete  = 981.940
+transferB = 31215997
+transfers = 3 [('H-H1_RDS_L4-807878717-1024.gwf', 15, 15601046), ('H-H1_RDS_L4-777733140-1024.gwf', 2, 15599950), ('H1-TRIGBANK_H1-720890645-1130.xml', 8, 15001)]
+
+task: ID00014-Inspiral
+osd      = 14
+submit    = 20.694
+start     = 20.694
+complete  = 652.114
+transferB = 43919402
+transfers = 6 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-777733141-1024.gwf', 3, 15612047), ('H-H1_RDS_L4-807878718-1024.gwf', 16, 15598789), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334), ('H1-TMPLTBANK-822826878-2048.xml', 1, 968887)]
+
+task: ID00027-Thinca
+osd      = 7
+submit    = 613.960
+start     = 613.960
+complete  = 619.330
+transferB = 839710
+transfers = 3 [('H1-INSPIRAL-850636442-2048.xml', 3, 328293), ('H1-INSPIRAL-738713730-2048.xml', 4, 261622), ('H1-INSPIRAL-848283936-2048.xml', 5, 249795)]
+
+task: ID00059-Thinca
+osd      = 19
+submit    = 1270.362
+start     = 1270.362
+complete  = 1275.712
+transferB = 844069
+transfers = 3 [('H1-INSPIRAL_H1-752611972-7237.xml', 15, 323852), ('H1-INSPIRAL_H1-727814131-7342.xml', 16, 317991), ('H1-INSPIRAL_H1-843180818-8096.xml', 17, 202226)]
+
+task: ID00055-Inspiral
+osd      = 15
+submit    = 625.617
+start     = 625.617
+complete  = 1093.467
+transferB = 31239886
+transfers = 3 [('H-H1_RDS_L4-807878729-1024.gwf', 7, 15588868), ('H-H1_RDS_L4-777733152-1024.gwf', 14, 15640852), ('H1-TRIGBANK_H1-752611972-7237.xml', 0, 10166)]
+
+task: ID00013-Inspiral
+osd      = 13
+submit    = 19.799
+start     = 19.799
+complete  = 514.119
+transferB = 43874946
+transfers = 6 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-807878717-1024.gwf', 15, 15601046), ('H-H1_RDS_L4-777733140-1024.gwf', 2, 15599950), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334), ('H1-TMPLTBANK-819949881-2048.xml', 0, 934271)]
+
+task: ID00008-TmpltBank
+osd      = 8
+submit    = 1.272
+start     = 1.272
+complete  = 18.902
+transferB = 40499183
+transfers = 4 [('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-777733148-1024.gwf', 10, 15607277), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334), ('H-H1_RDS_L4-807878725-1024.gwf', 3, 15573650)]
+
+task: ID00015-Inspiral
+osd      = 15
+submit    = 20.780
+start     = 20.780
+complete  = 555.770
+transferB = 43883942
+transfers = 6 [('HL-INJECTIONS_100-872182585-8036089.xml', 12, 2421423), ('H-CAL_FAC_DARM_ERR_H1_S5_U_060-802570735-276380122.gwf', 0, 8415922), ('H-H1_RDS_L4-807878719-1024.gwf', 17, 15602870), ('H-H1_RDS_L4-777733142-1024.gwf', 4, 15589283), ('H-CAL_REF_DARM_ERR_H1_S5_V1-828296470-8.gwf', 1, 902334), ('H1-TMPLTBANK-841224278-2048.xml', 2, 952110)]
+
+OSD busy intervals
+OSD 0 [(1.11, 18.46), (20.81, 440.44), (619.83, 624.52)]
+OSD 1 [(1.26, 19.36), (20.06, 428.97), (619.83, 624.93)]
+OSD 2 [(1.27, 19.44), (20.74, 323.24), (619.83, 624.85)]
+OSD 3 [(1.27, 19.61), (19.69, 581.87), (664.42, 981.94)]
+OSD 4 [(1.27, 20.22), (20.31, 459.85), (664.17, 1230.40)]
+OSD 5 [(1.27, 19.24), (20.95, 613.44), (664.93, 1135.47)]
+OSD 6 [(1.27, 18.89), (652.67, 657.74), (664.72, 1041.59)]
+OSD 7 [(1.27, 19.65), (613.96, 619.33), (664.22, 1155.64)]
+OSD 8 [(1.27, 18.90), (658.24, 663.32), (664.32, 1158.32)]
+OSD 9 [(1.27, 19.58), (658.24, 663.07), (664.58, 972.98)]
+OSD 10 [(1.27, 18.53), (658.24, 663.83), (1099.42, 1657.55)]
+OSD 11 [(1.27, 19.15), (658.24, 663.57), (983.92, 1353.49)]
+OSD 12 [(1.27, 19.79), (658.24, 663.07), (1275.19, 1806.54)]
+OSD 13 [(19.80, 514.12), (658.24, 663.17), (664.26, 1182.89)]
+OSD 14 [(20.69, 652.11), (658.24, 663.43), (664.73, 1119.18)]
+OSD 15 [(20.78, 555.77), (625.62, 1093.47), (1093.47, 1098.28)]
+OSD 16 [(20.95, 531.19), (626.03, 977.72), (977.72, 982.78)]
+OSD 17 [(21.56, 316.30), (625.95, 1269.85), (1269.85, 1274.10)]
+OSD 18 [(20.58, 434.15), (658.24, 663.16), (1807.11, 1812.63)]
+OSD 19 [(20.23, 432.18), (658.24, 663.63), (1270.36, 1275.71)]
+
+SSD RW statistics
+OSD    Total R    Total W    Extra R    Extra W
+  0  292396801   68009719  207851341   66811282
+  1  149811460   75604101   65362548   74228322
+  2  179471548   76511037   95012442   75140850
+  3  222911449  107968130   95468418  106385096
+  4  222670606  107761627   95299044  106313627
+  5  222673533  107996482   95269959  106345639
+  6  181978145   78656264   95305788   77354101
+  7  179451931   76508199   95127409   75006266
+  8  147155374   75372794   63699480   74137638
+  9  147082545   75368018   63560340   74203949
+ 10  147210370   75480911   63662443   74229671
+ 11  147227847   75531628   63765054   74144537
+ 12  177713753   73060801   94179100   71794974
+ 13  134303484   75841397   47414316   75149489
+ 14  134390018   75727783   47507420   75142919
+ 15  134242550   75699733   47345559   75157312
+ 16  134244290   75708244   47321369   75183242
+ 17  134096701   75548412   47185581   75171441
+ 18   94602441   47870735   47001297   47601144
+ 19   91839187   45111691   47000889   44838298
+
+Total data transfer = 1524339797 bytes (1453.000 MB)
+
+simulation finished at 1812.631

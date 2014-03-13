@@ -2,7 +2,7 @@
 
 pattern="workflows/$1*.xml"
 
-for n in `seq 2 4`; do
+for n in `seq 2 16`; do
     for workflow in $pattern; do
         nosd=$((n*2))
         scheduler='rr'

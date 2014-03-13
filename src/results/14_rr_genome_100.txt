@@ -1,0 +1,941 @@
+transfer delay: 6.290688
+transfer delay: 0.737642
+transfer delay: 0.737391
+transfer delay: 0.740340
+transfer delay: 0.734773
+transfer delay: 0.736893
+transfer delay: 0.735266
+transfer delay: 0.752401
+transfer delay: 0.756308
+transfer delay: 0.725931
+transfer delay: 0.746355
+transfer delay: 0.738853
+transfer delay: 0.739044
+transfer delay: 0.740166
+transfer delay: 0.755320
+transfer delay: 0.734964
+transfer delay: 0.742755
+transfer delay: 0.753698
+transfer delay: 0.729682
+transfer delay: 0.737846
+transfer delay: 0.738363
+transfer delay: 0.751273
+transfer delay: 0.750628
+transfer delay: 0.734212
+transfer delay: 0.611687
+transfer delay: 0.615396
+transfer delay: 0.616535
+transfer delay: 0.618080
+transfer delay: 0.622674
+transfer delay: 0.625321
+transfer delay: 0.621365
+transfer delay: 0.623157
+transfer delay: 0.613186
+transfer delay: 0.617246
+transfer delay: 0.627574
+transfer delay: 0.617015
+transfer delay: 0.566985
+transfer delay: 0.624681
+transfer delay: 0.621959
+transfer delay: 0.612115
+transfer delay: 0.571604
+transfer delay: 0.621399
+transfer delay: 0.625154
+transfer delay: 0.588647
+transfer delay: 0.585962
+transfer delay: 0.605994
+transfer delay: 0.617597
+transfer delay: 0.585849
+transfer delay: 0.616146
+transfer delay: 0.602093
+transfer delay: 0.623125
+transfer delay: 0.605003
+transfer delay: 0.626359
+transfer delay: 0.571950
+transfer delay: 0.570026
+transfer delay: 0.591660
+transfer delay: 0.567677
+transfer delay: 0.620757
+transfer delay: 52.020107
+transfer delay: 0.569335
+transfer delay: 0.579333
+transfer delay: 0.632112
+transfer delay: 52.012758
+transfer delay: 0.605187
+transfer delay: 0.589139
+transfer delay: 52.021224
+transfer delay: 0.613257
+transfer delay: 52.012893
+transfer delay: 0.520680
+transfer delay: 0.604896
+transfer delay: 52.010772
+transfer delay: 0.597362
+transfer delay: 52.017482
+transfer delay: 0.620742
+transfer delay: 0.558184
+transfer delay: 52.016549
+transfer delay: 52.010347
+transfer delay: 0.573163
+transfer delay: 52.016824
+transfer delay: 0.599807
+transfer delay: 0.592841
+transfer delay: 52.011314
+transfer delay: 52.021469
+transfer delay: 52.013040
+transfer delay: 52.018483
+transfer delay: 52.015181
+transfer delay: 0.570797
+transfer delay: 52.022464
+transfer delay: 52.008245
+transfer delay: 52.015317
+transfer delay: 52.011600
+transfer delay: 52.022798
+transfer delay: 52.020683
+transfer delay: 52.009426
+transfer delay: 52.013888
+transfer delay: 52.018287
+transfer delay: 1.019618
+transfer delay: 1.008368
+transfer delay: 0.511919
+
+-----------------------------------------
+job: Genome_100
+scheduler rr:
+
+Task statistics
+
+task: ID00025-sol2sanger_chr21
+osd      = 11
+submit    = 46.038
+start     = 46.038
+complete  = 46.408
+transferB = 5878029
+transfers = 1 [('chr21.0.0.nocontam.sfq', 1, 5878029)]
+
+task: ID00054-fastq2bfq_chr21
+osd      = 12
+submit    = 48.665
+start     = 49.047
+complete  = 49.557
+transferB = 3835871
+transfers = 1 [('chr21.0.5.nocontam.fq', 2, 3835871)]
+
+task: ID00040-sol2sanger_chr21
+osd      = 12
+submit    = 47.734
+start     = 47.734
+complete  = 48.204
+transferB = 6926477
+transfers = 1 [('chr21.0.15.nocontam.sfq', 2, 6926477)]
+
+task: ID00041-sol2sanger_chr21
+osd      = 13
+submit    = 45.041
+start     = 45.147
+complete  = 45.567
+transferB = 6456971
+transfers = 1 [('chr21.0.16.nocontam.sfq', 3, 6456971)]
+
+task: ID00015-filterContams_chr21
+osd      = 1
+submit    = 42.918
+start     = 45.426
+complete  = 47.466
+transferB = 12459275
+transfers = 1 [('chr21.0.14.sfq', 0, 12459275)]
+
+task: ID00009-filterContams_chr21
+osd      = 9
+submit    = 42.918
+start     = 42.918
+complete  = 44.648
+transferB = 12446116
+transfers = 1 [('chr21.0.8.sfq', 0, 12446116)]
+
+task: ID00045-sol2sanger_chr21
+osd      = 3
+submit    = 44.554
+start     = 45.918
+complete  = 46.268
+transferB = 6050076
+transfers = 1 [('chr21.0.20.nocontam.sfq', 7, 6050076)]
+
+task: ID00018-filterContams_chr21
+osd      = 4
+submit    = 42.921
+start     = 44.029
+complete  = 46.209
+transferB = 12600764
+transfers = 1 [('chr21.0.17.sfq', 0, 12600764)]
+
+task: ID00037-sol2sanger_chr21
+osd      = 9
+submit    = 45.769
+start     = 46.428
+complete  = 46.728
+transferB = 6394190
+transfers = 1 [('chr21.0.12.nocontam.sfq', 13, 6394190)]
+
+task: ID00092-map_chr21
+osd      = 8
+submit    = 101.069
+start     = 101.069
+complete  = 8982.869
+transferB = 2701260937
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.19.nocontam.bfq', 12, 1437441)]
+
+task: ID00076-map_chr21
+osd      = 6
+submit    = 99.736
+start     = 99.736
+complete  = 5070.916
+transferB = 2700647971
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.3.nocontam.bfq', 10, 824475)]
+
+task: ID00030-sol2sanger_chr21
+osd      = 2
+submit    = 46.944
+start     = 47.682
+complete  = 48.092
+transferB = 6455320
+transfers = 1 [('chr21.0.5.nocontam.sfq', 6, 6455320)]
+
+task: ID00034-sol2sanger_chr21
+osd      = 6
+submit    = 47.446
+start     = 47.446
+complete  = 47.796
+transferB = 6331155
+transfers = 1 [('chr21.0.9.nocontam.sfq', 10, 6331155)]
+
+task: ID00087-map_chr21
+osd      = 3
+submit    = 101.919
+start     = 7646.139
+complete  = 14633.809
+transferB = 2700577403
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.14.nocontam.bfq', 7, 753907)]
+
+task: ID00066-fastq2bfq_chr21
+osd      = 10
+submit    = 47.790
+start     = 47.790
+complete  = 48.560
+transferB = 5514848
+transfers = 1 [('chr21.0.17.nocontam.fq', 0, 5514848)]
+
+task: ID00012-filterContams_chr21
+osd      = 12
+submit    = 42.915
+start     = 42.915
+complete  = 44.205
+transferB = 12308857
+transfers = 1 [('chr21.0.11.sfq', 0, 12308857)]
+
+task: ID00029-sol2sanger_chr21
+osd      = 1
+submit    = 46.092
+start     = 47.896
+complete  = 48.366
+transferB = 6364825
+transfers = 1 [('chr21.0.4.nocontam.sfq', 5, 6364825)]
+
+task: ID00052-fastq2bfq_chr21
+osd      = 10
+submit    = 45.513
+start     = 47.195
+complete  = 47.725
+transferB = 3511959
+transfers = 1 [('chr21.0.3.nocontam.fq', 0, 3511959)]
+
+task: ID00067-fastq2bfq_chr21
+osd      = 11
+submit    = 48.454
+start     = 48.739
+complete  = 49.179
+transferB = 3050526
+transfers = 1 [('chr21.0.18.nocontam.fq', 1, 3050526)]
+
+task: ID00043-sol2sanger_chr21
+osd      = 1
+submit    = 45.074
+start     = 47.466
+complete  = 47.896
+transferB = 5934199
+transfers = 1 [('chr21.0.18.nocontam.sfq', 5, 5934199)]
+
+task: ID00038-sol2sanger_chr21
+osd      = 10
+submit    = 44.943
+start     = 46.825
+complete  = 47.195
+transferB = 6431642
+transfers = 1 [('chr21.0.13.nocontam.sfq', 0, 6431642)]
+
+task: ID00000-fastqSplit_chr21
+osd      = 0
+submit    = 6.291
+start     = 6.291
+complete  = 42.181
+transferB = 303598802
+transfers = 1 [('chr210.sfq', 2, 303598802)]
+
+task: ID00075-map_chr21
+osd      = 5
+submit    = 100.065
+start     = 9119.459
+complete  = 16201.149
+transferB = 2700625681
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.2.nocontam.bfq', 9, 802185)]
+
+task: ID00083-map_chr21
+osd      = 13
+submit    = 99.160
+start     = 99.160
+complete  = 5560.200
+transferB = 2700752091
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.10.nocontam.bfq', 3, 928595)]
+
+task: ID00053-fastq2bfq_chr21
+osd      = 11
+submit    = 48.958
+start     = 49.179
+complete  = 50.009
+transferB = 4867520
+transfers = 1 [('chr21.0.4.nocontam.fq', 1, 4867520)]
+
+task: ID00032-sol2sanger_chr21
+osd      = 4
+submit    = 44.538
+start     = 46.209
+complete  = 46.589
+transferB = 5855631
+transfers = 1 [('chr21.0.7.nocontam.sfq', 8, 5855631)]
+
+task: ID00065-fastq2bfq_chr21
+osd      = 9
+submit    = 46.156
+start     = 46.728
+complete  = 47.338
+transferB = 4647661
+transfers = 1 [('chr21.0.16.nocontam.fq', 13, 4647661)]
+
+task: ID00017-filterContams_chr21
+osd      = 3
+submit    = 42.918
+start     = 42.918
+complete  = 44.418
+transferB = 12420040
+transfers = 1 [('chr21.0.16.sfq', 0, 12420040)]
+
+task: ID00011-filterContams_chr21
+osd      = 11
+submit    = 42.916
+start     = 42.916
+complete  = 44.386
+transferB = 12334697
+transfers = 1 [('chr21.0.10.sfq', 0, 12334697)]
+
+task: ID00060-fastq2bfq_chr21
+osd      = 4
+submit    = 46.522
+start     = 47.039
+complete  = 47.659
+transferB = 4500984
+transfers = 1 [('chr21.0.11.nocontam.fq', 8, 4500984)]
+
+task: ID00078-map_chr21
+osd      = 8
+submit    = 101.568
+start     = 8982.869
+complete  = 16838.519
+transferB = 2700691376
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.5.nocontam.bfq', 12, 867880)]
+
+task: ID00089-map_chr21
+osd      = 5
+submit    = 99.359
+start     = 99.359
+complete  = 9119.459
+transferB = 2701195951
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.16.nocontam.bfq', 9, 1372455)]
+
+task: ID00036-sol2sanger_chr21
+osd      = 8
+submit    = 44.824
+start     = 45.557
+complete  = 45.937
+transferB = 6190769
+transfers = 1 [('chr21.0.11.nocontam.sfq', 12, 6190769)]
+
+task: ID00061-fastq2bfq_chr21
+osd      = 5
+submit    = 47.296
+start     = 47.744
+complete  = 48.534
+transferB = 3548202
+transfers = 1 [('chr21.0.12.nocontam.fq', 9, 3548202)]
+
+task: ID00048-sol2sanger_chr21
+osd      = 6
+submit    = 45.532
+start     = 46.321
+complete  = 46.611
+transferB = 6134969
+transfers = 1 [('chr21.0.23.nocontam.sfq', 10, 6134969)]
+
+task: ID00088-map_chr21
+osd      = 4
+submit    = 101.667
+start     = 7062.043
+complete  = 11981.453
+transferB = 2701278447
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.15.nocontam.bfq', 8, 1454951)]
+
+task: ID00099-pileup_chr21
+osd      = 1
+submit    = 16995.163
+start     = 16995.163
+complete  = 19870.533
+transferB = 624922
+transfers = 1 [('chr21.nocontam.chr.map', 0, 624922)]
+
+task: ID00022-filterContams_chr21
+osd      = 8
+submit    = 42.933
+start     = 43.927
+complete  = 45.557
+transferB = 13233062
+transfers = 1 [('chr21.0.21.sfq', 0, 13233062)]
+
+task: ID00096-map_chr21
+osd      = 12
+submit    = 100.645
+start     = 100.645
+complete  = 7826.595
+transferB = 2700766881
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.23.nocontam.bfq', 2, 943385)]
+
+task: ID00016-filterContams_chr21
+osd      = 2
+submit    = 42.937
+start     = 44.372
+complete  = 47.102
+transferB = 13437925
+transfers = 1 [('chr21.0.15.sfq', 0, 13437925)]
+
+task: ID00051-fastq2bfq_chr21
+osd      = 9
+submit    = 47.575
+start     = 47.575
+complete  = 48.055
+transferB = 3635128
+transfers = 1 [('chr21.0.2.nocontam.fq', 13, 3635128)]
+
+task: ID00093-map_chr21
+osd      = 9
+submit    = 99.803
+start     = 99.803
+complete  = 10099.343
+transferB = 2700999767
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.20.nocontam.bfq', 13, 1176271)]
+
+task: ID00094-map_chr21
+osd      = 10
+submit    = 100.205
+start     = 7665.298
+complete  = 13573.218
+transferB = 2700965260
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.21.nocontam.bfq', 0, 1141764)]
+
+task: ID00063-fastq2bfq_chr21
+osd      = 7
+submit    = 49.310
+start     = 49.310
+complete  = 49.910
+transferB = 3711786
+transfers = 1 [('chr21.0.14.nocontam.fq', 11, 3711786)]
+
+task: ID00058-fastq2bfq_chr21
+osd      = 2
+submit    = 48.416
+start     = 48.632
+complete  = 49.892
+transferB = 6330346
+transfers = 1 [('chr21.0.9.nocontam.fq', 6, 6330346)]
+
+task: ID00008-filterContams_chr21
+osd      = 8
+submit    = 42.907
+start     = 42.907
+complete  = 43.927
+transferB = 11845279
+transfers = 1 [('chr21.0.7.sfq', 0, 11845279)]
+
+task: ID00055-fastq2bfq_chr21
+osd      = 13
+submit    = 47.209
+start     = 47.785
+complete  = 48.675
+transferB = 4805620
+transfers = 1 [('chr21.0.6.nocontam.fq', 3, 4805620)]
+
+task: ID00085-map_chr21
+osd      = 1
+submit    = 100.546
+start     = 100.546
+complete  = 7369.476
+transferB = 2700676405
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.12.nocontam.bfq', 5, 852909)]
+
+task: ID00033-sol2sanger_chr21
+osd      = 5
+submit    = 45.265
+start     = 45.470
+complete  = 45.810
+transferB = 6147064
+transfers = 1 [('chr21.0.8.nocontam.sfq', 9, 6147064)]
+
+task: ID00013-filterContams_chr21
+osd      = 13
+submit    = 42.927
+start     = 42.927
+complete  = 45.147
+transferB = 12916077
+transfers = 1 [('chr21.0.12.sfq', 0, 12916077)]
+
+task: ID00005-filterContams_chr21
+osd      = 5
+submit    = 42.920
+start     = 44.460
+complete  = 45.470
+transferB = 12522775
+transfers = 1 [('chr21.0.4.sfq', 0, 12522775)]
+
+task: ID00073-map_chr21
+osd      = 3
+submit    = 100.019
+start     = 100.019
+complete  = 7646.139
+transferB = 2700950854
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.0.nocontam.bfq', 7, 1127358)]
+
+task: ID00070-fastq2bfq_chr21
+osd      = 0
+submit    = 47.618
+start     = 47.618
+complete  = 48.188
+transferB = 4159326
+transfers = 1 [('chr21.0.21.nocontam.fq', 4, 4159326)]
+
+task: ID00071-fastq2bfq_chr21
+osd      = 1
+submit    = 48.342
+start     = 49.376
+complete  = 50.116
+transferB = 5104573
+transfers = 1 [('chr21.0.22.nocontam.fq', 5, 5104573)]
+
+task: ID00028-sol2sanger_chr21
+osd      = 0
+submit    = 44.646
+start     = 44.646
+complete  = 44.946
+transferB = 6109786
+transfers = 1 [('chr21.0.3.nocontam.sfq', 4, 6109786)]
+
+task: ID00097-mapMerge_chr21
+osd      = 13
+submit    = 16982.082
+start     = 16982.082
+complete  = 16993.592
+transferB = 27242974
+transfers = 23 [('chr21.0.0.nocontam.map', 3, 1225389), ('chr21.0.1.nocontam.map', 4, 1428167), ('chr21.0.2.nocontam.map', 5, 871940), ('chr21.0.3.nocontam.map', 6, 896168), ('chr21.0.4.nocontam.map', 7, 1073706), ('chr21.0.5.nocontam.map', 8, 943347), ('chr21.0.6.nocontam.map', 9, 1147421), ('chr21.0.7.nocontam.map', 10, 1017028), ('chr21.0.8.nocontam.map', 11, 1155170), ('chr21.0.9.nocontam.map', 12, 1460976), ('chr21.0.11.nocontam.map', 0, 1178522), ('chr21.0.12.nocontam.map', 1, 927075), ('chr21.0.13.nocontam.map', 2, 1335568), ('chr21.0.14.nocontam.map', 3, 819464), ('chr21.0.15.nocontam.map', 4, 1581468), ('chr21.0.16.nocontam.map', 5, 1491798), ('chr21.0.17.nocontam.map', 6, 1505783), ('chr21.0.18.nocontam.map', 7, 752123), ('chr21.0.19.nocontam.map', 8, 1562435), ('chr21.0.20.nocontam.map', 9, 1278555), ('chr21.0.21.nocontam.map', 10, 1241047), ('chr21.0.22.nocontam.map', 11, 1324406), ('chr21.0.23.nocontam.map', 12, 1025418)]
+
+task: ID00027-sol2sanger_chr21
+osd      = 13
+submit    = 46.535
+start     = 46.535
+complete  = 47.005
+transferB = 6165483
+transfers = 1 [('chr21.0.2.nocontam.sfq', 3, 6165483)]
+
+task: ID00079-map_chr21
+osd      = 9
+submit    = 100.690
+start     = 10099.343
+complete  = 16981.063
+transferB = 2700879124
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.6.nocontam.bfq', 13, 1055628)]
+
+task: ID00007-filterContams_chr21
+osd      = 7
+submit    = 42.920
+start     = 43.939
+complete  = 44.969
+transferB = 12532784
+transfers = 1 [('chr21.0.6.sfq', 0, 12532784)]
+
+task: ID00047-sol2sanger_chr21
+osd      = 5
+submit    = 47.054
+start     = 47.054
+complete  = 47.744
+transferB = 6624856
+transfers = 1 [('chr21.0.22.nocontam.sfq', 9, 6624856)]
+
+task: ID00003-filterContams_chr21
+osd      = 3
+submit    = 42.921
+start     = 44.418
+complete  = 45.918
+transferB = 12591616
+transfers = 1 [('chr21.0.2.sfq', 0, 12591616)]
+
+task: ID00069-fastq2bfq_chr21
+osd      = 13
+submit    = 46.870
+start     = 47.005
+complete  = 47.785
+transferB = 5352592
+transfers = 1 [('chr21.0.20.nocontam.fq', 3, 5352592)]
+
+task: ID00082-map_chr21
+osd      = 12
+submit    = 101.913
+start     = 7826.595
+complete  = 14560.365
+transferB = 2701167594
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.9.nocontam.bfq', 2, 1344098)]
+
+task: ID00039-sol2sanger_chr21
+osd      = 11
+submit    = 48.079
+start     = 48.079
+complete  = 48.739
+transferB = 5937943
+transfers = 1 [('chr21.0.14.nocontam.sfq', 1, 5937943)]
+
+task: ID00006-filterContams_chr21
+osd      = 6
+submit    = 42.936
+start     = 44.821
+complete  = 46.321
+transferB = 13386099
+transfers = 1 [('chr21.0.5.sfq', 0, 13386099)]
+
+task: ID00074-map_chr21
+osd      = 4
+submit    = 99.023
+start     = 99.023
+complete  = 7062.043
+transferB = 2701137410
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.1.nocontam.bfq', 8, 1313914)]
+
+task: ID00072-fastq2bfq_chr21
+osd      = 2
+submit    = 47.181
+start     = 48.092
+complete  = 48.632
+transferB = 3671367
+transfers = 1 [('chr21.0.23.nocontam.fq', 6, 3671367)]
+
+task: ID00026-sol2sanger_chr21
+osd      = 12
+submit    = 44.997
+start     = 44.997
+complete  = 45.627
+transferB = 6570418
+transfers = 1 [('chr21.0.1.nocontam.sfq', 2, 6570418)]
+
+task: ID00080-map_chr21
+osd      = 10
+submit    = 99.628
+start     = 99.628
+complete  = 7665.298
+transferB = 2700759162
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.7.nocontam.bfq', 0, 935666)]
+
+task: ID00098-maqindex_chr21
+osd      = 0
+submit    = 16994.601
+start     = 16994.601
+complete  = 16994.651
+transferB = 26653128
+transfers = 1 [('chr21.nocontam.map', 13, 26653128)]
+
+task: ID00062-fastq2bfq_chr21
+osd      = 6
+submit    = 47.784
+start     = 47.796
+complete  = 48.656
+transferB = 4673460
+transfers = 1 [('chr21.0.13.nocontam.fq', 10, 4673460)]
+
+task: ID00090-map_chr21
+osd      = 6
+submit    = 100.582
+start     = 5070.916
+complete  = 14029.356
+transferB = 2701208817
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.17.nocontam.bfq', 10, 1385321)]
+
+task: ID00081-map_chr21
+osd      = 11
+submit    = 101.391
+start     = 101.391
+complete  = 7648.131
+transferB = 2700886253
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.8.nocontam.bfq', 1, 1062757)]
+
+task: ID00001-filterContams_chr21
+osd      = 1
+submit    = 42.916
+start     = 42.916
+complete  = 45.426
+transferB = 12318888
+transfers = 1 [('chr21.0.0.sfq', 0, 12318888)]
+
+task: ID00064-fastq2bfq_chr21
+osd      = 8
+submit    = 48.804
+start     = 48.804
+complete  = 49.644
+transferB = 5232737
+transfers = 1 [('chr21.0.15.nocontam.fq', 12, 5232737)]
+
+task: ID00084-map_chr21
+osd      = 0
+submit    = 48.180
+start     = 48.188
+complete  = 9059.038
+transferB = 1084241
+transfers = 1 [('chr21.0.11.nocontam.bfq', 4, 1084241)]
+
+task: ID00023-filterContams_chr21
+osd      = 9
+submit    = 42.923
+start     = 44.648
+complete  = 46.428
+transferB = 12727365
+transfers = 1 [('chr21.0.22.sfq', 0, 12727365)]
+
+task: ID00010-filterContams_chr21
+osd      = 10
+submit    = 42.934
+start     = 44.915
+complete  = 46.825
+transferB = 13301071
+transfers = 1 [('chr21.0.9.sfq', 0, 13301071)]
+
+task: ID00059-fastq2bfq_chr21
+osd      = 3
+submit    = 45.999
+start     = 46.618
+complete  = 47.148
+transferB = 3754118
+transfers = 1 [('chr21.0.10.nocontam.fq', 7, 3754118)]
+
+task: ID00014-filterContams_chr21
+osd      = 0
+submit    = 42.181
+start     = 42.181
+complete  = 44.321
+No data transfers
+
+task: ID00086-map_chr21
+osd      = 2
+submit    = 100.674
+start     = 100.674
+complete  = 5874.354
+transferB = 2701052219
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.13.nocontam.bfq', 6, 1228723)]
+
+task: ID00049-fastq2bfq_chr21
+osd      = 7
+submit    = 47.013
+start     = 47.013
+complete  = 48.003
+transferB = 5505186
+transfers = 1 [('chr21.0.0.nocontam.fq', 11, 5505186)]
+
+task: ID00044-sol2sanger_chr21
+osd      = 2
+submit    = 45.449
+start     = 47.102
+complete  = 47.682
+transferB = 6688541
+transfers = 1 [('chr21.0.19.nocontam.sfq', 6, 6688541)]
+
+task: ID00095-map_chr21
+osd      = 11
+submit    = 102.134
+start     = 7648.131
+complete  = 16681.371
+transferB = 2701041950
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.22.nocontam.bfq', 1, 1218454)]
+
+task: ID00035-sol2sanger_chr21
+osd      = 7
+submit    = 45.007
+start     = 45.007
+complete  = 45.427
+transferB = 6363039
+transfers = 1 [('chr21.0.10.nocontam.sfq', 11, 6363039)]
+
+task: ID00056-fastq2bfq_chr21
+osd      = 0
+submit    = 47.161
+start     = 47.185
+complete  = 47.615
+transferB = 3772246
+transfers = 1 [('chr21.0.7.nocontam.fq', 4, 3772246)]
+
+task: ID00019-filterContams_chr21
+osd      = 5
+submit    = 42.910
+start     = 42.910
+complete  = 44.460
+transferB = 12041959
+transfers = 1 [('chr21.0.18.sfq', 0, 12041959)]
+
+task: ID00046-sol2sanger_chr21
+osd      = 4
+submit    = 46.182
+start     = 46.589
+complete  = 47.039
+transferB = 6561650
+transfers = 1 [('chr21.0.21.nocontam.sfq', 8, 6561650)]
+
+task: ID00057-fastq2bfq_chr21
+osd      = 1
+submit    = 46.416
+start     = 48.366
+complete  = 49.376
+transferB = 5557132
+transfers = 1 [('chr21.0.8.nocontam.fq', 5, 5557132)]
+
+task: ID00021-filterContams_chr21
+osd      = 7
+submit    = 42.919
+start     = 42.919
+complete  = 43.939
+transferB = 12469974
+transfers = 1 [('chr21.0.20.sfq', 0, 12469974)]
+
+task: ID00004-filterContams_chr21
+osd      = 4
+submit    = 42.919
+start     = 42.919
+complete  = 44.029
+transferB = 12497087
+transfers = 1 [('chr21.0.3.sfq', 0, 12497087)]
+
+task: ID00002-filterContams_chr21
+osd      = 2
+submit    = 42.932
+start     = 42.932
+complete  = 44.372
+transferB = 13173955
+transfers = 1 [('chr21.0.1.sfq', 0, 13173955)]
+
+task: ID00077-map_chr21
+osd      = 7
+submit    = 102.023
+start     = 6808.047
+complete  = 13268.187
+transferB = 2700811306
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.4.nocontam.bfq', 11, 987810)]
+
+task: ID00068-fastq2bfq_chr21
+osd      = 12
+submit    = 48.287
+start     = 48.287
+complete  = 49.047
+transferB = 5499559
+transfers = 1 [('chr21.0.19.nocontam.fq', 2, 5499559)]
+
+task: ID00020-filterContams_chr21
+osd      = 6
+submit    = 42.931
+start     = 42.931
+complete  = 44.821
+transferB = 13140129
+transfers = 1 [('chr21.0.19.sfq', 0, 13140129)]
+
+task: ID00091-map_chr21
+osd      = 7
+submit    = 101.187
+start     = 101.187
+complete  = 6808.047
+transferB = 2700515450
+transfers = 2 [('chr21.BS.bfa', 0, 2699823496), ('chr21.0.18.nocontam.bfq', 11, 691954)]
+
+task: ID00050-fastq2bfq_chr21
+osd      = 8
+submit    = 46.213
+start     = 46.213
+complete  = 47.003
+transferB = 4506910
+transfers = 1 [('chr21.0.1.nocontam.fq', 12, 4506910)]
+
+task: ID00031-sol2sanger_chr21
+osd      = 3
+submit    = 45.593
+start     = 46.268
+complete  = 46.618
+transferB = 6536878
+transfers = 1 [('chr21.0.6.nocontam.sfq', 7, 6536878)]
+
+task: ID00042-sol2sanger_chr21
+osd      = 0
+submit    = 46.825
+start     = 46.825
+complete  = 47.185
+transferB = 6089419
+transfers = 1 [('chr21.0.17.nocontam.sfq', 4, 6089419)]
+
+task: ID00024-filterContams_chr21
+osd      = 10
+submit    = 42.915
+start     = 42.915
+complete  = 44.915
+transferB = 12279469
+transfers = 1 [('chr21.0.23.sfq', 0, 12279469)]
+
+OSD busy intervals
+OSD 0 [(6.29, 42.18), (42.18, 44.32), (44.65, 44.95), (46.83, 47.19), (47.19, 47.62), (47.62, 48.19), (48.19, 9059.04), (16994.60, 16994.65)]
+OSD 1 [(42.92, 45.43), (45.43, 47.47), (47.47, 47.90), (47.90, 48.37), (48.37, 49.38), (49.38, 50.12), (100.55, 7369.48), (16995.16, 19870.53)]
+OSD 2 [(42.93, 44.37), (44.37, 47.10), (47.10, 47.68), (47.68, 48.09), (48.09, 48.63), (48.63, 49.89), (100.67, 5874.35)]
+OSD 3 [(42.92, 44.42), (44.42, 45.92), (45.92, 46.27), (46.27, 46.62), (46.62, 47.15), (100.02, 7646.14), (7646.14, 14633.81)]
+OSD 4 [(42.92, 44.03), (44.03, 46.21), (46.21, 46.59), (46.59, 47.04), (47.04, 47.66), (99.02, 7062.04), (7062.04, 11981.45)]
+OSD 5 [(42.91, 44.46), (44.46, 45.47), (45.47, 45.81), (47.05, 47.74), (47.74, 48.53), (99.36, 9119.46), (9119.46, 16201.15)]
+OSD 6 [(42.93, 44.82), (44.82, 46.32), (46.32, 46.61), (47.45, 47.80), (47.80, 48.66), (99.74, 5070.92), (5070.92, 14029.36)]
+OSD 7 [(42.92, 43.94), (43.94, 44.97), (45.01, 45.43), (47.01, 48.00), (49.31, 49.91), (101.19, 6808.05), (6808.05, 13268.19)]
+OSD 8 [(42.91, 43.93), (43.93, 45.56), (45.56, 45.94), (46.21, 47.00), (48.80, 49.64), (101.07, 8982.87), (8982.87, 16838.52)]
+OSD 9 [(42.92, 44.65), (44.65, 46.43), (46.43, 46.73), (46.73, 47.34), (47.57, 48.05), (99.80, 10099.34), (10099.34, 16981.06)]
+OSD 10 [(42.91, 44.91), (44.91, 46.82), (46.82, 47.19), (47.19, 47.72), (47.79, 48.56), (99.63, 7665.30), (7665.30, 13573.22)]
+OSD 11 [(42.92, 44.39), (46.04, 46.41), (48.08, 48.74), (48.74, 49.18), (49.18, 50.01), (101.39, 7648.13), (7648.13, 16681.37)]
+OSD 12 [(42.92, 44.21), (45.00, 45.63), (47.73, 48.20), (48.29, 49.05), (49.05, 49.56), (100.65, 7826.60), (7826.60, 14560.37)]
+OSD 13 [(42.93, 45.15), (45.15, 45.57), (46.54, 47.01), (47.01, 47.79), (47.79, 48.68), (99.16, 5560.20), (16982.08, 16993.59)]
+
+SSD RW statistics
+OSD    Total R    Total W    Extra R    Extra W
+  0 65470168977  680586970 62406264994  351466948
+  1 5471806019 2790661920   22942304 2749040219
+  2 3080863851 2790380034  330054178 2750809673
+  3 5468635099 5481024301   25754114 5442880985
+  4 5468656626 5481555272   24224653 5444431973
+  5 5468883864 5481149574   26177376 5442706488
+  6 5472298848 5485681215   26776248 5445522600
+  7 5461957691 5474373495   20048166 5441909525
+  8 5465153982 5477815042   22192912 5442961070
+  9 5462650089 5475051650   20920738 5441729351
+ 10 5464370866 5477485282   21607455 5442763411
+ 11 5453736269 5459707927   19739351 5433996918
+ 12 5457797788 5463915876   20722131 5437075657
+ 13 2808263156 2815940330   43562006 2763691808
+
+Total data transfer = 63030986626 bytes (60111.000 MB)
+
+simulation finished at 19870.533
