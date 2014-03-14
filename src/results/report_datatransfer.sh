@@ -17,7 +17,7 @@ function report {
 		#for file in `ls | grep montage | grep $scheduler | grep ^$nosd`; do
 		for ntask in `seq 30 10 100`; do
 			file="${nosd}_${scheduler}_${workflow}_${ntask}.txt"
-			runtime="`tail -n1 $file | awk '{print $4}'`"
+			runtime="`cat $file | grep ^Total | awk '{print $5}'`"
 			echo -e "$nosd\t$ntask\t$runtime"
 		done
 	done
