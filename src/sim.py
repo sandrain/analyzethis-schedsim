@@ -100,6 +100,8 @@ def main():
                 description=args_description)
     parser.add_argument('-b', '--netbw', type=int, default=104857600,
                         help='network bandwith (bytes/sec)')
+    parser.add_argument('-r', '--runtime', type=float, default=1.0,
+                        help='runtime slowdown factor (default 1.0)')
     parser.add_argument('-n', '--osds', type=int, default=4,
                         help='number of osds')
     parser.add_argument('-s', '--scheduler', type=str, default='rr',

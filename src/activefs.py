@@ -150,7 +150,8 @@ class ActiveFS(event.TimeoutEventHandler):
 
         for job in jobs:
             task = {}
-            task['runtime'] = float(job.attrib['runtime'])
+            task['runtime'] = float(job.attrib['runtime']) \
+                                    * self.config.runtime
             task['input'] = []
             task['output'] = []
             for uses in job.findall('ns:uses', namespaces=ns):
