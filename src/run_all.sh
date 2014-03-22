@@ -2,9 +2,9 @@
 
 pattern="workflows/$1*.xml"
 
-for n in `seq 2 16`; do
+for n in `seq 1 6`; do
     for workflow in $pattern; do
-        nosd=$((n*2))
+        nosd=$((2**n))
         scheduler='rr'
         f=`basename $workflow .xml`
         outfile="results/${nosd}_${scheduler}_${f}.txt"
