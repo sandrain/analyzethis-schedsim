@@ -12,8 +12,8 @@ function report {
 	workflow=$2
 	echo $workflow : $scheduler
 
-	for n in `seq 2 16`; do
-		nosd=$((n*2))
+	for n in `seq 1 6`; do
+		nosd=$((2**n))
 		#for file in `ls | grep montage | grep $scheduler | grep ^$nosd`; do
 		for ntask in `seq 30 10 100`; do
 			file="${nosd}_${scheduler}_${workflow}_${ntask}.txt"
