@@ -44,12 +44,16 @@ class ActiveFlash(event.TimeoutEventHandler):
             self.running = task
             self.task_event.set_timeout(task.runtime)
             self.task_event.set_context(task)
+            desc = '{} ({} sec) execution'.format(task.name, task.runtime)
+            self.task_event.set_description(desc)
             task.started(self.ev.now())
             self.ev.register_event(self.task_event)
 
     def handle_timeout(self, e):
         if self.afs.config.eventlog:
-            print '%s: [e] %s' % (self.get_name(), e.name)
+            print '(%.3f, %.3f) --- %s [%s] %s' \
+                  % (e.registered, e.timeout, self.get_name(),
+                     e.name, e.description)
 
         if e.name == 'task':
             self.handle_timeout_task(e)
@@ -220,9 +224,13 @@ class ActiveFS(event.TimeoutEventHandler):
             #delay = 3 * (float(max(transfer_from)) / self.config.netbw)
             delay = 0.5 + 2 * (float(transfer_total) / self.config.netbw)
 
-            print 'transfer delay: %f' % delay
+            #print 'transfer delay: %f' % delay
             e = event.TimeoutEvent('transfer', delay, self)
             e.set_context(transfer_list)
+            desc = '{}({}) transfers {}'. \
+                    format(task.name, task.osd,
+                           map(lambda x: (x.name, x.size, x.location), transfer_list[1:]))
+            e.set_description(desc)
             self.ev.register_event(e)
 
     def handle_transfer_complete(self, e):
@@ -264,7 +272,9 @@ class ActiveFS(event.TimeoutEventHandler):
 
     def handle_timeout(self, e):
         if self.config.eventlog:
-            print '%s: [e] %s' % (self.get_name(), e.name)
+            print '(%.3f, %.3f) --- %s [%s] %s' % \
+                  (e.registered, e.timeout, self.get_name(),
+                   e.name, e.description)
 
         if e.name == 'transfer':
             self.handle_transfer_complete(e)

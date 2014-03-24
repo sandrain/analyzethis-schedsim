@@ -7,9 +7,11 @@ class TimeoutEvent:
     """
     def __init__(self, name, timeout, handler):
         self.name = name
+        self.registered = 0.0
         self.timeout = timeout
         self.handler = handler
         self.context = None
+        self.description = None
         self.disposable = False
 
     def __lt__(self, other):
@@ -26,6 +28,12 @@ class TimeoutEvent:
 
     def get_context(self):
         return self.context
+
+    def set_description(self, desc):
+        self.description = desc
+
+    def get_description(self):
+        return self.description
 
     def execute_handler(self):
         self.handler.handle_timeout(self)
@@ -57,6 +65,7 @@ class EventSimulator:
         self.modules += [ module ]
 
     def register_event(self, event):
+        event.registered = self.current
         event.timeout += self.current
         heapq.heappush(self.eq, event)
 
