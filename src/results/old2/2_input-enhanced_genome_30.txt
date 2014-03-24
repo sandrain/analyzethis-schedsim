@@ -1,0 +1,257 @@
+(0.000, 0.000) --- ActiveFlash-0 [init] None
+(0.000, 0.000) --- ActiveFlash-1 [init] None
+(0.000, 0.000) --- ActiveFS [init] None
+(0.000, 68.140) --- ActiveFlash-0 [task] ID00000-fastqSplit_chr21 (68.140 sec) execution
+(68.140, 77.610) --- ActiveFlash-0 [task] ID00004-filterContams_chr21 (9.470 sec) execution
+(77.610, 88.100) --- ActiveFlash-0 [task] ID00001-filterContams_chr21 (10.490 sec) execution
+(88.100, 96.470) --- ActiveFlash-0 [task] ID00002-filterContams_chr21 (8.370 sec) execution
+(96.470, 105.080) --- ActiveFlash-0 [task] ID00005-filterContams_chr21 (8.610 sec) execution
+(105.080, 112.600) --- ActiveFlash-0 [task] ID00003-filterContams_chr21 (7.520 sec) execution
+(112.600, 125.900) --- ActiveFlash-0 [task] ID00006-filterContams_chr21 (13.300 sec) execution
+(125.900, 128.720) --- ActiveFlash-0 [task] ID00010-sol2sanger_chr21 (2.820 sec) execution
+(128.720, 131.440) --- ActiveFlash-0 [task] ID00007-sol2sanger_chr21 (2.720 sec) execution
+(131.440, 135.620) --- ActiveFlash-0 [task] ID00008-sol2sanger_chr21 (4.180 sec) execution
+(135.620, 139.270) --- ActiveFlash-0 [task] ID00011-sol2sanger_chr21 (3.650 sec) execution
+(139.270, 142.030) --- ActiveFlash-0 [task] ID00009-sol2sanger_chr21 (2.760 sec) execution
+(142.030, 145.320) --- ActiveFlash-0 [task] ID00012-sol2sanger_chr21 (3.290 sec) execution
+(145.320, 148.090) --- ActiveFlash-0 [task] ID00016-fastq2bfq_chr21 (2.770 sec) execution
+(148.090, 151.160) --- ActiveFlash-0 [task] ID00013-fastq2bfq_chr21 (3.070 sec) execution
+(151.160, 156.380) --- ActiveFlash-0 [task] ID00014-fastq2bfq_chr21 (5.220 sec) execution
+(156.380, 159.840) --- ActiveFlash-0 [task] ID00017-fastq2bfq_chr21 (3.460 sec) execution
+(159.840, 166.580) --- ActiveFlash-0 [task] ID00015-fastq2bfq_chr21 (6.740 sec) execution
+(166.580, 171.630) --- ActiveFlash-0 [task] ID00018-fastq2bfq_chr21 (5.050 sec) execution
+(171.630, 2264.400) --- ActiveFlash-0 [task] ID00022-map_chr21 (2092.770 sec) execution
+(2264.400, 4303.060) --- ActiveFlash-0 [task] ID00019-map_chr21 (2038.660 sec) execution
+(4303.060, 6586.300) --- ActiveFlash-0 [task] ID00020-map_chr21 (2283.240 sec) execution
+(6586.300, 9291.190) --- ActiveFlash-0 [task] ID00023-map_chr21 (2704.890 sec) execution
+(9291.190, 11656.220) --- ActiveFlash-0 [task] ID00021-map_chr21 (2365.030 sec) execution
+(11656.220, 13698.080) --- ActiveFlash-0 [task] ID00024-map_chr21 (2041.860 sec) execution
+(13698.080, 13715.380) --- ActiveFlash-0 [task] ID00025-mapMerge_chr21 (17.300 sec) execution
+(13715.380, 13715.440) --- ActiveFlash-0 [task] ID00026-maqindex_chr21 (0.060 sec) execution
+(13715.440, 13716.066) --- ActiveFS [transfer] ID00027-pileup_chr21(1) transfers [('chr21.nocontam.chr.map', 1330564, 0)]
+(13716.066, 15041.396) --- ActiveFlash-1 [task] ID00027-pileup_chr21 (1325.330 sec) execution
+
+-----------------------------------------
+job: Genome_28
+scheduler input-enhanced:
+
+Task statistics
+
+task: ID00000-fastqSplit_chr21
+osd      = 0
+submit    = 0.000
+start     = 0.000
+complete  = 68.140
+No data transfers
+
+task: ID00024-map_chr21
+osd      = 0
+submit    = 171.630
+start     = 11656.220
+complete  = 13698.080
+No data transfers
+
+task: ID00004-filterContams_chr21
+osd      = 0
+submit    = 68.140
+start     = 68.140
+complete  = 77.610
+No data transfers
+
+task: ID00001-filterContams_chr21
+osd      = 0
+submit    = 68.140
+start     = 77.610
+complete  = 88.100
+No data transfers
+
+task: ID00014-fastq2bfq_chr21
+osd      = 0
+submit    = 135.620
+start     = 151.160
+complete  = 156.380
+No data transfers
+
+task: ID00018-fastq2bfq_chr21
+osd      = 0
+submit    = 145.320
+start     = 166.580
+complete  = 171.630
+No data transfers
+
+task: ID00009-sol2sanger_chr21
+osd      = 0
+submit    = 112.600
+start     = 139.270
+complete  = 142.030
+No data transfers
+
+task: ID00002-filterContams_chr21
+osd      = 0
+submit    = 68.140
+start     = 88.100
+complete  = 96.470
+No data transfers
+
+task: ID00005-filterContams_chr21
+osd      = 0
+submit    = 68.140
+start     = 96.470
+complete  = 105.080
+No data transfers
+
+task: ID00007-sol2sanger_chr21
+osd      = 0
+submit    = 88.100
+start     = 128.720
+complete  = 131.440
+No data transfers
+
+task: ID00008-sol2sanger_chr21
+osd      = 0
+submit    = 96.470
+start     = 131.440
+complete  = 135.620
+No data transfers
+
+task: ID00022-map_chr21
+osd      = 0
+submit    = 148.090
+start     = 171.630
+complete  = 2264.400
+No data transfers
+
+task: ID00023-map_chr21
+osd      = 0
+submit    = 159.840
+start     = 6586.300
+complete  = 9291.190
+No data transfers
+
+task: ID00015-fastq2bfq_chr21
+osd      = 0
+submit    = 142.030
+start     = 159.840
+complete  = 166.580
+No data transfers
+
+task: ID00021-map_chr21
+osd      = 0
+submit    = 166.580
+start     = 9291.190
+complete  = 11656.220
+No data transfers
+
+task: ID00017-fastq2bfq_chr21
+osd      = 0
+submit    = 139.270
+start     = 156.380
+complete  = 159.840
+No data transfers
+
+task: ID00019-map_chr21
+osd      = 0
+submit    = 151.160
+start     = 2264.400
+complete  = 4303.060
+No data transfers
+
+task: ID00020-map_chr21
+osd      = 0
+submit    = 156.380
+start     = 4303.060
+complete  = 6586.300
+No data transfers
+
+task: ID00011-sol2sanger_chr21
+osd      = 0
+submit    = 105.080
+start     = 135.620
+complete  = 139.270
+No data transfers
+
+task: ID00027-pileup_chr21
+osd      = 1
+submit    = 13716.066
+start     = 13716.066
+complete  = 15041.396
+transferB = 1330564
+transfers = 1 [('chr21.nocontam.chr.map', 0, 1330564)]
+
+task: ID00025-mapMerge_chr21
+osd      = 0
+submit    = 13698.080
+start     = 13698.080
+complete  = 13715.380
+No data transfers
+
+task: ID00003-filterContams_chr21
+osd      = 0
+submit    = 68.140
+start     = 105.080
+complete  = 112.600
+No data transfers
+
+task: ID00010-sol2sanger_chr21
+osd      = 0
+submit    = 77.610
+start     = 125.900
+complete  = 128.720
+No data transfers
+
+task: ID00016-fastq2bfq_chr21
+osd      = 0
+submit    = 128.720
+start     = 145.320
+complete  = 148.090
+No data transfers
+
+task: ID00026-maqindex_chr21
+osd      = 0
+submit    = 13715.380
+start     = 13715.380
+complete  = 13715.440
+No data transfers
+
+task: ID00012-sol2sanger_chr21
+osd      = 0
+submit    = 125.900
+start     = 142.030
+complete  = 145.320
+No data transfers
+
+task: ID00006-filterContams_chr21
+osd      = 0
+submit    = 68.140
+start     = 112.600
+complete  = 125.900
+No data transfers
+
+task: ID00013-fastq2bfq_chr21
+osd      = 0
+submit    = 131.440
+start     = 148.090
+complete  = 151.160
+No data transfers
+
+OSD busy intervals
+OSD 0: 13715.440 sec
+	[(0.00, 68.14), (68.14, 77.61), (77.61, 88.10), (88.10, 96.47), (96.47, 105.08), (105.08, 112.60), (112.60, 125.90), (125.90, 128.72), (128.72, 131.44), (131.44, 135.62), (135.62, 139.27), (139.27, 142.03), (142.03, 145.32), (145.32, 148.09), (148.09, 151.16), (151.16, 156.38), (156.38, 159.84), (159.84, 166.58), (166.58, 171.63), (171.63, 2264.40), (2264.40, 4303.06), (4303.06, 6586.30), (6586.30, 9291.19), (9291.19, 11656.22), (11656.22, 13698.08), (13698.08, 13715.38), (13715.38, 13715.44)]
+OSD 1: 1325.330 sec
+	[(13716.07, 15041.40)]
+
+OSD mean utilization = 49.998
+OSD std utilization = 41.187
+
+SSD RW statistics
+OSD    Total R    Total W    Extra R    Extra W
+  0 8166313352 1252203410    1330564          0
+  1 1115068162   11868922          0    1330564
+
+Total data transfer = 1330564 bytes (1.269 MB)
+Average SSD read = 4640690757 bytes (4425.708 MB)
+Average SSD write = 632036166 bytes (602.757 MB)
+STD SSD read = 3525622595 bytes (3362.296 MB)
+STD SSD write = 620167244 bytes (591.438 MB)
+
+simulation finished at 15041.396

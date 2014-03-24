@@ -100,13 +100,13 @@ class ActiveSimulator(event.EventSimulator):
 
         print '\nTotal data transfer = %d bytes (%.3f MB)' % \
                     (total_transfer, float(total_transfer) / (2**20))
-        print 'Average SSD read = %d bytes (%.3f MB)' % \
+        print 'SSD mean read = %d bytes (%.3f MB)' % \
                     (rmean, float(rmean) / (2**20))
-        print 'Average SSD write = %d bytes (%.3f MB)' % \
+        print 'SSD mean write = %d bytes (%.3f MB)' % \
                     (wmean, float(wmean) / (2**20))
-        print 'STD SSD read = %d bytes (%.3f MB)' % \
+        print 'SSD std read = %d bytes (%.3f MB)' % \
                     (rstd, float(rstd) / (2**20))
-        print 'STD SSD write = %d bytes (%.3f MB)' % \
+        print 'SSD std write = %d bytes (%.3f MB)' % \
                     (wstd, float(wstd) / (2**20))
 
 """main program
