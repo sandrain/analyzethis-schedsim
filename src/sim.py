@@ -5,6 +5,7 @@ import argparse
 import textwrap
 import json
 import pdb
+import scipy
 from lxml import etree
 
 import event
@@ -48,17 +49,36 @@ class ActiveSimulator(event.EventSimulator):
         for task in self.afs.job.tasks.values():
             task.report()
 
+        """OSD statistics
+        """
         print '\nOSD busy intervals'
+        busy = []
         for i in range(len(self.afs.osds)):
             intervals = [ (t.stat.t_start, t.stat.t_complete)
                           for t in self.afs.job.tasks.values() if t.osd == i]
-            print 'OSD %d [%s]' % \
-                    (i, ', '.join('(%.2f, %.2f)' % (x,y) for x,y in
+            if len(intervals) > 0:
+                busy += [ reduce(lambda x, y: x+y,
+                                 map(lambda (x, y): y-x, intervals)) ]
+            else:
+                busy += [ 0.0 ]
+            print 'OSD %d: %.3f sec\n\t[%s]' % \
+                    (i, busy[-1],
+                     ', '.join('(%.2f, %.2f)' % (x,y) for x,y in
                              sorted(intervals, key=lambda x: x[0])))
 
+        util_mean = scipy.mean(busy) / self.afs.ev.current * 100
+        util_std = scipy.std(busy) / self.afs.ev.current * 100
+
+        print '\nOSD mean utilization = %.3f' % util_mean
+        print 'OSD std utilization = %.3f' % util_std
+
+        """SSD statistics
+        """
         print '\nSSD RW statistics'
         print '%-3s%11s%11s%11s%11s' % \
                 ('OSD', 'Total R', 'Total W', 'Extra R', 'Extra W')
+        total_read = 0
+        total_write = 0
         for i in range(len(self.afs.osds)):
             total_read = self.afs.osds[i].get_total_read()
             total_write = self.afs.osds[i].get_total_write()
@@ -70,9 +90,24 @@ class ActiveSimulator(event.EventSimulator):
 
         total_transfer = reduce(lambda x, y: x+y,
                            [ osd.get_extra_read() for osd in self.afs.osds ])
+        reads = map(lambda x: x.get_total_read(), self.afs.osds)
+        writes = map(lambda x: x.get_total_write(), self.afs.osds)
+
+        rmean = scipy.mean(reads)
+        wmean = scipy.mean(writes)
+        rstd = scipy.std(reads)
+        wstd = scipy.std(writes)
 
         print '\nTotal data transfer = %d bytes (%.3f MB)' % \
-                    (total_transfer, total_transfer / (2**20))
+                    (total_transfer, float(total_transfer) / (2**20))
+        print 'Average SSD read = %d bytes (%.3f MB)' % \
+                    (rmean, float(rmean) / (2**20))
+        print 'Average SSD write = %d bytes (%.3f MB)' % \
+                    (wmean, float(wmean) / (2**20))
+        print 'STD SSD read = %d bytes (%.3f MB)' % \
+                    (rstd, float(rstd) / (2**20))
+        print 'STD SSD write = %d bytes (%.3f MB)' % \
+                    (wstd, float(wstd) / (2**20))
 
 """main program
 """

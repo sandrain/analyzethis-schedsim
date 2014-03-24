@@ -1,3 +1,60 @@
+(0.000, 0.000) --- ActiveFlash-0 [init] None
+(0.000, 0.000) --- ActiveFlash-1 [init] None
+(0.000, 0.000) --- ActiveFS [init] None
+(0.000, 2.400) --- ActiveFS [transfer] ID00001-mProjectPP(1) transfers [('region.hdr', 304, 0)]
+(0.000, 2.400) --- ActiveFS [transfer] ID00005-mProjectPP(1) transfers [('region.hdr', 304, 0)]
+(0.000, 2.400) --- ActiveFS [transfer] ID00003-mProjectPP(1) transfers [('region.hdr', 304, 0)]
+(0.000, 13.760) --- ActiveFlash-0 [task] ID00006-mProjectPP (13.760 sec) execution
+(2.400, 15.860) --- ActiveFlash-1 [task] ID00001-mProjectPP (13.460 sec) execution
+(15.860, 17.221) --- ActiveFS [transfer] ID00012-mDiffFit(0) transfers [('p2mass-atlas-ID00001s-jID00001.fits', 4147856, 1), ('p2mass-atlas-ID00001s-jID00001_area.fits', 4147856, 1)]
+(13.760, 27.580) --- ActiveFlash-0 [task] ID00004-mProjectPP (13.820 sec) execution
+(15.860, 29.650) --- ActiveFlash-1 [task] ID00003-mProjectPP (13.790 sec) execution
+(29.650, 31.012) --- ActiveFS [transfer] ID00024-mDiffFit(1) transfers [('p2mass-atlas-ID00006s-jID00006.fits', 4157121, 0), ('p2mass-atlas-ID00006s-jID00006_area.fits', 4157121, 0)]
+(29.650, 31.012) --- ActiveFS [transfer] ID00017-mDiffFit(1) transfers [('p2mass-atlas-ID00004s-jID00004.fits', 4158825, 0), ('p2mass-atlas-ID00004s-jID00004_area.fits', 4158825, 0)]
+(27.580, 41.360) --- ActiveFlash-0 [task] ID00000-mProjectPP (13.780 sec) execution
+(29.650, 43.220) --- ActiveFlash-1 [task] ID00005-mProjectPP (13.570 sec) execution
+(43.220, 53.840) --- ActiveFlash-1 [task] ID00010-mDiffFit (10.620 sec) execution
+(41.360, 54.950) --- ActiveFlash-0 [task] ID00002-mProjectPP (13.590 sec) execution
+(54.950, 56.312) --- ActiveFS [transfer] ID00014-mDiffFit(0) transfers [('p2mass-atlas-ID00003s-jID00003.fits', 4160740, 1), ('p2mass-atlas-ID00003s-jID00003_area.fits', 4160740, 1)]
+(54.950, 56.312) --- ActiveFS [transfer] ID00022-mDiffFit(1) transfers [('p2mass-atlas-ID00002s-jID00002.fits', 4163951, 0), ('p2mass-atlas-ID00002s-jID00002_area.fits', 4163951, 0)]
+(53.840, 64.530) --- ActiveFlash-1 [task] ID00024-mDiffFit (10.690 sec) execution
+(54.950, 65.560) --- ActiveFlash-0 [task] ID00012-mDiffFit (10.610 sec) execution
+(64.530, 75.180) --- ActiveFlash-1 [task] ID00017-mDiffFit (10.650 sec) execution
+(65.560, 76.100) --- ActiveFlash-0 [task] ID00025-mDiffFit (10.540 sec) execution
+(75.180, 85.870) --- ActiveFlash-1 [task] ID00011-mDiffFit (10.690 sec) execution
+(76.100, 86.820) --- ActiveFlash-0 [task] ID00016-mDiffFit (10.720 sec) execution
+(85.870, 96.520) --- ActiveFlash-1 [task] ID00023-mDiffFit (10.650 sec) execution
+(86.820, 97.530) --- ActiveFlash-0 [task] ID00020-mDiffFit (10.710 sec) execution
+(96.520, 107.160) --- ActiveFlash-1 [task] ID00019-mDiffFit (10.640 sec) execution
+(97.530, 108.060) --- ActiveFlash-0 [task] ID00018-mDiffFit (10.530 sec) execution
+(107.160, 117.580) --- ActiveFlash-1 [task] ID00026-mDiffFit (10.420 sec) execution
+(108.060, 118.620) --- ActiveFlash-0 [task] ID00008-mDiffFit (10.560 sec) execution
+(117.580, 128.160) --- ActiveFlash-1 [task] ID00021-mDiffFit (10.580 sec) execution
+(118.620, 129.190) --- ActiveFlash-0 [task] ID00007-mDiffFit (10.570 sec) execution
+(128.160, 138.840) --- ActiveFlash-1 [task] ID00022-mDiffFit (10.680 sec) execution
+(129.190, 139.810) --- ActiveFlash-0 [task] ID00015-mDiffFit (10.620 sec) execution
+(139.810, 150.340) --- ActiveFlash-0 [task] ID00013-mDiffFit (10.530 sec) execution
+(150.340, 160.740) --- ActiveFlash-0 [task] ID00009-mDiffFit (10.400 sec) execution
+(160.740, 171.210) --- ActiveFlash-0 [task] ID00014-mDiffFit (10.470 sec) execution
+(171.210, 185.075) --- ActiveFS [transfer] ID00027-mConcatFit(1) transfers [('fits_list.tbl', 545, 0), ('fitID00007.txt', 291, 0), ('diffID00007.txt', 371228, 0), ('fitID00008.txt', 285, 0), ('diffID00008.txt', 279586, 0), ('fitID00009.txt', 254, 0), ('diffID00009.txt', 349428, 0), ('fitID00012.txt', 239, 0), ('diffID00012.txt', 274806, 0), ('fitID00013.txt', 281, 0), ('diffID00013.txt', 264530, 0), ('fitID00014.txt', 266, 0), ('diffID00014.txt', 313173, 0), ('fitID00015.txt', 276, 0), ('diffID00015.txt', 145514, 0), ('fitID00016.txt', 257, 0), ('diffID00016.txt', 293425, 0), ('fitID00018.txt', 279, 0), ('diffID00018.txt', 332584, 0), ('fitID00020.txt', 259, 0), ('diffID00020.txt', 332705, 0), ('fitID00025.txt', 277, 0), ('diffID00025.txt', 372278, 0)]
+(185.075, 186.675) --- ActiveFlash-1 [task] ID00027-mConcatFit (1.600 sec) execution
+(186.675, 188.135) --- ActiveFlash-1 [task] ID00028-mBgModel (1.460 sec) execution
+(188.135, 191.135) --- ActiveFS [transfer] ID00035-mBackground(0) transfers [('corrections.tbl', 372, 1)]
+(188.135, 191.135) --- ActiveFS [transfer] ID00029-mBackground(0) transfers [('corrections.tbl', 372, 1)]
+(188.135, 191.135) --- ActiveFS [transfer] ID00031-mBackground(0) transfers [('corrections.tbl', 372, 1)]
+(188.135, 191.135) --- ActiveFS [transfer] ID00033-mBackground(0) transfers [('corrections.tbl', 372, 1)]
+(188.135, 199.075) --- ActiveFlash-1 [task] ID00030-mBackground (10.940 sec) execution
+(191.135, 202.075) --- ActiveFlash-0 [task] ID00035-mBackground (10.940 sec) execution
+(199.075, 209.975) --- ActiveFlash-1 [task] ID00032-mBackground (10.900 sec) execution
+(202.075, 213.325) --- ActiveFlash-0 [task] ID00033-mBackground (11.250 sec) execution
+(209.975, 220.665) --- ActiveFlash-1 [task] ID00034-mBackground (10.690 sec) execution
+(213.325, 224.105) --- ActiveFlash-0 [task] ID00029-mBackground (10.780 sec) execution
+(224.105, 234.715) --- ActiveFlash-0 [task] ID00031-mBackground (10.610 sec) execution
+(234.715, 240.163) --- ActiveFS [transfer] ID00036-mImgTbl(1) transfers [('c2mass-atlas-ID00000s-jID00000_area.fits', 4161862, 0), ('c2mass-atlas-ID00000s-jID00000.fits', 4161862, 0), ('c2mass-atlas-ID00002s-jID00002_area.fits', 4170853, 0), ('c2mass-atlas-ID00002s-jID00002.fits', 4170853, 0), ('c2mass-atlas-ID00004s-jID00004.fits', 4153218, 0), ('c2mass-atlas-ID00004s-jID00004_area.fits', 4153218, 0), ('c2mass-atlas-ID00006s-jID00006_area.fits', 4172234, 0), ('c2mass-atlas-ID00006s-jID00006.fits', 4172234, 0)]
+(240.163, 242.933) --- ActiveFlash-1 [task] ID00036-mImgTbl (2.770 sec) execution
+(242.933, 247.103) --- ActiveFlash-1 [task] ID00037-mAdd (4.170 sec) execution
+(247.103, 251.673) --- ActiveFlash-1 [task] ID00038-mShrink (4.570 sec) execution
+(251.673, 252.693) --- ActiveFlash-1 [task] ID00039-mJPEG (1.020 sec) execution
 
 -----------------------------------------
 job: Montage_40
@@ -300,14 +357,23 @@ complete  = 128.160
 No data transfers
 
 OSD busy intervals
-OSD 0 [(0.00, 13.76), (13.76, 27.58), (27.58, 41.36), (41.36, 54.95), (54.95, 65.56), (65.56, 76.10), (76.10, 86.82), (86.82, 97.53), (97.53, 108.06), (108.06, 118.62), (118.62, 129.19), (129.19, 139.81), (139.81, 150.34), (150.34, 160.74), (160.74, 171.21), (191.13, 202.07), (202.07, 213.32), (213.32, 224.10), (224.10, 234.71)]
-OSD 1 [(2.40, 15.86), (15.86, 29.65), (29.65, 43.22), (43.22, 53.84), (53.84, 64.53), (64.53, 75.18), (75.18, 85.87), (85.87, 96.52), (96.52, 107.16), (107.16, 117.58), (117.58, 128.16), (128.16, 138.84), (185.07, 186.67), (186.67, 188.13), (188.13, 199.07), (199.07, 209.97), (209.97, 220.66), (240.16, 242.93), (242.93, 247.10), (247.10, 251.67), (251.67, 252.69)]
+OSD 0: 214.790 sec
+	[(0.00, 13.76), (13.76, 27.58), (27.58, 41.36), (41.36, 54.95), (54.95, 65.56), (65.56, 76.10), (76.10, 86.82), (86.82, 97.53), (97.53, 108.06), (108.06, 118.62), (118.62, 129.19), (129.19, 139.81), (139.81, 150.34), (150.34, 160.74), (160.74, 171.21), (191.13, 202.07), (202.07, 213.32), (213.32, 224.10), (224.10, 234.71)]
+OSD 1: 184.560 sec
+	[(2.40, 15.86), (15.86, 29.65), (29.65, 43.22), (43.22, 53.84), (53.84, 64.53), (64.53, 75.18), (75.18, 85.87), (85.87, 96.52), (96.52, 107.16), (107.16, 117.58), (117.58, 128.16), (128.16, 138.84), (185.07, 186.67), (186.67, 188.13), (188.13, 199.07), (199.07, 209.97), (209.97, 220.66), (240.16, 242.93), (242.93, 247.10), (247.10, 251.67), (251.67, 252.69)]
+
+OSD mean utilization = 79.019
+OSD std utilization = 5.982
 
 SSD RW statistics
 OSD    Total R    Total W    Extra R    Extra W
   0  278345892   86613345   61609806   16618680
   1  381398189  227761543   16618680   61609806
 
-Total data transfer = 78228486 bytes (74.000 MB)
+Total data transfer = 78228486 bytes (74.604 MB)
+Average SSD read = 329872040 bytes (314.590 MB)
+Average SSD write = 157187444 bytes (149.906 MB)
+STD SSD read = 51526148 bytes (49.139 MB)
+STD SSD write = 70574099 bytes (67.305 MB)
 
 simulation finished at 252.693

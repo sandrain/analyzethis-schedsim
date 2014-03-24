@@ -1,3 +1,48 @@
+(0.000, 0.000) --- ActiveFlash-0 [init] None
+(0.000, 0.000) --- ActiveFlash-2 [init] None
+(0.000, 0.000) --- ActiveFS [init] None
+(0.000, 0.000) --- ActiveFlash-1 [init] None
+(0.000, 0.000) --- ActiveFlash-3 [init] None
+(0.000, 0.130) --- ActiveFlash-0 [task] ID00001-ZipSeis (0.130 sec) execution
+(0.130, 0.300) --- ActiveFlash-0 [task] ID00000-ZipPSA (0.170 sec) execution
+(0.000, 381.955) --- ActiveFS [transfer] ID00002-ExtractSGT(0) transfers [('FFI_0_1_fy.sgt', 19565934096, 1), ('FFI_0_1_txt.variation-s09238-h06341', 5160961, 2)]
+(0.000, 396.249) --- ActiveFS [transfer] ID00013-ExtractSGT(3) transfers [('FFI_0_2_fy.sgt', 20301657361, 0), ('FFI_0_2_txt.variation-s07212-h09661', 4171321, 1)]
+(396.249, 550.709) --- ActiveFlash-3 [task] ID00013-ExtractSGT (154.460 sec) execution
+(550.709, 551.363) --- ActiveFS [transfer] ID00016-SeismogramSynthesis(3) transfers [('FFI_0_2_txt.variation-s07713-h05049', 2796369, 2)]
+(550.709, 551.368) --- ActiveFS [transfer] ID00018-SeismogramSynthesis(3) transfers [('FFI_0_2_txt.variation-s09697-h02650', 3034872, 0)]
+(550.709, 551.369) --- ActiveFS [transfer] ID00014-SeismogramSynthesis(3) transfers [('FFI_0_2_txt.variation-s00201-h05216', 3083630, 1)]
+(550.709, 551.390) --- ActiveFS [transfer] ID00022-SeismogramSynthesis(3) transfers [('FFI_0_2_txt.variation-s00944-h00808', 4171919, 2)]
+(550.709, 551.401) --- ActiveFS [transfer] ID00026-SeismogramSynthesis(3) transfers [('FFI_0_2_txt.variation-s06319-h01336', 4749780, 0)]
+(381.955, 562.765) --- ActiveFlash-0 [task] ID00002-ExtractSGT (180.810 sec) execution
+(562.765, 563.403) --- ActiveFS [transfer] ID00007-SeismogramSynthesis(0) transfers [('FFI_0_1_txt.variation-s00415-h01881', 1955143, 3)]
+(562.765, 563.444) --- ActiveFS [transfer] ID00003-SeismogramSynthesis(0) transfers [('FFI_0_1_txt.variation-s00292-h07153', 4095089, 2)]
+(562.765, 563.462) --- ActiveFS [transfer] ID00005-SeismogramSynthesis(0) transfers [('FFI_0_1_txt.variation-s03431-h03065', 5014044, 1)]
+(562.765, 585.245) --- ActiveFlash-0 [task] ID00011-SeismogramSynthesis (22.480 sec) execution
+(550.709, 606.019) --- ActiveFlash-3 [task] ID00020-SeismogramSynthesis (55.310 sec) execution
+(585.245, 622.535) --- ActiveFlash-0 [task] ID00009-SeismogramSynthesis (37.290 sec) execution
+(606.019, 645.869) --- ActiveFlash-3 [task] ID00024-SeismogramSynthesis (39.850 sec) execution
+(622.535, 651.695) --- ActiveFlash-0 [task] ID00007-SeismogramSynthesis (29.160 sec) execution
+(645.869, 676.209) --- ActiveFlash-3 [task] ID00028-SeismogramSynthesis (30.340 sec) execution
+(651.695, 679.155) --- ActiveFlash-0 [task] ID00003-SeismogramSynthesis (27.460 sec) execution
+(679.155, 715.095) --- ActiveFlash-0 [task] ID00005-SeismogramSynthesis (35.940 sec) execution
+(715.095, 716.615) --- ActiveFlash-0 [task] ID00012-PeakValCalcOkaya (1.520 sec) execution
+(716.615, 717.655) --- ActiveFlash-0 [task] ID00010-PeakValCalcOkaya (1.040 sec) execution
+(717.655, 719.045) --- ActiveFlash-0 [task] ID00008-PeakValCalcOkaya (1.390 sec) execution
+(719.045, 720.255) --- ActiveFlash-0 [task] ID00004-PeakValCalcOkaya (1.210 sec) execution
+(720.255, 721.725) --- ActiveFlash-0 [task] ID00006-PeakValCalcOkaya (1.470 sec) execution
+(676.209, 729.419) --- ActiveFlash-3 [task] ID00016-SeismogramSynthesis (53.210 sec) execution
+(729.419, 768.189) --- ActiveFlash-3 [task] ID00018-SeismogramSynthesis (38.770 sec) execution
+(768.189, 827.389) --- ActiveFlash-3 [task] ID00014-SeismogramSynthesis (59.200 sec) execution
+(827.389, 860.419) --- ActiveFlash-3 [task] ID00022-SeismogramSynthesis (33.030 sec) execution
+(860.419, 916.219) --- ActiveFlash-3 [task] ID00026-SeismogramSynthesis (55.800 sec) execution
+(916.219, 916.829) --- ActiveFlash-3 [task] ID00021-PeakValCalcOkaya (0.610 sec) execution
+(916.829, 917.939) --- ActiveFlash-3 [task] ID00025-PeakValCalcOkaya (1.110 sec) execution
+(917.939, 919.479) --- ActiveFlash-3 [task] ID00029-PeakValCalcOkaya (1.540 sec) execution
+(919.479, 920.519) --- ActiveFlash-3 [task] ID00017-PeakValCalcOkaya (1.040 sec) execution
+(920.519, 921.909) --- ActiveFlash-3 [task] ID00019-PeakValCalcOkaya (1.390 sec) execution
+(921.909, 922.899) --- ActiveFlash-3 [task] ID00015-PeakValCalcOkaya (0.990 sec) execution
+(922.899, 924.489) --- ActiveFlash-3 [task] ID00023-PeakValCalcOkaya (1.590 sec) execution
+(924.489, 925.739) --- ActiveFlash-3 [task] ID00027-PeakValCalcOkaya (1.250 sec) execution
 
 -----------------------------------------
 job: CyberShake_30
@@ -226,10 +271,17 @@ transferB = 20305828682
 transfers = 2 [('FFI_0_2_fy.sgt', 0, 20301657361), ('FFI_0_2_txt.variation-s07212-h09661', 1, 4171321)]
 
 OSD busy intervals
-OSD 0 [(0.00, 0.13), (0.13, 0.30), (381.95, 562.76), (562.76, 585.24), (585.24, 622.53), (622.53, 651.69), (651.69, 679.15), (679.15, 715.09), (715.09, 716.61), (716.61, 717.65), (717.65, 719.04), (719.04, 720.25), (720.25, 721.72)]
-OSD 1 []
-OSD 2 []
-OSD 3 [(396.25, 550.71), (550.71, 606.02), (606.02, 645.87), (645.87, 676.21), (676.21, 729.42), (729.42, 768.19), (768.19, 827.39), (827.39, 860.42), (860.42, 916.22), (916.22, 916.83), (916.83, 917.94), (917.94, 919.48), (919.48, 920.52), (920.52, 921.91), (921.91, 922.90), (922.90, 924.49), (924.49, 925.74)]
+OSD 0: 340.070 sec
+	[(0.00, 0.13), (0.13, 0.30), (381.95, 562.76), (562.76, 585.24), (585.24, 622.53), (622.53, 651.69), (651.69, 679.15), (679.15, 715.09), (715.09, 716.61), (716.61, 717.65), (717.65, 719.04), (719.04, 720.25), (720.25, 721.72)]
+OSD 1: 0.000 sec
+	[]
+OSD 2: 0.000 sec
+	[]
+OSD 3: 529.490 sec
+	[(396.25, 550.71), (550.71, 606.02), (606.02, 645.87), (645.87, 676.21), (676.21, 729.42), (729.42, 768.19), (768.19, 827.39), (827.39, 860.42), (860.42, 916.22), (916.22, 916.83), (916.83, 917.94), (917.94, 919.48), (919.48, 920.52), (920.52, 921.91), (921.91, 922.90), (922.90, 924.49), (924.49, 925.74)]
+
+OSD mean utilization = 23.483
+OSD std utilization = 24.572
 
 SSD RW statistics
 OSD    Total R    Total W    Extra R    Extra W
@@ -238,6 +290,10 @@ OSD    Total R    Total W    Extra R    Extra W
   2   16224338          0   16224338          0
   3 42533754110 20560617294    1955143 20323665252
 
-Total data transfer = 39905824585 bytes (38057.000 MB)
+Total data transfer = 39905824585 bytes (38057.160 MB)
+Average SSD read = 30700420614 bytes (29278.203 MB)
+Average SSD write = 10096134044 bytes (9628.424 MB)
+STD SSD read = 22932711071 bytes (21870.338 MB)
+STD SSD write = 10099493215 bytes (9631.627 MB)
 
 simulation finished at 925.739

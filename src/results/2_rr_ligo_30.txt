@@ -1,3 +1,63 @@
+(0.000, 0.000) --- ActiveFlash-0 [init] None
+(0.000, 0.000) --- ActiveFlash-1 [init] None
+(0.000, 0.000) --- ActiveFS [init] None
+(0.000, 1.521) --- ActiveFS [transfer] ID00006-TmpltBank(0) transfers [('H-CAL_REF_DARM_ERR_H1_S5_V1-838289536-8.gwf', 902334, 1), ('H-H1_RDS_L4-863423642-1024.gwf', 15586081, 1)]
+(0.000, 1.521) --- ActiveFS [transfer] ID00004-TmpltBank(0) transfers [('H-CAL_REF_DARM_ERR_H1_S5_V1-838289536-8.gwf', 902334, 1), ('H-H1_RDS_L4-863423640-1024.gwf', 15588775, 1)]
+(0.000, 1.521) --- ActiveFS [transfer] ID00002-TmpltBank(0) transfers [('H-CAL_REF_DARM_ERR_H1_S5_V1-838289536-8.gwf', 902334, 1), ('H-H1_RDS_L4-863423638-1024.gwf', 15598295, 1)]
+(0.000, 1.521) --- ActiveFS [transfer] ID00000-TmpltBank(0) transfers [('H-CAL_REF_DARM_ERR_H1_S5_V1-838289536-8.gwf', 902334, 1), ('H-H1_RDS_L4-863423636-1024.gwf', 15605813, 1)]
+(0.000, 1.667) --- ActiveFS [transfer] ID00005-TmpltBank(1) transfers [('H-CAL_FAC_DARM_ERR_H1_S5_U_060-829892741-299859774.gwf', 8415922, 0), ('H-H1_RDS_L4-863423641-1024.gwf', 15581077, 0)]
+(0.000, 1.667) --- ActiveFS [transfer] ID00003-TmpltBank(1) transfers [('H-H1_RDS_L4-863423639-1024.gwf', 15593529, 0), ('H-CAL_FAC_DARM_ERR_H1_S5_U_060-829892741-299859774.gwf', 8415922, 0)]
+(0.000, 1.667) --- ActiveFS [transfer] ID00001-TmpltBank(1) transfers [('H-CAL_FAC_DARM_ERR_H1_S5_U_060-829892741-299859774.gwf', 8415922, 0), ('H-H1_RDS_L4-863423637-1024.gwf', 15597480, 0)]
+(1.521, 20.221) --- ActiveFlash-0 [task] ID00006-TmpltBank (18.700 sec) execution
+(1.667, 20.597) --- ActiveFlash-1 [task] ID00005-TmpltBank (18.930 sec) execution
+(20.597, 22.120) --- ActiveFS [transfer] ID00012-Inspiral(0) transfers [('H-H1_RDS_L4-819997512-1024.gwf', 15596813, 1), ('H1-TMPLTBANK-839617647-2048.xml', 1019623, 1)]
+(20.221, 22.391) --- ActiveFS [transfer] ID00013-Inspiral(1) transfers [('HL-INJECTIONS_100-803600705-8168579.xml', 2421423, 0), ('H-H1_RDS_L4-819997513-1024.gwf', 15596862, 0), ('H1-TMPLTBANK-873380177-2048.xml', 997414, 0)]
+(20.597, 38.397) --- ActiveFlash-1 [task] ID00003-TmpltBank (17.800 sec) execution
+(20.221, 38.841) --- ActiveFlash-0 [task] ID00004-TmpltBank (18.620 sec) execution
+(38.397, 39.918) --- ActiveFS [transfer] ID00010-Inspiral(0) transfers [('H-H1_RDS_L4-819997510-1024.gwf', 15582450, 1), ('H1-TMPLTBANK-845772437-2048.xml', 948666, 1)]
+(38.841, 40.363) --- ActiveFS [transfer] ID00011-Inspiral(1) transfers [('H-H1_RDS_L4-819997511-1024.gwf', 15587944, 0), ('H1-TMPLTBANK-810707974-2048.xml', 992737, 0)]
+(38.397, 56.587) --- ActiveFlash-1 [task] ID00001-TmpltBank (18.190 sec) execution
+(38.841, 57.121) --- ActiveFlash-0 [task] ID00002-TmpltBank (18.280 sec) execution
+(56.587, 58.110) --- ActiveFS [transfer] ID00008-Inspiral(0) transfers [('H-H1_RDS_L4-819997508-1024.gwf', 15584641, 1), ('H1-TMPLTBANK-828861228-2048.xml', 1003517, 1)]
+(57.121, 58.643) --- ActiveFS [transfer] ID00009-Inspiral(1) transfers [('H-H1_RDS_L4-819997509-1024.gwf', 15571345, 0), ('H1-TMPLTBANK-731711894-2048.xml', 995633, 0)]
+(57.121, 75.731) --- ActiveFlash-0 [task] ID00000-TmpltBank (18.610 sec) execution
+(75.731, 77.254) --- ActiveFS [transfer] ID00007-Inspiral(1) transfers [('H-H1_RDS_L4-819997507-1024.gwf', 15610705, 0), ('H1-TMPLTBANK-750360102-2048.xml', 978304, 0)]
+(75.731, 447.061) --- ActiveFlash-0 [task] ID00012-Inspiral (371.330 sec) execution
+(56.587, 645.117) --- ActiveFlash-1 [task] ID00013-Inspiral (588.530 sec) execution
+(447.061, 1090.161) --- ActiveFlash-0 [task] ID00010-Inspiral (643.100 sec) execution
+(645.117, 1239.877) --- ActiveFlash-1 [task] ID00011-Inspiral (594.760 sec) execution
+(1090.161, 1721.121) --- ActiveFlash-0 [task] ID00008-Inspiral (630.960 sec) execution
+(1239.877, 1851.887) --- ActiveFlash-1 [task] ID00009-Inspiral (612.010 sec) execution
+(1851.887, 2455.827) --- ActiveFlash-1 [task] ID00007-Inspiral (603.940 sec) execution
+(2455.827, 2458.254) --- ActiveFS [transfer] ID00014-Thinca(0) transfers [('H1-INSPIRAL-750360102-2048.xml', 205338, 1), ('H1-INSPIRAL-731711894-2048.xml', 326049, 1), ('H1-INSPIRAL-810707974-2048.xml', 388554, 1), ('H1-INSPIRAL-873380177-2048.xml', 467700, 1)]
+(2458.254, 2463.584) --- ActiveFlash-0 [task] ID00014-Thinca (5.330 sec) execution
+(2463.584, 2466.586) --- ActiveFS [transfer] ID00019-TrigBank(1) transfers [('H1-THINCA-828861228-2048.xml', 18022, 0)]
+(2463.584, 2466.586) --- ActiveFS [transfer] ID00017-TrigBank(1) transfers [('H1-THINCA-828861228-2048.xml', 18022, 0)]
+(2463.584, 2466.586) --- ActiveFS [transfer] ID00021-TrigBank(1) transfers [('H1-THINCA-828861228-2048.xml', 18022, 0)]
+(2463.584, 2466.586) --- ActiveFS [transfer] ID00015-TrigBank(1) transfers [('H1-THINCA-828861228-2048.xml', 18022, 0)]
+(2463.584, 2468.464) --- ActiveFlash-0 [task] ID00020-TrigBank (4.880 sec) execution
+(2468.464, 2469.064) --- ActiveFS [transfer] ID00027-Inspiral(1) transfers [('H1-TRIGBANK_H1-810121228-7750.xml', 7114, 0)]
+(2466.586, 2471.716) --- ActiveFlash-1 [task] ID00019-TrigBank (5.130 sec) execution
+(2471.716, 2472.316) --- ActiveFS [transfer] ID00026-Inspiral(0) transfers [('H1-TRIGBANK_H1-736282984-9727.xml', 17155, 1)]
+(2468.464, 2474.184) --- ActiveFlash-0 [task] ID00016-TrigBank (5.720 sec) execution
+(2474.184, 2474.784) --- ActiveFS [transfer] ID00023-Inspiral(1) transfers [('H1-TRIGBANK_H1-750260907-1444.xml', 9690, 0)]
+(2471.716, 2476.676) --- ActiveFlash-1 [task] ID00015-TrigBank (4.960 sec) execution
+(2476.676, 2477.276) --- ActiveFS [transfer] ID00022-Inspiral(0) transfers [('H1-TRIGBANK_H1-752238478-7235.xml', 9016, 1)]
+(2474.184, 2479.224) --- ActiveFlash-0 [task] ID00018-TrigBank (5.040 sec) execution
+(2479.224, 2479.824) --- ActiveFS [transfer] ID00025-Inspiral(1) transfers [('H1-TRIGBANK_H1-787912382-3937.xml', 13941, 0)]
+(2476.676, 2481.766) --- ActiveFlash-1 [task] ID00017-TrigBank (5.090 sec) execution
+(2481.766, 2482.366) --- ActiveFS [transfer] ID00024-Inspiral(0) transfers [('H1-TRIGBANK_H1-783425481-4375.xml', 8025, 1)]
+(2481.766, 2486.546) --- ActiveFlash-1 [task] ID00021-TrigBank (4.780 sec) execution
+(2486.546, 2487.146) --- ActiveFS [transfer] ID00028-Inspiral(0) transfers [('H1-TRIGBANK_H1-865582118-6453.xml', 18669, 1)]
+(2486.546, 3096.986) --- ActiveFlash-1 [task] ID00027-Inspiral (610.440 sec) execution
+(2479.224, 3132.144) --- ActiveFlash-0 [task] ID00026-Inspiral (652.920 sec) execution
+(3096.986, 3437.246) --- ActiveFlash-1 [task] ID00023-Inspiral (340.260 sec) execution
+(3132.144, 3748.404) --- ActiveFlash-0 [task] ID00022-Inspiral (616.260 sec) execution
+(3437.246, 3810.016) --- ActiveFlash-1 [task] ID00025-Inspiral (372.770 sec) execution
+(3748.404, 4031.934) --- ActiveFlash-0 [task] ID00024-Inspiral (283.530 sec) execution
+(4031.934, 4620.114) --- ActiveFlash-0 [task] ID00028-Inspiral (588.180 sec) execution
+(4620.114, 4622.539) --- ActiveFS [transfer] ID00029-Thinca(1) transfers [('H1-INSPIRAL_H1-752238478-7235.xml', 216949, 0), ('H1-INSPIRAL_H1-783425481-4375.xml', 331904, 0), ('H1-INSPIRAL_H1-736282984-9727.xml', 321106, 0), ('H1-INSPIRAL_H1-865582118-6453.xml', 409880, 0)]
+(4622.539, 4628.179) --- ActiveFlash-1 [task] ID00029-Thinca (5.640 sec) execution
 
 -----------------------------------------
 job: LIGO_30
@@ -243,14 +303,23 @@ transferB = 17155
 transfers = 1 [('H1-TRIGBANK_H1-736282984-9727.xml', 1, 17155)]
 
 OSD busy intervals
-OSD 0 [(1.52, 20.22), (20.22, 38.84), (38.84, 57.12), (57.12, 75.73), (75.73, 447.06), (447.06, 1090.16), (1090.16, 1721.12), (2458.25, 2463.58), (2463.58, 2468.46), (2468.46, 2474.18), (2474.18, 2479.22), (2479.22, 3132.14), (3132.14, 3748.40), (3748.40, 4031.93), (4031.93, 4620.11)]
-OSD 1 [(1.67, 20.60), (20.60, 38.40), (38.40, 56.59), (56.59, 645.12), (645.12, 1239.88), (1239.88, 1851.89), (1851.89, 2455.83), (2466.59, 2471.72), (2471.72, 2476.68), (2476.68, 2481.77), (2481.77, 2486.55), (2486.55, 3096.99), (3096.99, 3437.25), (3437.25, 3810.02), (4622.54, 4628.18)]
+OSD 0: 3881.460 sec
+	[(1.52, 20.22), (20.22, 38.84), (38.84, 57.12), (57.12, 75.73), (75.73, 447.06), (447.06, 1090.16), (1090.16, 1721.12), (2458.25, 2463.58), (2463.58, 2468.46), (2468.46, 2474.18), (2474.18, 2479.22), (2479.22, 3132.14), (3132.14, 3748.40), (3748.40, 4031.93), (4031.93, 4620.11)]
+OSD 1: 3803.230 sec
+	[(1.67, 20.60), (20.60, 38.40), (38.40, 56.59), (56.59, 645.12), (645.12, 1239.88), (1239.88, 1851.89), (1851.89, 2455.83), (2466.59, 2471.72), (2471.72, 2476.68), (2476.68, 2481.77), (2481.77, 2486.55), (2486.55, 3096.99), (3096.99, 3437.25), (3437.25, 3810.02), (4622.54, 4628.18)]
+
+OSD mean utilization = 83.021
+OSD std utilization = 0.845
 
 SSD RW statistics
 OSD    Total R    Total W    Extra R    Extra W
   0  610271080  123628614  142154891  117164516
   1  545378044  147524700  117164516  142154891
 
-Total data transfer = 259319407 bytes (247.000 MB)
+Total data transfer = 259319407 bytes (247.306 MB)
+Average SSD read = 577824562 bytes (551.056 MB)
+Average SSD write = 135576657 bytes (129.296 MB)
+STD SSD read = 32446518 bytes (30.943 MB)
+STD SSD write = 11948043 bytes (11.395 MB)
 
 simulation finished at 4628.179
