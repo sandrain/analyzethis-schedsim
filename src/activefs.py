@@ -232,6 +232,10 @@ class ActiveFS(event.TimeoutEventHandler):
 
             #print 'transfer delay: %f' % delay
             e = event.TimeoutEvent('transfer', delay, self)
+
+            if len(transfer_list) == 2: # single transfer, set source
+                e.source = transfer_list[1].location
+
             e.set_context(transfer_list)
             desc = '{}({}) transfers {}'. \
                     format(task.name, task.osd,

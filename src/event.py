@@ -13,6 +13,8 @@ class TimeoutEvent:
         self.context = None
         self.description = None
         self.disposable = False
+        # Ugly: This should be enhanced
+        self.source = -1
 
     def __lt__(self, other):
         return self.timeout < other.timeout
@@ -99,6 +101,22 @@ class EventSimulator:
                 else:
                     heapq.heappush(self.eq, next_event)
                     break
+
+            events_bcast = [ e for e in events if e.source >= 0 ]
+            if len(events_bcast) > 0:
+                sources = list(set(map(lambda x: x.source, events_bcast)))
+                for s in sources:
+                    es = [ e for e in events if e.source == s ]
+                    shared = len(es)
+                    if shared > 1:
+                        for e in es:
+                            e.timeout += shared * (e.timeout - e.registered)
+                            e.source = -1   # no more adjustment
+                            heapq.heappush(self.eq, e)
+                        events = list(set(events) - set(es))
+
+            if len(events) == 0:
+                continue
 
             for e in events:
                 if not self.terminated:
