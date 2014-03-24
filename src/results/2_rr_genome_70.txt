@@ -1,63 +1,3 @@
-transfer delay: 1.740931
-transfer delay: 1.758743
-transfer delay: 1.723136
-transfer delay: 2.182206
-transfer delay: 2.289092
-transfer delay: 2.211275
-transfer delay: 1.137173
-transfer delay: 1.148146
-transfer delay: 1.643385
-transfer delay: 1.640191
-transfer delay: 1.612307
-transfer delay: 1.102466
-transfer delay: 1.158327
-transfer delay: 1.064318
-transfer delay: 1.353807
-transfer delay: 1.307839
-transfer delay: 1.461552
-transfer delay: 1.054895
-transfer delay: 1.064436
-transfer delay: 1.328426
-transfer delay: 1.051097
-transfer delay: 0.919039
-transfer delay: 0.975743
-transfer delay: 1.032584
-transfer delay: 1.025460
-transfer delay: 1.376857
-transfer delay: 0.873887
-transfer delay: 1.405491
-transfer delay: 1.176483
-transfer delay: 0.600379
-transfer delay: 0.644119
-transfer delay: 1.057851
-transfer delay: 0.841609
-transfer delay: 1.080296
-transfer delay: 0.906177
-transfer delay: 1.062329
-transfer delay: 1.297177
-transfer delay: 0.592831
-transfer delay: 1.290893
-transfer delay: 0.858501
-transfer delay: 0.668381
-transfer delay: 0.917715
-transfer delay: 0.837645
-transfer delay: 0.678832
-transfer delay: 28.111542
-transfer delay: 0.576252
-transfer delay: 28.130060
-transfer delay: 0.604310
-transfer delay: 28.117234
-transfer delay: 0.576361
-transfer delay: 28.130036
-transfer delay: 28.217138
-transfer delay: 0.587068
-transfer delay: 0.648537
-transfer delay: 0.866662
-transfer delay: 0.969221
-transfer delay: 0.779264
-transfer delay: 1.576335
-transfer delay: 2.268905
-transfer delay: 28.062134
 
 -----------------------------------------
 job: Genome_69
@@ -67,7 +7,7 @@ Task statistics
 
 task: ID00025-sol2sanger_chr21
 osd      = 1
-submit    = 107.008
+submit    = 107.124
 start     = 135.090
 complete  = 138.520
 transferB = 42354007
@@ -75,7 +15,7 @@ transfers = 1 [('chr21.1.2.nocontam.sfq', 0, 42354007)]
 
 task: ID00056-map_chr21
 osd      = 0
-submit    = 182.016
+submit    = 182.236
 start     = 18226.070
 complete  = 21718.800
 transferB = 9375931
@@ -83,9 +23,9 @@ transfers = 1 [('chr21.1.3.nocontam.bfq', 1, 9375931)]
 
 task: ID00035-fastq2bfq_chr21
 osd      = 1
-submit    = 150.596
-start     = 151.377
-complete  = 156.577
+submit    = 150.710
+start     = 151.494
+complete  = 156.694
 transferB = 35467208
 transfers = 1 [('chr21.0.2.nocontam.fq', 0, 35467208)]
 
@@ -98,7 +38,7 @@ No data transfers
 
 task: ID00026-sol2sanger_chr21
 osd      = 0
-submit    = 113.432
+submit    = 113.551
 start     = 169.160
 complete  = 173.330
 transferB = 50413032
@@ -113,7 +53,7 @@ No data transfers
 
 task: ID00027-sol2sanger_chr21
 osd      = 1
-submit    = 128.148
+submit    = 128.265
 start     = 138.520
 complete  = 140.850
 transferB = 43433387
@@ -121,7 +61,7 @@ transfers = 1 [('chr21.1.4.nocontam.sfq', 0, 43433387)]
 
 task: ID00017-filterContams_chr21
 osd      = 1
-submit    = 85.383
+submit    = 85.506
 start     = 125.580
 complete  = 130.770
 transferB = 59946288
@@ -129,9 +69,9 @@ transfers = 1 [('chr21.2.4.sfq', 0, 59946288)]
 
 task: ID00037-fastq2bfq_chr21
 osd      = 1
-submit    = 166.216
-start     = 166.800
-complete  = 170.320
+submit    = 166.324
+start     = 166.912
+complete  = 170.432
 transferB = 21295362
 transfers = 1 [('chr21.0.4.nocontam.fq', 0, 21295362)]
 
@@ -144,23 +84,23 @@ No data transfers
 
 task: ID00053-map_chr21
 osd      = 1
-submit    = 229.367
-start     = 16793.952
-complete  = 21304.342
+submit    = 230.621
+start     = 16795.204
+complete  = 21305.594
 transferB = 1453176280
 transfers = 2 [('chr21.BS.bfa', 0, 1442363900), ('chr21.1.0.nocontam.bfq', 0, 10812380)]
 
 task: ID00041-fastq2bfq_chr21
 osd      = 1
-submit    = 174.621
-start     = 175.847
-complete  = 181.337
+submit    = 174.737
+start     = 175.963
+complete  = 181.453
 transferB = 41465562
 transfers = 1 [('chr21.1.3.nocontam.fq', 0, 41465562)]
 
 task: ID00046-fastq2bfq_chr21
 osd      = 0
-submit    = 160.899
+submit    = 161.117
 start     = 10710.900
 complete  = 10714.790
 transferB = 17910163
@@ -182,7 +122,7 @@ No data transfers
 
 task: ID00013-filterContams_chr21
 osd      = 1
-submit    = 85.380
+submit    = 85.503
 start     = 116.890
 complete  = 125.580
 transferB = 59778830
@@ -190,7 +130,7 @@ transfers = 1 [('chr21.2.0.sfq', 0, 59778830)]
 
 task: ID00015-filterContams_chr21
 osd      = 1
-submit    = 85.352
+submit    = 85.475
 start     = 111.970
 complete  = 116.890
 transferB = 58316944
@@ -198,7 +138,7 @@ transfers = 1 [('chr21.2.2.sfq', 0, 58316944)]
 
 task: ID00036-fastq2bfq_chr21
 osd      = 0
-submit    = 136.066
+submit    = 136.175
 start     = 182.440
 complete  = 185.940
 transferB = 24942624
@@ -213,7 +153,7 @@ No data transfers
 
 task: ID00010-filterContams_chr21
 osd      = 0
-submit    = 67.092
+submit    = 67.226
 start     = 95.840
 complete  = 105.700
 transferB = 88196019
@@ -221,7 +161,7 @@ transfers = 1 [('chr21.1.2.sfq', 1, 88196019)]
 
 task: ID00005-filterContams_chr21
 osd      = 1
-submit    = 32.221
+submit    = 32.346
 start     = 72.030
 complete  = 78.170
 transferB = 65060507
@@ -229,7 +169,7 @@ transfers = 1 [('chr21.0.2.sfq', 0, 65060507)]
 
 task: ID00062-map_chr21
 osd      = 0
-submit    = 192.074
+submit    = 192.291
 start     = 32146.370
 complete  = 35612.460
 transferB = 4003490
@@ -244,15 +184,15 @@ No data transfers
 
 task: ID00063-mapMerge_chr21
 osd      = 1
-submit    = 13748.957
-start     = 28553.522
-complete  = 28569.062
+submit    = 13750.264
+start     = 28554.774
+complete  = 28570.314
 transferB = 19223648
 transfers = 3 [('chr21.0.0.nocontam.map', 0, 5720379), ('chr21.0.2.nocontam.map', 0, 8213008), ('chr21.0.4.nocontam.map', 0, 5290261)]
 
 task: ID00022-sol2sanger_chr21
 osd      = 0
-submit    = 85.002
+submit    = 85.115
 start     = 163.290
 complete  = 165.310
 transferB = 31586595
@@ -260,15 +200,15 @@ transfers = 1 [('chr21.0.4.nocontam.sfq', 1, 31586595)]
 
 task: ID00055-map_chr21
 osd      = 1
-submit    = 217.837
-start     = 8179.752
-complete  = 11671.922
+submit    = 219.090
+start     = 8181.004
+complete  = 11673.174
 transferB = 1447938430
 transfers = 2 [('chr21.BS.bfa', 0, 1442363900), ('chr21.1.2.nocontam.bfq', 0, 5574530)]
 
 task: ID00019-sol2sanger_chr21
 osd      = 1
-submit    = 90.488
+submit    = 90.601
 start     = 130.770
 complete  = 133.050
 transferB = 34515287
@@ -276,15 +216,15 @@ transfers = 1 [('chr21.0.1.nocontam.sfq', 0, 34515287)]
 
 task: ID00059-map_chr21
 osd      = 1
-submit    = 10719.309
-start     = 24793.242
-complete  = 28553.522
+submit    = 10719.412
+start     = 24794.494
+complete  = 28554.774
 transferB = 7787606
 transfers = 1 [('chr21.2.1.nocontam.bfq', 0, 7787606)]
 
 task: ID00048-map_chr21
 osd      = 0
-submit    = 151.977
+submit    = 152.197
 start     = 201.150
 complete  = 6056.470
 transferB = 5262749
@@ -292,23 +232,23 @@ transfers = 1 [('chr21.0.0.nocontam.bfq', 1, 5262749)]
 
 task: ID00067-maqindex_chr21
 osd      = 1
-submit    = 35672.495
-start     = 35672.495
-complete  = 35672.645
+submit    = 35673.352
+start     = 35673.352
+complete  = 35673.502
 transferB = 92741550
 transfers = 1 [('chr21.nocontam.map', 0, 92741550)]
 
 task: ID00066-mapMerge_chr21
 osd      = 0
-submit    = 35633.196
-start     = 35633.196
-complete  = 35670.226
+submit    = 35633.918
+start     = 35633.918
+complete  = 35670.948
 transferB = 56430972
 transfers = 2 [('chr21_0.nocontam.map', 1, 29951658), ('chr21_2.nocontam.map', 1, 26479314)]
 
 task: ID00044-fastq2bfq_chr21
 osd      = 0
-submit    = 167.863
+submit    = 168.085
 start     = 10714.790
 complete  = 10718.660
 transferB = 29482231
@@ -316,7 +256,7 @@ transfers = 1 [('chr21.2.1.nocontam.fq', 1, 29482231)]
 
 task: ID00054-map_chr21
 osd      = 0
-submit    = 176.516
+submit    = 176.735
 start     = 13748.090
 complete  = 18226.070
 transferB = 8828017
@@ -324,7 +264,7 @@ transfers = 1 [('chr21.1.1.nocontam.bfq', 1, 8828017)]
 
 task: ID00018-sol2sanger_chr21
 osd      = 0
-submit    = 73.167
+submit    = 73.280
 start     = 144.480
 complete  = 146.070
 transferB = 33406221
@@ -332,15 +272,15 @@ transfers = 1 [('chr21.0.0.nocontam.sfq', 1, 33406221)]
 
 task: ID00029-sol2sanger_chr21
 osd      = 1
-submit    = 164.370
-start     = 164.370
-complete  = 166.800
+submit    = 164.482
+start     = 164.482
+complete  = 166.912
 transferB = 30424212
 transfers = 1 [('chr21.2.1.nocontam.sfq', 0, 30424212)]
 
 task: ID00058-map_chr21
 osd      = 0
-submit    = 188.431
+submit    = 188.650
 start     = 26804.010
 complete  = 32146.370
 transferB = 5468860
@@ -348,15 +288,15 @@ transfers = 1 [('chr21.2.0.nocontam.bfq', 1, 5468860)]
 
 task: ID00057-map_chr21
 osd      = 1
-submit    = 222.320
-start     = 11671.922
-complete  = 16793.952
+submit    = 223.573
+start     = 11673.174
+complete  = 16795.204
 transferB = 1448609615
 transfers = 2 [('chr21.BS.bfa', 0, 1442363900), ('chr21.1.4.nocontam.bfq', 0, 6245715)]
 
 task: ID00020-sol2sanger_chr21
 osd      = 0
-submit    = 79.318
+submit    = 79.431
 start     = 146.070
 complete  = 149.420
 transferB = 33981540
@@ -364,7 +304,7 @@ transfers = 1 [('chr21.0.2.nocontam.sfq', 1, 33981540)]
 
 task: ID00050-map_chr21
 osd      = 0
-submit    = 157.221
+submit    = 157.441
 start     = 6056.470
 complete  = 10710.900
 transferB = 7555968
@@ -379,15 +319,15 @@ No data transfers
 
 task: ID00023-sol2sanger_chr21
 osd      = 1
-submit    = 145.857
-start     = 145.857
-complete  = 149.187
+submit    = 145.974
+start     = 145.974
+complete  = 149.304
 transferB = 45972564
 transfers = 1 [('chr21.1.0.nocontam.sfq', 0, 45972564)]
 
 task: ID00028-sol2sanger_chr21
 osd      = 0
-submit    = 126.644
+submit    = 126.756
 start     = 175.840
 complete  = 177.900
 transferB = 29592676
@@ -395,7 +335,7 @@ transfers = 1 [('chr21.2.0.nocontam.sfq', 1, 29592676)]
 
 task: ID00042-fastq2bfq_chr21
 osd      = 0
-submit    = 141.875
+submit    = 141.986
 start     = 189.720
 complete  = 194.190
 transferB = 27549246
@@ -403,23 +343,23 @@ transfers = 1 [('chr21.1.4.nocontam.fq', 1, 27549246)]
 
 task: ID00049-map_chr21
 osd      = 1
-submit    = 210.552
-start     = 210.552
-complete  = 4343.672
+submit    = 211.804
+start     = 211.804
+complete  = 4344.924
 transferB = 1447640025
 transfers = 2 [('chr21.BS.bfa', 0, 1442363900), ('chr21.0.1.nocontam.bfq', 0, 5276125)]
 
 task: ID00039-fastq2bfq_chr21
 osd      = 1
-submit    = 170.457
-start     = 170.457
-complete  = 175.847
+submit    = 170.573
+start     = 170.573
+complete  = 175.963
 transferB = 41795010
 transfers = 1 [('chr21.1.1.nocontam.fq', 0, 41795010)]
 
 task: ID00034-fastq2bfq_chr21
 osd      = 0
-submit    = 133.969
+submit    = 134.077
 start     = 179.720
 complete  = 182.440
 transferB = 21969731
@@ -427,15 +367,15 @@ transfers = 1 [('chr21.0.1.nocontam.fq', 1, 21969731)]
 
 task: ID00033-fastq2bfq_chr21
 osd      = 1
-submit    = 146.944
-start     = 149.187
-complete  = 151.377
+submit    = 147.051
+start     = 149.304
+complete  = 151.494
 transferB = 19602462
 transfers = 1 [('chr21.0.0.nocontam.fq', 0, 19602462)]
 
 task: ID00008-filterContams_chr21
 osd      = 0
-submit    = 67.199
+submit    = 67.335
 start     = 126.820
 complete  = 144.480
 transferB = 93799943
@@ -443,15 +383,15 @@ transfers = 1 [('chr21.1.0.sfq', 1, 93799943)]
 
 task: ID00045-fastq2bfq_chr21
 osd      = 1
-submit    = 176.699
-start     = 181.337
-complete  = 184.397
+submit    = 176.806
+start     = 181.453
+complete  = 184.513
 transferB = 18795780
 transfers = 1 [('chr21.2.2.nocontam.fq', 0, 18795780)]
 
 task: ID00040-fastq2bfq_chr21
 osd      = 0
-submit    = 139.553
+submit    = 139.663
 start     = 185.940
 complete  = 189.720
 transferB = 27922755
@@ -459,7 +399,7 @@ transfers = 1 [('chr21.1.2.nocontam.fq', 1, 27922755)]
 
 task: ID00032-sol2sanger_chr21
 osd      = 0
-submit    = 131.821
+submit    = 131.932
 start     = 177.900
 complete  = 179.720
 transferB = 28893350
@@ -467,31 +407,31 @@ transfers = 1 [('chr21.2.4.nocontam.sfq', 1, 28893350)]
 
 task: ID00051-map_chr21
 osd      = 1
-submit    = 214.070
-start     = 4343.672
-complete  = 8179.752
+submit    = 215.323
+start     = 4344.924
+complete  = 8181.004
 transferB = 1448610877
 transfers = 2 [('chr21.BS.bfa', 0, 1442363900), ('chr21.0.3.nocontam.bfq', 0, 6246977)]
 
 task: ID00043-fastq2bfq_chr21
 osd      = 1
-submit    = 178.818
-start     = 184.397
-complete  = 187.827
+submit    = 178.926
+start     = 184.513
+complete  = 187.943
 transferB = 21900283
 transfers = 1 [('chr21.2.0.nocontam.fq', 0, 21900283)]
 
 task: ID00047-fastq2bfq_chr21
 osd      = 1
-submit    = 180.558
-start     = 187.827
-complete  = 191.497
+submit    = 180.664
+start     = 187.943
+complete  = 191.613
 transferB = 17702312
 transfers = 1 [('chr21.2.4.nocontam.fq', 0, 17702312)]
 
 task: ID00007-filterContams_chr21
 osd      = 1
-submit    = 32.239
+submit    = 32.364
 start     = 78.170
 complete  = 83.900
 transferB = 65994359
@@ -499,7 +439,7 @@ transfers = 1 [('chr21.0.4.sfq', 0, 65994359)]
 
 task: ID00012-filterContams_chr21
 osd      = 0
-submit    = 67.121
+submit    = 67.256
 start     = 105.700
 complete  = 126.820
 transferB = 89720109
@@ -507,7 +447,7 @@ transfers = 1 [('chr21.1.4.sfq', 1, 89720109)]
 
 task: ID00003-filterContams_chr21
 osd      = 1
-submit    = 32.203
+submit    = 32.328
 start     = 64.910
 complete  = 72.030
 transferB = 64127537
@@ -515,7 +455,7 @@ transfers = 1 [('chr21.0.0.sfq', 0, 64127537)]
 
 task: ID00064-mapMerge_chr21
 osd      = 0
-submit    = 21719.769
+submit    = 21721.079
 start     = 35612.460
 complete  = 35631.620
 transferB = 24600677
@@ -523,15 +463,15 @@ transfers = 3 [('chr21.1.0.nocontam.map', 1, 11752586), ('chr21.1.2.nocontam.map
 
 task: ID00068-pileup_chr21
 osd      = 0
-submit    = 35700.707
-start     = 35700.707
-complete  = 37379.407
+submit    = 35702.816
+start     = 35702.816
+complete  = 37381.516
 transferB = 1445049588
 transfers = 2 [('chr21.BSnull.bfa', 1, 1442363900), ('chr21.nocontam.chr.map', 1, 2685688)]
 
 task: ID00030-sol2sanger_chr21
 osd      = 0
-submit    = 117.945
+submit    = 118.056
 start     = 173.330
 complete  = 175.840
 transferB = 29092489
@@ -539,7 +479,7 @@ transfers = 1 [('chr21.2.2.nocontam.sfq', 1, 29092489)]
 
 task: ID00038-fastq2bfq_chr21
 osd      = 0
-submit    = 150.592
+submit    = 150.828
 start     = 194.190
 complete  = 201.150
 transferB = 47473798
@@ -547,7 +487,7 @@ transfers = 1 [('chr21.1.0.nocontam.fq', 1, 47473798)]
 
 task: ID00060-map_chr21
 osd      = 0
-submit    = 184.973
+submit    = 185.191
 start     = 21718.800
 complete  = 26804.010
 transferB = 3997827
@@ -555,7 +495,7 @@ transfers = 1 [('chr21.2.2.nocontam.bfq', 1, 3997827)]
 
 task: ID00024-sol2sanger_chr21
 osd      = 0
-submit    = 102.914
+submit    = 103.031
 start     = 165.310
 complete  = 169.160
 transferB = 44764069
@@ -570,31 +510,31 @@ No data transfers
 
 task: ID00065-mapMerge_chr21
 osd      = 1
-submit    = 35613.239
-start     = 35613.239
-complete  = 35628.449
+submit    = 35614.545
+start     = 35614.545
+complete  = 35629.755
 transferB = 14641496
 transfers = 3 [('chr21.2.0.nocontam.map', 0, 5944413), ('chr21.2.2.nocontam.map', 0, 4345464), ('chr21.2.4.nocontam.map', 0, 4351619)]
 
 task: ID00031-sol2sanger_chr21
 osd      = 1
-submit    = 158.608
-start     = 158.608
-complete  = 160.058
+submit    = 158.719
+start     = 158.719
+complete  = 160.169
 transferB = 29247441
 transfers = 1 [('chr21.2.3.nocontam.sfq', 0, 29247441)]
 
 task: ID00061-map_chr21
 osd      = 1
-submit    = 10715.377
-start     = 21304.342
-complete  = 24793.242
+submit    = 10715.479
+start     = 21305.594
+complete  = 24794.494
 transferB = 4564845
 transfers = 1 [('chr21.2.3.nocontam.bfq', 0, 4564845)]
 
 task: ID00021-sol2sanger_chr21
 osd      = 1
-submit    = 96.904
+submit    = 97.016
 start     = 133.050
 complete  = 135.090
 transferB = 29586510
@@ -602,15 +542,15 @@ transfers = 1 [('chr21.0.3.nocontam.sfq', 0, 29586510)]
 
 task: ID00052-map_chr21
 osd      = 0
-submit    = 170.913
+submit    = 171.127
 start     = 10718.660
 complete  = 13748.090
 transferB = 4867041
 transfers = 1 [('chr21.0.4.nocontam.bfq', 1, 4867041)]
 
 OSD busy intervals
-OSD 0 [(0.00, 30.48), (30.48, 83.74), (83.74, 89.33), (89.33, 95.84), (95.84, 105.70), (105.70, 126.82), (126.82, 144.48), (144.48, 146.07), (146.07, 149.42), (149.42, 157.55), (157.55, 163.29), (163.29, 165.31), (165.31, 169.16), (169.16, 173.33), (173.33, 175.84), (175.84, 177.90), (177.90, 179.72), (179.72, 182.44), (182.44, 185.94), (185.94, 189.72), (189.72, 194.19), (194.19, 201.15), (201.15, 6056.47), (6056.47, 10710.90), (10710.90, 10714.79), (10714.79, 10718.66), (10718.66, 13748.09), (13748.09, 18226.07), (18226.07, 21718.80), (21718.80, 26804.01), (26804.01, 32146.37), (32146.37, 35612.46), (35612.46, 35631.62), (35633.20, 35670.23), (35700.71, 37379.41)]
-OSD 1 [(0.00, 64.91), (64.91, 72.03), (72.03, 78.17), (78.17, 83.90), (83.90, 101.56), (101.56, 111.97), (111.97, 116.89), (116.89, 125.58), (125.58, 130.77), (130.77, 133.05), (133.05, 135.09), (135.09, 138.52), (138.52, 140.85), (145.86, 149.19), (149.19, 151.38), (151.38, 156.58), (158.61, 160.06), (164.37, 166.80), (166.80, 170.32), (170.46, 175.85), (175.85, 181.34), (181.34, 184.40), (184.40, 187.83), (187.83, 191.50), (210.55, 4343.67), (4343.67, 8179.75), (8179.75, 11671.92), (11671.92, 16793.95), (16793.95, 21304.34), (21304.34, 24793.24), (24793.24, 28553.52), (28553.52, 28569.06), (35613.24, 35628.45), (35672.50, 35672.65)]
+OSD 0 [(0.00, 30.48), (30.48, 83.74), (83.74, 89.33), (89.33, 95.84), (95.84, 105.70), (105.70, 126.82), (126.82, 144.48), (144.48, 146.07), (146.07, 149.42), (149.42, 157.55), (157.55, 163.29), (163.29, 165.31), (165.31, 169.16), (169.16, 173.33), (173.33, 175.84), (175.84, 177.90), (177.90, 179.72), (179.72, 182.44), (182.44, 185.94), (185.94, 189.72), (189.72, 194.19), (194.19, 201.15), (201.15, 6056.47), (6056.47, 10710.90), (10710.90, 10714.79), (10714.79, 10718.66), (10718.66, 13748.09), (13748.09, 18226.07), (18226.07, 21718.80), (21718.80, 26804.01), (26804.01, 32146.37), (32146.37, 35612.46), (35612.46, 35631.62), (35633.92, 35670.95), (35702.82, 37381.52)]
+OSD 1 [(0.00, 64.91), (64.91, 72.03), (72.03, 78.17), (78.17, 83.90), (83.90, 101.56), (101.56, 111.97), (111.97, 116.89), (116.89, 125.58), (125.58, 130.77), (130.77, 133.05), (133.05, 135.09), (135.09, 138.52), (138.52, 140.85), (145.97, 149.30), (149.30, 151.49), (151.49, 156.69), (158.72, 160.17), (164.48, 166.91), (166.91, 170.43), (170.57, 175.96), (175.96, 181.45), (181.45, 184.51), (184.51, 187.94), (187.94, 191.61), (211.80, 4344.92), (4344.92, 8181.00), (8181.00, 11673.17), (11673.17, 16795.20), (16795.20, 21305.59), (21305.59, 24794.49), (24794.49, 28554.77), (28554.77, 28570.31), (35614.54, 35629.75), (35673.35, 35673.50)]
 
 SSD RW statistics
 OSD    Total R    Total W    Extra R    Extra W
@@ -619,4 +559,4 @@ OSD    Total R    Total W    Extra R    Extra W
 
 Total data transfer = 10557853935 bytes (10068.000 MB)
 
-simulation finished at 37379.407
+simulation finished at 37381.516

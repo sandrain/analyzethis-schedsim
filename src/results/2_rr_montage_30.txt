@@ -1,20 +1,3 @@
-transfer delay: 0.500006
-transfer delay: 0.500006
-transfer delay: 0.500006
-transfer delay: 0.659007
-transfer delay: 0.658857
-transfer delay: 0.658146
-transfer delay: 0.659819
-transfer delay: 0.658146
-transfer delay: 0.535277
-transfer delay: 0.500067
-transfer delay: 0.500006
-transfer delay: 0.500006
-transfer delay: 0.500006
-transfer delay: 0.977198
-transfer delay: 0.500042
-transfer delay: 2.228944
-transfer delay: 0.534593
 
 -----------------------------------------
 job: Montage_30
@@ -24,47 +7,47 @@ Task statistics
 
 task: ID00008-mDiffFit
 osd      = 0
-submit    = 40.920
-start     = 83.560
-complete  = 94.160
+submit    = 42.820
+start     = 85.460
+complete  = 96.060
 No data transfers
 
 task: ID00021-mBackground
 osd      = 1
-submit    = 108.105
-start     = 108.105
-complete  = 118.585
+submit    = 118.006
+start     = 118.006
+complete  = 128.486
 No data transfers
 
 task: ID00020-mBackground
 osd      = 0
-submit    = 108.605
-start     = 108.605
-complete  = 119.135
+submit    = 120.406
+start     = 120.406
+complete  = 130.936
 transferB = 319
 transfers = 1 [('corrections.tbl', 1, 319)]
 
 task: ID00027-mAdd
 osd      = 1
-submit    = 144.603
-start     = 144.603
-complete  = 148.233
+submit    = 159.613
+start     = 159.613
+complete  = 163.243
 transferB = 2202
 transfers = 1 [('newcimages.tbl', 0, 2202)]
 
 task: ID00002-mProjectPP
 osd      = 0
-submit    = 0.500
-start     = 0.500
-complete  = 13.820
+submit    = 2.400
+start     = 2.400
+complete  = 15.720
 transferB = 304
 transfers = 1 [('region.hdr', 1, 304)]
 
 task: ID00016-mDiffFit
 osd      = 0
-submit    = 40.878
-start     = 62.310
-complete  = 72.880
+submit    = 41.581
+start     = 64.210
+complete  = 74.780
 transferB = 8291414
 transfers = 2 [('p2mass-atlas-ID00005s-jID00005.fits', 1, 4145707), ('p2mass-atlas-ID00005s-jID00005_area.fits', 1, 4145707)]
 
@@ -77,7 +60,7 @@ No data transfers
 
 task: ID00009-mDiffFit
 osd      = 1
-submit    = 40.880
+submit    = 41.583
 start     = 93.320
 complete  = 103.890
 transferB = 8379138
@@ -85,15 +68,15 @@ transfers = 2 [('p2mass-atlas-ID00002s-jID00002.fits', 0, 4189569), ('p2mass-atl
 
 task: ID00019-mBgModel
 osd      = 1
-submit    = 106.695
-start     = 106.695
-complete  = 108.105
+submit    = 116.596
+start     = 116.596
+complete  = 118.006
 transferB = 3524
 transfers = 2 [('pimages.tbl', 0, 1005), ('fits.tbl', 0, 2519)]
 
 task: ID00011-mDiffFit
 osd      = 1
-submit    = 28.239
+submit    = 30.842
 start     = 50.950
 complete  = 61.440
 transferB = 8336558
@@ -108,32 +91,32 @@ No data transfers
 
 task: ID00029-mJPEG
 osd      = 1
-submit    = 155.226
-start     = 155.226
-complete  = 155.776
+submit    = 171.072
+start     = 171.072
+complete  = 171.622
 transferB = 1813654
 transfers = 1 [('shrunken_ID00028_ID00028.fits', 0, 1813654)]
 
 task: ID00004-mProjectPP
 osd      = 0
-submit    = 0.500
-start     = 13.820
-complete  = 27.580
+submit    = 2.400
+start     = 15.720
+complete  = 29.480
 transferB = 304
 transfers = 1 [('region.hdr', 1, 304)]
 
 task: ID00012-mDiffFit
 osd      = 0
-submit    = 27.580
-start     = 40.920
-complete  = 51.590
+submit    = 29.480
+start     = 42.820
+complete  = 53.490
 No data transfers
 
 task: ID00022-mBackground
 osd      = 0
-submit    = 108.605
-start     = 119.135
-complete  = 129.795
+submit    = 120.406
+start     = 130.936
+complete  = 141.596
 transferB = 319
 transfers = 1 [('corrections.tbl', 1, 319)]
 
@@ -153,25 +136,25 @@ No data transfers
 
 task: ID00000-mProjectPP
 osd      = 0
-submit    = 0.500
-start     = 27.580
-complete  = 40.920
+submit    = 2.400
+start     = 29.480
+complete  = 42.820
 transferB = 304
 transfers = 1 [('region.hdr', 1, 304)]
 
 task: ID00026-mImgTbl
 osd      = 0
-submit    = 141.643
-start     = 141.643
-complete  = 144.103
+submit    = 156.553
+start     = 156.553
+complete  = 159.013
 transferB = 25018922
 transfers = 6 [('c2mass-atlas-ID00001s-jID00001_area.fits', 1, 4171411), ('c2mass-atlas-ID00001s-jID00001.fits', 1, 4171411), ('c2mass-atlas-ID00003s-jID00003.fits', 1, 4177332), ('c2mass-atlas-ID00003s-jID00003_area.fits', 1, 4177332), ('c2mass-atlas-ID00005s-jID00005_area.fits', 1, 4160718), ('c2mass-atlas-ID00005s-jID00005.fits', 1, 4160718)]
 
 task: ID00024-mBackground
 osd      = 0
-submit    = 108.605
-start     = 129.795
-complete  = 140.665
+submit    = 120.406
+start     = 141.596
+complete  = 152.466
 transferB = 319
 transfers = 1 [('corrections.tbl', 1, 319)]
 
@@ -184,39 +167,39 @@ No data transfers
 
 task: ID00025-mBackground
 osd      = 1
-submit    = 108.105
-start     = 118.585
-complete  = 129.445
+submit    = 118.006
+start     = 128.486
+complete  = 139.346
 No data transfers
 
 task: ID00028-mShrink
 osd      = 0
-submit    = 150.462
-start     = 150.462
-complete  = 154.692
+submit    = 166.206
+start     = 166.206
+complete  = 170.436
 transferB = 90646470
 transfers = 2 [('mosaic_ID00027_ID00027.fits', 1, 45323235), ('mosaic_ID00027_ID00027_area.fits', 1, 45323235)]
 
 task: ID00014-mDiffFit
 osd      = 0
-submit    = 40.878
-start     = 72.880
-complete  = 83.560
+submit    = 41.581
+start     = 74.780
+complete  = 85.460
 transferB = 8291414
 transfers = 2 [('p2mass-atlas-ID00005s-jID00005.fits', 1, 4145707), ('p2mass-atlas-ID00005s-jID00005_area.fits', 1, 4145707)]
 
 task: ID00006-mDiffFit
 osd      = 0
-submit    = 40.920
-start     = 94.160
-complete  = 104.700
+submit    = 42.820
+start     = 96.060
+complete  = 106.600
 No data transfers
 
 task: ID00010-mDiffFit
 osd      = 0
-submit    = 28.239
-start     = 51.590
-complete  = 62.310
+submit    = 30.842
+start     = 53.490
+complete  = 64.210
 transferB = 8328680
 transfers = 2 [('p2mass-atlas-ID00003s-jID00003.fits', 1, 4164340), ('p2mass-atlas-ID00003s-jID00003_area.fits', 1, 4164340)]
 
@@ -236,22 +219,22 @@ No data transfers
 
 task: ID00018-mConcatFit
 osd      = 0
-submit    = 105.235
-start     = 105.235
-complete  = 106.195
+submit    = 114.436
+start     = 114.436
+complete  = 115.396
 transferB = 1849549
 transfers = 13 [('fits_list.tbl', 1, 327), ('fitID00007.txt', 1, 281), ('diffID00007.txt', 1, 319051), ('fitID00009.txt', 1, 276), ('diffID00009.txt', 1, 262439), ('fitID00011.txt', 1, 286), ('diffID00011.txt', 1, 318914), ('fitID00013.txt', 1, 282), ('diffID00013.txt', 1, 318355), ('fitID00015.txt', 1, 255), ('diffID00015.txt', 1, 381329), ('fitID00017.txt', 1, 283), ('diffID00017.txt', 1, 247471)]
 
 task: ID00023-mBackground
 osd      = 1
-submit    = 108.105
-start     = 129.445
-complete  = 140.125
+submit    = 118.006
+start     = 139.346
+complete  = 150.026
 No data transfers
 
 OSD busy intervals
-OSD 0 [(0.50, 13.82), (13.82, 27.58), (27.58, 40.92), (40.92, 51.59), (51.59, 62.31), (62.31, 72.88), (72.88, 83.56), (83.56, 94.16), (94.16, 104.70), (105.24, 106.20), (108.61, 119.14), (119.14, 129.80), (129.80, 140.67), (141.64, 144.10), (150.46, 154.69)]
-OSD 1 [(0.00, 13.16), (13.16, 26.56), (26.56, 40.22), (40.22, 50.95), (50.95, 61.44), (61.44, 72.11), (72.11, 82.72), (82.72, 93.32), (93.32, 103.89), (106.70, 108.11), (108.11, 118.59), (118.59, 129.45), (129.45, 140.13), (144.60, 148.23), (155.23, 155.78)]
+OSD 0 [(2.40, 15.72), (15.72, 29.48), (29.48, 42.82), (42.82, 53.49), (53.49, 64.21), (64.21, 74.78), (74.78, 85.46), (85.46, 96.06), (96.06, 106.60), (114.44, 115.40), (120.41, 130.94), (130.94, 141.60), (141.60, 152.47), (156.55, 159.01), (166.21, 170.44)]
+OSD 1 [(0.00, 13.16), (13.16, 26.56), (26.56, 40.22), (40.22, 50.95), (50.95, 61.44), (61.44, 72.11), (72.11, 82.72), (82.72, 93.32), (93.32, 103.89), (116.60, 118.01), (118.01, 128.49), (128.49, 139.35), (139.35, 150.03), (159.61, 163.24), (171.07, 171.62)]
 
 SSD RW statistics
 OSD    Total R    Total W    Extra R    Extra W
@@ -260,4 +243,4 @@ OSD    Total R    Total W    Extra R    Extra W
 
 Total data transfer = 160963394 bytes (153.000 MB)
 
-simulation finished at 155.776
+simulation finished at 171.622

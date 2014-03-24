@@ -1,33 +1,3 @@
-transfer delay: 0.503260
-transfer delay: 0.503260
-transfer delay: 0.503260
-transfer delay: 0.503260
-transfer delay: 0.503260
-transfer delay: 0.503260
-transfer delay: 0.503260
-transfer delay: 2.905673
-transfer delay: 0.503260
-transfer delay: 0.500336
-transfer delay: 0.500336
-transfer delay: 0.503260
-transfer delay: 0.503260
-transfer delay: 2.913300
-transfer delay: 0.503260
-transfer delay: 0.503260
-transfer delay: 0.887440
-transfer delay: 0.887440
-transfer delay: 0.551935
-transfer delay: 0.501726
-transfer delay: 0.501726
-transfer delay: 0.507981
-transfer delay: 0.501726
-transfer delay: 0.501726
-transfer delay: 0.622437
-transfer delay: 0.507981
-transfer delay: 0.531221
-transfer delay: 0.531221
-transfer delay: 0.522598
-transfer delay: 0.522598
 
 -----------------------------------------
 job: SIPHT_48
@@ -44,9 +14,9 @@ No data transfers
 
 task: ID00019-Blast_QRNA
 osd      = 1
-submit    = 3737.479
-start     = 4677.698
-complete  = 6258.002
+submit    = 3744.180
+start     = 4937.646
+complete  = 6517.950
 transferB = 2722912
 transfers = 12 [('RIBOPROB.mat', 0, 8350), ('blastn2qrnadepth.pl', 0, 69426), ('NC_868_IGR_partners.txt', 0, 353860), ('NC_871_IGR_partners.txt', 0, 267121), ('NC_873_IGR_partners.txt', 0, 144824), ('NC_875_IGR_partners.txt', 0, 370115), ('NC_877_IGR_partners.txt', 0, 261671), ('NC_879_IGR_partners.txt', 0, 232122), ('NC_880_IGR_partners.txt', 0, 197305), ('NC_882_IGR_partners.txt', 0, 322515), ('NC_884_IGR_partners.txt', 0, 405129), ('Seq_NC_0025AG05', 0, 90474)]
 
@@ -66,25 +36,25 @@ No data transfers
 
 task: ID00043-Blast_candidate
 osd      = 1
-submit    = 3737.429
-start     = 4657.432
-complete  = 4661.076
+submit    = 3738.135
+start     = 4917.380
+complete  = 4921.024
 transferB = 90474
 transfers = 1 [('Seq_NC_0025AG05', 0, 90474)]
 
 task: ID00011-Patser
 osd      = 0
-submit    = 0.503
-start     = 3473.136
-complete  = 3474.726
+submit    = 7.843
+start     = 3472.646
+complete  = 3474.236
 transferB = 170917
 transfers = 1 [('ID00011_matrix.txt', 1, 170917)]
 
 task: ID00033-Patser
 osd      = 0
-submit    = 0.503
-start     = 3474.726
-complete  = 3475.931
+submit    = 7.843
+start     = 3471.441
+complete  = 3472.646
 transferB = 170917
 transfers = 1 [('ID00033_matrix.txt', 1, 170917)]
 
@@ -111,17 +81,17 @@ No data transfers
 
 task: ID00021-Blast_paralogues
 osd      = 1
-submit    = 3737.429
-start     = 4661.076
-complete  = 4665.969
+submit    = 3738.135
+start     = 4921.024
+complete  = 4925.917
 transferB = 90474
 transfers = 1 [('Seq_NC_0025AG05', 0, 90474)]
 
 task: ID00017-FFN_Parse
 osd      = 1
-submit    = 3737.435
-start     = 4674.550
-complete  = 4675.846
+submit    = 3738.135
+start     = 4925.917
+complete  = 4927.213
 transferB = 418438
 transfers = 2 [('NC_0025AG05.ptt', 0, 327964), ('Seq_NC_0025AG05', 0, 90474)]
 
@@ -141,15 +111,15 @@ No data transfers
 
 task: ID00027-Patser
 osd      = 0
-submit    = 0.503
-start     = 3467.796
-complete  = 3468.855
+submit    = 7.843
+start     = 3478.364
+complete  = 3479.422
 transferB = 170917
 transfers = 1 [('ID00027_matrix.txt', 1, 170917)]
 
 task: ID00041-SRNA
 osd      = 0
-submit    = 3426.226
+submit    = 3427.534
 start     = 3480.407
 complete  = 3736.927
 transferB = 20312990
@@ -157,9 +127,9 @@ transfers = 3 [('NC_0025AG05.gbk', 1, 14386175), ('blast.out', 1, 510), ('BLAST_
 
 task: ID00001-Patser
 osd      = 0
-submit    = 0.503
-start     = 3479.364
-complete  = 3480.407
+submit    = 7.843
+start     = 3466.268
+complete  = 3467.311
 transferB = 170917
 transfers = 1 [('ID00001_matrix.txt', 1, 170917)]
 
@@ -172,17 +142,17 @@ No data transfers
 
 task: ID00003-Patser
 osd      = 0
-submit    = 0.503
-start     = 3475.931
-complete  = 3477.079
+submit    = 7.843
+start     = 3467.311
+complete  = 3468.459
 transferB = 170917
 transfers = 1 [('ID00003_matrix.txt', 1, 170917)]
 
 task: ID00031-Patser
 osd      = 0
-submit    = 0.503
-start     = 3468.855
-complete  = 3470.331
+submit    = 7.843
+start     = 3476.888
+complete  = 3478.364
 transferB = 170917
 transfers = 1 [('ID00031_matrix.txt', 1, 170917)]
 
@@ -202,25 +172,25 @@ No data transfers
 
 task: ID00025-Patser
 osd      = 0
-submit    = 0.503
-start     = 3464.598
-complete  = 3466.127
+submit    = 7.843
+start     = 3469.913
+complete  = 3471.441
 transferB = 170917
 transfers = 1 [('ID00025_matrix.txt', 1, 170917)]
 
 task: ID00015-Blast
 osd      = 1
-submit    = 2.906
-start     = 2.906
-complete  = 1340.658
+submit    = 262.854
+start     = 262.854
+complete  = 1600.606
 transferB = 126126540
 transfers = 434 [('xdformat', 0, 380164), ('NC_0_IGR_partners.txt', 0, 432769), ('NC_2_IGR_partners.txt', 0, 243165), ('NC_4_IGR_partners.txt', 0, 248465), ('NC_6_IGR_partners.txt', 0, 301230), ('NC_8_IGR_partners.txt', 0, 198948), ('NC_11_IGR_partners.txt', 0, 238970), ('NC_13_IGR_partners.txt', 0, 180546), ('NC_15_IGR_partners.txt', 0, 391859), ('NC_17_IGR_partners.txt', 0, 187226), ('NC_19_IGR_partners.txt', 0, 251101), ('NC_20_IGR_partners.txt', 0, 309406), ('NC_22_IGR_partners.txt', 0, 182810), ('NC_24_IGR_partners.txt', 0, 361316), ('NC_26_IGR_partners.txt', 0, 391835), ('NC_28_IGR_partners.txt', 0, 389829), ('NC_31_IGR_partners.txt', 0, 179669), ('NC_33_IGR_partners.txt', 0, 396404), ('NC_35_IGR_partners.txt', 0, 423782), ('NC_37_IGR_partners.txt', 0, 380589), ('NC_39_IGR_partners.txt', 0, 185726), ('NC_40_IGR_partners.txt', 0, 181696), ('NC_42_IGR_partners.txt', 0, 295926), ('NC_44_IGR_partners.txt', 0, 204134), ('NC_46_IGR_partners.txt', 0, 401484), ('NC_48_IGR_partners.txt', 0, 314385), ('NC_51_IGR_partners.txt', 0, 229863), ('NC_53_IGR_partners.txt', 0, 347987), ('NC_55_IGR_partners.txt', 0, 382566), ('NC_57_IGR_partners.txt', 0, 240634), ('NC_59_IGR_partners.txt', 0, 146390), ('NC_60_IGR_partners.txt', 0, 391313), ('NC_62_IGR_partners.txt', 0, 425751), ('NC_64_IGR_partners.txt', 0, 326550), ('NC_66_IGR_partners.txt', 0, 327210), ('NC_68_IGR_partners.txt', 0, 317561), ('NC_71_IGR_partners.txt', 0, 199376), ('NC_73_IGR_partners.txt', 0, 334618), ('NC_75_IGR_partners.txt', 0, 218511), ('NC_77_IGR_partners.txt', 0, 260295), ('NC_79_IGR_partners.txt', 0, 241057), ('NC_80_IGR_partners.txt', 0, 415365), ('NC_82_IGR_partners.txt', 0, 371164), ('NC_84_IGR_partners.txt', 0, 242890), ('NC_86_IGR_partners.txt', 0, 165222), ('NC_88_IGR_partners.txt', 0, 205789), ('NC_91_IGR_partners.txt', 0, 275955), ('NC_93_IGR_partners.txt', 0, 241555), ('NC_95_IGR_partners.txt', 0, 340503), ('NC_97_IGR_partners.txt', 0, 225042), ('NC_99_IGR_partners.txt', 0, 425929), ('NC_101_IGR_partners.txt', 0, 376700), ('NC_103_IGR_partners.txt', 0, 311209), ('NC_105_IGR_partners.txt', 0, 317156), ('NC_107_IGR_partners.txt', 0, 334425), ('NC_109_IGR_partners.txt', 0, 425794), ('NC_110_IGR_partners.txt', 0, 426940), ('NC_112_IGR_partners.txt', 0, 367053), ('NC_114_IGR_partners.txt', 0, 408559), ('NC_116_IGR_partners.txt', 0, 280746), ('NC_118_IGR_partners.txt', 0, 162975), ('NC_121_IGR_partners.txt', 0, 384652), ('NC_123_IGR_partners.txt', 0, 151529), ('NC_125_IGR_partners.txt', 0, 221367), ('NC_127_IGR_partners.txt', 0, 305185), ('NC_129_IGR_partners.txt', 0, 152970), ('NC_130_IGR_partners.txt', 0, 326568), ('NC_132_IGR_partners.txt', 0, 425870), ('NC_134_IGR_partners.txt', 0, 244324), ('NC_136_IGR_partners.txt', 0, 282042), ('NC_138_IGR_partners.txt', 0, 322859), ('NC_141_IGR_partners.txt', 0, 374606), ('NC_143_IGR_partners.txt', 0, 220857), ('NC_145_IGR_partners.txt', 0, 231935), ('NC_147_IGR_partners.txt', 0, 281639), ('NC_149_IGR_partners.txt', 0, 169452), ('NC_150_IGR_partners.txt', 0, 161066), ('NC_152_IGR_partners.txt', 0, 334844), ('NC_154_IGR_partners.txt', 0, 247541), ('NC_156_IGR_partners.txt', 0, 266975), ('NC_158_IGR_partners.txt', 0, 282706), ('NC_161_IGR_partners.txt', 0, 163025), ('NC_163_IGR_partners.txt', 0, 233835), ('NC_165_IGR_partners.txt', 0, 211789), ('NC_167_IGR_partners.txt', 0, 181955), ('NC_169_IGR_partners.txt', 0, 293813), ('NC_170_IGR_partners.txt', 0, 383934), ('NC_172_IGR_partners.txt', 0, 368936), ('NC_174_IGR_partners.txt', 0, 248661), ('NC_176_IGR_partners.txt', 0, 177013), ('NC_178_IGR_partners.txt', 0, 363687), ('NC_181_IGR_partners.txt', 0, 286732), ('NC_183_IGR_partners.txt', 0, 395740), ('NC_185_IGR_partners.txt', 0, 196846), ('NC_187_IGR_partners.txt', 0, 281976), ('NC_189_IGR_partners.txt', 0, 197889), ('NC_190_IGR_partners.txt', 0, 235081), ('NC_192_IGR_partners.txt', 0, 427037), ('NC_194_IGR_partners.txt', 0, 219711), ('NC_196_IGR_partners.txt', 0, 327599), ('NC_198_IGR_partners.txt', 0, 214295), ('NC_200_IGR_partners.txt', 0, 292447), ('NC_202_IGR_partners.txt', 0, 227132), ('NC_204_IGR_partners.txt', 0, 190760), ('NC_206_IGR_partners.txt', 0, 170368), ('NC_208_IGR_partners.txt', 0, 431263), ('NC_211_IGR_partners.txt', 0, 279957), ('NC_213_IGR_partners.txt', 0, 254244), ('NC_215_IGR_partners.txt', 0, 210510), ('NC_217_IGR_partners.txt', 0, 153754), ('NC_219_IGR_partners.txt', 0, 351367), ('NC_220_IGR_partners.txt', 0, 412816), ('NC_222_IGR_partners.txt', 0, 320221), ('NC_224_IGR_partners.txt', 0, 224666), ('NC_226_IGR_partners.txt', 0, 358713), ('NC_228_IGR_partners.txt', 0, 203629), ('NC_231_IGR_partners.txt', 0, 202042), ('NC_233_IGR_partners.txt', 0, 178872), ('NC_235_IGR_partners.txt', 0, 411903), ('NC_237_IGR_partners.txt', 0, 334856), ('NC_239_IGR_partners.txt', 0, 173588), ('NC_240_IGR_partners.txt', 0, 205796), ('NC_242_IGR_partners.txt', 0, 313658), ('NC_244_IGR_partners.txt', 0, 292955), ('NC_246_IGR_partners.txt', 0, 253781), ('NC_248_IGR_partners.txt', 0, 173529), ('NC_251_IGR_partners.txt', 0, 231478), ('NC_253_IGR_partners.txt', 0, 345007), ('NC_255_IGR_partners.txt', 0, 426851), ('NC_257_IGR_partners.txt', 0, 310647), ('NC_259_IGR_partners.txt', 0, 339306), ('NC_260_IGR_partners.txt', 0, 369339), ('NC_262_IGR_partners.txt', 0, 246970), ('NC_264_IGR_partners.txt', 0, 231428), ('NC_266_IGR_partners.txt', 0, 219698), ('NC_268_IGR_partners.txt', 0, 417706), ('NC_271_IGR_partners.txt', 0, 177776), ('NC_273_IGR_partners.txt', 0, 192029), ('NC_275_IGR_partners.txt', 0, 206035), ('NC_277_IGR_partners.txt', 0, 427255), ('NC_279_IGR_partners.txt', 0, 233492), ('NC_280_IGR_partners.txt', 0, 150297), ('NC_282_IGR_partners.txt', 0, 314205), ('NC_284_IGR_partners.txt', 0, 267457), ('NC_286_IGR_partners.txt', 0, 311722), ('NC_288_IGR_partners.txt', 0, 396846), ('NC_291_IGR_partners.txt', 0, 287402), ('NC_293_IGR_partners.txt', 0, 202371), ('NC_295_IGR_partners.txt', 0, 179682), ('NC_297_IGR_partners.txt', 0, 275692), ('NC_299_IGR_partners.txt', 0, 202505), ('NC_301_IGR_partners.txt', 0, 360309), ('NC_303_IGR_partners.txt', 0, 294724), ('NC_305_IGR_partners.txt', 0, 353844), ('NC_307_IGR_partners.txt', 0, 146104), ('NC_309_IGR_partners.txt', 0, 198869), ('NC_310_IGR_partners.txt', 0, 250666), ('NC_312_IGR_partners.txt', 0, 334644), ('NC_314_IGR_partners.txt', 0, 176223), ('NC_316_IGR_partners.txt', 0, 162921), ('NC_318_IGR_partners.txt', 0, 387873), ('NC_321_IGR_partners.txt', 0, 413430), ('NC_323_IGR_partners.txt', 0, 430188), ('NC_325_IGR_partners.txt', 0, 301717), ('NC_327_IGR_partners.txt', 0, 300946), ('NC_329_IGR_partners.txt', 0, 222535), ('NC_330_IGR_partners.txt', 0, 209172), ('NC_332_IGR_partners.txt', 0, 198678), ('NC_334_IGR_partners.txt', 0, 218883), ('NC_336_IGR_partners.txt', 0, 331837), ('NC_338_IGR_partners.txt', 0, 345178), ('NC_341_IGR_partners.txt', 0, 271854), ('NC_343_IGR_partners.txt', 0, 282328), ('NC_345_IGR_partners.txt', 0, 244743), ('NC_347_IGR_partners.txt', 0, 406268), ('NC_349_IGR_partners.txt', 0, 405586), ('NC_350_IGR_partners.txt', 0, 249646), ('NC_352_IGR_partners.txt', 0, 285063), ('NC_354_IGR_partners.txt', 0, 179723), ('NC_356_IGR_partners.txt', 0, 189879), ('NC_358_IGR_partners.txt', 0, 352289), ('NC_361_IGR_partners.txt', 0, 247137), ('NC_363_IGR_partners.txt', 0, 278006), ('NC_365_IGR_partners.txt', 0, 264416), ('NC_367_IGR_partners.txt', 0, 391205), ('NC_369_IGR_partners.txt', 0, 366860), ('NC_370_IGR_partners.txt', 0, 279423), ('NC_372_IGR_partners.txt', 0, 412134), ('NC_374_IGR_partners.txt', 0, 194159), ('NC_376_IGR_partners.txt', 0, 339100), ('NC_378_IGR_partners.txt', 0, 413576), ('NC_381_IGR_partners.txt', 0, 423122), ('NC_383_IGR_partners.txt', 0, 390333), ('NC_385_IGR_partners.txt', 0, 210407), ('NC_387_IGR_partners.txt', 0, 366309), ('NC_389_IGR_partners.txt', 0, 416472), ('NC_390_IGR_partners.txt', 0, 406320), ('NC_392_IGR_partners.txt', 0, 315749), ('NC_394_IGR_partners.txt', 0, 196059), ('NC_396_IGR_partners.txt', 0, 325850), ('NC_398_IGR_partners.txt', 0, 289147), ('NC_400_IGR_partners.txt', 0, 170419), ('NC_402_IGR_partners.txt', 0, 217222), ('NC_404_IGR_partners.txt', 0, 347768), ('NC_406_IGR_partners.txt', 0, 221661), ('NC_408_IGR_partners.txt', 0, 191516), ('NC_411_IGR_partners.txt', 0, 430485), ('NC_413_IGR_partners.txt', 0, 178991), ('NC_415_IGR_partners.txt', 0, 364940), ('NC_417_IGR_partners.txt', 0, 190542), ('NC_419_IGR_partners.txt', 0, 318012), ('NC_420_IGR_partners.txt', 0, 236879), ('NC_422_IGR_partners.txt', 0, 365047), ('NC_424_IGR_partners.txt', 0, 236686), ('NC_426_IGR_partners.txt', 0, 217375), ('NC_428_IGR_partners.txt', 0, 237307), ('NC_431_IGR_partners.txt', 0, 231712), ('NC_433_IGR_partners.txt', 0, 367114), ('NC_435_IGR_partners.txt', 0, 177245), ('NC_437_IGR_partners.txt', 0, 277277), ('NC_439_IGR_partners.txt', 0, 367002), ('NC_440_IGR_partners.txt', 0, 275855), ('NC_442_IGR_partners.txt', 0, 388603), ('NC_444_IGR_partners.txt', 0, 230243), ('NC_446_IGR_partners.txt', 0, 356511), ('NC_448_IGR_partners.txt', 0, 427952), ('NC_451_IGR_partners.txt', 0, 284465), ('NC_453_IGR_partners.txt', 0, 393064), ('NC_455_IGR_partners.txt', 0, 319353), ('NC_457_IGR_partners.txt', 0, 419260), ('NC_459_IGR_partners.txt', 0, 194005), ('NC_460_IGR_partners.txt', 0, 354273), ('NC_462_IGR_partners.txt', 0, 333278), ('NC_464_IGR_partners.txt', 0, 312896), ('NC_466_IGR_partners.txt', 0, 275620), ('NC_468_IGR_partners.txt', 0, 208553), ('NC_471_IGR_partners.txt', 0, 383114), ('NC_473_IGR_partners.txt', 0, 402289), ('NC_475_IGR_partners.txt', 0, 334782), ('NC_477_IGR_partners.txt', 0, 242607), ('NC_479_IGR_partners.txt', 0, 394489), ('NC_480_IGR_partners.txt', 0, 333679), ('NC_482_IGR_partners.txt', 0, 348060), ('NC_484_IGR_partners.txt', 0, 223767), ('NC_486_IGR_partners.txt', 0, 179694), ('NC_488_IGR_partners.txt', 0, 388766), ('NC_491_IGR_partners.txt', 0, 247037), ('NC_493_IGR_partners.txt', 0, 299208), ('NC_495_IGR_partners.txt', 0, 400879), ('NC_497_IGR_partners.txt', 0, 297874), ('NC_499_IGR_partners.txt', 0, 191531), ('NC_501_IGR_partners.txt', 0, 404308), ('NC_503_IGR_partners.txt', 0, 421493), ('NC_505_IGR_partners.txt', 0, 289632), ('NC_507_IGR_partners.txt', 0, 293792), ('NC_509_IGR_partners.txt', 0, 301551), ('NC_510_IGR_partners.txt', 0, 395196), ('NC_512_IGR_partners.txt', 0, 261409), ('NC_514_IGR_partners.txt', 0, 329049), ('NC_516_IGR_partners.txt', 0, 340002), ('NC_518_IGR_partners.txt', 0, 158189), ('NC_521_IGR_partners.txt', 0, 415561), ('NC_523_IGR_partners.txt', 0, 297657), ('NC_525_IGR_partners.txt', 0, 356426), ('NC_527_IGR_partners.txt', 0, 278070), ('NC_529_IGR_partners.txt', 0, 326617), ('NC_530_IGR_partners.txt', 0, 387452), ('NC_532_IGR_partners.txt', 0, 258319), ('NC_534_IGR_partners.txt', 0, 228826), ('NC_536_IGR_partners.txt', 0, 400707), ('NC_538_IGR_partners.txt', 0, 337532), ('NC_541_IGR_partners.txt', 0, 245043), ('NC_543_IGR_partners.txt', 0, 370406), ('NC_545_IGR_partners.txt', 0, 388799), ('NC_547_IGR_partners.txt', 0, 240723), ('NC_549_IGR_partners.txt', 0, 268588), ('NC_550_IGR_partners.txt', 0, 186827), ('NC_552_IGR_partners.txt', 0, 316843), ('NC_554_IGR_partners.txt', 0, 212937), ('NC_556_IGR_partners.txt', 0, 187542), ('NC_558_IGR_partners.txt', 0, 154378), ('NC_561_IGR_partners.txt', 0, 379659), ('NC_563_IGR_partners.txt', 0, 296899), ('NC_565_IGR_partners.txt', 0, 396549), ('NC_567_IGR_partners.txt', 0, 150791), ('NC_569_IGR_partners.txt', 0, 236263), ('NC_570_IGR_partners.txt', 0, 349501), ('NC_572_IGR_partners.txt', 0, 219163), ('NC_574_IGR_partners.txt', 0, 172734), ('NC_576_IGR_partners.txt', 0, 250663), ('NC_578_IGR_partners.txt', 0, 286469), ('NC_581_IGR_partners.txt', 0, 413488), ('NC_583_IGR_partners.txt', 0, 277797), ('NC_585_IGR_partners.txt', 0, 389435), ('NC_587_IGR_partners.txt', 0, 251337), ('NC_589_IGR_partners.txt', 0, 167826), ('NC_590_IGR_partners.txt', 0, 386987), ('NC_592_IGR_partners.txt', 0, 151258), ('NC_594_IGR_partners.txt', 0, 419124), ('NC_596_IGR_partners.txt', 0, 286963), ('NC_598_IGR_partners.txt', 0, 178673), ('NC_600_IGR_partners.txt', 0, 362397), ('NC_602_IGR_partners.txt', 0, 242408), ('NC_604_IGR_partners.txt', 0, 327472), ('NC_606_IGR_partners.txt', 0, 152389), ('NC_608_IGR_partners.txt', 0, 162276), ('NC_611_IGR_partners.txt', 0, 211578), ('NC_613_IGR_partners.txt', 0, 257448), ('NC_615_IGR_partners.txt', 0, 337554), ('NC_617_IGR_partners.txt', 0, 302951), ('NC_619_IGR_partners.txt', 0, 245150), ('NC_620_IGR_partners.txt', 0, 166353), ('NC_622_IGR_partners.txt', 0, 153724), ('NC_624_IGR_partners.txt', 0, 307710), ('NC_626_IGR_partners.txt', 0, 200104), ('NC_628_IGR_partners.txt', 0, 216988), ('NC_631_IGR_partners.txt', 0, 262997), ('NC_633_IGR_partners.txt', 0, 416427), ('NC_635_IGR_partners.txt', 0, 407042), ('NC_637_IGR_partners.txt', 0, 156253), ('NC_639_IGR_partners.txt', 0, 380199), ('NC_640_IGR_partners.txt', 0, 212315), ('NC_642_IGR_partners.txt', 0, 198363), ('NC_644_IGR_partners.txt', 0, 317847), ('NC_646_IGR_partners.txt', 0, 348659), ('NC_648_IGR_partners.txt', 0, 324376), ('NC_651_IGR_partners.txt', 0, 201361), ('NC_653_IGR_partners.txt', 0, 270786), ('NC_655_IGR_partners.txt', 0, 225159), ('NC_657_IGR_partners.txt', 0, 383033), ('NC_659_IGR_partners.txt', 0, 316468), ('NC_660_IGR_partners.txt', 0, 259931), ('NC_662_IGR_partners.txt', 0, 274822), ('NC_664_IGR_partners.txt', 0, 334811), ('NC_666_IGR_partners.txt', 0, 155214), ('NC_668_IGR_partners.txt', 0, 423727), ('NC_671_IGR_partners.txt', 0, 343508), ('NC_673_IGR_partners.txt', 0, 424430), ('NC_675_IGR_partners.txt', 0, 279951), ('NC_677_IGR_partners.txt', 0, 294844), ('NC_679_IGR_partners.txt', 0, 231158), ('NC_680_IGR_partners.txt', 0, 379287), ('NC_682_IGR_partners.txt', 0, 148032), ('NC_684_IGR_partners.txt', 0, 241909), ('NC_686_IGR_partners.txt', 0, 349759), ('NC_688_IGR_partners.txt', 0, 314537), ('NC_691_IGR_partners.txt', 0, 256793), ('NC_693_IGR_partners.txt', 0, 168601), ('NC_695_IGR_partners.txt', 0, 159762), ('NC_697_IGR_partners.txt', 0, 322060), ('NC_699_IGR_partners.txt', 0, 394686), ('NC_701_IGR_partners.txt', 0, 364188), ('NC_703_IGR_partners.txt', 0, 227979), ('NC_705_IGR_partners.txt', 0, 424650), ('NC_707_IGR_partners.txt', 0, 359738), ('NC_709_IGR_partners.txt', 0, 418676), ('NC_710_IGR_partners.txt', 0, 325101), ('NC_712_IGR_partners.txt', 0, 365450), ('NC_714_IGR_partners.txt', 0, 230038), ('NC_716_IGR_partners.txt', 0, 274934), ('NC_718_IGR_partners.txt', 0, 399395), ('NC_721_IGR_partners.txt', 0, 377413), ('NC_723_IGR_partners.txt', 0, 172339), ('NC_725_IGR_partners.txt', 0, 413871), ('NC_727_IGR_partners.txt', 0, 358584), ('NC_729_IGR_partners.txt', 0, 328206), ('NC_730_IGR_partners.txt', 0, 337265), ('NC_732_IGR_partners.txt', 0, 337428), ('NC_734_IGR_partners.txt', 0, 325524), ('NC_736_IGR_partners.txt', 0, 342332), ('NC_738_IGR_partners.txt', 0, 205291), ('NC_741_IGR_partners.txt', 0, 152696), ('NC_743_IGR_partners.txt', 0, 349584), ('NC_745_IGR_partners.txt', 0, 207093), ('NC_747_IGR_partners.txt', 0, 274908), ('NC_749_IGR_partners.txt', 0, 201770), ('NC_750_IGR_partners.txt', 0, 230797), ('NC_752_IGR_partners.txt', 0, 204554), ('NC_754_IGR_partners.txt', 0, 247603), ('NC_756_IGR_partners.txt', 0, 419068), ('NC_758_IGR_partners.txt', 0, 366600), ('NC_761_IGR_partners.txt', 0, 298505), ('NC_763_IGR_partners.txt', 0, 253252), ('NC_765_IGR_partners.txt', 0, 279113), ('NC_767_IGR_partners.txt', 0, 275821), ('NC_769_IGR_partners.txt', 0, 356664), ('NC_770_IGR_partners.txt', 0, 221713), ('NC_772_IGR_partners.txt', 0, 218986), ('NC_774_IGR_partners.txt', 0, 416800), ('NC_776_IGR_partners.txt', 0, 298718), ('NC_778_IGR_partners.txt', 0, 337973), ('NC_781_IGR_partners.txt', 0, 258580), ('NC_783_IGR_partners.txt', 0, 251201), ('NC_785_IGR_partners.txt', 0, 245921), ('NC_787_IGR_partners.txt', 0, 265432), ('NC_789_IGR_partners.txt', 0, 209922), ('NC_790_IGR_partners.txt', 0, 239251), ('NC_792_IGR_partners.txt', 0, 256556), ('NC_794_IGR_partners.txt', 0, 155639), ('NC_796_IGR_partners.txt', 0, 242606), ('NC_798_IGR_partners.txt', 0, 409322), ('NC_800_IGR_partners.txt', 0, 391270), ('NC_802_IGR_partners.txt', 0, 432466), ('NC_804_IGR_partners.txt', 0, 252903), ('NC_806_IGR_partners.txt', 0, 289461), ('NC_808_IGR_partners.txt', 0, 182173), ('NC_811_IGR_partners.txt', 0, 329101), ('NC_813_IGR_partners.txt', 0, 269501), ('NC_815_IGR_partners.txt', 0, 155554), ('NC_817_IGR_partners.txt', 0, 394039), ('NC_819_IGR_partners.txt', 0, 146120), ('NC_820_IGR_partners.txt', 0, 426255), ('NC_822_IGR_partners.txt', 0, 166676), ('NC_824_IGR_partners.txt', 0, 319639), ('NC_826_IGR_partners.txt', 0, 324081), ('NC_828_IGR_partners.txt', 0, 423013), ('NC_831_IGR_partners.txt', 0, 334924), ('NC_833_IGR_partners.txt', 0, 399119), ('NC_835_IGR_partners.txt', 0, 153621), ('NC_837_IGR_partners.txt', 0, 413761), ('NC_839_IGR_partners.txt', 0, 385093), ('NC_840_IGR_partners.txt', 0, 351729), ('NC_842_IGR_partners.txt', 0, 302615), ('NC_844_IGR_partners.txt', 0, 239118), ('NC_846_IGR_partners.txt', 0, 354783), ('NC_848_IGR_partners.txt', 0, 369787), ('NC_851_IGR_partners.txt', 0, 263003), ('NC_853_IGR_partners.txt', 0, 242162), ('NC_855_IGR_partners.txt', 0, 414040), ('NC_857_IGR_partners.txt', 0, 214666), ('NC_859_IGR_partners.txt', 0, 425782), ('NC_860_IGR_partners.txt', 0, 171455), ('NC_862_IGR_partners.txt', 0, 364517), ('NC_864_IGR_partners.txt', 0, 380539)]
 
 task: ID00029-Patser
 osd      = 0
-submit    = 0.503
-start     = 3477.079
-complete  = 3478.533
+submit    = 7.843
+start     = 3468.459
+complete  = 3469.913
 transferB = 170917
 transfers = 1 [('ID00029_matrix.txt', 1, 170917)]
 
@@ -233,9 +203,9 @@ No data transfers
 
 task: ID00018-Blast_candidate
 osd      = 1
-submit    = 3737.429
-start     = 4665.969
-complete  = 4670.056
+submit    = 3738.135
+start     = 4927.213
+complete  = 4931.300
 transferB = 90474
 transfers = 1 [('Seq_NC_0025AG05', 0, 90474)]
 
@@ -248,9 +218,9 @@ No data transfers
 
 task: ID00046-Blast_paralogues
 osd      = 1
-submit    = 3737.429
-start     = 4670.056
-complete  = 4674.550
+submit    = 3738.135
+start     = 4931.300
+complete  = 4935.794
 transferB = 90474
 transfers = 1 [('Seq_NC_0025AG05', 0, 90474)]
 
@@ -263,7 +233,7 @@ No data transfers
 
 task: ID00038-RNAMotif
 osd      = 0
-submit    = 0.500
+submit    = 1.801
 start     = 3380.820
 complete  = 3425.339
 transferB = 17626
@@ -271,7 +241,7 @@ transfers = 1 [('RNAMofficial_descriptor.txt', 1, 17626)]
 
 task: ID00013-RNAMotif
 osd      = 0
-submit    = 0.500
+submit    = 1.801
 start     = 3425.339
 complete  = 3464.598
 transferB = 17626
@@ -286,54 +256,54 @@ No data transfers
 
 task: ID00023-Patser_concate
 osd      = 0
-submit    = 3478.533
+submit    = 3479.422
 start     = 4020.511
 complete  = 4020.614
 No data transfers
 
 task: ID00022-SRNA_annotate
 osd      = 0
-submit    = 6258.524
-start     = 6258.524
-complete  = 6260.165
+submit    = 6521.573
+start     = 6521.573
+complete  = 6523.214
 transferB = 1184781
 transfers = 6 [('access_matrix.txt', 1, 170917), ('BLAST_NC_0025AG05', 1, 5890), ('blast_candidate.out', 1, 2996), ('blast_candidate.err', 1, 544), ('NC_0025AG05_QRNA.txt.all.CUTOFF0.ID[100:0].GC[100:0].gff', 1, 178155), ('NC_0025AG05_paralogues.txt', 1, 826279)]
 
 task: ID00020-Blast_synteny
 osd      = 0
-submit    = 4676.377
-start     = 4676.377
-complete  = 4709.377
+submit    = 4929.045
+start     = 4929.045
+complete  = 4962.045
 transferB = 1636866
 transfers = 3 [('blasta', 1, 786856), ('time', 1, 11944), ('NC_0025AG05_parsed.ffn', 1, 838066)]
 
 task: ID00045-Blast_synteny
 osd      = 0
-submit    = 4676.377
-start     = 4709.377
-complete  = 4742.377
+submit    = 4929.045
+start     = 4962.045
+complete  = 4995.045
 transferB = 1636866
 transfers = 3 [('blasta', 1, 786856), ('time', 1, 11944), ('NC_0025AG05_parsed.ffn', 1, 838066)]
 
 task: ID00005-Patser
 osd      = 0
-submit    = 0.503
-start     = 3472.151
-complete  = 3473.136
+submit    = 7.843
+start     = 3479.422
+complete  = 3480.407
 transferB = 170917
 transfers = 1 [('ID00005_matrix.txt', 1, 170917)]
 
 task: ID00035-Patser
 osd      = 0
-submit    = 0.503
-start     = 3470.331
-complete  = 3472.151
+submit    = 7.843
+start     = 3475.067
+complete  = 3476.888
 transferB = 170917
 transfers = 1 [('ID00035_matrix.txt', 1, 170917)]
 
 task: ID00016-SRNA
 osd      = 0
-submit    = 3426.226
+submit    = 3427.534
 start     = 3736.927
 complete  = 4020.511
 transferB = 20312990
@@ -341,9 +311,9 @@ transfers = 3 [('NC_0025AG05.gbk', 1, 14386175), ('blast.out', 1, 510), ('BLAST_
 
 task: ID00047-SRNA_annotate
 osd      = 0
-submit    = 6258.524
-start     = 6260.165
-complete  = 6262.039
+submit    = 6521.573
+start     = 6523.214
+complete  = 6525.087
 transferB = 1184781
 transfers = 6 [('access_matrix.txt', 1, 170917), ('BLAST_NC_0025AG05', 1, 5890), ('blast_candidate.out', 1, 2996), ('blast_candidate.err', 1, 544), ('NC_0025AG05_QRNA.txt.all.CUTOFF0.ID[100:0].GC[100:0].gff', 1, 178155), ('NC_0025AG05_paralogues.txt', 1, 826279)]
 
@@ -356,17 +326,17 @@ No data transfers
 
 task: ID00040-Blast
 osd      = 1
-submit    = 2.913
-start     = 1340.658
-complete  = 4657.432
+submit    = 263.462
+start     = 1600.606
+complete  = 4917.380
 transferB = 126526422
 transfers = 435 [('xdformat', 0, 380164), ('NC_0_IGR_partners.txt', 0, 432769), ('NC_2_IGR_partners.txt', 0, 243165), ('NC_4_IGR_partners.txt', 0, 248465), ('NC_6_IGR_partners.txt', 0, 301230), ('NC_8_IGR_partners.txt', 0, 198948), ('NC_11_IGR_partners.txt', 0, 238970), ('NC_13_IGR_partners.txt', 0, 180546), ('NC_15_IGR_partners.txt', 0, 391859), ('NC_17_IGR_partners.txt', 0, 187226), ('NC_19_IGR_partners.txt', 0, 251101), ('NC_20_IGR_partners.txt', 0, 309406), ('NC_22_IGR_partners.txt', 0, 182810), ('NC_24_IGR_partners.txt', 0, 361316), ('NC_26_IGR_partners.txt', 0, 391835), ('NC_28_IGR_partners.txt', 0, 389829), ('NC_31_IGR_partners.txt', 0, 179669), ('NC_33_IGR_partners.txt', 0, 396404), ('NC_35_IGR_partners.txt', 0, 423782), ('NC_37_IGR_partners.txt', 0, 380589), ('NC_39_IGR_partners.txt', 0, 185726), ('NC_40_IGR_partners.txt', 0, 181696), ('NC_42_IGR_partners.txt', 0, 295926), ('NC_44_IGR_partners.txt', 0, 204134), ('NC_46_IGR_partners.txt', 0, 401484), ('NC_48_IGR_partners.txt', 0, 314385), ('NC_51_IGR_partners.txt', 0, 229863), ('NC_53_IGR_partners.txt', 0, 347987), ('NC_55_IGR_partners.txt', 0, 382566), ('NC_57_IGR_partners.txt', 0, 240634), ('NC_59_IGR_partners.txt', 0, 146390), ('NC_60_IGR_partners.txt', 0, 391313), ('NC_62_IGR_partners.txt', 0, 425751), ('NC_64_IGR_partners.txt', 0, 326550), ('NC_66_IGR_partners.txt', 0, 327210), ('NC_68_IGR_partners.txt', 0, 317561), ('NC_71_IGR_partners.txt', 0, 199376), ('NC_73_IGR_partners.txt', 0, 334618), ('NC_75_IGR_partners.txt', 0, 218511), ('NC_77_IGR_partners.txt', 0, 260295), ('NC_79_IGR_partners.txt', 0, 241057), ('NC_80_IGR_partners.txt', 0, 415365), ('NC_82_IGR_partners.txt', 0, 371164), ('NC_84_IGR_partners.txt', 0, 242890), ('NC_86_IGR_partners.txt', 0, 165222), ('NC_88_IGR_partners.txt', 0, 205789), ('NC_91_IGR_partners.txt', 0, 275955), ('NC_93_IGR_partners.txt', 0, 241555), ('NC_95_IGR_partners.txt', 0, 340503), ('NC_97_IGR_partners.txt', 0, 225042), ('NC_99_IGR_partners.txt', 0, 425929), ('NC_101_IGR_partners.txt', 0, 376700), ('NC_103_IGR_partners.txt', 0, 311209), ('NC_105_IGR_partners.txt', 0, 317156), ('NC_107_IGR_partners.txt', 0, 334425), ('NC_109_IGR_partners.txt', 0, 425794), ('NC_110_IGR_partners.txt', 0, 426940), ('NC_112_IGR_partners.txt', 0, 367053), ('NC_114_IGR_partners.txt', 0, 408559), ('NC_116_IGR_partners.txt', 0, 280746), ('NC_118_IGR_partners.txt', 0, 162975), ('NC_121_IGR_partners.txt', 0, 384652), ('NC_123_IGR_partners.txt', 0, 151529), ('NC_125_IGR_partners.txt', 0, 221367), ('NC_127_IGR_partners.txt', 0, 305185), ('NC_129_IGR_partners.txt', 0, 152970), ('NC_130_IGR_partners.txt', 0, 326568), ('NC_132_IGR_partners.txt', 0, 425870), ('NC_134_IGR_partners.txt', 0, 244324), ('NC_136_IGR_partners.txt', 0, 282042), ('NC_138_IGR_partners.txt', 0, 322859), ('NC_141_IGR_partners.txt', 0, 374606), ('NC_143_IGR_partners.txt', 0, 220857), ('NC_145_IGR_partners.txt', 0, 231935), ('NC_147_IGR_partners.txt', 0, 281639), ('NC_149_IGR_partners.txt', 0, 169452), ('NC_150_IGR_partners.txt', 0, 161066), ('NC_152_IGR_partners.txt', 0, 334844), ('NC_154_IGR_partners.txt', 0, 247541), ('NC_156_IGR_partners.txt', 0, 266975), ('NC_158_IGR_partners.txt', 0, 282706), ('NC_161_IGR_partners.txt', 0, 163025), ('NC_163_IGR_partners.txt', 0, 233835), ('NC_165_IGR_partners.txt', 0, 211789), ('NC_167_IGR_partners.txt', 0, 181955), ('NC_169_IGR_partners.txt', 0, 293813), ('NC_170_IGR_partners.txt', 0, 383934), ('NC_172_IGR_partners.txt', 0, 368936), ('NC_174_IGR_partners.txt', 0, 248661), ('NC_176_IGR_partners.txt', 0, 177013), ('NC_178_IGR_partners.txt', 0, 363687), ('NC_181_IGR_partners.txt', 0, 286732), ('NC_183_IGR_partners.txt', 0, 395740), ('NC_185_IGR_partners.txt', 0, 196846), ('NC_187_IGR_partners.txt', 0, 281976), ('NC_189_IGR_partners.txt', 0, 197889), ('NC_190_IGR_partners.txt', 0, 235081), ('NC_192_IGR_partners.txt', 0, 427037), ('NC_194_IGR_partners.txt', 0, 219711), ('NC_196_IGR_partners.txt', 0, 327599), ('NC_198_IGR_partners.txt', 0, 214295), ('NC_200_IGR_partners.txt', 0, 292447), ('NC_202_IGR_partners.txt', 0, 227132), ('NC_204_IGR_partners.txt', 0, 190760), ('NC_206_IGR_partners.txt', 0, 170368), ('NC_208_IGR_partners.txt', 0, 431263), ('NC_211_IGR_partners.txt', 0, 279957), ('NC_213_IGR_partners.txt', 0, 254244), ('NC_215_IGR_partners.txt', 0, 210510), ('NC_217_IGR_partners.txt', 0, 153754), ('NC_219_IGR_partners.txt', 0, 351367), ('NC_220_IGR_partners.txt', 0, 412816), ('NC_222_IGR_partners.txt', 0, 320221), ('NC_224_IGR_partners.txt', 0, 224666), ('NC_226_IGR_partners.txt', 0, 358713), ('NC_228_IGR_partners.txt', 0, 203629), ('NC_231_IGR_partners.txt', 0, 202042), ('NC_233_IGR_partners.txt', 0, 178872), ('NC_235_IGR_partners.txt', 0, 411903), ('NC_237_IGR_partners.txt', 0, 334856), ('NC_239_IGR_partners.txt', 0, 173588), ('NC_240_IGR_partners.txt', 0, 205796), ('NC_242_IGR_partners.txt', 0, 313658), ('NC_244_IGR_partners.txt', 0, 292955), ('NC_246_IGR_partners.txt', 0, 253781), ('NC_248_IGR_partners.txt', 0, 173529), ('NC_251_IGR_partners.txt', 0, 231478), ('NC_253_IGR_partners.txt', 0, 345007), ('NC_255_IGR_partners.txt', 0, 426851), ('NC_257_IGR_partners.txt', 0, 310647), ('NC_259_IGR_partners.txt', 0, 339306), ('NC_260_IGR_partners.txt', 0, 369339), ('NC_262_IGR_partners.txt', 0, 246970), ('NC_264_IGR_partners.txt', 0, 231428), ('NC_266_IGR_partners.txt', 0, 219698), ('NC_268_IGR_partners.txt', 0, 417706), ('NC_271_IGR_partners.txt', 0, 177776), ('NC_273_IGR_partners.txt', 0, 192029), ('NC_275_IGR_partners.txt', 0, 206035), ('NC_277_IGR_partners.txt', 0, 427255), ('NC_279_IGR_partners.txt', 0, 233492), ('NC_280_IGR_partners.txt', 0, 150297), ('NC_282_IGR_partners.txt', 0, 314205), ('NC_284_IGR_partners.txt', 0, 267457), ('NC_286_IGR_partners.txt', 0, 311722), ('NC_288_IGR_partners.txt', 0, 396846), ('NC_291_IGR_partners.txt', 0, 287402), ('NC_293_IGR_partners.txt', 0, 202371), ('NC_295_IGR_partners.txt', 0, 179682), ('NC_297_IGR_partners.txt', 0, 275692), ('NC_299_IGR_partners.txt', 0, 202505), ('NC_301_IGR_partners.txt', 0, 360309), ('NC_303_IGR_partners.txt', 0, 294724), ('NC_305_IGR_partners.txt', 0, 353844), ('NC_307_IGR_partners.txt', 0, 146104), ('NC_309_IGR_partners.txt', 0, 198869), ('NC_310_IGR_partners.txt', 0, 250666), ('NC_312_IGR_partners.txt', 0, 334644), ('NC_314_IGR_partners.txt', 0, 176223), ('NC_316_IGR_partners.txt', 0, 162921), ('NC_318_IGR_partners.txt', 0, 387873), ('NC_321_IGR_partners.txt', 0, 413430), ('NC_323_IGR_partners.txt', 0, 430188), ('NC_325_IGR_partners.txt', 0, 301717), ('NC_327_IGR_partners.txt', 0, 300946), ('NC_329_IGR_partners.txt', 0, 222535), ('NC_330_IGR_partners.txt', 0, 209172), ('NC_332_IGR_partners.txt', 0, 198678), ('NC_334_IGR_partners.txt', 0, 218883), ('NC_336_IGR_partners.txt', 0, 331837), ('NC_338_IGR_partners.txt', 0, 345178), ('NC_341_IGR_partners.txt', 0, 271854), ('NC_343_IGR_partners.txt', 0, 282328), ('NC_345_IGR_partners.txt', 0, 244743), ('NC_347_IGR_partners.txt', 0, 406268), ('NC_349_IGR_partners.txt', 0, 405586), ('NC_350_IGR_partners.txt', 0, 249646), ('NC_352_IGR_partners.txt', 0, 285063), ('NC_354_IGR_partners.txt', 0, 179723), ('NC_356_IGR_partners.txt', 0, 189879), ('NC_358_IGR_partners.txt', 0, 352289), ('NC_361_IGR_partners.txt', 0, 247137), ('NC_363_IGR_partners.txt', 0, 278006), ('NC_365_IGR_partners.txt', 0, 264416), ('NC_367_IGR_partners.txt', 0, 391205), ('NC_369_IGR_partners.txt', 0, 366860), ('NC_370_IGR_partners.txt', 0, 279423), ('NC_372_IGR_partners.txt', 0, 412134), ('NC_374_IGR_partners.txt', 0, 194159), ('NC_376_IGR_partners.txt', 0, 339100), ('NC_378_IGR_partners.txt', 0, 413576), ('NC_381_IGR_partners.txt', 0, 423122), ('NC_383_IGR_partners.txt', 0, 390333), ('NC_385_IGR_partners.txt', 0, 210407), ('NC_387_IGR_partners.txt', 0, 366309), ('NC_389_IGR_partners.txt', 0, 416472), ('NC_390_IGR_partners.txt', 0, 406320), ('NC_392_IGR_partners.txt', 0, 315749), ('NC_394_IGR_partners.txt', 0, 196059), ('NC_396_IGR_partners.txt', 0, 325850), ('NC_398_IGR_partners.txt', 0, 289147), ('NC_400_IGR_partners.txt', 0, 170419), ('NC_402_IGR_partners.txt', 0, 217222), ('NC_404_IGR_partners.txt', 0, 347768), ('NC_406_IGR_partners.txt', 0, 221661), ('NC_408_IGR_partners.txt', 0, 191516), ('NC_411_IGR_partners.txt', 0, 430485), ('NC_413_IGR_partners.txt', 0, 178991), ('NC_415_IGR_partners.txt', 0, 364940), ('NC_417_IGR_partners.txt', 0, 190542), ('NC_419_IGR_partners.txt', 0, 318012), ('NC_420_IGR_partners.txt', 0, 236879), ('NC_422_IGR_partners.txt', 0, 365047), ('NC_424_IGR_partners.txt', 0, 236686), ('NC_426_IGR_partners.txt', 0, 217375), ('NC_428_IGR_partners.txt', 0, 237307), ('NC_431_IGR_partners.txt', 0, 231712), ('NC_433_IGR_partners.txt', 0, 367114), ('NC_435_IGR_partners.txt', 0, 177245), ('NC_437_IGR_partners.txt', 0, 277277), ('NC_439_IGR_partners.txt', 0, 367002), ('NC_440_IGR_partners.txt', 0, 275855), ('NC_442_IGR_partners.txt', 0, 388603), ('NC_444_IGR_partners.txt', 0, 230243), ('NC_446_IGR_partners.txt', 0, 356511), ('NC_448_IGR_partners.txt', 0, 427952), ('NC_451_IGR_partners.txt', 0, 284465), ('NC_453_IGR_partners.txt', 0, 393064), ('NC_455_IGR_partners.txt', 0, 319353), ('NC_457_IGR_partners.txt', 0, 419260), ('NC_459_IGR_partners.txt', 0, 194005), ('NC_460_IGR_partners.txt', 0, 354273), ('NC_462_IGR_partners.txt', 0, 333278), ('NC_464_IGR_partners.txt', 0, 312896), ('NC_466_IGR_partners.txt', 0, 275620), ('NC_468_IGR_partners.txt', 0, 208553), ('NC_471_IGR_partners.txt', 0, 383114), ('NC_473_IGR_partners.txt', 0, 402289), ('NC_475_IGR_partners.txt', 0, 334782), ('NC_477_IGR_partners.txt', 0, 242607), ('NC_479_IGR_partners.txt', 0, 394489), ('NC_480_IGR_partners.txt', 0, 333679), ('NC_482_IGR_partners.txt', 0, 348060), ('NC_484_IGR_partners.txt', 0, 223767), ('NC_486_IGR_partners.txt', 0, 179694), ('NC_488_IGR_partners.txt', 0, 388766), ('NC_491_IGR_partners.txt', 0, 247037), ('NC_493_IGR_partners.txt', 0, 299208), ('NC_495_IGR_partners.txt', 0, 400879), ('NC_497_IGR_partners.txt', 0, 297874), ('NC_499_IGR_partners.txt', 0, 191531), ('NC_501_IGR_partners.txt', 0, 404308), ('NC_503_IGR_partners.txt', 0, 421493), ('NC_505_IGR_partners.txt', 0, 289632), ('NC_507_IGR_partners.txt', 0, 293792), ('NC_509_IGR_partners.txt', 0, 301551), ('NC_510_IGR_partners.txt', 0, 395196), ('NC_512_IGR_partners.txt', 0, 261409), ('NC_514_IGR_partners.txt', 0, 329049), ('NC_516_IGR_partners.txt', 0, 340002), ('NC_518_IGR_partners.txt', 0, 158189), ('NC_521_IGR_partners.txt', 0, 415561), ('NC_523_IGR_partners.txt', 0, 297657), ('NC_525_IGR_partners.txt', 0, 356426), ('NC_527_IGR_partners.txt', 0, 278070), ('NC_529_IGR_partners.txt', 0, 326617), ('NC_530_IGR_partners.txt', 0, 387452), ('NC_532_IGR_partners.txt', 0, 258319), ('NC_534_IGR_partners.txt', 0, 228826), ('NC_536_IGR_partners.txt', 0, 400707), ('NC_538_IGR_partners.txt', 0, 337532), ('NC_541_IGR_partners.txt', 0, 245043), ('NC_543_IGR_partners.txt', 0, 370406), ('NC_545_IGR_partners.txt', 0, 388799), ('NC_547_IGR_partners.txt', 0, 240723), ('NC_549_IGR_partners.txt', 0, 268588), ('NC_550_IGR_partners.txt', 0, 186827), ('NC_552_IGR_partners.txt', 0, 316843), ('NC_554_IGR_partners.txt', 0, 212937), ('NC_556_IGR_partners.txt', 0, 187542), ('NC_558_IGR_partners.txt', 0, 154378), ('NC_561_IGR_partners.txt', 0, 379659), ('NC_563_IGR_partners.txt', 0, 296899), ('NC_565_IGR_partners.txt', 0, 396549), ('NC_567_IGR_partners.txt', 0, 150791), ('NC_569_IGR_partners.txt', 0, 236263), ('NC_570_IGR_partners.txt', 0, 349501), ('NC_572_IGR_partners.txt', 0, 219163), ('NC_574_IGR_partners.txt', 0, 172734), ('NC_576_IGR_partners.txt', 0, 250663), ('NC_578_IGR_partners.txt', 0, 286469), ('NC_581_IGR_partners.txt', 0, 413488), ('NC_583_IGR_partners.txt', 0, 277797), ('NC_585_IGR_partners.txt', 0, 389435), ('NC_587_IGR_partners.txt', 0, 251337), ('NC_589_IGR_partners.txt', 0, 167826), ('NC_590_IGR_partners.txt', 0, 386987), ('NC_592_IGR_partners.txt', 0, 151258), ('NC_594_IGR_partners.txt', 0, 419124), ('NC_596_IGR_partners.txt', 0, 286963), ('NC_598_IGR_partners.txt', 0, 178673), ('NC_600_IGR_partners.txt', 0, 362397), ('NC_602_IGR_partners.txt', 0, 242408), ('NC_604_IGR_partners.txt', 0, 327472), ('NC_606_IGR_partners.txt', 0, 152389), ('NC_608_IGR_partners.txt', 0, 162276), ('NC_611_IGR_partners.txt', 0, 211578), ('NC_613_IGR_partners.txt', 0, 257448), ('NC_615_IGR_partners.txt', 0, 337554), ('NC_617_IGR_partners.txt', 0, 302951), ('NC_619_IGR_partners.txt', 0, 245150), ('NC_620_IGR_partners.txt', 0, 166353), ('NC_622_IGR_partners.txt', 0, 153724), ('NC_624_IGR_partners.txt', 0, 307710), ('NC_626_IGR_partners.txt', 0, 200104), ('NC_628_IGR_partners.txt', 0, 216988), ('NC_631_IGR_partners.txt', 0, 262997), ('NC_633_IGR_partners.txt', 0, 416427), ('NC_635_IGR_partners.txt', 0, 407042), ('NC_637_IGR_partners.txt', 0, 156253), ('NC_639_IGR_partners.txt', 0, 380199), ('NC_640_IGR_partners.txt', 0, 212315), ('NC_642_IGR_partners.txt', 0, 198363), ('NC_644_IGR_partners.txt', 0, 317847), ('NC_646_IGR_partners.txt', 0, 348659), ('NC_648_IGR_partners.txt', 0, 324376), ('NC_651_IGR_partners.txt', 0, 201361), ('NC_653_IGR_partners.txt', 0, 270786), ('NC_655_IGR_partners.txt', 0, 225159), ('NC_657_IGR_partners.txt', 0, 383033), ('NC_659_IGR_partners.txt', 0, 316468), ('NC_660_IGR_partners.txt', 0, 259931), ('NC_662_IGR_partners.txt', 0, 274822), ('NC_664_IGR_partners.txt', 0, 334811), ('NC_666_IGR_partners.txt', 0, 155214), ('NC_668_IGR_partners.txt', 0, 423727), ('NC_671_IGR_partners.txt', 0, 343508), ('NC_673_IGR_partners.txt', 0, 424430), ('NC_675_IGR_partners.txt', 0, 279951), ('NC_677_IGR_partners.txt', 0, 294844), ('NC_679_IGR_partners.txt', 0, 231158), ('NC_680_IGR_partners.txt', 0, 379287), ('NC_682_IGR_partners.txt', 0, 148032), ('NC_684_IGR_partners.txt', 0, 241909), ('NC_686_IGR_partners.txt', 0, 349759), ('NC_688_IGR_partners.txt', 0, 314537), ('NC_691_IGR_partners.txt', 0, 256793), ('NC_693_IGR_partners.txt', 0, 168601), ('NC_695_IGR_partners.txt', 0, 159762), ('NC_697_IGR_partners.txt', 0, 322060), ('NC_699_IGR_partners.txt', 0, 394686), ('NC_701_IGR_partners.txt', 0, 364188), ('NC_703_IGR_partners.txt', 0, 227979), ('NC_705_IGR_partners.txt', 0, 424650), ('NC_707_IGR_partners.txt', 0, 359738), ('NC_709_IGR_partners.txt', 0, 418676), ('NC_710_IGR_partners.txt', 0, 325101), ('NC_712_IGR_partners.txt', 0, 365450), ('NC_714_IGR_partners.txt', 0, 230038), ('NC_716_IGR_partners.txt', 0, 274934), ('NC_718_IGR_partners.txt', 0, 399395), ('NC_721_IGR_partners.txt', 0, 377413), ('NC_723_IGR_partners.txt', 0, 172339), ('NC_725_IGR_partners.txt', 0, 413871), ('NC_727_IGR_partners.txt', 0, 358584), ('NC_729_IGR_partners.txt', 0, 328206), ('NC_730_IGR_partners.txt', 0, 337265), ('NC_732_IGR_partners.txt', 0, 337428), ('NC_734_IGR_partners.txt', 0, 325524), ('NC_736_IGR_partners.txt', 0, 342332), ('NC_738_IGR_partners.txt', 0, 205291), ('NC_741_IGR_partners.txt', 0, 152696), ('NC_743_IGR_partners.txt', 0, 349584), ('NC_745_IGR_partners.txt', 0, 207093), ('NC_747_IGR_partners.txt', 0, 274908), ('NC_749_IGR_partners.txt', 0, 201770), ('NC_750_IGR_partners.txt', 0, 230797), ('NC_752_IGR_partners.txt', 0, 204554), ('NC_754_IGR_partners.txt', 0, 247603), ('NC_756_IGR_partners.txt', 0, 419068), ('NC_758_IGR_partners.txt', 0, 366600), ('NC_761_IGR_partners.txt', 0, 298505), ('NC_763_IGR_partners.txt', 0, 253252), ('NC_765_IGR_partners.txt', 0, 279113), ('NC_767_IGR_partners.txt', 0, 275821), ('NC_769_IGR_partners.txt', 0, 356664), ('NC_770_IGR_partners.txt', 0, 221713), ('NC_772_IGR_partners.txt', 0, 218986), ('NC_774_IGR_partners.txt', 0, 416800), ('NC_776_IGR_partners.txt', 0, 298718), ('NC_778_IGR_partners.txt', 0, 337973), ('NC_781_IGR_partners.txt', 0, 258580), ('NC_783_IGR_partners.txt', 0, 251201), ('NC_785_IGR_partners.txt', 0, 245921), ('NC_787_IGR_partners.txt', 0, 265432), ('NC_789_IGR_partners.txt', 0, 209922), ('NC_790_IGR_partners.txt', 0, 239251), ('NC_792_IGR_partners.txt', 0, 256556), ('NC_794_IGR_partners.txt', 0, 155639), ('NC_796_IGR_partners.txt', 0, 242606), ('NC_798_IGR_partners.txt', 0, 409322), ('NC_800_IGR_partners.txt', 0, 391270), ('NC_802_IGR_partners.txt', 0, 432466), ('NC_804_IGR_partners.txt', 0, 252903), ('NC_806_IGR_partners.txt', 0, 289461), ('NC_808_IGR_partners.txt', 0, 182173), ('NC_811_IGR_partners.txt', 0, 329101), ('NC_813_IGR_partners.txt', 0, 269501), ('NC_815_IGR_partners.txt', 0, 155554), ('NC_817_IGR_partners.txt', 0, 394039), ('NC_819_IGR_partners.txt', 0, 146120), ('NC_820_IGR_partners.txt', 0, 426255), ('NC_822_IGR_partners.txt', 0, 166676), ('NC_824_IGR_partners.txt', 0, 319639), ('NC_826_IGR_partners.txt', 0, 324081), ('NC_828_IGR_partners.txt', 0, 423013), ('NC_831_IGR_partners.txt', 0, 334924), ('NC_833_IGR_partners.txt', 0, 399119), ('NC_835_IGR_partners.txt', 0, 153621), ('NC_837_IGR_partners.txt', 0, 413761), ('NC_839_IGR_partners.txt', 0, 385093), ('NC_840_IGR_partners.txt', 0, 351729), ('NC_842_IGR_partners.txt', 0, 302615), ('NC_844_IGR_partners.txt', 0, 239118), ('NC_846_IGR_partners.txt', 0, 354783), ('NC_848_IGR_partners.txt', 0, 369787), ('NC_851_IGR_partners.txt', 0, 263003), ('NC_853_IGR_partners.txt', 0, 242162), ('NC_855_IGR_partners.txt', 0, 414040), ('NC_857_IGR_partners.txt', 0, 214666), ('NC_859_IGR_partners.txt', 0, 425782), ('NC_860_IGR_partners.txt', 0, 171455), ('NC_862_IGR_partners.txt', 0, 364517), ('NC_864_IGR_partners.txt', 0, 380539), ('NC_866_IGR_partners.txt', 0, 399882)]
 
 task: ID00044-Blast_QRNA
 osd      = 1
-submit    = 3737.549
-start     = 6258.002
-complete  = 7572.659
+submit    = 3752.652
+start     = 6517.950
+complete  = 7832.607
 transferB = 6419241
 transfers = 26 [('RIBOPROB.mat', 0, 8350), ('blastn2qrnadepth.pl', 0, 69426), ('NC_868_IGR_partners.txt', 0, 353860), ('NC_871_IGR_partners.txt', 0, 267121), ('NC_873_IGR_partners.txt', 0, 144824), ('NC_875_IGR_partners.txt', 0, 370115), ('NC_877_IGR_partners.txt', 0, 261671), ('NC_879_IGR_partners.txt', 0, 232122), ('NC_880_IGR_partners.txt', 0, 197305), ('NC_882_IGR_partners.txt', 0, 322515), ('NC_884_IGR_partners.txt', 0, 405129), ('NC_886_IGR_partners.txt', 0, 195078), ('NC_888_IGR_partners.txt', 0, 223813), ('NC_891_IGR_partners.txt', 0, 185357), ('NC_893_IGR_partners.txt', 0, 268330), ('NC_895_IGR_partners.txt', 0, 293687), ('NC_897_IGR_partners.txt', 0, 343426), ('NC_899_IGR_partners.txt', 0, 207013), ('NC_901_IGR_partners.txt', 0, 253318), ('NC_903_IGR_partners.txt', 0, 178140), ('NC_905_IGR_partners.txt', 0, 415998), ('NC_907_IGR_partners.txt', 0, 267924), ('NC_909_IGR_partners.txt', 0, 234726), ('NC_910_IGR_partners.txt', 0, 381468), ('NC_912_IGR_partners.txt', 0, 248051), ('Seq_NC_0025AG05', 0, 90474)]
 
@@ -379,31 +349,31 @@ No data transfers
 
 task: ID00007-Patser
 osd      = 0
-submit    = 0.503
-start     = 3466.127
-complete  = 3467.796
+submit    = 7.843
+start     = 3464.598
+complete  = 3466.268
 transferB = 170917
 transfers = 1 [('ID00007_matrix.txt', 1, 170917)]
 
 task: ID00009-Patser
 osd      = 0
-submit    = 0.503
-start     = 3478.533
-complete  = 3479.364
+submit    = 7.843
+start     = 3474.236
+complete  = 3475.067
 transferB = 170917
 transfers = 1 [('ID00009_matrix.txt', 1, 170917)]
 
 task: ID00042-FFN_Parse
 osd      = 1
-submit    = 3737.435
-start     = 4675.846
-complete  = 4677.698
+submit    = 3738.135
+start     = 4935.794
+complete  = 4937.646
 transferB = 418438
 transfers = 2 [('NC_0025AG05.ptt', 0, 327964), ('Seq_NC_0025AG05', 0, 90474)]
 
 OSD busy intervals
-OSD 0 [(0.00, 1.46), (1.46, 63.97), (63.97, 65.22), (65.22, 126.72), (126.72, 127.84), (127.84, 128.68), (128.68, 129.64), (129.64, 130.57), (130.57, 1460.37), (1460.37, 1461.90), (1461.90, 3374.99), (3374.99, 3376.38), (3376.38, 3377.84), (3377.84, 3379.09), (3379.09, 3379.91), (3379.91, 3380.82), (3380.82, 3425.34), (3425.34, 3464.60), (3464.60, 3466.13), (3466.13, 3467.80), (3467.80, 3468.86), (3468.86, 3470.33), (3470.33, 3472.15), (3472.15, 3473.14), (3473.14, 3474.73), (3474.73, 3475.93), (3475.93, 3477.08), (3477.08, 3478.53), (3478.53, 3479.36), (3479.36, 3480.41), (3480.41, 3736.93), (3736.93, 4020.51), (4020.51, 4020.61), (4020.61, 4020.66), (4676.38, 4709.38), (4709.38, 4742.38), (6258.52, 6260.17), (6260.17, 6262.04)]
-OSD 1 [(2.91, 1340.66), (1340.66, 4657.43), (4657.43, 4661.08), (4661.08, 4665.97), (4665.97, 4670.06), (4670.06, 4674.55), (4674.55, 4675.85), (4675.85, 4677.70), (4677.70, 6258.00), (6258.00, 7572.66)]
+OSD 0 [(0.00, 1.46), (1.46, 63.97), (63.97, 65.22), (65.22, 126.72), (126.72, 127.84), (127.84, 128.68), (128.68, 129.64), (129.64, 130.57), (130.57, 1460.37), (1460.37, 1461.90), (1461.90, 3374.99), (3374.99, 3376.38), (3376.38, 3377.84), (3377.84, 3379.09), (3379.09, 3379.91), (3379.91, 3380.82), (3380.82, 3425.34), (3425.34, 3464.60), (3464.60, 3466.27), (3466.27, 3467.31), (3467.31, 3468.46), (3468.46, 3469.91), (3469.91, 3471.44), (3471.44, 3472.65), (3472.65, 3474.24), (3474.24, 3475.07), (3475.07, 3476.89), (3476.89, 3478.36), (3478.36, 3479.42), (3479.42, 3480.41), (3480.41, 3736.93), (3736.93, 4020.51), (4020.51, 4020.61), (4020.61, 4020.66), (4929.04, 4962.04), (4962.04, 4995.04), (6521.57, 6523.21), (6523.21, 6525.09)]
+OSD 1 [(262.85, 1600.61), (1600.61, 4917.38), (4917.38, 4921.02), (4921.02, 4925.92), (4925.92, 4927.21), (4927.21, 4931.30), (4931.30, 4935.79), (4935.79, 4937.65), (4937.65, 6517.95), (6517.95, 7832.61)]
 
 SSD RW statistics
 OSD    Total R    Total W    Extra R    Extra W
@@ -412,4 +382,4 @@ OSD    Total R    Total W    Extra R    Extra W
 
 Total data transfer = 311349417 bytes (296.000 MB)
 
-simulation finished at 7572.659
+simulation finished at 7832.607
