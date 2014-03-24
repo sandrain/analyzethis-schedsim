@@ -44,7 +44,7 @@ class ActiveFlash(event.TimeoutEventHandler):
             self.running = task
             self.task_event.set_timeout(task.runtime)
             self.task_event.set_context(task)
-            desc = '{} ({} sec) execution'.format(task.name, task.runtime)
+            desc = '%s (%.3f sec) execution' % (task.name, task.runtime)
             self.task_event.set_description(desc)
             task.started(self.ev.now())
             self.ev.register_event(self.task_event)
@@ -200,7 +200,6 @@ class ActiveFS(event.TimeoutEventHandler):
         else:
             return False
 
-
     def request_data_transfer(self, task):
         transfer_from = [ 0 for x in range(len(self.osds)) ]
         transfer_list = [ task.osd ]    # first element is the destination
@@ -222,14 +221,22 @@ class ActiveFS(event.TimeoutEventHandler):
             """
             # the following old calculation is replaced.
             #delay = 3 * (float(max(transfer_from)) / self.config.netbw)
-            delay = 0.5 + 2 * (float(transfer_total) / self.config.netbw)
+            #delay = 0.5 + 2 * (float(transfer_total) / self.config.netbw)
+            """updated on 3/24/2014: this will catch the pattern of the reduce,
+            but not broadcast.
+            """
+            delay = reduce(lambda x, y: x+y,
+                           map(lambda x: 2.0 * (0.3 + \
+                                       float(x.size)*1.02 / self.config.netbw),
+                               transfer_list[1:]))
 
             #print 'transfer delay: %f' % delay
             e = event.TimeoutEvent('transfer', delay, self)
             e.set_context(transfer_list)
             desc = '{}({}) transfers {}'. \
                     format(task.name, task.osd,
-                           map(lambda x: (x.name, x.size, x.location), transfer_list[1:]))
+                           map(lambda x: (x.name, x.size, x.location), \
+                               transfer_list[1:]))
             e.set_description(desc)
             self.ev.register_event(e)
 
