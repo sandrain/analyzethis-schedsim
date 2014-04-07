@@ -1,6 +1,8 @@
 #!/bin/sh
 
 pattern="workflows/$1*.xml"
+netbw="$((1*104857600))"
+runtime="1"
 
 for n in `seq 1 6`; do
     for workflow in $pattern; do
@@ -8,10 +10,12 @@ for n in `seq 1 6`; do
         scheduler='rr'
         f=`basename $workflow .xml`
         outfile="results/${nosd}_${scheduler}_${f}.txt"
-        ./sim.py -e -n $nosd -s $scheduler $workflow > $outfile
-        scheduler='input-enhanced'
+        ./sim.py -e -r $runtime -b $netbw -n $nosd -s $scheduler \
+		$workflow > $outfile
+        scheduler='input'
         outfile="results/${nosd}_${scheduler}_${f}.txt"
-        ./sim.py -e -n $nosd -s $scheduler $workflow > $outfile
+        ./sim.py -e -r $runtime -b $netbw -n $nosd -s $scheduler \
+		$workflow > $outfile
     done
 done
 

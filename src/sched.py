@@ -36,13 +36,28 @@ class SchedRR(Scheduler):
 
 
 class SchedInput(Scheduler):
+    def find_osd(self, task):
+        fsize = [0] * self.afs.config.osds
+        for f in task.input:
+            fsize[f.location] += f.size
+        return fsize.index(max(fsize))
+
     """Input-Locality, a task is scheduled to osd where its largest input file
     is stored.
+
+    hyogi: the above calculation is wrong, but we need to find the osd where
+    majority of input files are stored.
     """
     def task_prepared(self, ready_list):
         for task in ready_list:
+            task.osd = self.find_osd(task)
+
+        """the old way, which is wrong"""
+        """
+        for task in ready_list:
             task.osd = reduce(lambda x, y: y if x.size < y.size else x,
                               task.input).location
+        """
 
 class SchedInputEnhanced(Scheduler):
     """Enhanced Input-Locality scheduler. The problem of the naive input
