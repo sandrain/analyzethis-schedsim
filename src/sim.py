@@ -148,7 +148,7 @@ def main():
                         action='store_true')
     parser.add_argument('-e', '--eventlog', default=False,
                         help='prints eventlogs', action='store_true')
-    parser.add_argument('script', type=str, help='job script in JSON')
+    parser.add_argument('script', type=str, help='job script in XML')
     args = parser.parse_args()
 
     if args.debug:
