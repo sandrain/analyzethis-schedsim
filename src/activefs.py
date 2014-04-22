@@ -123,6 +123,8 @@ class ActiveFS(event.TimeoutEventHandler):
             self.scheduler = sched.SchedInput(self)
         elif self.config.scheduler == 'input-enhanced':
             self.scheduler = sched.SchedInputEnhanced(self)
+        elif self.config.scheduler == 'minwait':
+            self.scheduler = sched.SchedMinWait(self)
         else:
             self.scheduler = sched.SchedRR(self)
 

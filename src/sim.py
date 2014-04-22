@@ -121,7 +121,9 @@ def main():
             The following job schedulers are available:
               rr: round-robin (default)
               input: input-locality, task is placed where input file is
+              minwait: task is placed where waiting time is minimal
               input-enhanced: input based, but also tries to parallelize
+                  (deprecated, do NOT use)
 
             The following data placement policies are available:
               rr: round-robin (default)

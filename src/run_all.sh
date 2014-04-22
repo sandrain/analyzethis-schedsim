@@ -13,15 +13,20 @@ fi
 for n in `seq 1 6`; do
     for workflow in $pattern; do
         nosd=$((2**n))
-        scheduler='rr'
         f=`basename $workflow .xml`
-        outfile="results/${nosd}_${scheduler}_${f}.txt"
-        ./sim.py -e -r $runtime -b $netbw -n $nosd -s $scheduler \
-		$workflow > $outfile
-        scheduler='input'
-        outfile="results/${nosd}_${scheduler}_${f}.txt"
-        ./sim.py -e -r $runtime -b $netbw -n $nosd -s $scheduler \
-		$workflow > $outfile
+	for scheduler in rr input minwait; do
+		outfile="results/${nosd}_${scheduler}_${f}.txt"
+		./sim.py -e -r $runtime -b $netbw -n $nosd -s $scheduler \
+			$workflow > $outfile
+	done
+#        scheduler='rr'
+#        outfile="results/${nosd}_${scheduler}_${f}.txt"
+#        ./sim.py -e -r $runtime -b $netbw -n $nosd -s $scheduler \
+#		$workflow > $outfile
+#        scheduler='input'
+#        outfile="results/${nosd}_${scheduler}_${f}.txt"
+#        ./sim.py -e -r $runtime -b $netbw -n $nosd -s $scheduler \
+#		$workflow > $outfile
     done
 done
 
