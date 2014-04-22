@@ -35,6 +35,12 @@ class ActiveFlash(event.TimeoutEventHandler):
         task.submitted(self.ev.now())
         self.try_execute_task()
 
+    def get_qtime(self):
+        wait = 0.0
+        for task in self.tq:
+            wait += task.runtime
+        return wait
+
     def try_execute_task(self):
         if self.running != None:
             return

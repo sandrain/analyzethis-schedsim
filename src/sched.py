@@ -106,30 +106,37 @@ class SchedMinWait(Scheduler):
         """
         wait = [ 0.0 ] * self.afs.config.osds
 
-        """get the file distribution
-        """
-        fsize = [0] * self.afs.config.osds
-        for f in task.input:
-            fsize[f.location] += f.size
-        fsize_total = reduce(lambda x,y: x+y, fsize)
-        for i in range(self.config.osds):
-            wait[i] += float(fsize_total - fsize[i]) /  \
-                        float(self.afs.config.netbw)
-
         """get the queue population
         """
-        qtime = [ 0.0 ] * self.afs.config.osds
-        for i in range(self.config.osds):
-            wait[i] += reduce(lambda x,y: x.runtime + y.runtime,    \
-                                self.afs.osds[i].tq)
+        for i in range(self.afs.config.osds):
+            if len(self.afs.osds[i].tq) > 0:
+                wait[i] = self.afs.osds[i].get_qtime()
 
+        """ assign osds for tasks
+        """
         for task in ready_list:
+            """get the file distribution
+            """
+            fsize = [0] * self.afs.config.osds
+            for f in task.input:
+                fsize[f.location] += f.size
+            fsize_total = reduce(lambda x,y: x+y, fsize)
+            for i in range(self.afs.config.osds):
+                wait[i] = wait[i] + \
+                    (float(fsize_total - fsize[i]) / self.afs.config.netbw)
+
+            """select the minimum wait time one
+            """
             osd = wait.index(min(wait))
             task.osd = osd
 
             """need to update the wait time
             """
-            wait[osd] += task.runtime
+            wait = [ 0.0 ] * self.afs.config.osds
+            wait[osd] += task.runtime   # consider the current task
+            for i in range(self.afs.config.osds):
+                if len(self.afs.osds[i].tq) > 0:
+                    wait[i] = self.afs.osds[i].get_qtime()
 
 
 
