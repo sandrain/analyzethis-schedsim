@@ -65,3 +65,4 @@ for i in `seq 2 6`; do
 	echo $((2**i)),$rr,$input,$minwait
 done
 
+
