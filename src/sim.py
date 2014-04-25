@@ -122,8 +122,8 @@ def main():
               rr: round-robin (default)
               input: input-locality, task is placed where input file is
               minwait: task is placed where waiting time is minimal
-              hostonly: only host is used (-y required)
-              hostreduce: reduce tasks are scheduled to hybrid (-y required)
+              hostonly: only host is used
+              hostreduce: reduce tasks are scheduled to hybrid
 
               input-enhanced: input based, but also tries to parallelize
                   (deprecated, do NOT use)
@@ -144,8 +144,10 @@ def main():
                         help='runtime slowdown factor (default 1.0)')
     parser.add_argument('-n', '--osds', type=int, default=4,
                         help='number of osds')
+    """
     parser.add_argument('-y', '--hybrid', default=False,
                         help='host execution', action='store_true')
+    """
     parser.add_argument('-x', '--hostspeed', type=int, default=2,
                         help='host clock speed (e.g. x2, x4, ...)')
     parser.add_argument('-s', '--scheduler', type=str, default='rr',

@@ -202,11 +202,12 @@ class ActiveFS(event.TimeoutEventHandler):
                         for n in range(self.config.osds) ]
 
         """We also use the host for computation?
-        """
         if self.config.hybrid == True:
             self.host = ActiveHost(ev, 0, self)
         else:
             self.host = None
+        """
+        self.host = None
 
         self.ev.register_module(self)
         self.pq = []    # pre(pared) q, all data files are ready
@@ -220,18 +221,28 @@ class ActiveFS(event.TimeoutEventHandler):
         elif self.config.scheduler == 'minwait':
             self.scheduler = sched.SchedMinWait(self)
         elif self.config.scheduler == 'hostonly':
+            self.scheduler = sched.SchedHostOnly(self)
+            self.set_hybrid()
+            """
             if self.config.hybrid == True:
                 self.scheduler = sched.SchedHostOnly(self)
             else:   # not in a hybrid mode, fallback to RR
                 self.scheduler = sched.SchedRR(self)
+                """
         elif self.config.scheduler == 'hostreduce':
+            self.scheduler = sched.SchedHostReduce(self)
+            self.set_hybrid()
+            """
             if self.config.hybrid == True:
                 self.scheduler = sched.SchedHostReduce(self)
             else:   # not in a hybrid mode, fallback to RR
                 self.scheduler = sched.SchedRR(self)
+                """
         else:
             self.scheduler = sched.SchedRR(self)
 
+    def set_hybrid(self):
+        self.host = ActiveHost(self.ev, 0, self)
 
     def get_name(self):
         return 'ActiveFS'
