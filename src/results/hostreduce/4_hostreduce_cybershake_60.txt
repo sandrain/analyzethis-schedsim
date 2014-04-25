@@ -4,120 +4,120 @@
 (0.000, 0.000) --- ActiveFS [init] None
 (0.000, 0.000) --- ActiveFlash-1 [init] None
 (0.000, 0.000) --- ActiveFlash-3 [init] None
-(0.000, 0.170) --- ActiveFlash-3 [task] ID00000-ZipPSA (0.170 sec) execution
-(0.000, 0.610) --- ActiveFlash-0 [task] ID00001-ZipSeis (0.610 sec) execution
-(0.000, 236.391) --- Host-0 [task] ID00002-ExtractSGT (200.290 sec) execution
-(236.391, 240.351) --- ActiveFS [transfer] ID00025-SeismogramSynthesis(0) transfers [('FFI_0_1_subfx.sgt', 177381090, -1), ('FFI_0_1_subfy.sgt', 177381090, -1)]
-(236.391, 240.351) --- ActiveFS [transfer] ID00009-SeismogramSynthesis(2) transfers [('FFI_0_1_subfx.sgt', 177381090, -1), ('FFI_0_1_subfy.sgt', 177381090, -1)]
-(236.391, 240.351) --- ActiveFS [transfer] ID00013-SeismogramSynthesis(3) transfers [('FFI_0_1_subfx.sgt', 177381090, -1), ('FFI_0_1_subfy.sgt', 177381090, -1)]
-(236.391, 240.351) --- ActiveFS [transfer] ID00007-SeismogramSynthesis(0) transfers [('FFI_0_1_subfx.sgt', 177381090, -1), ('FFI_0_1_subfy.sgt', 177381090, -1)]
-(236.391, 240.351) --- ActiveFS [transfer] ID00003-SeismogramSynthesis(1) transfers [('FFI_0_1_subfx.sgt', 177381090, -1), ('FFI_0_1_subfy.sgt', 177381090, -1)]
-(236.391, 240.351) --- ActiveFS [transfer] ID00027-SeismogramSynthesis(3) transfers [('FFI_0_1_subfx.sgt', 177381090, -1), ('FFI_0_1_subfy.sgt', 177381090, -1)]
-(236.391, 240.351) --- ActiveFS [transfer] ID00017-SeismogramSynthesis(0) transfers [('FFI_0_1_subfx.sgt', 177381090, -1), ('FFI_0_1_subfy.sgt', 177381090, -1)]
-(236.391, 240.971) --- ActiveFS [transfer] ID00019-SeismogramSynthesis(3) transfers [('FFI_0_1_txt.variation-s08731-h01521', 2543506, 2), ('FFI_0_1_subfx.sgt', 177381090, -1), ('FFI_0_1_subfy.sgt', 177381090, -1)]
-(236.391, 240.974) --- ActiveFS [transfer] ID00005-SeismogramSynthesis(3) transfers [('FFI_0_1_txt.variation-s03963-h02313', 2920398, 1), ('FFI_0_1_subfx.sgt', 177381090, -1), ('FFI_0_1_subfy.sgt', 177381090, -1)]
-(236.391, 240.981) --- ActiveFS [transfer] ID00015-SeismogramSynthesis(3) transfers [('FFI_0_1_txt.variation-s00956-h01712', 3801341, 2), ('FFI_0_1_subfx.sgt', 177381090, -1), ('FFI_0_1_subfy.sgt', 177381090, -1)]
-(236.391, 240.985) --- ActiveFS [transfer] ID00021-SeismogramSynthesis(3) transfers [('FFI_0_1_txt.variation-s04841-h03208', 4306631, 1), ('FFI_0_1_subfx.sgt', 177381090, -1), ('FFI_0_1_subfy.sgt', 177381090, -1)]
-(236.391, 240.988) --- ActiveFS [transfer] ID00023-SeismogramSynthesis(0) transfers [('FFI_0_1_txt.variation-s07502-h05057', 4644740, 3), ('FFI_0_1_subfx.sgt', 177381090, -1), ('FFI_0_1_subfy.sgt', 177381090, -1)]
-(236.391, 240.993) --- ActiveFS [transfer] ID00011-SeismogramSynthesis(3) transfers [('FFI_0_1_txt.variation-s05455-h07965', 5382733, 2), ('FFI_0_1_subfx.sgt', 177381090, -1), ('FFI_0_1_subfy.sgt', 177381090, -1)]
-(240.351, 263.271) --- ActiveFlash-3 [task] ID00027-SeismogramSynthesis (22.920 sec) execution
-(263.271, 263.872) --- ActiveFS [transfer] ID00028-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_1_ID00027.grm', 24000, 3)]
-(240.351, 277.871) --- ActiveFlash-0 [task] ID00025-SeismogramSynthesis (37.520 sec) execution
-(277.871, 278.472) --- ActiveFS [transfer] ID00026-PeakValCalcOkaya(2) transfers [('Seismogram_FFI_0_1_ID00025.grm', 24000, 0)]
-(240.351, 283.201) --- ActiveFlash-1 [task] ID00003-SeismogramSynthesis (42.850 sec) execution
-(283.201, 284.731) --- ActiveFlash-1 [task] ID00028-PeakValCalcOkaya (1.530 sec) execution
-(284.731, 285.781) --- ActiveFlash-1 [task] ID00004-PeakValCalcOkaya (1.050 sec) execution
-(240.351, 296.451) --- ActiveFlash-2 [task] ID00009-SeismogramSynthesis (56.100 sec) execution
-(296.451, 297.052) --- ActiveFS [transfer] ID00010-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_1_ID00009.grm', 24000, 2)]
-(296.451, 297.981) --- ActiveFlash-2 [task] ID00026-PeakValCalcOkaya (1.530 sec) execution
-(297.052, 298.042) --- ActiveFlash-1 [task] ID00010-PeakValCalcOkaya (0.990 sec) execution
-(277.871, 306.801) --- ActiveFlash-0 [task] ID00017-SeismogramSynthesis (28.930 sec) execution
-(306.801, 307.402) --- ActiveFS [transfer] ID00018-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_1_ID00017.grm', 24000, 0)]
-(263.271, 308.161) --- ActiveFlash-3 [task] ID00013-SeismogramSynthesis (44.890 sec) execution
-(307.402, 308.332) --- ActiveFlash-1 [task] ID00018-PeakValCalcOkaya (0.930 sec) execution
-(0.000, 308.526) --- ActiveFS [transfer] ID00029-ExtractSGT(-1) transfers [('FFI_0_2_fx.sgt', 19706426412, 3), ('FFI_0_2_fy.sgt', 19706426412, 0), ('FFI_0_2_txt.variation-s04890-h06672', 2098712, 2)]
-(308.161, 308.762) --- ActiveFS [transfer] ID00014-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_1_ID00013.grm', 24000, 3)]
-(308.762, 310.312) --- ActiveFlash-1 [task] ID00014-PeakValCalcOkaya (1.550 sec) execution
-(306.801, 366.871) --- ActiveFlash-0 [task] ID00007-SeismogramSynthesis (60.070 sec) execution
-(366.871, 367.472) --- ActiveFS [transfer] ID00008-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_1_ID00007.grm', 24000, 0)]
-(367.472, 368.862) --- ActiveFlash-1 [task] ID00008-PeakValCalcOkaya (1.390 sec) execution
-(308.161, 369.961) --- ActiveFlash-3 [task] ID00019-SeismogramSynthesis (61.800 sec) execution
-(369.961, 370.562) --- ActiveFS [transfer] ID00020-PeakValCalcOkaya(0) transfers [('Seismogram_FFI_0_1_ID00019.grm', 24000, 3)]
-(369.961, 412.801) --- ActiveFlash-3 [task] ID00005-SeismogramSynthesis (42.840 sec) execution
-(412.801, 413.402) --- ActiveFS [transfer] ID00006-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_1_ID00005.grm', 24000, 3)]
-(413.402, 414.162) --- ActiveFlash-1 [task] ID00006-PeakValCalcOkaya (0.760 sec) execution
-(366.871, 418.751) --- ActiveFlash-0 [task] ID00023-SeismogramSynthesis (51.880 sec) execution
-(418.751, 419.352) --- ActiveFS [transfer] ID00024-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_1_ID00023.grm', 24000, 0)]
-(418.751, 419.631) --- ActiveFlash-0 [task] ID00020-PeakValCalcOkaya (0.880 sec) execution
-(419.352, 419.962) --- ActiveFlash-1 [task] ID00024-PeakValCalcOkaya (0.610 sec) execution
-(412.801, 448.171) --- ActiveFlash-3 [task] ID00015-SeismogramSynthesis (35.370 sec) execution
-(448.171, 448.772) --- ActiveFS [transfer] ID00016-PeakValCalcOkaya(0) transfers [('Seismogram_FFI_0_1_ID00015.grm', 24000, 3)]
-(448.772, 449.552) --- ActiveFlash-0 [task] ID00016-PeakValCalcOkaya (0.780 sec) execution
-(448.171, 471.131) --- ActiveFlash-3 [task] ID00021-SeismogramSynthesis (22.960 sec) execution
-(471.131, 471.732) --- ActiveFS [transfer] ID00022-PeakValCalcOkaya(0) transfers [('Seismogram_FFI_0_1_ID00021.grm', 24000, 3)]
-(471.732, 472.822) --- ActiveFlash-0 [task] ID00022-PeakValCalcOkaya (1.090 sec) execution
-(471.131, 532.441) --- ActiveFlash-3 [task] ID00011-SeismogramSynthesis (61.310 sec) execution
-(532.441, 533.042) --- ActiveFS [transfer] ID00012-PeakValCalcOkaya(0) transfers [('Seismogram_FFI_0_1_ID00011.grm', 24000, 3)]
-(533.042, 533.722) --- ActiveFlash-0 [task] ID00012-PeakValCalcOkaya (0.680 sec) execution
-(532.441, 667.101) --- ActiveFlash-3 [task] ID00029-ExtractSGT (134.660 sec) execution
-(667.101, 671.239) --- ActiveFS [transfer] ID00034-SeismogramSynthesis(0) transfers [('FFI_0_2_subfx.sgt', 188765961, -1), ('FFI_0_2_subfy.sgt', 188765961, -1)]
-(667.101, 671.239) --- ActiveFS [transfer] ID00044-SeismogramSynthesis(3) transfers [('FFI_0_2_subfx.sgt', 188765961, -1), ('FFI_0_2_subfy.sgt', 188765961, -1)]
-(667.101, 671.239) --- ActiveFS [transfer] ID00030-SeismogramSynthesis(2) transfers [('FFI_0_2_subfx.sgt', 188765961, -1), ('FFI_0_2_subfy.sgt', 188765961, -1)]
-(667.101, 671.239) --- ActiveFS [transfer] ID00036-SeismogramSynthesis(2) transfers [('FFI_0_2_subfx.sgt', 188765961, -1), ('FFI_0_2_subfy.sgt', 188765961, -1)]
-(667.101, 671.239) --- ActiveFS [transfer] ID00040-SeismogramSynthesis(3) transfers [('FFI_0_2_subfx.sgt', 188765961, -1), ('FFI_0_2_subfy.sgt', 188765961, -1)]
-(667.101, 671.239) --- ActiveFS [transfer] ID00058-SeismogramSynthesis(2) transfers [('FFI_0_2_subfx.sgt', 188765961, -1), ('FFI_0_2_subfy.sgt', 188765961, -1)]
-(667.101, 671.239) --- ActiveFS [transfer] ID00052-SeismogramSynthesis(2) transfers [('FFI_0_2_subfx.sgt', 188765961, -1), ('FFI_0_2_subfy.sgt', 188765961, -1)]
-(667.101, 671.858) --- ActiveFS [transfer] ID00054-SeismogramSynthesis(3) transfers [('FFI_0_2_txt.variation-s02242-h02866', 2448155, 1), ('FFI_0_2_subfx.sgt', 188765961, -1), ('FFI_0_2_subfy.sgt', 188765961, -1)]
-(667.101, 671.869) --- ActiveFS [transfer] ID00042-SeismogramSynthesis(0) transfers [('FFI_0_2_txt.variation-s06727-h06984', 3839613, 3), ('FFI_0_2_subfx.sgt', 188765961, -1), ('FFI_0_2_subfy.sgt', 188765961, -1)]
-(667.101, 671.873) --- ActiveFS [transfer] ID00038-SeismogramSynthesis(3) transfers [('FFI_0_2_txt.variation-s08278-h02783', 4292156, 0), ('FFI_0_2_subfx.sgt', 188765961, -1), ('FFI_0_2_subfy.sgt', 188765961, -1)]
-(667.101, 671.873) --- ActiveFS [transfer] ID00046-SeismogramSynthesis(0) transfers [('FFI_0_2_txt.variation-s08008-h09115', 4350934, 3), ('FFI_0_2_subfx.sgt', 188765961, -1), ('FFI_0_2_subfy.sgt', 188765961, -1)]
-(667.101, 671.877) --- ActiveFS [transfer] ID00032-SeismogramSynthesis(3) transfers [('FFI_0_2_txt.variation-s08327-h02391', 4784848, 1), ('FFI_0_2_subfx.sgt', 188765961, -1), ('FFI_0_2_subfy.sgt', 188765961, -1)]
-(667.101, 671.877) --- ActiveFS [transfer] ID00056-SeismogramSynthesis(3) transfers [('FFI_0_2_txt.variation-s04342-h06873', 4877239, 1), ('FFI_0_2_subfx.sgt', 188765961, -1), ('FFI_0_2_subfy.sgt', 188765961, -1)]
-(667.101, 671.878) --- ActiveFS [transfer] ID00048-SeismogramSynthesis(3) transfers [('FFI_0_2_txt.variation-s07625-h04688', 4974635, 1), ('FFI_0_2_subfx.sgt', 188765961, -1), ('FFI_0_2_subfy.sgt', 188765961, -1)]
-(667.101, 671.881) --- ActiveFS [transfer] ID00050-SeismogramSynthesis(3) transfers [('FFI_0_2_txt.variation-s06743-h00599', 5399705, 0), ('FFI_0_2_subfx.sgt', 188765961, -1), ('FFI_0_2_subfy.sgt', 188765961, -1)]
-(671.239, 714.909) --- ActiveFlash-2 [task] ID00058-SeismogramSynthesis (43.670 sec) execution
-(714.909, 715.510) --- ActiveFS [transfer] ID00059-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_2_ID00058.grm', 24000, 2)]
-(715.510, 716.700) --- ActiveFlash-1 [task] ID00059-PeakValCalcOkaya (1.190 sec) execution
-(671.239, 717.409) --- ActiveFlash-0 [task] ID00034-SeismogramSynthesis (46.170 sec) execution
-(717.409, 718.010) --- ActiveFS [transfer] ID00035-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_2_ID00034.grm', 24000, 0)]
-(718.010, 719.460) --- ActiveFlash-1 [task] ID00035-PeakValCalcOkaya (1.450 sec) execution
-(671.239, 723.619) --- ActiveFlash-3 [task] ID00044-SeismogramSynthesis (52.380 sec) execution
-(723.619, 724.220) --- ActiveFS [transfer] ID00045-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_2_ID00044.grm', 24000, 3)]
-(724.220, 725.670) --- ActiveFlash-1 [task] ID00045-PeakValCalcOkaya (1.450 sec) execution
-(717.409, 752.289) --- ActiveFlash-0 [task] ID00042-SeismogramSynthesis (34.880 sec) execution
-(752.289, 752.890) --- ActiveFS [transfer] ID00043-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_2_ID00042.grm', 24000, 0)]
-(752.890, 754.380) --- ActiveFlash-1 [task] ID00043-PeakValCalcOkaya (1.490 sec) execution
-(714.909, 770.659) --- ActiveFlash-2 [task] ID00052-SeismogramSynthesis (55.750 sec) execution
-(770.659, 771.260) --- ActiveFS [transfer] ID00053-PeakValCalcOkaya(0) transfers [('Seismogram_FFI_0_2_ID00052.grm', 24000, 2)]
-(723.619, 778.149) --- ActiveFlash-3 [task] ID00040-SeismogramSynthesis (54.530 sec) execution
-(778.149, 778.750) --- ActiveFS [transfer] ID00041-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_2_ID00040.grm', 24000, 3)]
-(778.750, 779.370) --- ActiveFlash-1 [task] ID00041-PeakValCalcOkaya (0.620 sec) execution
-(770.659, 796.139) --- ActiveFlash-2 [task] ID00036-SeismogramSynthesis (25.480 sec) execution
-(796.139, 796.740) --- ActiveFS [transfer] ID00037-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_2_ID00036.grm', 24000, 2)]
-(796.740, 798.310) --- ActiveFlash-1 [task] ID00037-PeakValCalcOkaya (1.570 sec) execution
-(752.289, 808.039) --- ActiveFlash-0 [task] ID00046-SeismogramSynthesis (55.750 sec) execution
-(808.039, 808.640) --- ActiveFS [transfer] ID00047-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_2_ID00046.grm', 24000, 0)]
-(808.640, 809.350) --- ActiveFlash-1 [task] ID00047-PeakValCalcOkaya (0.710 sec) execution
-(808.039, 809.529) --- ActiveFlash-0 [task] ID00053-PeakValCalcOkaya (1.490 sec) execution
-(778.149, 817.449) --- ActiveFlash-3 [task] ID00054-SeismogramSynthesis (39.300 sec) execution
-(817.449, 818.050) --- ActiveFS [transfer] ID00055-PeakValCalcOkaya(0) transfers [('Seismogram_FFI_0_2_ID00054.grm', 24000, 3)]
-(818.050, 818.700) --- ActiveFlash-0 [task] ID00055-PeakValCalcOkaya (0.650 sec) execution
-(796.139, 845.329) --- ActiveFlash-2 [task] ID00030-SeismogramSynthesis (49.190 sec) execution
-(845.329, 846.909) --- ActiveFlash-2 [task] ID00031-PeakValCalcOkaya (1.580 sec) execution
-(817.449, 880.279) --- ActiveFlash-3 [task] ID00038-SeismogramSynthesis (62.830 sec) execution
-(880.279, 880.880) --- ActiveFS [transfer] ID00039-PeakValCalcOkaya(0) transfers [('Seismogram_FFI_0_2_ID00038.grm', 24000, 3)]
-(880.880, 881.690) --- ActiveFlash-0 [task] ID00039-PeakValCalcOkaya (0.810 sec) execution
-(880.279, 905.609) --- ActiveFlash-3 [task] ID00032-SeismogramSynthesis (25.330 sec) execution
-(905.609, 906.210) --- ActiveFS [transfer] ID00033-PeakValCalcOkaya(0) transfers [('Seismogram_FFI_0_2_ID00032.grm', 24000, 3)]
-(906.210, 907.810) --- ActiveFlash-0 [task] ID00033-PeakValCalcOkaya (1.600 sec) execution
-(905.609, 927.639) --- ActiveFlash-3 [task] ID00056-SeismogramSynthesis (22.030 sec) execution
-(927.639, 928.240) --- ActiveFS [transfer] ID00057-PeakValCalcOkaya(0) transfers [('Seismogram_FFI_0_2_ID00056.grm', 24000, 3)]
-(928.240, 929.820) --- ActiveFlash-0 [task] ID00057-PeakValCalcOkaya (1.580 sec) execution
-(927.639, 988.429) --- ActiveFlash-3 [task] ID00048-SeismogramSynthesis (60.790 sec) execution
-(988.429, 989.030) --- ActiveFS [transfer] ID00049-PeakValCalcOkaya(0) transfers [('Seismogram_FFI_0_2_ID00048.grm', 24000, 3)]
-(989.030, 989.630) --- ActiveFlash-0 [task] ID00049-PeakValCalcOkaya (0.600 sec) execution
-(988.429, 1021.489) --- ActiveFlash-3 [task] ID00050-SeismogramSynthesis (33.060 sec) execution
-(1021.489, 1022.179) --- ActiveFlash-3 [task] ID00051-PeakValCalcOkaya (0.690 sec) execution
+(0.000, 0.250) --- ActiveFlash-0 [task] ID00001-ZipSeis (0.250 sec) execution
+(0.000, 0.310) --- ActiveFlash-1 [task] ID00000-ZipPSA (0.310 sec) execution
+(0.000, 203.058) --- Host-0 [task] ID00002-ExtractSGT (135.560 sec) execution
+(203.058, 208.991) --- ActiveFS [transfer] ID00023-SeismogramSynthesis(2) transfers [('FFI_0_1_subfx.sgt', 304078555, -1), ('FFI_0_1_subfy.sgt', 304078555, -1)]
+(203.058, 208.991) --- ActiveFS [transfer] ID00019-SeismogramSynthesis(0) transfers [('FFI_0_1_subfx.sgt', 304078555, -1), ('FFI_0_1_subfy.sgt', 304078555, -1)]
+(203.058, 208.991) --- ActiveFS [transfer] ID00013-SeismogramSynthesis(1) transfers [('FFI_0_1_subfx.sgt', 304078555, -1), ('FFI_0_1_subfy.sgt', 304078555, -1)]
+(203.058, 208.991) --- ActiveFS [transfer] ID00027-SeismogramSynthesis(3) transfers [('FFI_0_1_subfx.sgt', 304078555, -1), ('FFI_0_1_subfy.sgt', 304078555, -1)]
+(203.058, 208.991) --- ActiveFS [transfer] ID00017-SeismogramSynthesis(2) transfers [('FFI_0_1_subfx.sgt', 304078555, -1), ('FFI_0_1_subfy.sgt', 304078555, -1)]
+(203.058, 209.606) --- ActiveFS [transfer] ID00007-SeismogramSynthesis(3) transfers [('FFI_0_1_txt.variation-s04612-h07929', 1972607, 1), ('FFI_0_1_subfx.sgt', 304078555, -1), ('FFI_0_1_subfy.sgt', 304078555, -1)]
+(203.058, 209.615) --- ActiveFS [transfer] ID00015-SeismogramSynthesis(3) transfers [('FFI_0_1_txt.variation-s01076-h09787', 3126606, 0), ('FFI_0_1_subfx.sgt', 304078555, -1), ('FFI_0_1_subfy.sgt', 304078555, -1)]
+(203.058, 209.616) --- ActiveFS [transfer] ID00005-SeismogramSynthesis(3) transfers [('FFI_0_1_txt.variation-s00573-h09978', 3165856, 2), ('FFI_0_1_subfx.sgt', 304078555, -1), ('FFI_0_1_subfy.sgt', 304078555, -1)]
+(203.058, 209.616) --- ActiveFS [transfer] ID00011-SeismogramSynthesis(3) transfers [('FFI_0_1_txt.variation-s04516-h07987', 3185320, 0), ('FFI_0_1_subfx.sgt', 304078555, -1), ('FFI_0_1_subfy.sgt', 304078555, -1)]
+(203.058, 209.618) --- ActiveFS [transfer] ID00029-SeismogramSynthesis(3) transfers [('FFI_0_1_txt.variation-s02225-h09508', 3410468, 2), ('FFI_0_1_subfx.sgt', 304078555, -1), ('FFI_0_1_subfy.sgt', 304078555, -1)]
+(203.058, 209.621) --- ActiveFS [transfer] ID00003-SeismogramSynthesis(0) transfers [('FFI_0_1_txt.variation-s04189-h07072', 3823238, 3), ('FFI_0_1_subfx.sgt', 304078555, -1), ('FFI_0_1_subfy.sgt', 304078555, -1)]
+(203.058, 209.622) --- ActiveFS [transfer] ID00009-SeismogramSynthesis(0) transfers [('FFI_0_1_txt.variation-s05414-h05953', 4030730, 3), ('FFI_0_1_subfx.sgt', 304078555, -1), ('FFI_0_1_subfy.sgt', 304078555, -1)]
+(203.058, 209.623) --- ActiveFS [transfer] ID00025-SeismogramSynthesis(0) transfers [('FFI_0_1_txt.variation-s01027-h07020', 4068129, 3), ('FFI_0_1_subfx.sgt', 304078555, -1), ('FFI_0_1_subfy.sgt', 304078555, -1)]
+(203.058, 209.630) --- ActiveFS [transfer] ID00021-SeismogramSynthesis(3) transfers [('FFI_0_1_txt.variation-s01748-h08559', 4970140, 1), ('FFI_0_1_subfx.sgt', 304078555, -1), ('FFI_0_1_subfy.sgt', 304078555, -1)]
+(208.991, 244.961) --- ActiveFlash-2 [task] ID00023-SeismogramSynthesis (35.970 sec) execution
+(244.961, 245.561) --- ActiveFS [transfer] ID00024-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_1_ID00023.grm', 24000, 2)]
+(208.991, 246.261) --- ActiveFlash-1 [task] ID00013-SeismogramSynthesis (37.270 sec) execution
+(246.261, 246.861) --- ActiveFS [transfer] ID00014-PeakValCalcOkaya(2) transfers [('Seismogram_FFI_0_1_ID00013.grm', 24000, 1)]
+(208.991, 247.451) --- ActiveFlash-3 [task] ID00027-SeismogramSynthesis (38.460 sec) execution
+(246.261, 247.621) --- ActiveFlash-1 [task] ID00024-PeakValCalcOkaya (1.360 sec) execution
+(247.451, 248.051) --- ActiveFS [transfer] ID00028-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_1_ID00027.grm', 24000, 3)]
+(248.051, 248.711) --- ActiveFlash-1 [task] ID00028-PeakValCalcOkaya (0.660 sec) execution
+(208.991, 268.081) --- ActiveFlash-0 [task] ID00019-SeismogramSynthesis (59.090 sec) execution
+(268.081, 268.681) --- ActiveFS [transfer] ID00020-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_1_ID00019.grm', 24000, 0)]
+(268.681, 269.951) --- ActiveFlash-1 [task] ID00020-PeakValCalcOkaya (1.270 sec) execution
+(244.961, 281.141) --- ActiveFlash-2 [task] ID00017-SeismogramSynthesis (36.180 sec) execution
+(281.141, 281.741) --- ActiveFS [transfer] ID00018-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_1_ID00017.grm', 24000, 2)]
+(281.141, 282.201) --- ActiveFlash-2 [task] ID00014-PeakValCalcOkaya (1.060 sec) execution
+(281.741, 283.201) --- ActiveFlash-1 [task] ID00018-PeakValCalcOkaya (1.460 sec) execution
+(247.451, 288.571) --- ActiveFlash-3 [task] ID00007-SeismogramSynthesis (41.120 sec) execution
+(288.571, 289.171) --- ActiveFS [transfer] ID00008-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_1_ID00007.grm', 24000, 3)]
+(289.171, 290.271) --- ActiveFlash-1 [task] ID00008-PeakValCalcOkaya (1.100 sec) execution
+(0.000, 313.555) --- ActiveFS [transfer] ID00031-ExtractSGT(-1) transfers [('FFI_0_2_fx.sgt', 20029022017, 0), ('FFI_0_2_fy.sgt', 20029022017, 1), ('FFI_0_2_txt.variation-s07266-h03292', 3021636, 0)]
+(268.081, 320.421) --- ActiveFlash-0 [task] ID00003-SeismogramSynthesis (52.340 sec) execution
+(320.421, 321.021) --- ActiveFS [transfer] ID00004-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_1_ID00003.grm', 24000, 0)]
+(321.021, 322.311) --- ActiveFlash-1 [task] ID00004-PeakValCalcOkaya (1.290 sec) execution
+(320.421, 346.311) --- ActiveFlash-0 [task] ID00009-SeismogramSynthesis (25.890 sec) execution
+(346.311, 346.911) --- ActiveFS [transfer] ID00010-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_1_ID00009.grm', 24000, 0)]
+(346.911, 348.311) --- ActiveFlash-1 [task] ID00010-PeakValCalcOkaya (1.400 sec) execution
+(288.571, 349.391) --- ActiveFlash-3 [task] ID00015-SeismogramSynthesis (60.820 sec) execution
+(349.391, 349.991) --- ActiveFS [transfer] ID00016-PeakValCalcOkaya(0) transfers [('Seismogram_FFI_0_1_ID00015.grm', 24000, 3)]
+(346.311, 392.721) --- ActiveFlash-0 [task] ID00025-SeismogramSynthesis (46.410 sec) execution
+(392.721, 393.321) --- ActiveFS [transfer] ID00026-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_1_ID00025.grm', 24000, 0)]
+(392.721, 393.821) --- ActiveFlash-0 [task] ID00016-PeakValCalcOkaya (1.100 sec) execution
+(393.321, 393.971) --- ActiveFlash-1 [task] ID00026-PeakValCalcOkaya (0.650 sec) execution
+(349.391, 403.251) --- ActiveFlash-3 [task] ID00005-SeismogramSynthesis (53.860 sec) execution
+(403.251, 403.851) --- ActiveFS [transfer] ID00006-PeakValCalcOkaya(0) transfers [('Seismogram_FFI_0_1_ID00005.grm', 24000, 3)]
+(403.851, 405.191) --- ActiveFlash-0 [task] ID00006-PeakValCalcOkaya (1.340 sec) execution
+(403.251, 466.771) --- ActiveFlash-3 [task] ID00011-SeismogramSynthesis (63.520 sec) execution
+(466.771, 467.371) --- ActiveFS [transfer] ID00012-PeakValCalcOkaya(0) transfers [('Seismogram_FFI_0_1_ID00011.grm', 24000, 3)]
+(467.371, 468.711) --- ActiveFlash-0 [task] ID00012-PeakValCalcOkaya (1.340 sec) execution
+(466.771, 514.801) --- ActiveFlash-3 [task] ID00029-SeismogramSynthesis (48.030 sec) execution
+(514.801, 515.401) --- ActiveFS [transfer] ID00030-PeakValCalcOkaya(0) transfers [('Seismogram_FFI_0_1_ID00029.grm', 24000, 3)]
+(515.401, 516.011) --- ActiveFlash-0 [task] ID00030-PeakValCalcOkaya (0.610 sec) execution
+(514.801, 572.701) --- ActiveFlash-3 [task] ID00021-SeismogramSynthesis (57.900 sec) execution
+(572.701, 573.301) --- ActiveFS [transfer] ID00022-PeakValCalcOkaya(0) transfers [('Seismogram_FFI_0_1_ID00021.grm', 24000, 3)]
+(573.301, 574.231) --- ActiveFlash-0 [task] ID00022-PeakValCalcOkaya (0.930 sec) execution
+(572.701, 702.781) --- ActiveFlash-3 [task] ID00031-ExtractSGT (130.080 sec) execution
+(702.781, 707.076) --- ActiveFS [transfer] ID00056-SeismogramSynthesis(3) transfers [('FFI_0_2_subfx.sgt', 198855671, -1), ('FFI_0_2_subfy.sgt', 198855671, -1)]
+(702.781, 707.076) --- ActiveFS [transfer] ID00050-SeismogramSynthesis(0) transfers [('FFI_0_2_subfx.sgt', 198855671, -1), ('FFI_0_2_subfy.sgt', 198855671, -1)]
+(702.781, 707.076) --- ActiveFS [transfer] ID00034-SeismogramSynthesis(2) transfers [('FFI_0_2_subfx.sgt', 198855671, -1), ('FFI_0_2_subfy.sgt', 198855671, -1)]
+(702.781, 707.076) --- ActiveFS [transfer] ID00052-SeismogramSynthesis(1) transfers [('FFI_0_2_subfx.sgt', 198855671, -1), ('FFI_0_2_subfy.sgt', 198855671, -1)]
+(702.781, 707.076) --- ActiveFS [transfer] ID00058-SeismogramSynthesis(0) transfers [('FFI_0_2_subfx.sgt', 198855671, -1), ('FFI_0_2_subfy.sgt', 198855671, -1)]
+(702.781, 707.691) --- ActiveFS [transfer] ID00040-SeismogramSynthesis(3) transfers [('FFI_0_2_txt.variation-s00404-h02139', 1955607, 2), ('FFI_0_2_subfx.sgt', 198855671, -1), ('FFI_0_2_subfy.sgt', 198855671, -1)]
+(702.781, 707.694) --- ActiveFS [transfer] ID00046-SeismogramSynthesis(0) transfers [('FFI_0_2_txt.variation-s08031-h01285', 2367612, 3), ('FFI_0_2_subfx.sgt', 198855671, -1), ('FFI_0_2_subfy.sgt', 198855671, -1)]
+(702.781, 707.695) --- ActiveFS [transfer] ID00042-SeismogramSynthesis(0) transfers [('FFI_0_2_txt.variation-s07068-h02676', 2427952, 3), ('FFI_0_2_subfx.sgt', 198855671, -1), ('FFI_0_2_subfy.sgt', 198855671, -1)]
+(702.781, 707.699) --- ActiveFS [transfer] ID00038-SeismogramSynthesis(3) transfers [('FFI_0_2_txt.variation-s09148-h04419', 2899383, 1), ('FFI_0_2_subfx.sgt', 198855671, -1), ('FFI_0_2_subfy.sgt', 198855671, -1)]
+(702.781, 707.704) --- ActiveFS [transfer] ID00036-SeismogramSynthesis(0) transfers [('FFI_0_2_txt.variation-s09751-h03505', 3617981, 3), ('FFI_0_2_subfx.sgt', 198855671, -1), ('FFI_0_2_subfy.sgt', 198855671, -1)]
+(702.781, 707.713) --- ActiveFS [transfer] ID00054-SeismogramSynthesis(3) transfers [('FFI_0_2_txt.variation-s05501-h08951', 4780989, 2), ('FFI_0_2_subfx.sgt', 198855671, -1), ('FFI_0_2_subfy.sgt', 198855671, -1)]
+(702.781, 707.714) --- ActiveFS [transfer] ID00048-SeismogramSynthesis(3) transfers [('FFI_0_2_txt.variation-s08615-h06421', 4814314, 0), ('FFI_0_2_subfx.sgt', 198855671, -1), ('FFI_0_2_subfy.sgt', 198855671, -1)]
+(702.781, 707.716) --- ActiveFS [transfer] ID00032-SeismogramSynthesis(3) transfers [('FFI_0_2_txt.variation-s07385-h09719', 5171634, 1), ('FFI_0_2_subfx.sgt', 198855671, -1), ('FFI_0_2_subfy.sgt', 198855671, -1)]
+(702.781, 707.718) --- ActiveFS [transfer] ID00044-SeismogramSynthesis(3) transfers [('FFI_0_2_txt.variation-s07651-h03701', 5338861, 2), ('FFI_0_2_subfx.sgt', 198855671, -1), ('FFI_0_2_subfy.sgt', 198855671, -1)]
+(707.076, 751.986) --- ActiveFlash-2 [task] ID00034-SeismogramSynthesis (44.910 sec) execution
+(751.986, 753.326) --- ActiveFlash-2 [task] ID00035-PeakValCalcOkaya (1.340 sec) execution
+(707.076, 753.946) --- ActiveFlash-1 [task] ID00052-SeismogramSynthesis (46.870 sec) execution
+(753.946, 754.846) --- ActiveFlash-1 [task] ID00053-PeakValCalcOkaya (0.900 sec) execution
+(707.076, 755.866) --- ActiveFlash-0 [task] ID00058-SeismogramSynthesis (48.790 sec) execution
+(755.866, 756.466) --- ActiveFS [transfer] ID00059-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_2_ID00058.grm', 24000, 0)]
+(756.466, 757.696) --- ActiveFlash-1 [task] ID00059-PeakValCalcOkaya (1.230 sec) execution
+(707.076, 759.766) --- ActiveFlash-3 [task] ID00056-SeismogramSynthesis (52.690 sec) execution
+(759.766, 760.366) --- ActiveFS [transfer] ID00057-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_2_ID00056.grm', 24000, 3)]
+(760.366, 761.836) --- ActiveFlash-1 [task] ID00057-PeakValCalcOkaya (1.470 sec) execution
+(759.766, 805.546) --- ActiveFlash-3 [task] ID00040-SeismogramSynthesis (45.780 sec) execution
+(805.546, 806.146) --- ActiveFS [transfer] ID00041-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_2_ID00040.grm', 24000, 3)]
+(806.146, 806.726) --- ActiveFlash-1 [task] ID00041-PeakValCalcOkaya (0.580 sec) execution
+(755.866, 809.376) --- ActiveFlash-0 [task] ID00050-SeismogramSynthesis (53.510 sec) execution
+(809.376, 809.976) --- ActiveFS [transfer] ID00051-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_2_ID00050.grm', 24000, 0)]
+(809.976, 811.236) --- ActiveFlash-1 [task] ID00051-PeakValCalcOkaya (1.260 sec) execution
+(809.376, 858.576) --- ActiveFlash-0 [task] ID00046-SeismogramSynthesis (49.200 sec) execution
+(858.576, 859.176) --- ActiveFS [transfer] ID00047-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_2_ID00046.grm', 24000, 0)]
+(859.176, 860.106) --- ActiveFlash-1 [task] ID00047-PeakValCalcOkaya (0.930 sec) execution
+(805.546, 861.586) --- ActiveFlash-3 [task] ID00038-SeismogramSynthesis (56.040 sec) execution
+(861.586, 862.186) --- ActiveFS [transfer] ID00039-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_2_ID00038.grm', 24000, 3)]
+(862.186, 863.486) --- ActiveFlash-1 [task] ID00039-PeakValCalcOkaya (1.300 sec) execution
+(861.586, 884.386) --- ActiveFlash-3 [task] ID00054-SeismogramSynthesis (22.800 sec) execution
+(884.386, 884.986) --- ActiveFS [transfer] ID00055-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_2_ID00054.grm', 24000, 3)]
+(884.986, 885.716) --- ActiveFlash-1 [task] ID00055-PeakValCalcOkaya (0.730 sec) execution
+(858.576, 903.016) --- ActiveFlash-0 [task] ID00042-SeismogramSynthesis (44.440 sec) execution
+(903.016, 903.616) --- ActiveFS [transfer] ID00043-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_2_ID00042.grm', 24000, 0)]
+(903.616, 905.156) --- ActiveFlash-1 [task] ID00043-PeakValCalcOkaya (1.540 sec) execution
+(884.386, 949.296) --- ActiveFlash-3 [task] ID00048-SeismogramSynthesis (64.910 sec) execution
+(949.296, 949.896) --- ActiveFS [transfer] ID00049-PeakValCalcOkaya(0) transfers [('Seismogram_FFI_0_2_ID00048.grm', 24000, 3)]
+(903.016, 966.696) --- ActiveFlash-0 [task] ID00036-SeismogramSynthesis (63.680 sec) execution
+(966.696, 967.296) --- ActiveFS [transfer] ID00037-PeakValCalcOkaya(1) transfers [('Seismogram_FFI_0_2_ID00036.grm', 24000, 0)]
+(966.696, 967.656) --- ActiveFlash-0 [task] ID00049-PeakValCalcOkaya (0.960 sec) execution
+(967.296, 968.706) --- ActiveFlash-1 [task] ID00037-PeakValCalcOkaya (1.410 sec) execution
+(949.296, 979.906) --- ActiveFlash-3 [task] ID00032-SeismogramSynthesis (30.610 sec) execution
+(979.906, 980.506) --- ActiveFS [transfer] ID00033-PeakValCalcOkaya(0) transfers [('Seismogram_FFI_0_2_ID00032.grm', 24000, 3)]
+(980.506, 981.996) --- ActiveFlash-0 [task] ID00033-PeakValCalcOkaya (1.490 sec) execution
+(979.906, 1033.626) --- ActiveFlash-3 [task] ID00044-SeismogramSynthesis (53.720 sec) execution
+(1033.626, 1034.266) --- ActiveFlash-3 [task] ID00045-PeakValCalcOkaya (0.640 sec) execution
 
 -----------------------------------------
 job: CyberShake_60
@@ -126,503 +126,503 @@ scheduler hostreduce:
 Task statistics
 
 task: ID00057-PeakValCalcOkaya
-osd      = 0
-submit    = 928.240
-start     = 928.240
-complete  = 929.820
+osd      = 1
+submit    = 760.366
+start     = 760.366
+complete  = 761.836
 transferB = 24000
 transfers = 1 [('Seismogram_FFI_0_2_ID00056.grm', 3, 24000)]
 
 task: ID00033-PeakValCalcOkaya
 osd      = 0
-submit    = 906.210
-start     = 906.210
-complete  = 907.810
+submit    = 980.506
+start     = 980.506
+complete  = 981.996
 transferB = 24000
 transfers = 1 [('Seismogram_FFI_0_2_ID00032.grm', 3, 24000)]
 
 task: ID00045-PeakValCalcOkaya
-osd      = 1
-submit    = 724.220
-start     = 724.220
-complete  = 725.670
-transferB = 24000
-transfers = 1 [('Seismogram_FFI_0_2_ID00044.grm', 3, 24000)]
-
-task: ID00031-PeakValCalcOkaya
-osd      = 2
-submit    = 845.329
-start     = 845.329
-complete  = 846.909
+osd      = 3
+submit    = 1033.626
+start     = 1033.626
+complete  = 1034.266
 No data transfers
 
 task: ID00001-ZipSeis
 osd      = 0
 submit    = 0.000
 start     = 0.000
-complete  = 0.610
+complete  = 0.250
 No data transfers
 
 task: ID00021-SeismogramSynthesis
 osd      = 3
-submit    = 240.985
-start     = 448.171
-complete  = 471.131
-transferB = 359068811
-transfers = 3 [('FFI_0_1_txt.variation-s04841-h03208', 1, 4306631), ('FFI_0_1_subfx.sgt', 0, 177381090), ('FFI_0_1_subfy.sgt', 1, 177381090)]
+submit    = 209.630
+start     = 514.801
+complete  = 572.701
+transferB = 613127250
+transfers = 3 [('FFI_0_1_txt.variation-s01748-h08559', 1, 4970140), ('FFI_0_1_subfx.sgt', 0, 304078555), ('FFI_0_1_subfy.sgt', 1, 304078555)]
 
 task: ID00022-PeakValCalcOkaya
 osd      = 0
-submit    = 471.732
-start     = 471.732
-complete  = 472.822
+submit    = 573.301
+start     = 573.301
+complete  = 574.231
 transferB = 24000
 transfers = 1 [('Seismogram_FFI_0_1_ID00021.grm', 3, 24000)]
 
 task: ID00056-SeismogramSynthesis
 osd      = 3
-submit    = 671.877
-start     = 905.609
-complete  = 927.639
-transferB = 382409161
-transfers = 3 [('FFI_0_2_txt.variation-s04342-h06873', 1, 4877239), ('FFI_0_2_subfx.sgt', -1, 188765961), ('FFI_0_2_subfy.sgt', -1, 188765961)]
+submit    = 707.076
+start     = 707.076
+complete  = 759.766
+transferB = 397711342
+transfers = 2 [('FFI_0_2_subfx.sgt', -1, 198855671), ('FFI_0_2_subfy.sgt', -1, 198855671)]
 
 task: ID00025-SeismogramSynthesis
 osd      = 0
-submit    = 240.351
-start     = 240.351
-complete  = 277.871
-transferB = 354762180
-transfers = 2 [('FFI_0_1_subfx.sgt', 0, 177381090), ('FFI_0_1_subfy.sgt', 1, 177381090)]
+submit    = 209.623
+start     = 346.311
+complete  = 392.721
+transferB = 612225239
+transfers = 3 [('FFI_0_1_txt.variation-s01027-h07020', 3, 4068129), ('FFI_0_1_subfx.sgt', 0, 304078555), ('FFI_0_1_subfy.sgt', 1, 304078555)]
 
 task: ID00053-PeakValCalcOkaya
-osd      = 0
-submit    = 771.260
-start     = 808.039
-complete  = 809.529
-transferB = 24000
-transfers = 1 [('Seismogram_FFI_0_2_ID00052.grm', 2, 24000)]
+osd      = 1
+submit    = 753.946
+start     = 753.946
+complete  = 754.846
+No data transfers
 
 task: ID00011-SeismogramSynthesis
 osd      = 3
-submit    = 240.993
-start     = 471.131
-complete  = 532.441
-transferB = 360144913
-transfers = 3 [('FFI_0_1_txt.variation-s05455-h07965', 2, 5382733), ('FFI_0_1_subfx.sgt', 0, 177381090), ('FFI_0_1_subfy.sgt', 1, 177381090)]
+submit    = 209.616
+start     = 403.251
+complete  = 466.771
+transferB = 611342430
+transfers = 3 [('FFI_0_1_txt.variation-s04516-h07987', 0, 3185320), ('FFI_0_1_subfx.sgt', 0, 304078555), ('FFI_0_1_subfy.sgt', 1, 304078555)]
 
 task: ID00003-SeismogramSynthesis
-osd      = 1
-submit    = 240.351
-start     = 240.351
-complete  = 283.201
-transferB = 354762180
-transfers = 2 [('FFI_0_1_subfx.sgt', 0, 177381090), ('FFI_0_1_subfy.sgt', 1, 177381090)]
+osd      = 0
+submit    = 209.621
+start     = 268.081
+complete  = 320.421
+transferB = 611980348
+transfers = 3 [('FFI_0_1_txt.variation-s04189-h07072', 3, 3823238), ('FFI_0_1_subfx.sgt', 0, 304078555), ('FFI_0_1_subfy.sgt', 1, 304078555)]
 
 task: ID00004-PeakValCalcOkaya
 osd      = 1
-submit    = 283.201
-start     = 284.731
-complete  = 285.781
-No data transfers
+submit    = 321.021
+start     = 321.021
+complete  = 322.311
+transferB = 24000
+transfers = 1 [('Seismogram_FFI_0_1_ID00003.grm', 0, 24000)]
 
 task: ID00034-SeismogramSynthesis
-osd      = 0
-submit    = 671.239
-start     = 671.239
-complete  = 717.409
-transferB = 377531922
-transfers = 2 [('FFI_0_2_subfx.sgt', -1, 188765961), ('FFI_0_2_subfy.sgt', -1, 188765961)]
+osd      = 2
+submit    = 707.076
+start     = 707.076
+complete  = 751.986
+transferB = 397711342
+transfers = 2 [('FFI_0_2_subfx.sgt', -1, 198855671), ('FFI_0_2_subfy.sgt', -1, 198855671)]
+
+task: ID00000-ZipPSA
+osd      = 1
+submit    = 0.000
+start     = 0.000
+complete  = 0.310
+No data transfers
 
 task: ID00005-SeismogramSynthesis
 osd      = 3
-submit    = 240.974
-start     = 369.961
-complete  = 412.801
-transferB = 357682578
-transfers = 3 [('FFI_0_1_txt.variation-s03963-h02313', 1, 2920398), ('FFI_0_1_subfx.sgt', 0, 177381090), ('FFI_0_1_subfy.sgt', 1, 177381090)]
+submit    = 209.616
+start     = 349.391
+complete  = 403.251
+transferB = 611322966
+transfers = 3 [('FFI_0_1_txt.variation-s00573-h09978', 2, 3165856), ('FFI_0_1_subfx.sgt', 0, 304078555), ('FFI_0_1_subfy.sgt', 1, 304078555)]
 
 task: ID00028-PeakValCalcOkaya
 osd      = 1
-submit    = 263.872
-start     = 283.201
-complete  = 284.731
+submit    = 248.051
+start     = 248.051
+complete  = 248.711
 transferB = 24000
 transfers = 1 [('Seismogram_FFI_0_1_ID00027.grm', 3, 24000)]
 
 task: ID00016-PeakValCalcOkaya
 osd      = 0
-submit    = 448.772
-start     = 448.772
-complete  = 449.552
+submit    = 349.991
+start     = 392.721
+complete  = 393.821
 transferB = 24000
 transfers = 1 [('Seismogram_FFI_0_1_ID00015.grm', 3, 24000)]
 
 task: ID00039-PeakValCalcOkaya
-osd      = 0
-submit    = 880.880
-start     = 880.880
-complete  = 881.690
+osd      = 1
+submit    = 862.186
+start     = 862.186
+complete  = 863.486
 transferB = 24000
 transfers = 1 [('Seismogram_FFI_0_2_ID00038.grm', 3, 24000)]
 
 task: ID00009-SeismogramSynthesis
-osd      = 2
-submit    = 240.351
-start     = 240.351
-complete  = 296.451
-transferB = 354762180
-transfers = 2 [('FFI_0_1_subfx.sgt', 0, 177381090), ('FFI_0_1_subfy.sgt', 1, 177381090)]
+osd      = 0
+submit    = 209.622
+start     = 320.421
+complete  = 346.311
+transferB = 612187840
+transfers = 3 [('FFI_0_1_txt.variation-s05414-h05953', 3, 4030730), ('FFI_0_1_subfx.sgt', 0, 304078555), ('FFI_0_1_subfy.sgt', 1, 304078555)]
 
 task: ID00038-SeismogramSynthesis
 osd      = 3
-submit    = 671.873
-start     = 817.449
-complete  = 880.279
-transferB = 381824078
-transfers = 3 [('FFI_0_2_txt.variation-s08278-h02783', 0, 4292156), ('FFI_0_2_subfx.sgt', -1, 188765961), ('FFI_0_2_subfy.sgt', -1, 188765961)]
+submit    = 707.699
+start     = 805.546
+complete  = 861.586
+transferB = 400610725
+transfers = 3 [('FFI_0_2_txt.variation-s09148-h04419', 1, 2899383), ('FFI_0_2_subfx.sgt', -1, 198855671), ('FFI_0_2_subfy.sgt', -1, 198855671)]
 
 task: ID00046-SeismogramSynthesis
 osd      = 0
-submit    = 671.873
-start     = 752.289
-complete  = 808.039
-transferB = 381882856
-transfers = 3 [('FFI_0_2_txt.variation-s08008-h09115', 3, 4350934), ('FFI_0_2_subfx.sgt', -1, 188765961), ('FFI_0_2_subfy.sgt', -1, 188765961)]
+submit    = 707.694
+start     = 809.376
+complete  = 858.576
+transferB = 400078954
+transfers = 3 [('FFI_0_2_txt.variation-s08031-h01285', 3, 2367612), ('FFI_0_2_subfx.sgt', -1, 198855671), ('FFI_0_2_subfy.sgt', -1, 198855671)]
 
 task: ID00054-SeismogramSynthesis
 osd      = 3
-submit    = 671.858
-start     = 778.149
-complete  = 817.449
-transferB = 379980077
-transfers = 3 [('FFI_0_2_txt.variation-s02242-h02866', 1, 2448155), ('FFI_0_2_subfx.sgt', -1, 188765961), ('FFI_0_2_subfy.sgt', -1, 188765961)]
+submit    = 707.713
+start     = 861.586
+complete  = 884.386
+transferB = 402492331
+transfers = 3 [('FFI_0_2_txt.variation-s05501-h08951', 2, 4780989), ('FFI_0_2_subfx.sgt', -1, 198855671), ('FFI_0_2_subfy.sgt', -1, 198855671)]
 
 task: ID00042-SeismogramSynthesis
 osd      = 0
-submit    = 671.869
-start     = 717.409
-complete  = 752.289
-transferB = 381371535
-transfers = 3 [('FFI_0_2_txt.variation-s06727-h06984', 3, 3839613), ('FFI_0_2_subfx.sgt', -1, 188765961), ('FFI_0_2_subfy.sgt', -1, 188765961)]
+submit    = 707.695
+start     = 858.576
+complete  = 903.016
+transferB = 400139294
+transfers = 3 [('FFI_0_2_txt.variation-s07068-h02676', 3, 2427952), ('FFI_0_2_subfx.sgt', -1, 198855671), ('FFI_0_2_subfy.sgt', -1, 198855671)]
 
 task: ID00002-ExtractSGT
 osd      = Host
 submit    = 0.000
 start     = 0.000
-complete  = 236.391
+complete  = 203.058
 No data transfers
 
 task: ID00015-SeismogramSynthesis
 osd      = 3
-submit    = 240.981
-start     = 412.801
-complete  = 448.171
-transferB = 358563521
-transfers = 3 [('FFI_0_1_txt.variation-s00956-h01712', 2, 3801341), ('FFI_0_1_subfx.sgt', 0, 177381090), ('FFI_0_1_subfy.sgt', 1, 177381090)]
+submit    = 209.615
+start     = 288.571
+complete  = 349.391
+transferB = 611283716
+transfers = 3 [('FFI_0_1_txt.variation-s01076-h09787', 0, 3126606), ('FFI_0_1_subfx.sgt', 0, 304078555), ('FFI_0_1_subfy.sgt', 1, 304078555)]
 
 task: ID00023-SeismogramSynthesis
-osd      = 0
-submit    = 240.988
-start     = 366.871
-complete  = 418.751
-transferB = 359406920
-transfers = 3 [('FFI_0_1_txt.variation-s07502-h05057', 3, 4644740), ('FFI_0_1_subfx.sgt', 0, 177381090), ('FFI_0_1_subfy.sgt', 1, 177381090)]
+osd      = 2
+submit    = 208.991
+start     = 208.991
+complete  = 244.961
+transferB = 608157110
+transfers = 2 [('FFI_0_1_subfx.sgt', 0, 304078555), ('FFI_0_1_subfy.sgt', 1, 304078555)]
 
 task: ID00044-SeismogramSynthesis
 osd      = 3
-submit    = 671.239
-start     = 671.239
-complete  = 723.619
-transferB = 377531922
-transfers = 2 [('FFI_0_2_subfx.sgt', -1, 188765961), ('FFI_0_2_subfy.sgt', -1, 188765961)]
+submit    = 707.718
+start     = 979.906
+complete  = 1033.626
+transferB = 403050203
+transfers = 3 [('FFI_0_2_txt.variation-s07651-h03701', 2, 5338861), ('FFI_0_2_subfx.sgt', -1, 198855671), ('FFI_0_2_subfy.sgt', -1, 198855671)]
 
 task: ID00014-PeakValCalcOkaya
-osd      = 1
-submit    = 308.762
-start     = 308.762
-complete  = 310.312
+osd      = 2
+submit    = 246.861
+start     = 281.141
+complete  = 282.201
 transferB = 24000
-transfers = 1 [('Seismogram_FFI_0_1_ID00013.grm', 3, 24000)]
+transfers = 1 [('Seismogram_FFI_0_1_ID00013.grm', 1, 24000)]
 
 task: ID00037-PeakValCalcOkaya
 osd      = 1
-submit    = 796.740
-start     = 796.740
-complete  = 798.310
+submit    = 967.296
+start     = 967.296
+complete  = 968.706
 transferB = 24000
-transfers = 1 [('Seismogram_FFI_0_2_ID00036.grm', 2, 24000)]
+transfers = 1 [('Seismogram_FFI_0_2_ID00036.grm', 0, 24000)]
 
 task: ID00058-SeismogramSynthesis
-osd      = 2
-submit    = 671.239
-start     = 671.239
-complete  = 714.909
-transferB = 377531922
-transfers = 2 [('FFI_0_2_subfx.sgt', -1, 188765961), ('FFI_0_2_subfy.sgt', -1, 188765961)]
+osd      = 0
+submit    = 707.076
+start     = 707.076
+complete  = 755.866
+transferB = 397711342
+transfers = 2 [('FFI_0_2_subfx.sgt', -1, 198855671), ('FFI_0_2_subfy.sgt', -1, 198855671)]
 
 task: ID00026-PeakValCalcOkaya
-osd      = 2
-submit    = 278.472
-start     = 296.451
-complete  = 297.981
+osd      = 1
+submit    = 393.321
+start     = 393.321
+complete  = 393.971
 transferB = 24000
 transfers = 1 [('Seismogram_FFI_0_1_ID00025.grm', 0, 24000)]
 
 task: ID00047-PeakValCalcOkaya
 osd      = 1
-submit    = 808.640
-start     = 808.640
-complete  = 809.350
+submit    = 859.176
+start     = 859.176
+complete  = 860.106
 transferB = 24000
 transfers = 1 [('Seismogram_FFI_0_2_ID00046.grm', 0, 24000)]
 
 task: ID00048-SeismogramSynthesis
 osd      = 3
-submit    = 671.878
-start     = 927.639
-complete  = 988.429
-transferB = 382506557
-transfers = 3 [('FFI_0_2_txt.variation-s07625-h04688', 1, 4974635), ('FFI_0_2_subfx.sgt', -1, 188765961), ('FFI_0_2_subfy.sgt', -1, 188765961)]
+submit    = 707.714
+start     = 884.386
+complete  = 949.296
+transferB = 402525656
+transfers = 3 [('FFI_0_2_txt.variation-s08615-h06421', 0, 4814314), ('FFI_0_2_subfx.sgt', -1, 198855671), ('FFI_0_2_subfy.sgt', -1, 198855671)]
 
 task: ID00043-PeakValCalcOkaya
 osd      = 1
-submit    = 752.890
-start     = 752.890
-complete  = 754.380
+submit    = 903.616
+start     = 903.616
+complete  = 905.156
 transferB = 24000
 transfers = 1 [('Seismogram_FFI_0_2_ID00042.grm', 0, 24000)]
 
 task: ID00055-PeakValCalcOkaya
-osd      = 0
-submit    = 818.050
-start     = 818.050
-complete  = 818.700
+osd      = 1
+submit    = 884.986
+start     = 884.986
+complete  = 885.716
 transferB = 24000
 transfers = 1 [('Seismogram_FFI_0_2_ID00054.grm', 3, 24000)]
 
 task: ID00052-SeismogramSynthesis
-osd      = 2
-submit    = 671.239
-start     = 714.909
-complete  = 770.659
-transferB = 377531922
-transfers = 2 [('FFI_0_2_subfx.sgt', -1, 188765961), ('FFI_0_2_subfy.sgt', -1, 188765961)]
+osd      = 1
+submit    = 707.076
+start     = 707.076
+complete  = 753.946
+transferB = 397711342
+transfers = 2 [('FFI_0_2_subfx.sgt', -1, 198855671), ('FFI_0_2_subfy.sgt', -1, 198855671)]
 
 task: ID00020-PeakValCalcOkaya
-osd      = 0
-submit    = 370.562
-start     = 418.751
-complete  = 419.631
+osd      = 1
+submit    = 268.681
+start     = 268.681
+complete  = 269.951
 transferB = 24000
-transfers = 1 [('Seismogram_FFI_0_1_ID00019.grm', 3, 24000)]
+transfers = 1 [('Seismogram_FFI_0_1_ID00019.grm', 0, 24000)]
 
-task: ID00000-ZipPSA
-osd      = -1
-submit    = 0.000
-start     = 0.000
-complete  = 0.170
-No data transfers
+task: ID00030-PeakValCalcOkaya
+osd      = 0
+submit    = 515.401
+start     = 515.401
+complete  = 516.011
+transferB = 24000
+transfers = 1 [('Seismogram_FFI_0_1_ID00029.grm', 3, 24000)]
 
 task: ID00008-PeakValCalcOkaya
 osd      = 1
-submit    = 367.472
-start     = 367.472
-complete  = 368.862
+submit    = 289.171
+start     = 289.171
+complete  = 290.271
 transferB = 24000
-transfers = 1 [('Seismogram_FFI_0_1_ID00007.grm', 0, 24000)]
-
-task: ID00024-PeakValCalcOkaya
-osd      = 1
-submit    = 419.352
-start     = 419.352
-complete  = 419.962
-transferB = 24000
-transfers = 1 [('Seismogram_FFI_0_1_ID00023.grm', 0, 24000)]
+transfers = 1 [('Seismogram_FFI_0_1_ID00007.grm', 3, 24000)]
 
 task: ID00032-SeismogramSynthesis
 osd      = 3
-submit    = 671.877
-start     = 880.279
-complete  = 905.609
-transferB = 382316770
-transfers = 3 [('FFI_0_2_txt.variation-s08327-h02391', 1, 4784848), ('FFI_0_2_subfx.sgt', -1, 188765961), ('FFI_0_2_subfy.sgt', -1, 188765961)]
+submit    = 707.716
+start     = 949.296
+complete  = 979.906
+transferB = 402882976
+transfers = 3 [('FFI_0_2_txt.variation-s07385-h09719', 1, 5171634), ('FFI_0_2_subfx.sgt', -1, 198855671), ('FFI_0_2_subfy.sgt', -1, 198855671)]
 
 task: ID00051-PeakValCalcOkaya
-osd      = 3
-submit    = 1021.489
-start     = 1021.489
-complete  = 1022.179
-No data transfers
+osd      = 1
+submit    = 809.976
+start     = 809.976
+complete  = 811.236
+transferB = 24000
+transfers = 1 [('Seismogram_FFI_0_2_ID00050.grm', 0, 24000)]
 
 task: ID00036-SeismogramSynthesis
-osd      = 2
-submit    = 671.239
-start     = 770.659
-complete  = 796.139
-transferB = 377531922
-transfers = 2 [('FFI_0_2_subfx.sgt', -1, 188765961), ('FFI_0_2_subfy.sgt', -1, 188765961)]
+osd      = 0
+submit    = 707.704
+start     = 903.016
+complete  = 966.696
+transferB = 401329323
+transfers = 3 [('FFI_0_2_txt.variation-s09751-h03505', 3, 3617981), ('FFI_0_2_subfx.sgt', -1, 198855671), ('FFI_0_2_subfy.sgt', -1, 198855671)]
 
 task: ID00006-PeakValCalcOkaya
-osd      = 1
-submit    = 413.402
-start     = 413.402
-complete  = 414.162
+osd      = 0
+submit    = 403.851
+start     = 403.851
+complete  = 405.191
 transferB = 24000
 transfers = 1 [('Seismogram_FFI_0_1_ID00005.grm', 3, 24000)]
 
 task: ID00027-SeismogramSynthesis
 osd      = 3
-submit    = 240.351
-start     = 240.351
-complete  = 263.271
-transferB = 354762180
-transfers = 2 [('FFI_0_1_subfx.sgt', 0, 177381090), ('FFI_0_1_subfy.sgt', 1, 177381090)]
+submit    = 208.991
+start     = 208.991
+complete  = 247.451
+transferB = 608157110
+transfers = 2 [('FFI_0_1_subfx.sgt', 0, 304078555), ('FFI_0_1_subfy.sgt', 1, 304078555)]
 
 task: ID00040-SeismogramSynthesis
 osd      = 3
-submit    = 671.239
-start     = 723.619
-complete  = 778.149
-transferB = 377531922
-transfers = 2 [('FFI_0_2_subfx.sgt', -1, 188765961), ('FFI_0_2_subfy.sgt', -1, 188765961)]
+submit    = 707.691
+start     = 759.766
+complete  = 805.546
+transferB = 399666949
+transfers = 3 [('FFI_0_2_txt.variation-s00404-h02139', 2, 1955607), ('FFI_0_2_subfx.sgt', -1, 198855671), ('FFI_0_2_subfy.sgt', -1, 198855671)]
 
 task: ID00041-PeakValCalcOkaya
 osd      = 1
-submit    = 778.750
-start     = 778.750
-complete  = 779.370
+submit    = 806.146
+start     = 806.146
+complete  = 806.726
 transferB = 24000
 transfers = 1 [('Seismogram_FFI_0_2_ID00040.grm', 3, 24000)]
 
 task: ID00017-SeismogramSynthesis
-osd      = 0
-submit    = 240.351
-start     = 277.871
-complete  = 306.801
-transferB = 354762180
-transfers = 2 [('FFI_0_1_subfx.sgt', 0, 177381090), ('FFI_0_1_subfy.sgt', 1, 177381090)]
-
-task: ID00030-SeismogramSynthesis
 osd      = 2
-submit    = 671.239
-start     = 796.139
-complete  = 845.329
-transferB = 377531922
-transfers = 2 [('FFI_0_2_subfx.sgt', -1, 188765961), ('FFI_0_2_subfy.sgt', -1, 188765961)]
+submit    = 208.991
+start     = 244.961
+complete  = 281.141
+transferB = 608157110
+transfers = 2 [('FFI_0_1_subfx.sgt', 0, 304078555), ('FFI_0_1_subfy.sgt', 1, 304078555)]
+
+task: ID00029-SeismogramSynthesis
+osd      = 3
+submit    = 209.618
+start     = 466.771
+complete  = 514.801
+transferB = 611567578
+transfers = 3 [('FFI_0_1_txt.variation-s02225-h09508', 2, 3410468), ('FFI_0_1_subfx.sgt', 0, 304078555), ('FFI_0_1_subfy.sgt', 1, 304078555)]
 
 task: ID00019-SeismogramSynthesis
-osd      = 3
-submit    = 240.971
-start     = 308.161
-complete  = 369.961
-transferB = 357305686
-transfers = 3 [('FFI_0_1_txt.variation-s08731-h01521', 2, 2543506), ('FFI_0_1_subfx.sgt', 0, 177381090), ('FFI_0_1_subfy.sgt', 1, 177381090)]
+osd      = 0
+submit    = 208.991
+start     = 208.991
+complete  = 268.081
+transferB = 608157110
+transfers = 2 [('FFI_0_1_subfx.sgt', 0, 304078555), ('FFI_0_1_subfy.sgt', 1, 304078555)]
 
 task: ID00049-PeakValCalcOkaya
 osd      = 0
-submit    = 989.030
-start     = 989.030
-complete  = 989.630
+submit    = 949.896
+start     = 966.696
+complete  = 967.656
 transferB = 24000
 transfers = 1 [('Seismogram_FFI_0_2_ID00048.grm', 3, 24000)]
 
 task: ID00012-PeakValCalcOkaya
 osd      = 0
-submit    = 533.042
-start     = 533.042
-complete  = 533.722
+submit    = 467.371
+start     = 467.371
+complete  = 468.711
 transferB = 24000
 transfers = 1 [('Seismogram_FFI_0_1_ID00011.grm', 3, 24000)]
 
 task: ID00059-PeakValCalcOkaya
 osd      = 1
-submit    = 715.510
-start     = 715.510
-complete  = 716.700
+submit    = 756.466
+start     = 756.466
+complete  = 757.696
 transferB = 24000
-transfers = 1 [('Seismogram_FFI_0_2_ID00058.grm', 2, 24000)]
+transfers = 1 [('Seismogram_FFI_0_2_ID00058.grm', 0, 24000)]
 
 task: ID00007-SeismogramSynthesis
-osd      = 0
-submit    = 240.351
-start     = 306.801
-complete  = 366.871
-transferB = 354762180
-transfers = 2 [('FFI_0_1_subfx.sgt', 0, 177381090), ('FFI_0_1_subfy.sgt', 1, 177381090)]
+osd      = 3
+submit    = 209.606
+start     = 247.451
+complete  = 288.571
+transferB = 610129717
+transfers = 3 [('FFI_0_1_txt.variation-s04612-h07929', 1, 1972607), ('FFI_0_1_subfx.sgt', 0, 304078555), ('FFI_0_1_subfy.sgt', 1, 304078555)]
 
 task: ID00010-PeakValCalcOkaya
 osd      = 1
-submit    = 297.052
-start     = 297.052
-complete  = 298.042
+submit    = 346.911
+start     = 346.911
+complete  = 348.311
 transferB = 24000
-transfers = 1 [('Seismogram_FFI_0_1_ID00009.grm', 2, 24000)]
+transfers = 1 [('Seismogram_FFI_0_1_ID00009.grm', 0, 24000)]
 
-task: ID00029-ExtractSGT
-osd      = -1
-submit    = 308.526
-start     = 532.441
-complete  = 667.101
-transferB = 39414951536
-transfers = 3 [('FFI_0_2_fx.sgt', 3, 19706426412), ('FFI_0_2_fy.sgt', 0, 19706426412), ('FFI_0_2_txt.variation-s04890-h06672', 2, 2098712)]
+task: ID00024-PeakValCalcOkaya
+osd      = 1
+submit    = 245.561
+start     = 246.261
+complete  = 247.621
+transferB = 24000
+transfers = 1 [('Seismogram_FFI_0_1_ID00023.grm', 2, 24000)]
 
 task: ID00035-PeakValCalcOkaya
-osd      = 1
-submit    = 718.010
-start     = 718.010
-complete  = 719.460
-transferB = 24000
-transfers = 1 [('Seismogram_FFI_0_2_ID00034.grm', 0, 24000)]
+osd      = 2
+submit    = 751.986
+start     = 751.986
+complete  = 753.326
+No data transfers
+
+task: ID00031-ExtractSGT
+osd      = -1
+submit    = 313.555
+start     = 572.701
+complete  = 702.781
+transferB = 40061065670
+transfers = 3 [('FFI_0_2_fx.sgt', 0, 20029022017), ('FFI_0_2_fy.sgt', 1, 20029022017), ('FFI_0_2_txt.variation-s07266-h03292', 0, 3021636)]
 
 task: ID00050-SeismogramSynthesis
-osd      = 3
-submit    = 671.881
-start     = 988.429
-complete  = 1021.489
-transferB = 382931627
-transfers = 3 [('FFI_0_2_txt.variation-s06743-h00599', 0, 5399705), ('FFI_0_2_subfx.sgt', -1, 188765961), ('FFI_0_2_subfy.sgt', -1, 188765961)]
+osd      = 0
+submit    = 707.076
+start     = 755.866
+complete  = 809.376
+transferB = 397711342
+transfers = 2 [('FFI_0_2_subfx.sgt', -1, 198855671), ('FFI_0_2_subfy.sgt', -1, 198855671)]
 
 task: ID00013-SeismogramSynthesis
-osd      = 3
-submit    = 240.351
-start     = 263.271
-complete  = 308.161
-transferB = 354762180
-transfers = 2 [('FFI_0_1_subfx.sgt', 0, 177381090), ('FFI_0_1_subfy.sgt', 1, 177381090)]
+osd      = 1
+submit    = 208.991
+start     = 208.991
+complete  = 246.261
+transferB = 608157110
+transfers = 2 [('FFI_0_1_subfx.sgt', 0, 304078555), ('FFI_0_1_subfy.sgt', 1, 304078555)]
 
 task: ID00018-PeakValCalcOkaya
 osd      = 1
-submit    = 307.402
-start     = 307.402
-complete  = 308.332
+submit    = 281.741
+start     = 281.741
+complete  = 283.201
 transferB = 24000
-transfers = 1 [('Seismogram_FFI_0_1_ID00017.grm', 0, 24000)]
+transfers = 1 [('Seismogram_FFI_0_1_ID00017.grm', 2, 24000)]
 
 OSD busy intervals
-OSD 0: 325.970 sec
-	[(0.00, 0.61), (240.35, 277.87), (277.87, 306.80), (306.80, 366.87), (366.87, 418.75), (418.75, 419.63), (448.77, 449.55), (471.73, 472.82), (533.04, 533.72), (671.24, 717.41), (717.41, 752.29), (752.29, 808.04), (808.04, 809.53), (818.05, 818.70), (880.88, 881.69), (906.21, 907.81), (928.24, 929.82), (989.03, 989.63)]
-OSD 1: 60.140 sec
-	[(240.35, 283.20), (283.20, 284.73), (284.73, 285.78), (297.05, 298.04), (307.40, 308.33), (308.76, 310.31), (367.47, 368.86), (413.40, 414.16), (419.35, 419.96), (715.51, 716.70), (718.01, 719.46), (724.22, 725.67), (752.89, 754.38), (778.75, 779.37), (796.74, 798.31), (808.64, 809.35)]
-OSD 2: 233.300 sec
-	[(240.35, 296.45), (296.45, 297.98), (671.24, 714.91), (714.91, 770.66), (770.66, 796.14), (796.14, 845.33), (845.33, 846.91)]
-OSD 3: 643.030 sec
-	[(240.35, 263.27), (263.27, 308.16), (308.16, 369.96), (369.96, 412.80), (412.80, 448.17), (448.17, 471.13), (471.13, 532.44), (671.24, 723.62), (723.62, 778.15), (778.15, 817.45), (817.45, 880.28), (880.28, 905.61), (905.61, 927.64), (927.64, 988.43), (988.43, 1021.49), (1021.49, 1022.18)]
+OSD 0: 451.370 sec
+	[(0.00, 0.25), (208.99, 268.08), (268.08, 320.42), (320.42, 346.31), (346.31, 392.72), (392.72, 393.82), (403.85, 405.19), (467.37, 468.71), (515.40, 516.01), (573.30, 574.23), (707.08, 755.87), (755.87, 809.38), (809.38, 858.58), (858.58, 903.02), (903.02, 966.70), (966.70, 967.66), (980.51, 982.00)]
+OSD 1: 104.990 sec
+	[(0.00, 0.31), (208.99, 246.26), (246.26, 247.62), (248.05, 248.71), (268.68, 269.95), (281.74, 283.20), (289.17, 290.27), (321.02, 322.31), (346.91, 348.31), (393.32, 393.97), (707.08, 753.95), (753.95, 754.85), (756.47, 757.70), (760.37, 761.84), (806.15, 806.73), (809.98, 811.24), (859.18, 860.11), (862.19, 863.49), (884.99, 885.72), (903.62, 905.16), (967.30, 968.71)]
+OSD 2: 119.460 sec
+	[(208.99, 244.96), (244.96, 281.14), (281.14, 282.20), (707.08, 751.99), (751.99, 753.33)]
+OSD 3: 690.900 sec
+	[(208.99, 247.45), (247.45, 288.57), (288.57, 349.39), (349.39, 403.25), (403.25, 466.77), (466.77, 514.80), (514.80, 572.70), (707.08, 759.77), (759.77, 805.55), (805.55, 861.59), (861.59, 884.39), (884.39, 949.30), (949.30, 979.91), (979.91, 1033.63), (1033.63, 1034.27)]
 
-OSD mean utilization = 30.876
-OSD std utilization = 20.715
+OSD mean utilization = 33.036
+OSD std utilization = 23.653
 
 SSD RW statistics
 OSD    Total R    Total W    Extra R    Extra W
-  0 44584463397 2742409395 42000260869 2742100863
-  1 22667940171  532506510 22308286502  532479270
-  2 1897670230 1865034300   13922292 1864913868
-  3 70366345624 45342166121 25387054856 44964273519
+  0 48815690489 4746042400 44361852838 4745767347
+  1 45377836491 1310407751 44362526726 1310355007
+  2 1646022195 1614121994   22110249 1614049562
+  3 52743293143 47544984177 5588606430 47146936619
 
-Total data transfer = 89709524519 bytes (85553.669 MB)
-SSD mean read = 34879104855 bytes (33263.306 MB)
-SSD mean write = 12620529081 bytes (12035.874 MB)
-SSD std read = 25448112968 bytes (24269.212 MB)
-SSD std write = 18908223983 bytes (18032.288 MB)
+Total data transfer = 94335096243 bytes (89964.958 MB)
+SSD mean read = 37145710579 bytes (35424.910 MB)
+SSD mean write = 13803889080 bytes (13164.414 MB)
+SSD std read = 20660764659 bytes (19703.641 MB)
+SSD std write = 19526799418 bytes (18622.207 MB)
 
-simulation finished at 1022.179
+simulation finished at 1034.266
