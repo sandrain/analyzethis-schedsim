@@ -1,7 +1,8 @@
 #!/bin/sh
 
 pattern="workflows/$1*.xml"
-netbw="$((1*104857600))"
+#netbw="$((1*104857600))"
+netbw="$((250*(1<<20)))"
 runtime="1"
 
 ls $pattern 2>/dev/null
@@ -14,19 +15,12 @@ for n in `seq 1 6`; do
     for workflow in $pattern; do
         nosd=$((2**n))
         f=`basename $workflow .xml`
-	for scheduler in rr input minwait; do
-		outfile="results/${nosd}_${scheduler}_${f}.txt"
-		./sim.py -e -r $runtime -b $netbw -n $nosd -s $scheduler \
-			$workflow > $outfile
-	done
-#        scheduler='rr'
-#        outfile="results/${nosd}_${scheduler}_${f}.txt"
-#        ./sim.py -e -r $runtime -b $netbw -n $nosd -s $scheduler \
-#		$workflow > $outfile
-#        scheduler='input'
-#        outfile="results/${nosd}_${scheduler}_${f}.txt"
-#        ./sim.py -e -r $runtime -b $netbw -n $nosd -s $scheduler \
-#		$workflow > $outfile
+
+        for scheduler in rr input minwait hostonly hostreduce; do
+            outfile="results/${nosd}_${scheduler}_${f}.txt"
+            ./sim.py -e -r $runtime -b $netbw -n $nosd -s $scheduler \
+                $workflow > $outfile
+        done
     done
 done
 

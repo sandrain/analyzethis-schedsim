@@ -116,17 +116,16 @@ def main():
             ActiveFS scheduling simulator. Currently only simulates a single
             job execution. The default options are identical to:
 
-                --netbw 104857600 --osds 4 --scheduler rr --placement rr
+                --netbw 262144000 --osds 4 --scheduler rr --placement rr
+
+            netbw is 250 MB/s by default.
 
             The following job schedulers are available:
               rr: round-robin (default)
-              input: input-locality, task is placed where input file is
+              locality: input-locality, task is placed where input file is
               minwait: task is placed where waiting time is minimal
               hostonly: only host is used
               hostreduce: reduce tasks are scheduled to hybrid
-
-              input-enhanced: input based, but also tries to parallelize
-                  (deprecated, do NOT use)
 
             The following data placement policies are available:
               rr: round-robin (default)
@@ -138,16 +137,12 @@ def main():
     parser = argparse.ArgumentParser(
                 formatter_class=argparse.RawDescriptionHelpFormatter,
                 description=args_description)
-    parser.add_argument('-b', '--netbw', type=int, default=104857600,
+    parser.add_argument('-b', '--netbw', type=int, default=262144000,
                         help='network bandwith (bytes/sec)')
     parser.add_argument('-r', '--runtime', type=float, default=1.0,
                         help='runtime slowdown factor (default 1.0)')
     parser.add_argument('-n', '--osds', type=int, default=4,
                         help='number of osds')
-    """
-    parser.add_argument('-y', '--hybrid', default=False,
-                        help='host execution', action='store_true')
-    """
     parser.add_argument('-x', '--hostspeed', type=int, default=2,
                         help='host clock speed (e.g. x2, x4, ...)')
     parser.add_argument('-s', '--scheduler', type=str, default='rr',

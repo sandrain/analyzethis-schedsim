@@ -35,7 +35,7 @@ class SchedRR(Scheduler):
             task.osd = osd
 
 
-class SchedInput(Scheduler):
+class SchedLocality(Scheduler):
     def find_osd(self, task):
         fsize = [0] * self.afs.config.osds
         for f in task.input:

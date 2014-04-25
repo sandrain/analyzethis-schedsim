@@ -139,6 +139,10 @@ class ActiveHost(ActiveFlash):
     external bandwidth. (iSSD, ICS'11)
     """
     def adjust_runtime(self, task):
+        ssd_ch_bw = 40 * (1 << 20)
+        ssd_n_ch = 32
+        bw_ssd = ssd_ch_bw * ssd_n_ch
+
         r, w = 0, 0
         if len(task.input) > 0:
             r = reduce(lambda x, y: x+y, [ f.size for f in task.input ])
@@ -146,7 +150,6 @@ class ActiveHost(ActiveFlash):
             w = reduce(lambda x, y: x+y, [ f.size for f in task.output ])
 
         total_io = r + w
-        bw_ssd = self.afs.config.netbw * 2.56
         t_ssd_io = float(total_io) / bw_ssd
         t_ssd_comp = task.runtime - t_ssd_io
 
@@ -212,32 +215,16 @@ class ActiveFS(event.TimeoutEventHandler):
         self.ev.register_module(self)
         self.pq = []    # pre(pared) q, all data files are ready
 
-        if self.config.scheduler == 'input':
-            self.scheduler = sched.SchedInput(self)
-            """
-        elif self.config.scheduler == 'input-enhanced':
-            self.scheduler = sched.SchedInputEnhanced(self)
-            """
+        if self.config.scheduler == 'locality':
+            self.scheduler = sched.SchedLocality(self)
         elif self.config.scheduler == 'minwait':
             self.scheduler = sched.SchedMinWait(self)
         elif self.config.scheduler == 'hostonly':
             self.scheduler = sched.SchedHostOnly(self)
             self.set_hybrid()
-            """
-            if self.config.hybrid == True:
-                self.scheduler = sched.SchedHostOnly(self)
-            else:   # not in a hybrid mode, fallback to RR
-                self.scheduler = sched.SchedRR(self)
-                """
         elif self.config.scheduler == 'hostreduce':
             self.scheduler = sched.SchedHostReduce(self)
             self.set_hybrid()
-            """
-            if self.config.hybrid == True:
-                self.scheduler = sched.SchedHostReduce(self)
-            else:   # not in a hybrid mode, fallback to RR
-                self.scheduler = sched.SchedRR(self)
-                """
         else:
             self.scheduler = sched.SchedRR(self)
 
