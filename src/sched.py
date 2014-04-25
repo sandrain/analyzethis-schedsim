@@ -144,7 +144,7 @@ class SchedHostOnly(Scheduler):
         for task in ready_list:
             task.host = True
 
-class SchedHybridReduce(Scheduler):
+class SchedHostReduce(Scheduler):
     def task_prepared(self, ready_list):
         """The scheduling is based on the minwait
         """

@@ -224,9 +224,9 @@ class ActiveFS(event.TimeoutEventHandler):
                 self.scheduler = sched.SchedHostOnly(self)
             else:   # not in a hybrid mode, fallback to RR
                 self.scheduler = sched.SchedRR(self)
-        elif self.config.scheduler == 'hybridreduce':
+        elif self.config.scheduler == 'hostreduce':
             if self.config.hybrid == True:
-                self.scheduler = sched.SchedHybridReduce(self)
+                self.scheduler = sched.SchedHostReduce(self)
             else:   # not in a hybrid mode, fallback to RR
                 self.scheduler = sched.SchedRR(self)
         else:

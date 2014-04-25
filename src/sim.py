@@ -123,7 +123,7 @@ def main():
               input: input-locality, task is placed where input file is
               minwait: task is placed where waiting time is minimal
               hostonly: only host is used (-y required)
-              hybridreduce: reduce tasks are scheduled to hybrid (-y required)
+              hostreduce: reduce tasks are scheduled to hybrid (-y required)
 
               input-enhanced: input based, but also tries to parallelize
                   (deprecated, do NOT use)
