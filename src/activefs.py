@@ -133,7 +133,7 @@ class ActiveHost(ActiveFlash):
         self.last_written_osd = 0;  # write output in a RR order.
 
     def get_name(self):
-        return 'Host-' + self.id
+        return 'Host-' + str(self.id)
 
     """here we assume that the internal NAND bandwidth is x2.56 faster than the
     external bandwidth. (iSSD, ICS'11)
