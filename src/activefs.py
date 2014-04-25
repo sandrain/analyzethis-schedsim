@@ -113,6 +113,84 @@ class ActiveFlash(event.TimeoutEventHandler):
         return self.n_extra_written
 
 
+class ActiveHost(ActiveFlash):
+    """Host
+    """
+    def __init__(self, ev, id, afs):
+        self.id = id
+        self.ev = ev
+        self.afs = afs
+        self.tq = []
+        self.ev.register_module(self)
+        self.idle_event = event.TimeoutEvent('idle', 1, self)
+        self.idle_event.set_disposable()
+        self.task_event = event.TimeoutEvent('task', 0, self)
+        self.running = None
+        """statistics"""
+        self.n_read = 0         # how much is read/written?
+        self.n_written = 0
+        self.n_task = 0;        # how many tasks were processed here?
+        self.last_written_osd = 0;  # write output in a RR order.
+
+    def get_name(self):
+        return 'Host-' + self.id
+
+    """here we assume that the internal NAND bandwidth is x2.56 faster than the
+    external bandwidth. (iSSD, ICS'11)
+    """
+    def adjust_runtime(self, task):
+        r, w = 0, 0
+        if len(task.input) > 0:
+            r = reduce(lambda x, y: x+y, [ f.size for f in task.input ])
+        if len(task.output) > 0:
+            w = reduce(lambda x, y: x+y, [ f.size for f in task.output ])
+
+        total_io = r + w
+        bw_ssd = self.afs.config.netbw * 2.56
+        t_ssd_io = float(total_io) / bw_ssd
+        t_ssd_comp = task.runtime - t_ssd_io
+
+        t_comp = t_ssd_comp / self.afs.config.hostspeed
+        t_io = total_io / self.afs.config.netbw
+
+        return t_comp + t_io
+
+    def try_execute_task(self):
+        if self.running != None:
+            return
+
+        if len(self.tq) > 0:
+            task = self.tq.pop(0)
+            self.running = task
+            self.task_event.set_timeout(self.adjust_runtime(task))
+            self.task_event.set_context(task)
+            desc = '%s (%.3f sec) execution' % (task.name, task.runtime)
+            self.task_event.set_description(desc)
+            task.started(self.ev.now())
+            self.ev.register_event(self.task_event)
+
+    def update_data_rw(self, task):
+        self.n_task += 1        # update the number of tasks processed
+
+        r, w = 0, 0             # update data read/written
+        if len(task.input) > 0:
+            r = reduce(lambda x, y: x+y, [ f.size for f in task.input ])
+        if len(task.output) > 0:
+            w = reduce(lambda x, y: x+y, [ f.size for f in task.output ])
+        self.data_read(r)
+        self.data_write(w)
+
+        for f in task.input:
+            self.afs.osds[f.location].data_transfer_read(f.size)
+        for f in task.output:
+            if self.last_written_osd < self.afs.config.osds:
+                f.location = self.last_written_osd
+                self.last_written_osd += 1
+            else:
+                f.location = self.last_written_osd = 0
+            self.afs.osds[f.location].data_transfer_write(f.size)
+
+
 class ActiveFS(event.TimeoutEventHandler):
     """ActiveFS
     Currently, we assume that only a single job is submitted
@@ -122,17 +200,38 @@ class ActiveFS(event.TimeoutEventHandler):
         self.config = config
         self.osds = [ ActiveFlash(ev, n, self) \
                         for n in range(self.config.osds) ]
+
+        """We also use the host for computation?
+        """
+        if self.config.hybrid == True:
+            self.host = ActiveHost(ev, 0, self)
+        else:
+            self.host = None
+
         self.ev.register_module(self)
         self.pq = []    # pre(pared) q, all data files are ready
 
         if self.config.scheduler == 'input':
             self.scheduler = sched.SchedInput(self)
+            """
         elif self.config.scheduler == 'input-enhanced':
             self.scheduler = sched.SchedInputEnhanced(self)
+            """
         elif self.config.scheduler == 'minwait':
             self.scheduler = sched.SchedMinWait(self)
+        elif self.config.scheduler == 'hostonly':
+            if self.config.hybrid == True:
+                self.scheduler = sched.SchedHostOnly(self)
+            else:   # not in a hybrid mode, fallback to RR
+                self.scheduler = sched.SchedRR(self)
+        elif self.config.scheduler == 'hybridreduce':
+            if self.config.hybrid == True:
+                self.scheduler = sched.SchedHybridReduce(self)
+            else:   # not in a hybrid mode, fallback to RR
+                self.scheduler = sched.SchedRR(self)
         else:
             self.scheduler = sched.SchedRR(self)
+
 
     def get_name(self):
         return 'ActiveFS'
@@ -277,7 +376,8 @@ class ActiveFS(event.TimeoutEventHandler):
             self.scheduler.task_prepared(prepared)
 
             for task in prepared:
-                self.request_data_transfer(task)
+                if task.host == False:
+                    self.request_data_transfer(task)
 
     def handle_ready_tasks(self):
         ready = [ task for task in self.pq if task.is_ready() ]
@@ -287,7 +387,10 @@ class ActiveFS(event.TimeoutEventHandler):
                     self.pq.remove(task)
 
             for task in ready:
-                self.osds[task.osd].submit_task(task)
+                if task.host == True:
+                    self.host.submit_task(task)
+                else:
+                    self.osds[task.osd].submit_task(task)
 
     def handle_timeout(self, e):
         if self.config.eventlog:

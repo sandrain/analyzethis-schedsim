@@ -139,4 +139,54 @@ class SchedMinWait(Scheduler):
                     wait[i] = self.afs.osds[i].get_qtime()
 
 
+class SchedHostOnly(Scheduler):
+    def task_prepared(self, ready_list):
+        for task in ready_list:
+            task.host = True
+
+class SchedHybridReduce(Scheduler):
+    def task_prepared(self, ready_list):
+        """The scheduling is based on the minwait
+        """
+        wait = [ 0.0 ] * self.afs.config.osds
+        for i in range(self.afs.config.osds):
+            if len(self.afs.osds[i].tq) > 0:
+                wait[i] = self.afs.osds[i].get_qtime()
+
+        for task in ready_list:
+            osd_list = []
+            for f in task.input:
+                osd_list += [ f.location ]
+            osd_list = list(set(osd_list))
+
+            """This should be passed as argument (0.5)
+            If the files are spreaded more than 50% of the available osds
+            schedule the task to the host
+            """
+            if len(osd_list) > self.afs.config.osds * 0.5:
+                task.host = True
+                return
+
+            """fall back to minwait
+            """
+            fsize = [0] * self.afs.config.osds
+            for f in task.input:
+                fsize[f.location] += f.size
+            fsize_total = reduce(lambda x,y: x+y, fsize)
+            for i in range(self.afs.config.osds):
+                wait[i] = wait[i] + \
+                    (float(fsize_total - fsize[i]) / self.afs.config.netbw)
+
+            """select the minimum wait time one
+            """
+            osd = wait.index(min(wait))
+            task.osd = osd
+
+            """need to update the wait time
+            """
+            wait = [ 0.0 ] * self.afs.config.osds
+            wait[osd] += task.runtime   # consider the current task
+            for i in range(self.afs.config.osds):
+                if len(self.afs.osds[i].tq) > 0:
+                    wait[i] = self.afs.osds[i].get_qtime()
 

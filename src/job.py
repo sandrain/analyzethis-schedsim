@@ -89,6 +89,7 @@ class ActiveTask:
             raise
         else:
             self.osd = -1
+            self.host = False
             self.stat = ActiveTaskStat()
 
     def set_osd(self, osd):
@@ -120,6 +121,12 @@ class ActiveTask:
     def is_ready(self):
         if self.is_prepared() == False:
             return False
+
+        """No need to care about the file location
+        """
+        if self.host == True:
+            return True
+
         for f in self.input:
             if not f.is_replicated(self.osd):
                 return False
@@ -127,7 +134,10 @@ class ActiveTask:
 
     def report(self):
         print '\ntask: %s' % self.name
-        print 'osd      = %d' % self.osd
+        if self.host == True:
+            print 'osd      = Host'
+        else:
+            print 'osd      = %d' % self.osd
         self.stat.dump()
 
 
