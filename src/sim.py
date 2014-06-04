@@ -143,7 +143,7 @@ def main():
                         help='runtime slowdown factor (default 1.0)')
     parser.add_argument('-n', '--osds', type=int, default=4,
                         help='number of osds')
-    parser.add_argument('-x', '--hostspeed', type=int, default=2,
+    parser.add_argument('-x', '--hostspeed', type=float, default=2.0,
                         help='host clock speed (e.g. x2, x4, ...)')
     parser.add_argument('-s', '--scheduler', type=str, default='rr',
                         help='job scheduler')

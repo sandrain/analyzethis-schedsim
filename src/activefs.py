@@ -145,9 +145,9 @@ class ActiveHost(ActiveFlash):
 
         r, w = 0, 0
         if len(task.input) > 0:
-            r = reduce(lambda x, y: x+y, [ f.size for f in task.input ])
+            r = reduce(lambda x, y: abs(x)+abs(y), [ f.size for f in task.input ])
         if len(task.output) > 0:
-            w = reduce(lambda x, y: x+y, [ f.size for f in task.output ])
+            w = reduce(lambda x, y: abs(x)+abs(y), [ f.size for f in task.output ])
 
         total_io = r + w
         t_ssd_io = float(total_io) / bw_ssd
