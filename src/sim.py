@@ -6,6 +6,7 @@ import textwrap
 import json
 import pdb
 import scipy
+import numpy as np
 from lxml import etree
 
 import event
@@ -95,6 +96,8 @@ class ActiveSimulator(event.EventSimulator):
 
         rmean = scipy.mean(reads)
         wmean = scipy.mean(writes)
+        wsum = np.sum(writes)
+        rsum = np.sum(reads)
         rstd = scipy.std(reads)
         wstd = scipy.std(writes)
 
@@ -108,6 +111,10 @@ class ActiveSimulator(event.EventSimulator):
                     (rstd, float(rstd) / (2**20))
         print 'SSD std write = %d bytes (%.3f MB)' % \
                     (wstd, float(wstd) / (2**20))
+        print 'SSD total writes = %d bytes (%.3f MB)' % \
+                    (wsum, float(wsum) / (2**20))
+        print 'SSD total reads = %d bytes (%.3f MB)' % \
+                    (rsum, float(rsum) / (2**20))
 
 """main program
 """
