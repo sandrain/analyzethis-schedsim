@@ -115,6 +115,8 @@ class ActiveSimulator(event.EventSimulator):
                     (wsum, float(wsum) / (2**20))
         print 'SSD total reads = %d bytes (%.3f MB)' % \
                     (rsum, float(rsum) / (2**20))
+        print 'SSD write coefficient of variation = %.3f' % \
+                    (wstd / wmean)
 
 """main program
 """

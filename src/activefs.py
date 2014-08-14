@@ -282,16 +282,24 @@ class ActiveFS(event.TimeoutEventHandler):
         # after conversion, call submit_job()
         self.submit_job(js)
 
+    def populate_files_random(self):
+        pass
+
     def populate_files(self):
         if self.config.placement == 'explicit':
             return
 
+        sorted_files = list(map(lambda x: x[1],
+                            sorted(self.job.files.items())))
+        valid_files = list(filter(lambda x: x.size > 0, sorted_files))
+
         if self.config.placement == 'random':
-            self.populate_files_random()
+            #self.populate_files_random()
+            li = range(self.config.osds)
+            random.shuffle(li)
+            for (f, osd) in zip(valid_files, cycle(li)):
+                f.set_location(osd)
         else:   # including 'rr', others fallback here
-            sorted_files = list(map(lambda x: x[1],
-                                sorted(self.job.files.items())))
-            valid_files = list(filter(lambda x: x.size > 0, sorted_files))
             for (f, osd) in zip(valid_files,
                                 cycle(range(self.config.osds))):
                 f.set_location(osd)
