@@ -225,6 +225,8 @@ class ActiveFS(event.TimeoutEventHandler):
         elif self.config.scheduler == 'hostreduce':
             self.scheduler = sched.SchedHostReduce(self)
             self.set_hybrid()
+        elif self.config.scheduler == 'wa':
+            self.scheduler = sched.SchedWA(self)
         else:
             self.scheduler = sched.SchedRR(self)
 

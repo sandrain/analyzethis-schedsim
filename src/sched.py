@@ -23,6 +23,124 @@ class Scheduler:
     def task_completed(self, task):
         pass
 
+class SchedWA(Scheduler):
+    """Scheduling policy aiming at decreasing the write amplification ratio
+    """
+    def get_task_total_input_size(self, task):
+        """ Simple function that returns the total size of all the input
+            files for a given task
+        """
+        total_input_size = 0
+        for f in task.input:
+            total_input_size += f.size
+        print 'Total size of the input files: ', total_input_size, ' - task: ', task.name
+        return total_input_size
+
+    def size_required_data_transfer(self, task, afe):
+        """ Function that return the write amplification ratio for a given placement of
+            a task on a target AFE
+        """
+        print 'Calculating the amount of data if assigning task to AFE ', afe.id
+        transfer = 0
+        for f in task.input:
+            print '\tCurrent location of file: ', f.name, ': ', f.location, ' - Potential target: ', afe.id
+            if f.location != afe.id:
+                transfer += f.size
+        print 'Total size of files to transfer: ', transfer, ' - task: ', task.name, '  - AFE ID: ', afe.id
+        return transfer
+
+    def get_task_wa_for_afe(self, task, afe):
+        """ Function that returns the write amplification ratio if the task
+            is assigned to a target AFE
+        """
+        data_moved = self.size_required_data_transfer(task, afe)
+        total_data = self.get_task_total_input_size(task)
+        wa = 1.000 * data_moved / total_data
+        print 'WA ratio for assigning task ', task.name, 'to AFE ', afe.id, ': ', wa, '(', data_moved, '/', total_data, ')'
+        return wa
+
+    def get_task_min_wa(self, task, afes):
+        """ Get the lowest write amplification ratio when concidering allocating a
+            task on a set of AFEs
+        """
+        min_wa = float(-1)
+        select_afe_index = 0
+        for i in range(len(afes)):
+            wa = self.get_task_wa_for_afe(task, afes[i])
+            if (min_wa == -1):
+                min_wa = wa
+                select_afe_index = i
+            elif (wa < min_wa):
+                min_wa = wa
+                select_afe_index = i
+        #print '*** Task ', task.name, 'will be assigned to AFE ', afes[select_afe_index].id
+        print '*********  Hmm got AFE index ', select_afe_index, ' (out of ', len(afes), ' AFEs, with WA ratio of)', min_wa
+        print '\n\n'
+        return min_wa, select_afe_index
+
+    def task_prepared(self, ready_list):
+        print "\n\n\n*********************************\n"
+        afes = list(self.afs.osds)
+        tasks = list(ready_list)
+        j = 0
+        while len(afes) > 0 and len(tasks) > 0:
+            print '\n\n----------\n'
+            print len(tasks), " tasks candidate for placement on ", len(afes), " AFEs"
+            i = 0
+            min_wa = -1
+            select_task_index = 0
+            select_afe_index = 0
+            select_task_name = ''
+            select_afe_id = -1
+
+            while (i < len(tasks)):
+                task_wa, afe_index = self.get_task_min_wa(tasks[i], afes)
+                if min_wa == -1:
+                    min_wa = task_wa
+                    select_task_index = i
+                    select_afe_index = afe_index
+                    select_task_name = tasks[i].name
+                    if (select_afe_index < len(afes)):
+                        select_afe_id = afes[select_afe_index].id
+                    else:
+                        print 'Error: index ', select_afe_index, 'is outside of array (size: ', len(afes), ')'
+                        return
+                elif (task_wa < min_wa):
+                    min_wa = task_wa
+                    select_task_index = i
+                    select_afe_index = afe_index
+                    select_afe_id = afes[select_afe_index].id
+                    select_task_name = tasks[i].name
+                i = i + 1
+
+            print '\n\nLoop ', j, 'task ', select_task_name, '(index: ', select_task_index, ') is selected to be executed on AFE ', select_afe_id
+            print '\n\n'
+
+            """ We update the placement of the select task
+            """
+            print 'Select AFE ID: ', select_afe_id, ' - task index: ', select_task_index
+            index_target_osd = 0
+            while (self.afs.osds[index_target_osd].id != select_afe_id):
+                index_target_osd = index_target_osd + 1
+
+            i = 0
+            while (ready_list[i].name != select_task_name):
+                i = i + 1
+            ready_list[i].osd = index_target_osd
+            
+            """ We remove the task from the local list of tasks that
+                need to be scheduled
+            """
+            if (select_task_index < len(tasks)):
+                tasks.pop(select_task_index)
+            else:
+                print 'Error: index ', select_task_index, ' is outside of array (size: ', len(tasks), ')'
+            """ We remove the AFE from the local list of available AFEs
+            """
+            #print "Marking AFE ", select_afe_index, "as busy"
+            #afes.pop(select_afe_index)
+            j = j + 1
+        print "\n\n\n*********************************\n\n\n"
 
 class SchedRR(Scheduler):
     """Basic round-robin scheduler
