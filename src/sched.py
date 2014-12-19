@@ -73,25 +73,34 @@ class SchedWA(Scheduler):
             elif (wa < min_wa):
                 min_wa = wa
                 select_afe_index = i
-        #print '*** Task ', task.name, 'will be assigned to AFE ', afes[select_afe_index].id
-        print '*********  Hmm got AFE index ', select_afe_index, ' (out of ', len(afes), ' AFEs, with WA ratio of)', min_wa
         print '\n\n'
         return min_wa, select_afe_index
 
     def task_prepared(self, ready_list):
-        print "\n\n\n*********************************\n"
         afes = list(self.afs.osds)
         tasks = list(ready_list)
+
+        """ All tasks must be placed in the context of the execution of this function
+            because of a current implementation limitation. Because of that, we calculate
+            how many tasks must be assigned to the different AFEs so that the same number
+            of tasks is assigned to each AFE. This may not be the most efficient placement
+            since we do not take into account to execution time of a task but we currently
+            focus only decreasing the Write Amplification and still have a parallel
+            execution of tasks
+        """
+        tasks_per_afe = len(tasks) / len(afes)
+        print tasks_per_afe, " tasks must be assigned to each AFE"
         j = 0
         while len(afes) > 0 and len(tasks) > 0:
-            print '\n\n----------\n'
             print len(tasks), " tasks candidate for placement on ", len(afes), " AFEs"
+
             i = 0
             min_wa = -1
             select_task_index = 0
             select_afe_index = 0
             select_task_name = ''
             select_afe_id = -1
+            afes_assigned_tasks = [0]*len(afes)
 
             while (i < len(tasks)):
                 task_wa, afe_index = self.get_task_min_wa(tasks[i], afes)
@@ -135,10 +144,17 @@ class SchedWA(Scheduler):
                 tasks.pop(select_task_index)
             else:
                 print 'Error: index ', select_task_index, ' is outside of array (size: ', len(tasks), ')'
-            """ We remove the AFE from the local list of available AFEs
+
+            """ We save the fact that the AFE has one more task assigned
             """
-            #print "Marking AFE ", select_afe_index, "as busy"
-            #afes.pop(select_afe_index)
+            afes_assigned_tasks[select_afe_index] = afes_assigned_tasks[select_afe_index] + 1
+            """ If the max of tasks has been assigned to the AFE, we remove it
+                from the local list of available AFEs
+            """
+            if (len(afes_assigned_tasks) > 1 and afes_assigned_tasks[select_afe_index] == tasks_per_afe):
+                print "Marking AFE ", select_afe_index, "as busy"
+                afes.pop(select_afe_index)
+
             j = j + 1
         print "\n\n\n*********************************\n\n\n"
 
