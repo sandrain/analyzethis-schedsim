@@ -46,6 +46,7 @@ class ActiveSimulator(event.EventSimulator):
         print '\n-----------------------------------------'
         print 'job: %s' % self.afs.job.name
         print 'scheduler %s:' % self.afs.config.scheduler
+        print 'core(s) per AFE: %d' % self.afs.config.cores
         print '\nTask statistics'
         for task in self.afs.job.tasks.values():
             task.report()
@@ -125,7 +126,7 @@ def main():
             ActiveFS scheduling simulator. Currently only simulates a single
             job execution. The default options are identical to:
 
-                --netbw 262144000 --osds 4 --scheduler rr --placement rr
+                --netbw 262144000 --osds 4 --scheduler rr --placement rr --core 2
 
             netbw is 250 MB/s by default.
 
@@ -135,6 +136,8 @@ def main():
               minwait: task is placed where waiting time is minimal
               hostonly: only host is used
               hostreduce: reduce tasks are scheduled to hybrid
+              core: number of cores per AFE (supposed to be homogeneous across the
+                    platform at the moment)
 
             The following data placement policies are available:
               rr: round-robin (default)
@@ -163,6 +166,8 @@ def main():
                         action='store_true')
     parser.add_argument('-e', '--eventlog', default=False,
                         help='prints eventlogs', action='store_true')
+    parser.add_argument('-c', '--cores', type=int, default=1,
+                        help='number of cores per AFE')
     parser.add_argument('script', type=str, help='job script in XML')
     args = parser.parse_args()
 
