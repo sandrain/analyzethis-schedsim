@@ -90,6 +90,9 @@ class EventSimulator:
 
     def run(self):
         while len(self.eq) > 0:
+            if (len(self.eq) <= 0):
+                continue;
+
             e = heapq.heappop(self.eq)
             self.current = e.timeout
             events = [ e ]

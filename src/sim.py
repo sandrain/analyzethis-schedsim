@@ -42,6 +42,9 @@ class ActiveSimulator(event.EventSimulator):
 #            js = json.load(f)
 #        self.afs.submit_job(js)
 
+    def check_termination(self):
+        return self.afs.check_termination()
+
     def report(self):
         print '\n-----------------------------------------'
         print 'job: %s' % self.afs.job.name
