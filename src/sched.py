@@ -4,6 +4,32 @@ from itertools import *
 from functools import reduce
 import activefs
 
+""" Code for the scheduling at the device level (multi-core devices)
+"""
+class DeviceScheduler:
+    # A class specific constants
+    (SCHED_LOOP_DONE, SCHED_LOOP_CONT) = (-1, -2)
+    def __init__(self):
+        self.init = True
+
+class DeviceSchedFirstFreeCore(DeviceScheduler):
+    def schedule_task(self, device, task):
+        for i in range(device.num_cores):
+            if device.cores[i].running != None:
+                continue
+    
+            # If a core is not running any task, we transfer a task
+            # to the core's tq
+            if (len(device.tq) > 0 and device.cores[i].running == None):
+                return i
+
+        # If we reach this point, it means that we could not assign any
+        # task and the scheduler loop terminated
+        return self.SCHED_LOOP_DONE
+
+""" Code for the scheduling across multiple devices
+"""
+
 class Scheduler:
     """Interface of activefs scheduler
     """

@@ -48,7 +48,8 @@ class ActiveSimulator(event.EventSimulator):
     def report(self):
         print '\n-----------------------------------------'
         print 'job: %s' % self.afs.job.name
-        print 'scheduler %s:' % self.afs.config.scheduler
+        print 'scheduler: %s' % self.afs.config.scheduler
+        print 'device scheduler: %s' % self.afs.config.deviceScheduler
         print 'core(s) per AFE: %d' % self.afs.config.cores
         print '\nTask statistics'
         for task in self.afs.job.tasks.values():
@@ -129,7 +130,7 @@ def main():
             ActiveFS scheduling simulator. Currently only simulates a single
             job execution. The default options are identical to:
 
-                --netbw 262144000 --osds 4 --scheduler rr --placement rr --core 2
+                --netbw 262144000 --osds 4 --scheduler rr --placement rr --core 2 --deviceScheduler firstAvailable
 
             netbw is 250 MB/s by default.
 
@@ -141,6 +142,9 @@ def main():
               hostreduce: reduce tasks are scheduled to hybrid
               core: number of cores per AFE (supposed to be homogeneous across the
                     platform at the moment)
+
+            The following device schedulers are available:
+                firstAvailable: the first available device's core (i.e., core that does not execute any task) is used
 
             The following data placement policies are available:
               rr: round-robin (default)
@@ -162,6 +166,8 @@ def main():
                         help='host clock speed (e.g. x2, x4, ...)')
     parser.add_argument('-s', '--scheduler', type=str, default='rr',
                         help='job scheduler')
+    parser.add_argument('-S', '--deviceScheduler', type=str, default='firstAvailable',
+                        help='device scheduler')
     parser.add_argument('-p', '--placement', type=str, default='rr',
                         help='dataplacement policy')
     parser.add_argument('-d', '--debug', default=False,

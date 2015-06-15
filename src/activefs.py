@@ -136,13 +136,18 @@ class ActiveFlash(event.TimeoutEventHandler):
         # ID of the core that will be used for the assignement of
         # the next task to run
         self.next_core = 0
+        # Initialize the device's cores
         for i in range(self.num_cores):
             core = AFECore (ev, i, self, afs)
             self.cores.append (core)
         for i in range(len(self.cores)):
             core = self.cores[i]
             print core.get_state()
-        
+        # Initialize the device's scheduler
+        if (afs.config.deviceScheduler == 'firstavailable'):
+            self.device_scheduler = sched.DeviceSchedFirstFreeCore()
+        else:
+            self.device_scheduler = sched.DeviceSchedFirstFreeCore()
 
     def get_name(self):
         return 'ActiveFlash-' + str(self.id)
@@ -158,35 +163,48 @@ class ActiveFlash(event.TimeoutEventHandler):
             wait += task.runtime
         return wait
 
+    def set_idle_timeout(self):
+        # The simulation will run only if events are present in the
+        # queue. Unfortunatly, we may end up in a case where no new
+        # event is created but tasks are present in the different
+        # queues. To ensure the simulation won't stop when it should
+        # not, we emit an idle event to guarantee progress
+        self.idle_event.set_timeout(1)
+        self.idle_event.set_context(None)
+        self.idle_event.set_description(None)
+        self.ev.register_event(self.idle_event)
+
     def try_assign_task(self):
-        task_scheduled = False
         # Find all the cores that are not running any tasks and
         # assign them a new task
         if (len(self.tq) == 0):
             # No task to schedule, we return
             return
 
-        for i in range(self.num_cores):
-            if self.cores[i].running != None:
-                continue
-    
-            # If a core is not running any task, we transfer a task
-            # to the core's tq
-            if (len(self.tq) > 0 and self.cores[i].running == None):
-                task_scheduled = True
-                task = self.tq.pop(0)
-                self.cores[i].submit_task(task)
+        l = 0
+        while (len(self.tq) > 0):
+            # The scheduler is based on the following premise:
+            # - we get the first task from the queue
+            # - we try to scheduler the task on a core
+            # - if the scheduler returns SCHED_LOOP_DONE, we stop
+            # - if the scheduler returns SCHED_LOOP_CONT, the task cannot be
+            #   assigned to a core but we can try to schedule another task
+            # - if the scheduler returns a core ID, we assign the task to that core
+            task = self.tq[l]
 
-        if task_scheduled == False:
-            # The simulation will run only if events are present in the
-            # queue. Unfortunatly, we may end up in a case where no new
-            # event is created but tasks are present in the different
-            # queues. To ensure the simulation won't stop when it should
-            # not, we emit an idle event to guarantee progress
-            self.idle_event.set_timeout(1)
-            self.idle_event.set_context(None)
-            self.idle_event.set_description(None)
-            self.ev.register_event(self.idle_event)
+            # Call the scheduler
+            core_id = self.device_scheduler.schedule_task(self, task)
+            if (core_id == self.device_scheduler.SCHED_LOOP_DONE):
+                # Scheduling loop ended, we exit
+                self.set_idle_timeout()
+                return
+            elif (core_id == self.device_scheduler.SCHED_LOOP_CONT):
+                # The task could not be assigned but we can try to assign next task
+                l = l + 1
+                continue
+            else:
+                task = self.tq.pop(l)
+                self.cores[core_id].submit_task(task)
 
     # Handler executed when idle. Note that a core directly invoke that function,
     # not the event system.
