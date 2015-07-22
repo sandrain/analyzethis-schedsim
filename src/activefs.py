@@ -8,52 +8,69 @@ import job
 import event
 import sched
 
-class ActiveFlash(event.TimeoutEventHandler):
-    """Active flash element
+
+class AFECore(event.TimeoutEventHandler):
+    """afe core
     """
-    def __init__(self, ev, id, afs):
-        self.id = id
+    def __init__(self, ev, core_id, activeflash, afs):
+        # activeflash allows us to have a reference to the representation
+        # of ActiveFlash hosting this core
+        self.activeflash = activeflash
         self.ev = ev
+        self.core_id = core_id
         self.afs = afs
         self.tq = []
-        self.ev.register_module(self)
+        self.n_read = 0
+        self.n_written = 0
+        self.running = None
         self.idle_event = event.TimeoutEvent('idle', 1, self)
         self.idle_event.set_disposable()
         self.task_event = event.TimeoutEvent('task', 0, self)
-        self.running = None
-        """statistics"""
-        self.n_read = 0         # how much is read/written?
-        self.n_written = 0
-        self.n_extra_read = 0   # how much rw for data transfer?
-        self.n_extra_written = 0
+        self.ev.register_module(self)
 
     def get_name(self):
-        return 'ActiveFlash-' + str(self.id)
+        return 'Core-' + str(self.core_id)
 
-    def submit_task(self, task):
-        self.tq.append(task)
-        task.submitted(self.ev.now())
-        self.try_execute_task()
-
-    def get_qtime(self):
-        wait = 0.0
-        for task in self.tq:
-            wait += task.runtime
-        return wait
+    def get_state(self):
+        return self.get_name()
 
     def try_execute_task(self):
+        """ Function that tries to execute a new task from the task queue
+        """
+
+        # If an event is already running, we just pass
         if self.running != None:
             return
 
         if len(self.tq) > 0:
+            # We get the first task from the task queue
             task = self.tq.pop(0)
+            # We mark the task as being the one executed on the core
             self.running = task
+
+            desc = '%s (%.3f sec) execution' % (task.name, task.runtime)
+
+            # We set the execution start time of the task
+            task.started(self.ev.now())
+
+            # We set an event that will simulate the task termination
             self.task_event.set_timeout(task.runtime)
             self.task_event.set_context(task)
-            desc = '%s (%.3f sec) execution' % (task.name, task.runtime)
             self.task_event.set_description(desc)
-            task.started(self.ev.now())
             self.ev.register_event(self.task_event)
+
+            # We set an event at the activeflash device level so it can get
+            # the task termination notification
+            self.activeflash.task_event.set_timeout(task.runtime)
+            self.activeflash.task_event.set_context(task)
+            self.activeflash.task_event.set_description(desc)
+            self.ev.register_event(self.activeflash.task_event)
+
+    def submit_task(self, task):
+        self.tq.append(task)
+        # Submission time is when the task is added to the meta queue at the
+        # activeflash device level so nothing to do to that regard here
+        self.try_execute_task()
 
     def handle_timeout(self, e):
         if self.afs.config.eventlog:
@@ -63,23 +80,158 @@ class ActiveFlash(event.TimeoutEventHandler):
 
         if e.name == 'task':
             self.handle_timeout_task(e)
+
+    """Handles task completion event
+    """
+    def handle_timeout_task(self, e):
+        task = e.get_context()
+        if (task == None):
+            raise SystemExit('BUG')
+        # We set the execution end time of the task
+        task.completed(self.ev.now())
+        # Run one execution iteration of the simulator (task_completed does nothing but execute advance())
+        self.afs.task_completed(task, self)
+        # We update the core's performance metrics based on the execution of the task
+        self.update_data_rw(task)
+        # We mark the core as not running any task
+        self.running = None
+        # We see if another task can be executed
         self.try_execute_task()
+
+    def update_data_rw(self, task):
+        r, w = 0, 0
+        if len(task.input) > 0:
+            r = reduce(lambda x, y: x+y, [ f.size for f in task.input ])
+        if len(task.output) > 0:
+            w = reduce(lambda x, y: x+y, [ f.size for f in task.output ])
+        self.data_read(r)
+        self.data_write(w)
+
+    def data_read(self, count):
+        self.n_read += count
+
+    def data_write(self, count):
+        self.n_written += count
+
+
+class ActiveFlash(event.TimeoutEventHandler):
+    """Active flash element
+    """
+    def __init__(self, ev, id, afs):
+        self.id = id
+        self.ev = ev
+        self.afs = afs
+        self.tq = []
+        self.cores = []
+        self.ev.register_module(self)
+        self.idle_event = event.TimeoutEvent('idle', 1, self)
+        self.idle_event.set_disposable()
+        self.task_event = event.TimeoutEvent('task', 0, self)
+        """statistics"""
+        self.n_read = 0         # how much is read/written?
+        self.n_written = 0
+        self.n_extra_read = 0   # how much rw for data transfer?
+        self.n_extra_written = 0
+        self.num_cores = self.afs.config.cores
+        # ID of the core that will be used for the assignement of
+        # the next task to run
+        self.next_core = 0
+        # Initialize the device's cores
+        for i in range(self.num_cores):
+            core = AFECore (ev, i, self, afs)
+            self.cores.append (core)
+        for i in range(len(self.cores)):
+            core = self.cores[i]
+            print core.get_state()
+        # Initialize the device's scheduler
+        if (afs.config.deviceScheduler == 'firstavailable'):
+            self.device_scheduler = sched.DeviceSchedFirstFreeCore()
+        else:
+            self.device_scheduler = sched.DeviceSchedFirstFreeCore()
+
+    def get_name(self):
+        return 'ActiveFlash-' + str(self.id)
+
+    def submit_task(self, task):
+        self.tq.append(task)
+        task.submitted(self.ev.now())
+        self.try_assign_task()
+
+    def get_qtime(self):
+        wait = 0.0
+        for task in self.tq:
+            wait += task.runtime
+        return wait
+
+    def set_idle_timeout(self):
+        # The simulation will run only if events are present in the
+        # queue. Unfortunatly, we may end up in a case where no new
+        # event is created but tasks are present in the different
+        # queues. To ensure the simulation won't stop when it should
+        # not, we emit an idle event to guarantee progress
+        self.idle_event.set_timeout(1)
+        self.idle_event.set_context(None)
+        self.idle_event.set_description(None)
+        self.ev.register_event(self.idle_event)
+
+    def try_assign_task(self):
+        # Find all the cores that are not running any tasks and
+        # assign them a new task
+        if (len(self.tq) == 0):
+            # No task to schedule, we return
+            return
+
+        l = 0
+        while (len(self.tq) > 0):
+            # The scheduler is based on the following premise:
+            # - we get the first task from the queue
+            # - we try to scheduler the task on a core
+            # - if the scheduler returns SCHED_LOOP_DONE, we stop
+            # - if the scheduler returns SCHED_LOOP_CONT, the task cannot be
+            #   assigned to a core but we can try to schedule another task
+            # - if the scheduler returns a core ID, we assign the task to that core
+            task = self.tq[l]
+
+            # Call the scheduler
+            core_id = self.device_scheduler.schedule_task(self, task)
+            if (core_id == self.device_scheduler.SCHED_LOOP_DONE):
+                # Scheduling loop ended, we exit
+                self.set_idle_timeout()
+                return
+            elif (core_id == self.device_scheduler.SCHED_LOOP_CONT):
+                # The task could not be assigned but we can try to assign next task
+                l = l + 1
+                continue
+            else:
+                task = self.tq.pop(l)
+                self.cores[core_id].submit_task(task)
+
+    # Handler executed when idle. Note that a core directly invoke that function,
+    # not the event system.
+    def handle_timeout(self, e):
+        if self.afs.config.eventlog:
+            print '(%.3f, %.3f) --- %s [%s] %s' \
+                  % (e.registered, e.timeout, self.get_name(),
+                     e.name, e.description)
+        if e.name == 'task':
+            self.handle_timeout_task(e)
+        else:
+            self.try_assign_task()
 
 
     """Handles task completion event
     """
     def handle_timeout_task(self, e):
-        task = self.running
-        if e.get_context() != task:
+        if (e == None):
             raise SystemExit('BUG')
-
-        task.completed(self.ev.now())
+        task = e.get_context()
         self.afs.task_completed(task, self)
         self.update_data_rw(task)
-        self.running = None
-        self.try_execute_task()
+        self.try_assign_task()
 
     def update_data_rw(self, task):
+        if (task == None):
+            raise SystemExit('BUG')
         r, w = 0, 0
         if len(task.input) > 0:
             r = reduce(lambda x, y: x+y, [ f.size for f in task.input ])
@@ -225,6 +377,8 @@ class ActiveFS(event.TimeoutEventHandler):
         elif self.config.scheduler == 'hostreduce':
             self.scheduler = sched.SchedHostReduce(self)
             self.set_hybrid()
+        elif self.config.scheduler == 'wa':
+            self.scheduler = sched.SchedWA(self)
         else:
             self.scheduler = sched.SchedRR(self)
 
@@ -236,6 +390,7 @@ class ActiveFS(event.TimeoutEventHandler):
 
     def submit_job(self, js):
         """deprecated, use the submit_workflow()
+           [GV] The function is deprecated but still used.
         """
         try:
             self.job = job.ActiveJob(js)
@@ -308,7 +463,16 @@ class ActiveFS(event.TimeoutEventHandler):
         self.advance()
 
     def check_termination(self):
-        if len(self.tq) + len(self.pq) == 0:
+        # Does any of the cores still need to do some work?
+        pending_work = 0
+        for j in range(len(self.osds)):
+            for i in range(self.osds[j].num_cores):
+                pending_work += len(self.osds[j].cores[i].tq)
+                if self.osds[j].cores[i].running != None:
+                    pending_work = pending_work + 1
+            pending_work = pending_work + len(self.tq) + len(self.pq)
+
+        if pending_work == 0:
             return True
         else:
             return False
@@ -367,10 +531,10 @@ class ActiveFS(event.TimeoutEventHandler):
             self.osds[f.location].data_transfer_read(f.size)
 
     def advance(self):
-        if self.check_termination():
-            return
         self.handle_prepared_tasks()
         self.handle_ready_tasks()
+        if self.check_termination():
+            return
 
     def handle_prepared_tasks(self):
         prepared = [ task for task in self.tq if task.is_prepared() ]
