@@ -6,16 +6,18 @@ import event
 import host
 import job
 
-class Cluster():
+class Cluster(event.EventSimulator):
     def __init__(self, config):
         self.config = config
         self.servers = []
         self.clients = []
+        event.EventSimulator.__init__(self)
         #self.ev = ev
         self.num_hosts = self.config.nodes
+        self.tq = []
         print "Number of server nodes: %d" % (self.num_hosts)
         for i in range(self.num_hosts):
-            myhost = host.Server (i, config)
+            myhost = host.Server (self, i, config)
             self.servers.append (myhost)
         for i in range(len(self.servers)):
             myhost = self.servers[i]
@@ -39,6 +41,9 @@ class Cluster():
         # XXX Call libanalyzethis here and use the meta-scheduler
         self.servers[0].afs.job = job.ActiveJob(js)
         self.servers[0].afs.populate_files()
+        for i in (range(self.num_hosts - 1)):
+            self.servers[i+1].afs.job = None
+            self.servers[i+1].afs.populate_files()
 
     def submit_workflow(self, workflow):
         # XXX We assume we have only client at the moment
@@ -51,12 +56,11 @@ class Cluster():
         # assuming the static placement was the no-op policy (i.e., no
         # actual placement
         self.servers[0].afs.submit_workflow (workflow)
-
-    def prepare(self):
-        self.servers[0].prepare()
-
-    def run(self):
-        return self.servers[0].run()
+        for i in (range(self.num_hosts - 1)):
+            self.servers[i+1].afs.submit_workflow (None)
 
     def report(self):
         self.servers[0].report()
+
+    def handle_prepared_tasks(self):
+        print "%s: not yet implemented" % self.__name__

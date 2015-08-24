@@ -9,16 +9,15 @@ import numpy as np
 
 """ File Server: simulate a single Gluster file server
 """
-class Server(event.EventSimulator):
+class Server(event.TimeoutEventHandler):
     # Class initialization function
-    def __init__(self, host_id, config):
+    def __init__(self, ev, host_id, config):
         # Initialize basic data
         self.host_id = host_id
         self.config = config
-        event.EventSimulator.__init__(self)
-        #self.ev = ev
+        self.ev = ev
         # Setup the host's file system
-        self.afs = activefs.ActiveFS(self, config)
+        self.afs = activefs.ActiveFS(ev, config)
 
     def get_name(self):
         return 'Server-' + str(self.host_id)

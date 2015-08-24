@@ -399,8 +399,11 @@ class ActiveFS(event.TimeoutEventHandler):
         #    raise
         #
         #self.populate_files()
-        self.tq = list(self.job.tasks.values())
-        self.scheduler.job_submitted()
+        if (self.job == None):
+            self.tq = []
+        else:
+            self.tq = list(self.job.tasks.values())
+            self.scheduler.job_submitted()
 
     def submit_workflow(self, workflow):
         #js = workflow.xmlToJson ()
@@ -409,11 +412,14 @@ class ActiveFS(event.TimeoutEventHandler):
         self.submit_job()
 
     def prepare_workflow(self, workflow):
-        js = workflow.xmlToJson ()
-        try:
-            self.job = job.ActiveJob(js)
-        except:
-            raise
+        if workflow == None:
+            self.job = None
+        else:
+            js = workflow.xmlToJson ()
+            try:
+                self.job = job.ActiveJob(js)
+            except:
+                raise
 
         self.populate_files()
 
@@ -422,6 +428,10 @@ class ActiveFS(event.TimeoutEventHandler):
 
     def populate_files(self):
         if self.config.placement == 'explicit':
+            return
+
+        # If not job is allocated, we simply exit
+        if self.job == None:
             return
 
         sorted_files = list(map(lambda x: x[1],
