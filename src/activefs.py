@@ -2,7 +2,6 @@
 
 from itertools import *
 from functools import reduce
-from lxml import etree
 import random
 import job
 import event
@@ -142,7 +141,6 @@ class ActiveFlash(event.TimeoutEventHandler):
             self.cores.append (core)
         for i in range(len(self.cores)):
             core = self.cores[i]
-            print core.get_state()
         # Initialize the device's scheduler
         if (afs.config.deviceScheduler == 'firstavailable'):
             self.device_scheduler = sched.DeviceSchedFirstFreeCore()
@@ -151,6 +149,12 @@ class ActiveFlash(event.TimeoutEventHandler):
 
     def get_name(self):
         return 'ActiveFlash-' + str(self.id)
+
+    def get_state(self):
+        s = ""
+        for i in range(self.num_cores):
+            s += "%s . %s" % (self.get_name(), self.cores[i].get_state())
+        return s
 
     def submit_task(self, task):
         self.tq.append(task)
@@ -353,8 +357,6 @@ class ActiveFS(event.TimeoutEventHandler):
     def __init__(self, ev, config):
         self.ev = ev
         self.config = config
-        self.osds = [ ActiveFlash(ev, n, self) \
-                        for n in range(self.config.osds) ]
 
         """We also use the host for computation?
         if self.config.hybrid == True:
@@ -364,6 +366,8 @@ class ActiveFS(event.TimeoutEventHandler):
         """
         self.host = None
 
+        self.osds = [ ActiveFlash(ev, n, self) \
+                        for n in range(self.config.osds) ]
         self.ev.register_module(self)
         self.pq = []    # pre(pared) q, all data files are ready
 
@@ -388,54 +392,30 @@ class ActiveFS(event.TimeoutEventHandler):
     def get_name(self):
         return 'ActiveFS'
 
-    def submit_job(self, js):
-        """deprecated, use the submit_workflow()
-           [GV] The function is deprecated but still used.
-        """
+    def submit_job(self):
+        #try:
+        #    self.job = job.ActiveJob(js)
+        #except:
+        #    raise
+        #
+        #self.populate_files()
+        self.tq = list(self.job.tasks.values())
+        self.scheduler.job_submitted()
+
+    def submit_workflow(self, workflow):
+        #js = workflow.xmlToJson ()
+
+        # after conversion, call submit_job()
+        self.submit_job()
+
+    def prepare_workflow(self, workflow):
+        js = workflow.xmlToJson ()
         try:
             self.job = job.ActiveJob(js)
         except:
             raise
 
         self.populate_files()
-        self.tq = list(self.job.tasks.values())
-        self.scheduler.job_submitted()
-
-    def submit_workflow(self, root):
-        """Nasty conversion from xml to json
-        """
-        ns = { 'ns':'http://pegasus.isi.edu/schema/DAX' }
-        js = {}
-        js['files'] = {}
-        js['tasks'] = {}
-
-        jobs = root.findall('ns:job', namespaces=ns)
-        js['name'] = jobs[0].attrib['namespace'] + '_' + str(len(jobs))
-
-        for job in jobs:
-            task = {}
-            task['runtime'] = float(job.attrib['runtime']) \
-                                    * self.config.runtime
-            task['input'] = []
-            task['output'] = []
-            for uses in job.findall('ns:uses', namespaces=ns):
-                if uses.attrib['link'] == 'input':
-                    task['input'] += [ uses.attrib['file'] ]
-                else:
-                    task['output'] += [ uses.attrib['file'] ]
-                cfile = {}
-                cfile['size'] = int(uses.attrib['size'])
-                js['files'][uses.attrib['file']] = cfile
-            js['tasks'][job.attrib['id'] + '-' + job.attrib['name']] = task
-
-        for job in jobs:
-            for uses in job.findall('ns:uses', namespaces=ns):
-                if uses.attrib['link'] == 'output':
-                    js['files'][uses.attrib['file']]['size'] = \
-                            -1 * int(uses.attrib['size'])
-
-        # after conversion, call submit_job()
-        self.submit_job(js)
 
     def populate_files_random(self):
         pass

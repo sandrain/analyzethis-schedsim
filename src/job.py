@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from functools import reduce
+from lxml import etree
 
 class DataFile:
     """Data file representation
@@ -140,6 +141,58 @@ class ActiveTask:
             print 'osd      = %d' % self.osd
         self.stat.dump()
 
+class Workflow:
+    """ Class that represents a workflow and all possible ways to manipulate a
+        workflow
+    """
+    def __init__(self, input_file, config):
+        tree = None
+        with open(input_file) as f:
+            try:
+                tree = etree.parse(f)
+            except:
+                raise
+
+        self.root = tree.getroot()
+        self.config = config
+
+    def xmlToJson (self):
+        """Nasty conversion from xml to json
+        """
+        ns = { 'ns':'http://pegasus.isi.edu/schema/DAX' }
+        js = {}
+        js['files'] = {}
+        js['tasks'] = {}
+
+        jobs = self.root.findall('ns:job', namespaces=ns)
+        js['name'] = jobs[0].attrib['namespace'] + '_' + str(len(jobs))
+
+        for job in jobs:
+            task = {}
+            task['runtime'] = float(job.attrib['runtime']) \
+                                    * self.config.runtime
+            task['input'] = []
+            task['output'] = []
+            for uses in job.findall('ns:uses', namespaces=ns):
+                if uses.attrib['link'] == 'input':
+                    task['input'] += [ uses.attrib['file'] ]
+                else:
+                    task['output'] += [ uses.attrib['file'] ]
+                cfile = {}
+                cfile['size'] = int(uses.attrib['size'])
+                js['files'][uses.attrib['file']] = cfile
+            js['tasks'][job.attrib['id'] + '-' + job.attrib['name']] = task
+
+        for job in jobs:
+            for uses in job.findall('ns:uses', namespaces=ns):
+                if uses.attrib['link'] == 'output':
+                    js['files'][uses.attrib['file']]['size'] = \
+                            -1 * int(uses.attrib['size'])
+
+        return js
+
+    def get_root (self):
+        return self.root
 
 class ActiveJob:
     """Job description"""
