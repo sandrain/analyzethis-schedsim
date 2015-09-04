@@ -4,6 +4,20 @@ from itertools import *
 from functools import reduce
 import activefs
 
+
+""" Code for the workflow scheduler: when a workflow is submitted, the workflow
+    scheduler parition the workflows 
+"""
+class WorkflowScheduler:
+    def __init__(self):
+        XXX
+
+    def submit(self, workflow, directory):
+        XXX
+
+    def partition(self, sub_workflows):
+        XXX
+
 """ Code for the scheduling at the device level (multi-core devices)
 """
 class DeviceScheduler:

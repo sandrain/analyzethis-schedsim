@@ -11,6 +11,8 @@ from lxml import etree
 
 import event
 import activefs
+import cluster
+import job
 
 class PassiveSimulator(event.EventSimulator):
     """This class has been added to simulate the situations when the jobs are
@@ -18,23 +20,64 @@ class PassiveSimulator(event.EventSimulator):
     """
     pass
 
+class DistributedPlatformSimulator():
+    def __init__(self, options):
+        self.options = options
+
+        # Setup the virtual platform
+        self.cluster = cluster.Cluster(options)
+
+    def check_termination(self):
+        return self.afs.check_termination()
+
+    def report(self):
+        self.cluster.report()
+
+    def prepare(self):
+        # Try to perform a static scheduling of the workflow, using the input
+        # file, which contains the actual workflow
+        # Loading the scheduling library
+        import py_lat_module
+        (rc, static_placement) = py_lat_module.lat_meta_sched_workflow (self.options.script)
+        if (rc != 0):
+            raise
+
+        # Prepare the workflow (basically parse the file representing the
+        # workflow
+        self.workflow = job.Workflow (static_placement, self.options)
+
+        self.cluster.prepare_workflow(self.workflow)
+
+        # "Prepare" the event system
+        self.cluster.prepare()
+
+        # Submit the workflow
+        self.cluster.submit_workflow(self.workflow)
+
+    def run(self):
+        return self.cluster.run()
+
 class ActiveSimulator(event.EventSimulator):
     """Active Flash simulator
     """
     def __init__(self, options):
         event.EventSimulator.__init__(self)
-        self.afs = activefs.ActiveFS(self, options)
+        options.host_type = 'server'
 
-        tree = None
-        with open(options.script) as f:
-            try:
-                tree = etree.parse(f)
-            except:
-                raise
+        # Initialize the simulation from a file system point of view
+        self.afs = activefs.ActiveFS (self, options)
 
-        root = tree.getroot()
+        # Prepare the workflow (basically parse the file representing the
+        # workflow
+        self.workflow = job.Workflow (options.script, options)
+        self.afs.prepare_workflow (self.workflow)
 
-        self.afs.submit_workflow(root)
+        # Submit the workflow.
+        # Note this phase will parse the workflow file.
+        # Also note that in the context of a fully distributed system, a static
+        # scheduling of the workflow may be done at submition
+        # time.
+        self.afs.submit_workflow (self.workflow)
 
         # the json is now replaced by xml, the format of pegasus workflow
         # generator
@@ -140,11 +183,12 @@ def main():
               minwait: task is placed where waiting time is minimal
               hostonly: only host is used
               hostreduce: reduce tasks are scheduled to hybrid
-              core: number of cores per AFE (supposed to be homogeneous across the
-                    platform at the moment)
+              core: number of cores per AFE (supposed to be homogeneous across
+                    the platform at the moment)
 
             The following device schedulers are available:
-                firstAvailable: the first available device's core (i.e., core that does not execute any task) is used
+                firstAvailable: the first available device's core (i.e., core
+                                that does not execute any task) is used
 
             The following data placement policies are available:
               rr: round-robin (default)
@@ -160,13 +204,16 @@ def main():
                         help='network bandwith (bytes/sec)')
     parser.add_argument('-r', '--runtime', type=float, default=1.0,
                         help='runtime slowdown factor (default 1.0)')
+    parser.add_argument('-N', '--nodes', type=int, default=0,
+                        help='number of server nodes (set to 0 to simulate a single host)')
     parser.add_argument('-n', '--osds', type=int, default=4,
-                        help='number of osds')
+                        help='number of AFEs per node')
     parser.add_argument('-x', '--hostspeed', type=float, default=2.0,
                         help='host clock speed (e.g. x2, x4, ...)')
     parser.add_argument('-s', '--scheduler', type=str, default='rr',
                         help='job scheduler')
-    parser.add_argument('-S', '--deviceScheduler', type=str, default='firstAvailable',
+    parser.add_argument('-S', '--deviceScheduler', type=str,
+                        default='firstAvailable',
                         help='device scheduler')
     parser.add_argument('-p', '--placement', type=str, default='rr',
                         help='dataplacement policy')
@@ -184,7 +231,11 @@ def main():
         print("debug is enabled, launch pdb...")
         pdb.set_trace()     # comment out this to disable pdb
 
-    sim = ActiveSimulator(args)
+    if (args.nodes == 0):
+        sim = ActiveSimulator(args)
+    else:
+        sim = DistributedPlatformSimulator(args)
+
     sim.prepare()
     finish = sim.run()
     sim.report()

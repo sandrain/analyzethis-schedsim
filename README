@@ -14,5 +14,26 @@ All resources regarding the paper could be found at:
 
 https://confluence.pegasus.isi.edu/display/pegasus/WorkflowGenerator
 
+= Single Host Simulation =
 
+The simulator can be used to simulate a single host with n AFEs and N cores. To activate
+this mode, simply do *not* specify any hosts ('-N' argument). For instance,
 
+./sim.py -c 2 -o 4 workflows/montage60.xml
+
+simulates a single host with 2 cores and 4 AFEs.
+
+= Multi-host Simulation =
+
+The simulator can be used to simulate a distributed platform. In this context, the simulated
+distributed platform can include several servers (nodes hosting the AFEs) and several
+clients. This mode requires the libanalyzethis library and it is required to specify where
+the library is installed using the PYTHONPATH environment variable.
+
+export PYTHONPATH=/where/libanalyzethis/is/src:$PYTHONPATH
+
+To activate the multi-host mode, simply specify the number of nodes on the command line:
+
+./sim.py -N 2 -c 2 -o 2 workflows/montage60.xml
+
+which simulates 2 server nodes, each node having 2 cores and 2 AFEs.
