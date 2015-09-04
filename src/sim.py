@@ -22,34 +22,10 @@ class PassiveSimulator(event.EventSimulator):
 
 class DistributedPlatformSimulator():
     def __init__(self, options):
-        # Loading the scheduling library
-        import py_lat_module
-
-        #event.EventSimulator.__init__(self)
-
-        # Try to perform a static scheduling of the workflow, using the input
-        # file, which contains the actual workflow
-        (rc, static_placement) = py_lat_module.lat_meta_sched_workflow (options.script)
-        if (rc != 0):
-            raise
-
-        # Prepare the workflow (basically parse the file representing the
-        # workflow
-        #tree = None
-        #with open(static_placement) as f:
-        #    try:
-        #        tree = etree.parse(f)
-        #    except:
-        #        raise
-        #
-        #root = tree.getroot()
-        self.workflow = job.Workflow (static_placement, options)
+        self.options = options
 
         # Setup the virtual platform
         self.cluster = cluster.Cluster(options)
-
-        # Submit the workflow
-        self.cluster.submit_workflow(self.workflow)
 
     def check_termination(self):
         return self.afs.check_termination()
@@ -58,7 +34,25 @@ class DistributedPlatformSimulator():
         self.cluster.report()
 
     def prepare(self):
+        # Try to perform a static scheduling of the workflow, using the input
+        # file, which contains the actual workflow
+        # Loading the scheduling library
+        import py_lat_module
+        (rc, static_placement) = py_lat_module.lat_meta_sched_workflow (self.options.script)
+        if (rc != 0):
+            raise
+
+        # Prepare the workflow (basically parse the file representing the
+        # workflow
+        self.workflow = job.Workflow (static_placement, self.options)
+
+        self.cluster.prepare_workflow(self.workflow)
+
+        # "Prepare" the event system
         self.cluster.prepare()
+
+        # Submit the workflow
+        self.cluster.submit_workflow(self.workflow)
 
     def run(self):
         return self.cluster.run()

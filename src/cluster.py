@@ -33,6 +33,11 @@ class Cluster(event.EventSimulator):
             myclient = self.clients[i]
             print myclient.get_state()
 
+    '''
+    This function aims at placing files on various AFEs *prior* the execution
+    of the workflow. In other words, it is used to set the experiment regarding
+    the initial placement of files through the entire platform.
+    '''
     # XXX when we will have the meta-scheduler fully functional, this code
     # should be able to move to the client class
     def prepare_workflow(self, workflow):
@@ -47,9 +52,6 @@ class Cluster(event.EventSimulator):
 
     def submit_workflow(self, workflow):
         # XXX We assume we have only client at the moment
-
-        # We prepare the workflow
-        self.prepare_workflow(workflow)
 
         # We submit the workflow
         # XXX For now, we tell the first server to execute the entire workflow,

@@ -393,12 +393,6 @@ class ActiveFS(event.TimeoutEventHandler):
         return 'ActiveFS'
 
     def submit_job(self):
-        #try:
-        #    self.job = job.ActiveJob(js)
-        #except:
-        #    raise
-        #
-        #self.populate_files()
         if (self.job == None):
             self.tq = []
         else:
@@ -406,8 +400,6 @@ class ActiveFS(event.TimeoutEventHandler):
             self.scheduler.job_submitted()
 
     def submit_workflow(self, workflow):
-        #js = workflow.xmlToJson ()
-
         # after conversion, call submit_job()
         self.submit_job()
 
