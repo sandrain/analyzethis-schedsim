@@ -419,8 +419,8 @@ class ActiveFS(event.TimeoutEventHandler):
         pass
 
     def populate_files(self):
-        if self.config.placement == 'explicit':
-            return
+#        if self.config.placement == 'explicit':
+#            return
 
         # If not job is allocated, we simply exit
         if self.job == None:
@@ -430,16 +430,20 @@ class ActiveFS(event.TimeoutEventHandler):
                             sorted(self.job.files.items())))
         valid_files = list(filter(lambda x: x.size > 0, sorted_files))
 
-        if self.config.placement == 'random':
-            #self.populate_files_random()
-            li = range(self.config.osds)
-            random.shuffle(li)
-            for (f, osd) in zip(valid_files, cycle(li)):
-                f.set_location(osd)
-        else:   # including 'rr', others fallback here
-            for (f, osd) in zip(valid_files,
-                                cycle(range(self.config.osds))):
-                f.set_location(osd)
+        for f in valid_files:
+            osd = self.config.py_lat_module.lat_host_sched_file()
+            f.set_location (osd)
+        
+#        if self.config.placement == 'random':
+#            #self.populate_files_random()
+#            li = range(self.config.osds)
+#            random.shuffle(li)
+#            for (f, osd) in zip(valid_files, cycle(li)):
+#                f.set_location(osd)
+#        else:   # including 'rr', others fallback here
+#            for (f, osd) in zip(valid_files,
+#                                cycle(range(self.config.osds))):
+#                f.set_location(osd)
 
     def task_completed(self, task, osd):
         self.advance()

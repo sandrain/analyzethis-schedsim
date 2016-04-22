@@ -8,11 +8,17 @@ import pdb
 import scipy
 import numpy as np
 from lxml import etree
+from os.path import expanduser
 
 import event
 import activefs
 import cluster
 import job
+
+# The scheduling library is always required since it is for instance used
+# to determine file placement. See the README file for details about how
+# to setup and use that library.
+import py_lat_module
 
 class PassiveSimulator(event.EventSimulator):
     """This class has been added to simulate the situations when the jobs are
@@ -23,6 +29,36 @@ class PassiveSimulator(event.EventSimulator):
 class DistributedPlatformSimulator():
     def __init__(self, options):
         self.options = options
+
+        # We initialize the scheduling module
+        print "Using the platform configuration file %s" % self.options.file
+        rc = py_lat_module.lat_module_init ("verbose",
+                                            "1",
+                                            "ini_config_file",
+                                            self.options.file)
+        if (rc != 0):
+            print "ERROR: lat_module_init() failed (ret: %d)\n" % rc
+        print "Success.\n"
+
+        print "Initializing the AFE scheduler..."
+        rc = py_lat_module.lat_device_sched_init ();
+        if (rc != 0):
+            print "ERROR: lat_device_sched_init() failed (ret: %d)\n" % rc
+        print "Success.\n";
+
+        print "Initializing the host scheduler..."
+        rc = py_lat_module.lat_host_sched_init ();
+        if (rc != 0):
+            print "ERROR: lat_device_sched_init() failed (ret: %d)\n" % rc
+        print "Success.\n";
+
+        print "Initializing the meta scheduler..."
+        rc = py_lat_module.lat_meta_sched_init ();
+        if (rc != 0):
+            print "ERROR: lat_meta_sched_init() failed (ret: %d)\n" % rc
+        print "Success.\n"
+
+        self.py_lat_module = py_lat_module
 
         # Setup the virtual platform
         self.cluster = cluster.Cluster(options)
@@ -37,7 +73,6 @@ class DistributedPlatformSimulator():
         # Try to perform a static scheduling of the workflow, using the input
         # file, which contains the actual workflow
         # Loading the scheduling library
-        import py_lat_module
         (rc, static_placement) = py_lat_module.lat_meta_sched_workflow (self.options.script)
         if (rc != 0):
             raise
@@ -62,13 +97,38 @@ class ActiveSimulator(event.EventSimulator):
     """
     def __init__(self, options):
         event.EventSimulator.__init__(self)
+        self.options = options
         options.host_type = 'server'
+
+        # We initialize the scheduling module
+        print "Using the platform configuration file %s" % self.options.file
+        rc = py_lat_module.lat_module_init ("verbose",
+                                            "1",
+                                            "ini_config_file",
+                                            self.options.file)
+        if (rc != 0):
+            print "ERROR: lat_module_init() failed (ret: %d)\n" % rc
+        print "Success.\n"
+
+        print "Initializing the AFE scheduler..."
+        rc = py_lat_module.lat_device_sched_init ();
+        if (rc != 0):
+            print "ERROR: lat_device_sched_init() failed (ret: %d)\n" % rc
+        print "Success.\n";
+
+        print "Initializing the host scheduler..."
+        rc = py_lat_module.lat_host_sched_init ();
+        if (rc != 0):
+            print "ERROR: lat_device_sched_init() failed (ret: %d)\n" % rc
+        print "Success.\n";
+
+        options.py_lat_module = py_lat_module
 
         # Initialize the simulation from a file system point of view
         self.afs = activefs.ActiveFS (self, options)
 
         # Prepare the workflow (basically parse the file representing the
-        # workflow
+        # workflow)
         self.workflow = job.Workflow (options.script, options)
         self.afs.prepare_workflow (self.workflow)
 
@@ -166,6 +226,11 @@ class ActiveSimulator(event.EventSimulator):
         print 'SSD write coefficient of variation = %.3f' % \
                     (wstd / wmean)
 
+def parse_config_file(conffile):
+    print "Parsing configuration file (%s)" % conffile
+    
+
+
 """main program
 """
 def main():
@@ -173,7 +238,7 @@ def main():
             ActiveFS scheduling simulator. Currently only simulates a single
             job execution. The default options are identical to:
 
-                --netbw 262144000 --osds 4 --scheduler rr --placement rr --core 2 --deviceScheduler firstAvailable
+                --netbw 262144000 --osds 4 --scheduler rr --placement rr --core 2 --deviceScheduler firstAvailable --file my_file.conf
 
             netbw is 250 MB/s by default.
 
@@ -185,6 +250,7 @@ def main():
               hostreduce: reduce tasks are scheduled to hybrid
               core: number of cores per AFE (supposed to be homogeneous across
                     the platform at the moment)
+	      file: configuration file describing the experiment
 
             The following device schedulers are available:
                 firstAvailable: the first available device's core (i.e., core
@@ -224,12 +290,33 @@ def main():
                         help='prints eventlogs', action='store_true')
     parser.add_argument('-c', '--cores', type=int, default=1,
                         help='number of cores per AFE')
+    parser.add_argument('-f', '--file', type=str, default='',
+                        help='configuration file')
+
     parser.add_argument('script', type=str, help='job script in XML')
     args = parser.parse_args()
 
     if args.debug:
         print("debug is enabled, launch pdb...")
         pdb.set_trace()     # comment out this to disable pdb
+
+    # Because it is quite difficult to eschange complex data structures from
+    # python to C and C to python, we rely on a configuration file to describe
+    # the experiment and all the configuration parameters.
+    if (args.file == ''):
+        # If we do not have a config file, we will create a temporary one
+        # based on the command line parameters.
+        tmp_file = expanduser('~') + "/.afs-schedsim/tmp_config_file.cfg"
+        print "Creating temporary config file %s" % tmp_file
+        tmpfile = open (tmp_file, 'w')
+        tmpfile.write ("[AFE]\n")
+        tmpfile.write ("\tcores_per_safe = %d\n" % args.cores) 
+        tmpfile.write ("\n[SERVERS]\n")
+        tmpfile.write ("\tnumber_afes = %d\n" % args.osds)
+        tmpfile.write ("\tnumber_hosts = %d\n" % args.nodes)
+        tmpfile.close ()
+        args.file = tmp_file
+    parse_config_file (args.file)
 
     if (args.nodes == 0):
         sim = ActiveSimulator(args)
