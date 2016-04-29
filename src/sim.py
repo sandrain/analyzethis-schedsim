@@ -310,10 +310,10 @@ def main():
         print "Creating temporary config file %s" % tmp_file
         tmpfile = open (tmp_file, 'w')
         tmpfile.write ("[AFE]\n")
-        tmpfile.write ("\tcores_per_safe = %d\n" % args.cores) 
+        tmpfile.write ("cores_per_afe = %d\n" % args.cores) 
         tmpfile.write ("\n[SERVERS]\n")
-        tmpfile.write ("\tnumber_afes = %d\n" % args.osds)
-        tmpfile.write ("\tnumber_hosts = %d\n" % args.nodes)
+        tmpfile.write ("number_afes = %d\n" % args.osds)
+        tmpfile.write ("number_hosts = %d\n" % args.nodes)
         tmpfile.close ()
         args.file = tmp_file
     parse_config_file (args.file)
