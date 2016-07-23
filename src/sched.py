@@ -198,6 +198,17 @@ class SchedWA(Scheduler):
             j = j + 1
         print "\n\n\n*********************************\n\n\n"
 
+class SchedLib(Scheduler):
+    """This implementation uses the libanalysethis scheduler
+    """
+    def job_submitted(self):
+        sorted_tasks = list(map(lambda x: x[1],
+                            sorted(self.afs.job.tasks.items())))
+        for task in sorted_tasks:
+            osd = self.config.py_lat_module.lat_host_sched_task()
+            print "Assigning AFE %d to task: %s" % (osd, task.name)
+            task.osd = osd
+
 class SchedRR(Scheduler):
     """Basic round-robin scheduler
     """
@@ -206,6 +217,7 @@ class SchedRR(Scheduler):
                             sorted(self.afs.job.tasks.items())))
         for (task, osd) in zip(sorted_tasks,
                                cycle(range(self.afs.config.osds))):
+            print "Assigning OSD %d to task\n" % osd
             task.osd = osd
 
 

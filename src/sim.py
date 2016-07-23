@@ -150,6 +150,8 @@ class ActiveSimulator(event.EventSimulator):
 
     def report(self):
         print '\n-----------------------------------------'
+        print '\n Simulation report'
+        print '\n-----------------------------------------'
         print 'job: %s' % self.afs.job.name
         print 'scheduler: %s' % self.afs.config.scheduler
         print 'device scheduler: %s' % self.afs.config.deviceScheduler
@@ -226,6 +228,8 @@ class ActiveSimulator(event.EventSimulator):
         print 'SSD write coefficient of variation = %.3f' % \
                     (wstd / wmean)
 
+        print 'Execution time: {0:.3f}'.format(self.afs.workflow_runtime)
+
 def parse_config_file(conffile):
     print "Parsing configuration file (%s)" % conffile
     
@@ -243,7 +247,8 @@ def main():
             netbw is 250 MB/s by default.
 
             The following job schedulers are available:
-              rr: round-robin (default)
+              schedlib: rely on the libanalyzethis scheduling library (default)
+              rr: round-robin
               locality: input-locality, task is placed where input file is
               minwait: task is placed where waiting time is minimal
               hostonly: only host is used
@@ -276,7 +281,7 @@ def main():
                         help='number of AFEs per node')
     parser.add_argument('-x', '--hostspeed', type=float, default=2.0,
                         help='host clock speed (e.g. x2, x4, ...)')
-    parser.add_argument('-s', '--scheduler', type=str, default='rr',
+    parser.add_argument('-s', '--scheduler', type=str, default='schedlib',
                         help='job scheduler')
     parser.add_argument('-S', '--deviceScheduler', type=str,
                         default='firstAvailable',

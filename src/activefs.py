@@ -132,9 +132,9 @@ class ActiveFlash(event.TimeoutEventHandler):
         self.n_extra_read = 0   # how much rw for data transfer?
         self.n_extra_written = 0
         self.num_cores = self.afs.config.cores
-        # ID of the core that will be used for the assignement of
-        # the next task to run
-        self.next_core = 0
+        ## ID of the core that will be used for the assignement of
+        ## the next task to run
+        #self.next_core = 0
         # Initialize the device's cores
         for i in range(self.num_cores):
             core = AFECore (ev, i, self, afs)
@@ -221,7 +221,6 @@ class ActiveFlash(event.TimeoutEventHandler):
             self.handle_timeout_task(e)
         else:
             self.try_assign_task()
-
 
     """Handles task completion event
     """
@@ -357,6 +356,8 @@ class ActiveFS(event.TimeoutEventHandler):
     def __init__(self, ev, config):
         self.ev = ev
         self.config = config
+        self.workflow_runtime = 0.0
+        self.last_ts = 0.0
 
         """We also use the host for computation?
         if self.config.hybrid == True:
@@ -371,7 +372,9 @@ class ActiveFS(event.TimeoutEventHandler):
         self.ev.register_module(self)
         self.pq = []    # pre(pared) q, all data files are ready
 
-        if self.config.scheduler == 'locality':
+        if   self.config.scheduler == 'rr':
+            self.scheduler = sched.SchedRR(self)
+        elif self.config.scheduler == 'locality':
             self.scheduler = sched.SchedLocality(self)
         elif self.config.scheduler == 'minwait':
             self.scheduler = sched.SchedMinWait(self)
@@ -384,7 +387,8 @@ class ActiveFS(event.TimeoutEventHandler):
         elif self.config.scheduler == 'wa':
             self.scheduler = sched.SchedWA(self)
         else:
-            self.scheduler = sched.SchedRR(self)
+            self.scheduler = sched.SchedLib(self)
+        self.scheduler.config = config
 
     def set_hybrid(self):
         self.host = ActiveHost(self.ev, 0, self)
@@ -393,6 +397,9 @@ class ActiveFS(event.TimeoutEventHandler):
         return 'ActiveFS'
 
     def submit_job(self):
+        # The simulator is now ready to start to execute the workflow.
+        self.last_ts = self.ev.now()
+        print 'Initial TS: {0:.3f}'.format(self.last_ts)
         if (self.job == None):
             self.tq = []
         else:
@@ -433,6 +440,7 @@ class ActiveFS(event.TimeoutEventHandler):
         for f in valid_files:
             osd = self.config.py_lat_module.lat_host_sched_file()
             f.set_location (osd)
+            print "Placing file %s to AFE %d" % (f.name, osd)
         
 #        if self.config.placement == 'random':
 #            #self.populate_files_random()
@@ -445,7 +453,14 @@ class ActiveFS(event.TimeoutEventHandler):
 #                                cycle(range(self.config.osds))):
 #                f.set_location(osd)
 
+    # Update the run time based on the current time and the last time stamp
+    def update_metrics(self):
+        now = self.ev.now()
+        self.workflow_runtime = self.workflow_runtime + (now - self.last_ts)
+        self.last_ts = now
+
     def task_completed(self, task, osd):
+        self.update_metrics()
         self.advance()
 
     def check_termination(self):
@@ -467,12 +482,23 @@ class ActiveFS(event.TimeoutEventHandler):
         transfer_from = [ 0 for x in range(len(self.osds)) ]
         transfer_list = [ task.osd ]    # first element is the destination
         for f in task.input:
+            print 'Task %s has %d input files' % (task.name, len(task.input))
             if not f.is_replicated(task.osd):
+                print "Need to transfer file %s from AFE %d to %d for task %s (size: %f)" % (f.name, f.location, task.osd, task.name, f.size)
                 transfer_from[f.location] += f.size
                 task.account_transfer(f)
                 transfer_list += [ f ]  # rests are the files
 
+
+        # GV: This is totally wrong when dealing with multiple AFEs :(
         transfer_total = reduce(lambda x, y: x+y, transfer_from)
+        n_osd = 0
+        for n in transfer_from:
+            if n > 0:
+                n_osd = n_osd + 1
+        print "Need to transfer files from %d AFEs for task %s" % (n_osd, task.name)
+        max_trans_time = 0.0
+        print "Need to transfer a total of %f bytes for task %s" % (transfer_total, task.name)
         if transfer_total > 0:
             """the exact estimation??? this is a very conservative approach,
             which considers the worst case.
@@ -493,7 +519,13 @@ class ActiveFS(event.TimeoutEventHandler):
                                        float(x.size)*1.02 / self.config.netbw),
                                transfer_list[1:]))
 
-            #print 'transfer delay: %f' % delay
+            delay2 = reduce(lambda x, y: x+y,
+                           map(lambda x: (0.3 + \
+                                       float(x.size)*1.02 / self.config.netbw),
+                               transfer_list[1:]))
+
+            print 'Transfer time for file %s, needed by task %s: %f' % (f.name, task.name, delay)
+            print 'TEST (%s): %f vs. %f' % (task.name, delay, delay2)
             e = event.TimeoutEvent('transfer', delay, self)
 
             if len(transfer_list) == 2: # single transfer, set source
@@ -504,6 +536,7 @@ class ActiveFS(event.TimeoutEventHandler):
                     format(task.name, task.osd,
                            map(lambda x: (x.name, x.size, x.location), \
                                transfer_list[1:]))
+            print "%s" % desc
             e.set_description(desc)
             self.ev.register_event(e)
 
@@ -511,6 +544,7 @@ class ActiveFS(event.TimeoutEventHandler):
         li = e.get_context()
         osd = li[0]
         for f in li[1:]:
+            print "File %s has been transfered" % f.name
             f.add_replica(osd)
             """update the rw statistics"""
             self.osds[osd].data_transfer_write(f.size)
@@ -523,9 +557,15 @@ class ActiveFS(event.TimeoutEventHandler):
             return
 
     def handle_prepared_tasks(self):
-        prepared = [ task for task in self.tq if task.is_prepared() ]
+        tasks = [ task for task in self.tq ]
+        sorted_tasks = sorted (tasks, key=lambda task: task.name)
+        unsorted_prepared = [ task for task in self.tq if task.is_prepared() ]
+        prepared = sorted (unsorted_prepared, key=lambda task: task.name)
+        print "%d tasks are prepared" % len(prepared)
         if len(prepared) > 0:
-            for task in self.tq[:]:
+            #for task in sorted (self.tq[:]):
+            for task in sorted_tasks:
+                print "Checking task %s" % task.name
                 if task in prepared:
                     self.tq.remove(task)
             self.pq += prepared
@@ -537,15 +577,18 @@ class ActiveFS(event.TimeoutEventHandler):
 
     def handle_ready_tasks(self):
         ready = [ task for task in self.pq if task.is_ready() ]
+        print "%d tasks are ready" % len(ready)
         if len(ready) > 0:
             for task in self.pq[:]:
                 if task in ready:
                     self.pq.remove(task)
 
-            for task in ready:
+            sorted_ready = sorted (ready, key=lambda task: task.name)
+            for task in sorted_ready:
                 if task.host == True:
                     self.host.submit_task(task)
                 else:
+                    print "Submitting task %s" % task.name
                     self.osds[task.osd].submit_task(task)
 
     def handle_timeout(self, e):
