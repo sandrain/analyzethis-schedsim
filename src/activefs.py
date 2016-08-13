@@ -6,7 +6,7 @@ import random
 import job
 import event
 import sched
-
+import logging
 
 class AFECore(event.TimeoutEventHandler):
     """afe core
@@ -26,6 +26,13 @@ class AFECore(event.TimeoutEventHandler):
         self.idle_event.set_disposable()
         self.task_event = event.TimeoutEvent('task', 0, self)
         self.ev.register_module(self)
+        logging.basicConfig (level=logging.DEBUG,
+                             format='%(asctime)s - %(levelname)s - %(message)s')
+        self.logger = logging.getLogger (__name__)
+        if self.afs.config.eventlog:
+            self.logger.setLevel (logging.DEBUG)
+        else:
+            self.logger.propagate = False
 
     def get_name(self):
         return 'Core-' + str(self.core_id)
@@ -73,9 +80,9 @@ class AFECore(event.TimeoutEventHandler):
 
     def handle_timeout(self, e):
         if self.afs.config.eventlog:
-            print '(%.3f, %.3f) --- %s [%s] %s' \
+            self.logger.debug ('(%.3f, %.3f) --- %s [%s] %s' \
                   % (e.registered, e.timeout, self.get_name(),
-                     e.name, e.description)
+                     e.name, e.description))
 
         if e.name == 'task':
             self.handle_timeout_task(e)
@@ -86,11 +93,14 @@ class AFECore(event.TimeoutEventHandler):
         task = e.get_context()
         if (task == None):
             raise SystemExit('BUG')
+        self.logger.debug ("Task %s terminated" % task.name)
         # We set the execution end time of the task
         task.completed(self.ev.now())
-        # Run one execution iteration of the simulator (task_completed does nothing but execute advance())
+        # Run one execution iteration of the simulator (task_completed does
+        # nothing but execute advance())
         self.afs.task_completed(task, self)
-        # We update the core's performance metrics based on the execution of the task
+        # We update the core's performance metrics based on the execution of
+        # the task
         self.update_data_rw(task)
         # We mark the core as not running any task
         self.running = None
@@ -132,6 +142,15 @@ class ActiveFlash(event.TimeoutEventHandler):
         self.n_extra_read = 0   # how much rw for data transfer?
         self.n_extra_written = 0
         self.num_cores = self.afs.config.cores
+
+        logging.basicConfig (level=logging.DEBUG,
+                             format='%(asctime)s - %(levelname)s - %(message)s')
+        self.logger = logging.getLogger (__name__)
+        if self.afs.config.eventlog:
+            self.logger.setLevel (logging.DEBUG)
+        else:
+            self.logger.propagate = False
+
         ## ID of the core that will be used for the assignement of
         ## the next task to run
         #self.next_core = 0
@@ -210,13 +229,12 @@ class ActiveFlash(event.TimeoutEventHandler):
                 task = self.tq.pop(l)
                 self.cores[core_id].submit_task(task)
 
-    # Handler executed when idle. Note that a core directly invoke that function,
-    # not the event system.
+    # Handler executed when idle. Note that a core directly invoke that
+    # function, not the event system.
     def handle_timeout(self, e):
-        if self.afs.config.eventlog:
-            print '(%.3f, %.3f) --- %s [%s] %s' \
+        self.logger.debug ('(%.3f, %.3f) --- %s [%s] %s' \
                   % (e.registered, e.timeout, self.get_name(),
-                     e.name, e.description)
+                     e.name, e.description))
         if e.name == 'task':
             self.handle_timeout_task(e)
         else:
@@ -359,6 +377,20 @@ class ActiveFS(event.TimeoutEventHandler):
         self.workflow_runtime = 0.0
         self.last_ts = 0.0
 
+        # Queue to store the file transfer requests
+        self.fq = []
+
+        # Simulate the latency of invoking the thread handling the transfer of
+        # files.
+        self.FILETRANSLATENCY = 1
+        
+        """
+        File transfers are serialized to match the implementation of the
+        emulator. This variable allows us to track whether a file transfer
+        is already ongoing or not.
+        """
+        self.ongoing_file_transfer = False
+
         """We also use the host for computation?
         if self.config.hybrid == True:
             self.host = ActiveHost(ev, 0, self)
@@ -371,6 +403,14 @@ class ActiveFS(event.TimeoutEventHandler):
                         for n in range(self.config.osds) ]
         self.ev.register_module(self)
         self.pq = []    # pre(pared) q, all data files are ready
+
+        logging.basicConfig (level=logging.DEBUG,
+                             format='%(asctime)s - %(levelname)s - %(message)s')
+        self.logger = logging.getLogger (__name__)
+        if self.config.eventlog:
+            self.logger.setLevel (logging.DEBUG)
+        else:
+            self.logger.propagate = False
 
         if   self.config.scheduler == 'rr':
             self.scheduler = sched.SchedRR(self)
@@ -399,7 +439,7 @@ class ActiveFS(event.TimeoutEventHandler):
     def submit_job(self):
         # The simulator is now ready to start to execute the workflow.
         self.last_ts = self.ev.now()
-        print 'Initial TS: {0:.3f}'.format(self.last_ts)
+        logging.debug ('Initial TS: {0:.3f}'.format(self.last_ts))
         if (self.job == None):
             self.tq = []
         else:
@@ -440,7 +480,7 @@ class ActiveFS(event.TimeoutEventHandler):
         for f in valid_files:
             osd = self.config.py_lat_module.lat_host_sched_file()
             f.set_location (osd)
-            print "Placing file %s to AFE %d" % (f.name, osd)
+            self.logger.debug ("Placing file %s to AFE %d" % (f.name, osd))
         
 #        if self.config.placement == 'random':
 #            #self.populate_files_random()
@@ -474,6 +514,7 @@ class ActiveFS(event.TimeoutEventHandler):
             pending_work = pending_work + len(self.tq) + len(self.pq)
 
         if pending_work == 0:
+            logging.debug ("TERMINATED")
             return True
         else:
             return False
@@ -482,73 +523,103 @@ class ActiveFS(event.TimeoutEventHandler):
         transfer_from = [ 0 for x in range(len(self.osds)) ]
         transfer_list = [ task.osd ]    # first element is the destination
         for f in task.input:
-            print 'Task %s has %d input files' % (task.name, len(task.input))
+            self.logger.debug ('Task %s has %d input files' % \
+                            (task.name, len(task.input)))
             if not f.is_replicated(task.osd):
-                print "Need to transfer file %s from AFE %d to %d for task %s (size: %f)" % (f.name, f.location, task.osd, task.name, f.size)
+                self.logger.debug ("Need to transfer file %s from AFE %d to %d for task %s (size: %f)" % (f.name, f.location, task.osd, task.name, f.size))
                 transfer_from[f.location] += f.size
                 task.account_transfer(f)
-                transfer_list += [ f ]  # rests are the files
+                self.fq.append ((task, f))
+                e = event.TimeoutEvent ('filetransfreq', self.FILETRANSLATENCY, self)
+                desc = '{}-{}: transfer request to {}'. \
+                        format (task.name, f.name, task.osd) 
+                e.set_description (desc)
+                self.ev.register_event (e)
 
+    def progress_file_transfers(self, evt):
+        """
+        File transfers are serialized. This function initiate a new file
+        transfer (based on the queued file transfer requests) if there is no
+        ongoing file transfer
+        """
+        if self.ongoing_file_transfer == False:
+            self.logger.debug ("No ongoing file transfer")
+            if (len (self.fq) > 0):
+                self.ongoing_file_transfer = True
+                (t, f) = self.fq.pop (0)
+                delay = 2.0 * (0.3 + float(f.size)*1.02 / self.config.netbw)
+                e = event.TimeoutEvent('transfer', delay, self)
+                e.set_context((t, f))
+                desc = 'Transfers {}({}) from {} to {} (time to transfer: {})'. \
+                        format(f.name, f.size, f.location, t.osd, delay)
+                self.logger.debug (desc)
+                e.set_description(desc)
+                self.ev.register_event(e)
+            else:
+                self.logger.debug ("No more pending file transfer request")
+        else:
+            self.logger.debug ("A file transfer is already ongoing, waiting...")
 
-        # GV: This is totally wrong when dealing with multiple AFEs :(
-        transfer_total = reduce(lambda x, y: x+y, transfer_from)
-        n_osd = 0
-        for n in transfer_from:
-            if n > 0:
-                n_osd = n_osd + 1
-        print "Need to transfer files from %d AFEs for task %s" % (n_osd, task.name)
-        max_trans_time = 0.0
-        print "Need to transfer a total of %f bytes for task %s" % (transfer_total, task.name)
-        if transfer_total > 0:
-            """the exact estimation??? this is a very conservative approach,
-            which considers the worst case.
-            updated on 3/3/2014: this calculation is too simplified. actually,
-            replicating a file involves host system to intervene; host
-            filesystem should move the file by reading it into its memory and
-            write it back to a desired osd. it can be seen, as the worst case,
-            that the file transfers work serially.
-            """
-            # the following old calculation is replaced.
-            #delay = 3 * (float(max(transfer_from)) / self.config.netbw)
-            #delay = 0.5 + 2 * (float(transfer_total) / self.config.netbw)
-            """updated on 3/24/2014: this will catch the pattern of the reduce,
-            but not broadcast.
-            """
-            delay = reduce(lambda x, y: x+y,
-                           map(lambda x: 2.0 * (0.3 + \
-                                       float(x.size)*1.02 / self.config.netbw),
-                               transfer_list[1:]))
-
-            delay2 = reduce(lambda x, y: x+y,
-                           map(lambda x: (0.3 + \
-                                       float(x.size)*1.02 / self.config.netbw),
-                               transfer_list[1:]))
-
-            print 'Transfer time for file %s, needed by task %s: %f' % (f.name, task.name, delay)
-            print 'TEST (%s): %f vs. %f' % (task.name, delay, delay2)
-            e = event.TimeoutEvent('transfer', delay, self)
-
-            if len(transfer_list) == 2: # single transfer, set source
-                e.source = transfer_list[1].location
-
-            e.set_context(transfer_list)
-            desc = '{}({}) transfers {}'. \
-                    format(task.name, task.osd,
-                           map(lambda x: (x.name, x.size, x.location), \
-                               transfer_list[1:]))
-            print "%s" % desc
-            e.set_description(desc)
-            self.ev.register_event(e)
+#                transfer_list += [ f ]  # rests are the files
+#
+#        # GV: This is totally wrong when dealing with multiple AFEs :(
+#        transfer_total = reduce(lambda x, y: x+y, transfer_from)
+#        n_osd = 0
+#        for n in transfer_from:
+#            if n > 0:
+#                n_osd = n_osd + 1
+#        print "Need to transfer files from %d AFEs for task %s" % (n_osd, task.name)
+#        max_trans_time = 0.0
+#        print "Need to transfer a total of %f bytes for task %s" % (transfer_total, task.name)
+#        if transfer_total > 0:
+#            """the exact estimation??? this is a very conservative approach,
+#            which considers the worst case.
+#            updated on 3/3/2014: this calculation is too simplified. actually,
+#            replicating a file involves host system to intervene; host
+#            filesystem should move the file by reading it into its memory and
+#            write it back to a desired osd. it can be seen, as the worst case,
+#            that the file transfers work serially.
+#            """
+#            # the following old calculation is replaced.
+#            #delay = 3 * (float(max(transfer_from)) / self.config.netbw)
+#            #delay = 0.5 + 2 * (float(transfer_total) / self.config.netbw)
+#            """updated on 3/24/2014: this will catch the pattern of the reduce,
+#            but not broadcast.
+#            """
+#            delay = reduce(lambda x, y: x+y,
+#                           map(lambda x: 2.0 * (0.3 + \
+#                                       float(x.size)*1.02 / self.config.netbw),
+#                               transfer_list[1:]))
+#
+#            delay2 = reduce(lambda x, y: x+y,
+#                           map(lambda x: (0.3 + \
+#                                       float(x.size)*1.02 / self.config.netbw),
+#                               transfer_list[1:]))
+#
+#            print 'Required transfer time for file %s, needed by task %s: %f' % (f.name, task.name, delay)
+#            print 'TEST (%s): %f vs. %f' % (task.name, delay, delay2)
+#            e = event.TimeoutEvent('transfer', delay, self)
+#
+#            if len(transfer_list) == 2: # single transfer, set source
+#                e.source = transfer_list[1].location
+#
+#            e.set_context(transfer_list)
+#            desc = '{}({}) transfers {}'. \
+#                    format(task.name, task.osd,
+#                           map(lambda x: (x.name, x.size, x.location), \
+#                               transfer_list[1:]))
+#            print "%s" % desc
+#            e.set_description(desc)
+#            self.ev.register_event(e)
+#
 
     def handle_transfer_complete(self, e):
-        li = e.get_context()
-        osd = li[0]
-        for f in li[1:]:
-            print "File %s has been transfered" % f.name
-            f.add_replica(osd)
-            """update the rw statistics"""
-            self.osds[osd].data_transfer_write(f.size)
-            self.osds[f.location].data_transfer_read(f.size)
+        (t, f) = e.get_context()
+        self.logger.debug ("File %s has been transfered" % f.name)
+        f.add_replica(t.osd)
+        """update the rw statistics"""
+        self.osds[t.osd].data_transfer_write(f.size)
+        self.osds[f.location].data_transfer_read(f.size)
 
     def advance(self):
         self.handle_prepared_tasks()
@@ -557,27 +628,45 @@ class ActiveFS(event.TimeoutEventHandler):
             return
 
     def handle_prepared_tasks(self):
+        """
+        Some file transfers may have completed since the last execution of the
+        function so we check whether more tasks can transition to the
+        'prepared' state
+        """
         tasks = [ task for task in self.tq ]
         sorted_tasks = sorted (tasks, key=lambda task: task.name)
         unsorted_prepared = [ task for task in self.tq if task.is_prepared() ]
         prepared = sorted (unsorted_prepared, key=lambda task: task.name)
-        print "%d tasks are prepared" % len(prepared)
+        self.logger.debug ("%d task(s) are prepared" % len (prepared))
         if len(prepared) > 0:
+            """
+            The queue 'tq' should only hold tasks that are submitted but
+            not wait prepared/ready. So we need to make sure that the
+            task that transition to the 'prepared' state are *not* in tq
+            """
             #for task in sorted (self.tq[:]):
             for task in sorted_tasks:
-                print "Checking task %s" % task.name
                 if task in prepared:
                     self.tq.remove(task)
             self.pq += prepared
+            # We schedule the task to an AFE
             self.scheduler.task_prepared(prepared)
 
+            """
+            Now that we have all the task in the 'prepared' state, we check
+            whether we can schedule a new file transfer.
+            """
             for task in prepared:
+                # task.host is used to easily check whether all the files
+                # required to run the task are already available.
                 if task.host == False:
+                    self.logger.debug ("(%s) Checking input file..." % \
+                                       task.name)
                     self.request_data_transfer(task)
 
     def handle_ready_tasks(self):
         ready = [ task for task in self.pq if task.is_ready() ]
-        print "%d tasks are ready" % len(ready)
+        self.logger.debug ("%d tasks are ready" % len(ready))
         if len(ready) > 0:
             for task in self.pq[:]:
                 if task in ready:
@@ -588,17 +677,23 @@ class ActiveFS(event.TimeoutEventHandler):
                 if task.host == True:
                     self.host.submit_task(task)
                 else:
-                    print "Submitting task %s" % task.name
+                    self.logger.debug ("Submitting task %s" % task.name)
                     self.osds[task.osd].submit_task(task)
 
     def handle_timeout(self, e):
         if self.config.eventlog:
-            print '(%.3f, %.3f) --- %s [%s] %s' % \
+            self.logger.debug ('(%.3f, %.3f) --- %s [%s] %s' % \
                   (e.registered, e.timeout, self.get_name(),
-                   e.name, e.description)
+                   e.name, e.description))
 
         if e.name == 'transfer':
             self.handle_transfer_complete(e)
+            self.ongoing_file_transfer = False
+            # A file transfer just completed, checking if more are required
+            self.logger.debug ("Checking for more files to transfer...")
+            self.progress_file_transfers (e)
+        elif e.name == 'filetransfreq':
+            self.progress_file_transfers (e)
         else:
             pass
 

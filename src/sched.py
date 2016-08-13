@@ -3,7 +3,7 @@
 from itertools import *
 from functools import reduce
 import activefs
-
+import logging
 
 """ Code for the workflow scheduler: when a workflow is submitted, the workflow
     scheduler parition the workflows 
@@ -201,12 +201,23 @@ class SchedWA(Scheduler):
 class SchedLib(Scheduler):
     """This implementation uses the libanalysethis scheduler
     """
+    def __init__(self, afs):
+        self.afs = afs
+        logging.basicConfig (level=logging.DEBUG,
+                             format='%(asctime)s - %(levelname)s - %(message)s')
+        self.logger = logging.getLogger (__name__)
+        if afs.config.eventlog:
+            self.logger.setLevel (logging.DEBUG)
+        else:
+            self.logger.propagate = False
+
     def job_submitted(self):
         sorted_tasks = list(map(lambda x: x[1],
                             sorted(self.afs.job.tasks.items())))
         for task in sorted_tasks:
             osd = self.config.py_lat_module.lat_host_sched_task()
-            print "Assigning AFE %d to task: %s" % (osd, task.name)
+            self.logger.debug ("Assigning AFE %d to task: %s" % \
+                               (osd, task.name))
             task.osd = osd
 
 class SchedRR(Scheduler):
