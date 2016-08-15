@@ -7,6 +7,7 @@ import job
 import event
 import sched
 import logging
+import iomodel
 
 class AFECore(event.TimeoutEventHandler):
     """afe core
@@ -412,6 +413,8 @@ class ActiveFS(event.TimeoutEventHandler):
         else:
             self.logger.propagate = False
 
+        self.iomod = iomodel.IOModel(config, "Default")
+
         if   self.config.scheduler == 'rr':
             self.scheduler = sched.SchedRR(self)
         elif self.config.scheduler == 'locality':
@@ -547,7 +550,8 @@ class ActiveFS(event.TimeoutEventHandler):
             if (len (self.fq) > 0):
                 self.ongoing_file_transfer = True
                 (t, f) = self.fq.pop (0)
-                delay = 2.0 * (0.3 + float(f.size)*1.02 / self.config.netbw)
+                #delay = 2.0 * (0.3 + float(f.size)*1.02 / self.config.netbw)
+                delay = self.iomod.get_transfer_cost (f)
                 e = event.TimeoutEvent('transfer', delay, self)
                 e.set_context((t, f))
                 desc = 'Transfers {}({}) from {} to {} (time to transfer: {})'. \
