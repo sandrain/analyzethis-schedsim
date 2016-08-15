@@ -7,7 +7,10 @@ my $cmd;
 my $arg = shift;
 
 if ($arg eq "info") {
-    $cmd = "./sim.py -e info -c 1 -n 4 --netbw 44566000000 --scheduler schedlib --placement schedlib /home/gvh/src/git/analyzethis-workflows/libconfig2xml/montage.job.xml";
+#    $cmd = "./sim.py -e info -c 1 -n 4 --netbw 44566000000 --scheduler schedlib --placement schedlib /home/gvh/src/git/analyzethis-workflows/libconfig2xml/montage.job.xml";
+    $cmd = "./sim.py -e info -c 1 -n 4 --netbw  45000000000 --scheduler schedlib --placement schedlib /home/gvh/src/git/analyzethis-workflows/libconfig2xml/montage.job.xml";
+} elsif ($arg eq "debug") {
+    $cmd = "./sim.py -e debug -c 1 -n 4 --netbw  45000000000 --scheduler schedlib --placement schedlib /home/gvh/src/git/analyzethis-workflows/libconfig2xml/montage.job.xml";
 } else {
     $cmd = "./sim.py -c 1 -n 4 --netbw 44566000000 --scheduler schedlib --placement schedlib /home/gvh/src/git/analyzethis-workflows/libconfig2xml/montage.job.xml";
 }
