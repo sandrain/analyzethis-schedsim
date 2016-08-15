@@ -291,8 +291,8 @@ def main():
     parser.add_argument('-d', '--debug', default=False,
                         help='enters pdb session for debugging',
                         action='store_true')
-    parser.add_argument('-e', '--eventlog', default=False,
-                        help='prints eventlogs', action='store_true')
+    parser.add_argument('-e', '--eventlog', type=str, default='',
+                        help='prints eventlogs') #, action='store_true')
     parser.add_argument('-c', '--cores', type=int, default=1,
                         help='number of cores per AFE')
     parser.add_argument('-f', '--file', type=str, default='',

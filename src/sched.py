@@ -205,9 +205,13 @@ class SchedLib(Scheduler):
         self.afs = afs
         logging.basicConfig (level=logging.DEBUG,
                              format='%(asctime)s - %(levelname)s - %(message)s')
+        logging.basicConfig (level=logging.INFO,
+                             format='%(asctime)s - %(levelname)s - %(message)s')
         self.logger = logging.getLogger (__name__)
-        if afs.config.eventlog:
+        if afs.config.eventlog == 'debug':
             self.logger.setLevel (logging.DEBUG)
+        elif afs.config.eventlog == 'info':
+            self.logger.setLevel (logging.INFO)
         else:
             self.logger.propagate = False
 

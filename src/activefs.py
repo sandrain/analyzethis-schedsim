@@ -29,9 +29,13 @@ class AFECore(event.TimeoutEventHandler):
         self.ev.register_module(self)
         logging.basicConfig (level=logging.DEBUG,
                              format='%(asctime)s - %(levelname)s - %(message)s')
+        logging.basicConfig (level=logging.INFO,
+                             format='%(asctime)s - %(levelname)s - %(message)s')
         self.logger = logging.getLogger (__name__)
-        if self.afs.config.eventlog:
+        if self.afs.config.eventlog == 'debug':
             self.logger.setLevel (logging.DEBUG)
+        elif self.afs.config.eventlog == 'info':
+            self.logger.setLevel (logging.INFO)
         else:
             self.logger.propagate = False
 
@@ -146,9 +150,13 @@ class ActiveFlash(event.TimeoutEventHandler):
 
         logging.basicConfig (level=logging.DEBUG,
                              format='%(asctime)s - %(levelname)s - %(message)s')
+        logging.basicConfig (level=logging.INFO,
+                             format='%(asctime)s - %(levelname)s - %(message)s')
         self.logger = logging.getLogger (__name__)
-        if self.afs.config.eventlog:
+        if self.afs.config.eventlog == 'debug':
             self.logger.setLevel (logging.DEBUG)
+        elif self.afs.config.eventlog == 'info':
+            self.logger.setLevel (logging.INFO)
         else:
             self.logger.propagate = False
 
@@ -405,11 +413,17 @@ class ActiveFS(event.TimeoutEventHandler):
         self.ev.register_module(self)
         self.pq = []    # pre(pared) q, all data files are ready
 
+        print "Check %s" % self.config.eventlog
         logging.basicConfig (level=logging.DEBUG,
                              format='%(asctime)s - %(levelname)s - %(message)s')
+        logging.basicConfig (level=logging.INFO,
+                             format='%(asctime)s - %(levelname)s - %(message)s')
         self.logger = logging.getLogger (__name__)
-        if self.config.eventlog:
+        if self.config.eventlog == 'debug':
             self.logger.setLevel (logging.DEBUG)
+        elif self.config.eventlog == 'info':
+            print "TEST"
+            self.logger.setLevel (logging.INFO)
         else:
             self.logger.propagate = False
 
@@ -442,7 +456,7 @@ class ActiveFS(event.TimeoutEventHandler):
     def submit_job(self):
         # The simulator is now ready to start to execute the workflow.
         self.last_ts = self.ev.now()
-        logging.debug ('Initial TS: {0:.3f}'.format(self.last_ts))
+        self.logger.debug ('Initial TS: {0:.3f}'.format(self.last_ts))
         if (self.job == None):
             self.tq = []
         else:
@@ -517,7 +531,7 @@ class ActiveFS(event.TimeoutEventHandler):
             pending_work = pending_work + len(self.tq) + len(self.pq)
 
         if pending_work == 0:
-            logging.debug ("TERMINATED")
+            self.logger.debug ("TERMINATED")
             return True
         else:
             return False
@@ -529,7 +543,7 @@ class ActiveFS(event.TimeoutEventHandler):
             self.logger.debug ('Task %s has %d input files' % \
                             (task.name, len(task.input)))
             if not f.is_replicated(task.osd):
-                self.logger.debug ("Need to transfer file %s from AFE %d to %d for task %s (size: %f)" % (f.name, f.location, task.osd, task.name, f.size))
+                self.logger.info ("Request file transfer: %s from AFE %d to %d (task: %s, size: %f)" % (f.name, f.location, task.osd, task.name, f.size))
                 transfer_from[f.location] += f.size
                 task.account_transfer(f)
                 self.fq.append ((task, f))
@@ -553,7 +567,7 @@ class ActiveFS(event.TimeoutEventHandler):
                 #delay = 2.0 * (0.3 + float(f.size)*1.02 / self.config.netbw)
                 delay = self.iomod.get_transfer_cost (f)
                 e = event.TimeoutEvent('transfer', delay, self)
-                e.set_context((t, f))
+                e.set_context((t, f, delay))
                 desc = 'Transfers {}({}) from {} to {} (time to transfer: {})'. \
                         format(f.name, f.size, f.location, t.osd, delay)
                 self.logger.debug (desc)
@@ -618,11 +632,12 @@ class ActiveFS(event.TimeoutEventHandler):
 #
 
     def handle_transfer_complete(self, e):
-        (t, f) = e.get_context()
-        self.logger.debug ("File %s has been transfered" % f.name)
-        f.add_replica(t.osd)
+        (task, f, time) = e.get_context()
+        self.logger.info ("File %s has been transfered in %d seconds" % \
+                           (f.name, time))
+        f.add_replica(task.osd)
         """update the rw statistics"""
-        self.osds[t.osd].data_transfer_write(f.size)
+        self.osds[task.osd].data_transfer_write(f.size)
         self.osds[f.location].data_transfer_read(f.size)
 
     def advance(self):
