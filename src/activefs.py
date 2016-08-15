@@ -427,7 +427,7 @@ class ActiveFS(event.TimeoutEventHandler):
         else:
             self.logger.propagate = False
 
-        self.iomod = iomodel.IOModel(config, "Default")
+        self.iomod = iomodel.IOModel(config, "Emulator")
 
         if   self.config.scheduler == 'rr':
             self.scheduler = sched.SchedRR(self)
@@ -539,11 +539,11 @@ class ActiveFS(event.TimeoutEventHandler):
     def request_data_transfer(self, task):
         transfer_from = [ 0 for x in range(len(self.osds)) ]
         transfer_list = [ task.osd ]    # first element is the destination
-        for f in task.input:
-            self.logger.debug ('Task %s has %d input files' % \
+        self.logger.debug ('Task %s has %d input files' % \
                             (task.name, len(task.input)))
+        for f in task.input:
             if not f.is_replicated(task.osd):
-                self.logger.info ("Request file transfer: %s from AFE %d to %d (task: %s, size: %f)" % (f.name, f.location, task.osd, task.name, f.size))
+                self.logger.info ("Request file transfer: %s from AFE %d to %d (task: %s, size: %d)" % (f.name, f.location, task.osd, task.name, f.size))
                 transfer_from[f.location] += f.size
                 task.account_transfer(f)
                 self.fq.append ((task, f))
@@ -633,7 +633,7 @@ class ActiveFS(event.TimeoutEventHandler):
 
     def handle_transfer_complete(self, e):
         (task, f, time) = e.get_context()
-        self.logger.info ("File %s has been transfered in %d seconds" % \
+        self.logger.info ("File %s has been transfered in %.6f seconds" % \
                            (f.name, time))
         f.add_replica(task.osd)
         """update the rw statistics"""

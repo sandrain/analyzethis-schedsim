@@ -9,7 +9,7 @@ class EmulatorIOModel:
 
     def get_transfer_cost(self, f):
         if f.size > 1000000:
-            transfer_time = 2.0 * (0.3 + float(f.size) * 1.02 / self.config.netbw)
+            transfer_time = float(f.size) / self.config.netbw
         else:
             transfer_time = self.SMALLFILEOVERHEAD
         return transfer_time
