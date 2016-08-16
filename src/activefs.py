@@ -391,7 +391,7 @@ class ActiveFS(event.TimeoutEventHandler):
 
         # Simulate the latency of invoking the thread handling the transfer of
         # files.
-        self.FILETRANSLATENCY = 1
+        self.FILETRANSLATENCY = 0
         
         """
         File transfers are serialized to match the implementation of the
@@ -497,7 +497,7 @@ class ActiveFS(event.TimeoutEventHandler):
         for f in valid_files:
             osd = self.config.py_lat_module.lat_host_sched_file()
             f.set_location (osd)
-            self.logger.debug ("Placing file %s to AFE %d" % (f.name, osd))
+            self.logger.info ("Placing file %s to AFE %d" % (f.name, osd))
         
 #        if self.config.placement == 'random':
 #            #self.populate_files_random()
