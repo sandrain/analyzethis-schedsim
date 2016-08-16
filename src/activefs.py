@@ -427,7 +427,6 @@ class ActiveFS(event.TimeoutEventHandler):
         self.ev.register_module(self)
         self.pq = []    # pre(pared) q, all data files are ready
 
-        print "Check %s" % self.config.eventlog
         logging.basicConfig (level=logging.DEBUG,
                              format='%(asctime)s - %(levelname)s - %(message)s')
         logging.basicConfig (level=logging.INFO,
@@ -436,7 +435,6 @@ class ActiveFS(event.TimeoutEventHandler):
         if self.config.eventlog == 'debug':
             self.logger.setLevel (logging.DEBUG)
         elif self.config.eventlog == 'info':
-            print "TEST"
             self.logger.setLevel (logging.INFO)
         else:
             self.logger.propagate = False
