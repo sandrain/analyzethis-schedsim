@@ -9,6 +9,16 @@ import sched
 import logging
 import iomodel
 
+bin_map = dict({    "fits.tbl":3,
+                    "mAdd":1,
+                    "mBgExec":3,
+                    "mBgModel":0,
+                    "mDiffFit":3,
+                    "mImgtbl":1,
+                    "mJPEG":2,
+                    "mOverlaps":3,
+                    "mProjectPP":2  })
+
 class AFECore(event.TimeoutEventHandler):
     """afe core
     """
@@ -201,10 +211,13 @@ class ActiveFlash(event.TimeoutEventHandler):
         # event is created but tasks are present in the different
         # queues. To ensure the simulation won't stop when it should
         # not, we emit an idle event to guarantee progress
+        # [GV] This is not required anymore! :)
+        """
         self.idle_event.set_timeout(1)
         self.idle_event.set_context(None)
         self.idle_event.set_description(None)
         self.ev.register_event(self.idle_event)
+        """
 
     def try_assign_task(self):
         # Find all the cores that are not running any tasks and
@@ -228,7 +241,8 @@ class ActiveFlash(event.TimeoutEventHandler):
             core_id = self.device_scheduler.schedule_task(self, task)
             if (core_id == self.device_scheduler.SCHED_LOOP_DONE):
                 # Scheduling loop ended, we exit
-                self.set_idle_timeout()
+                # [GV] This is not required anymore.
+                #self.set_idle_timeout()
                 return
             elif (core_id == self.device_scheduler.SCHED_LOOP_CONT):
                 # The task could not be assigned but we can try to assign next task
@@ -496,8 +510,11 @@ class ActiveFS(event.TimeoutEventHandler):
 
         for f in valid_files:
             osd = self.config.py_lat_module.lat_host_sched_file()
+            _osd = bin_map.get (f.name)
+            if _osd != None:
+                osd = _osd
             f.set_location (osd)
-            self.logger.info ("Placing file %s to AFE %d" % (f.name, osd))
+            self.logger.info ("Placing file %s on AFE %d" % (f.name, osd))
         
 #        if self.config.placement == 'random':
 #            #self.populate_files_random()
