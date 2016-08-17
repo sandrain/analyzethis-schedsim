@@ -662,6 +662,16 @@ class ActiveFS(event.TimeoutEventHandler):
             return
 
     def handle_prepared_tasks(self):
+        for task in self.tq:
+            if task.is_prepared():
+                self.tq.remove (task)
+                self.pq.append (task)
+                self.scheduler.task_prepared (task)
+                if (task.host == False):
+                    self.request_data_transfer(task)
+                e = event.TimeoutEvent ('prepare', 0, self)
+                self.ev.register_event (e)
+                break
         """
         Some file transfers may have completed since the last execution of the
         function so we check whether more tasks can transition to the
