@@ -3,7 +3,7 @@
 from itertools import *
 from functools import reduce
 import activefs
-
+import logging
 
 """ Code for the workflow scheduler: when a workflow is submitted, the workflow
     scheduler parition the workflows 
@@ -198,6 +198,32 @@ class SchedWA(Scheduler):
             j = j + 1
         print "\n\n\n*********************************\n\n\n"
 
+class SchedLib(Scheduler):
+    """This implementation uses the libanalysethis scheduler
+    """
+    def __init__(self, afs):
+        self.afs = afs
+        logging.basicConfig (level=logging.DEBUG,
+                             format='%(asctime)s - %(levelname)s - %(message)s')
+        logging.basicConfig (level=logging.INFO,
+                             format='%(asctime)s - %(levelname)s - %(message)s')
+        self.logger = logging.getLogger (__name__)
+        if afs.config.eventlog == 'debug':
+            self.logger.setLevel (logging.DEBUG)
+        elif afs.config.eventlog == 'info':
+            self.logger.setLevel (logging.INFO)
+        else:
+            self.logger.propagate = False
+
+    def job_submitted(self):
+        sorted_tasks = list(map(lambda x: x[1],
+                            sorted(self.afs.job.tasks.items())))
+        for task in sorted_tasks:
+            osd = self.config.py_lat_module.lat_host_sched_task()
+            self.logger.debug ("Assigning AFE %d to task: %s" % \
+                               (osd, task.name))
+            task.osd = osd
+
 class SchedRR(Scheduler):
     """Basic round-robin scheduler
     """
@@ -206,6 +232,7 @@ class SchedRR(Scheduler):
                             sorted(self.afs.job.tasks.items())))
         for (task, osd) in zip(sorted_tasks,
                                cycle(range(self.afs.config.osds))):
+            print "Assigning OSD %d to task\n" % osd
             task.osd = osd
 
 
