@@ -1,19 +1,116 @@
 #!/usr/bin/perl
 #
 
+#
+# Copyright(c) 2016     UT-Battelle, LLC
+#                       All rights reserved.
+#
+
+
 use strict;
+use warnings;
+use Getopt::Long;
+use Cwd;
+use IO::Tee;
 
-my $cmd;
-my $arg = shift;
+my $cmd = "";
+my $help;
+my $verbosity = "";
+my $core_range = "";
+my $afe_range = "";
+my $netbw = "45000000000";
+my $workflow = "/home/gvh/src/git/analyzethis-workflows/libconfig2xml/montage.job.xml";
+my $output_dir = "/home/gvh/src/git/afs-schedsim/data";
 
-if ($arg eq "info") {
-#    $cmd = "./sim.py -e info -c 1 -n 4 --netbw 44566000000 --scheduler schedlib --placement schedlib /home/gvh/src/git/analyzethis-workflows/libconfig2xml/montage.job.xml";
-    $cmd = "./sim.py -e info -c 1 -n 4 --netbw  45000000000 --scheduler schedlib --placement schedlib /home/gvh/src/git/analyzethis-workflows/libconfig2xml/montage.job.xml";
-} elsif ($arg eq "debug") {
-    $cmd = "./sim.py -e debug -c 1 -n 4 --netbw  45000000000 --scheduler schedlib --placement schedlib /home/gvh/src/git/analyzethis-workflows/libconfig2xml/montage.job.xml";
-} else {
-    $cmd = "./sim.py -c 1 -n 4 --netbw 45000000000 --scheduler schedlib --placement schedlib /home/gvh/src/git/analyzethis-workflows/libconfig2xml/montage.job.xml";
+GetOptions (
+    "verbosity=s"   => \$verbosity,
+    "core-range=s"  => \$core_range,
+    "afe-range=s"   => \$afe_range,
+    "workflow=s"    => \$workflow,
+    "netbw=s"       => \$netbw,
+);
+
+sub print_help ()
+{
+    print "Usage: $0 --verbosity <info|debug> --afe-range <range> --core-range <range>\n";
+    print "\t--verbosity: specify the level of verbosity. By default, only initialization data is displayed, as well as a simulation report.\n";
+    print "\t--afe-range: specify the range of AFEs that must be simulated. The simulator will be executed for every number of AFEs within the range.";
+    print " When combined with --core-range, the script will run all combinations number of AFEs and number of cores. Example: --afe_range 1-4\n";
+    print "\t--core-range: specify the range of cores per AFE to simulate. Example: --core-range 1-8\n";
+    print "\t--workflow: path to the workflow to execute.\n";
+    print "\t--netbw: Bandwidth of the bus between the AFEs.\n";
 }
 
-print "Executing: $cmd\n";
-system ($cmd);
+sub parse_range ($)
+{
+    my $range = shift;
+
+    my @words = split ('-', $range);
+
+    return ($words[0], $words[1]);
+}
+
+if ($help)
+{
+    print_help ();
+    exit 0;
+}
+
+if (! -e $output_dir)
+{
+    mkdir ($output_dir) or die ("Impossible to create $output_dir\n");
+}
+
+my $n_afe_start = 1;
+my $n_afe_end = 1;
+my $n_core_start = 1;
+my $n_core_end = 1;
+
+if ($afe_range ne "")
+{
+    ($n_afe_start, $n_afe_end) = parse_range ($afe_range);
+}
+
+if ($core_range ne "")
+{
+    ($n_core_start, $n_core_end) = parse_range ($core_range);
+}
+
+my $workflow_name = "undef_workflow";
+if ($workflow =~ /montage/)
+{
+    $workflow_name = "montage";
+} elsif ($workflow =~ /brain/) {
+    $workflow_name = "brain";
+} elsif ($workflow =~ /linux/) {
+    $workflow_name = "linux";
+}
+
+my $dir = getcwd;
+my $output;
+my $tee;
+my ($i, $j);
+for ($i = $n_afe_start; $i <= $n_afe_end; $i = $i + 1)
+{
+    for ($j = $n_core_start; $j <= $n_core_end; $j = $j + 1)
+    {
+        if ($verbosity eq "info") {
+            $output = "$output_dir/$workflow_name\_$j\_$i\_$netbw\_info.log";
+#           $cmd = "./sim.py -e info -c 1 -n 4 --netbw 44566000000 --scheduler schedlib --placement schedlib $workflow";
+            $cmd = "$dir/sim.py -e info -c $j -n $i --netbw $netbw --scheduler schedlib --placement schedlib $workflow";
+        } elsif ($verbosity eq "debug") {
+            $output = "$output_dir/$workflow_name\_$j\_$i\_$netbw\_debug.log";
+            $cmd = "$dir/sim.py -e debug -c $j -n $i --netbw  $netbw --scheduler schedlib --placement schedlib $workflow";
+        } else {
+            $output = "$output_dir/$workflow_name\_$j\_$i\_$netbw.log";
+            $cmd = "$dir/sim.py -c $j -n $i --netbw $netbw --scheduler schedlib --placement schedlib $workflow";
+        }
+
+        print "Executing: $cmd\n";
+        unlink $output if (-e $output);
+        $tee = IO::Tee->new(">>$output", \*STDOUT);
+        print $tee "$cmd\n";
+        print $tee `$cmd`;
+    }
+}
+
