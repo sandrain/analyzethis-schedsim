@@ -399,6 +399,7 @@ class ActiveFS(event.TimeoutEventHandler):
         self.config = config
         self.workflow_runtime = 0.0
         self.last_ts = 0.0
+        self.num_transfers = 0
 
         # Queue to store the file transfer requests
         self.fq = []
@@ -508,9 +509,11 @@ class ActiveFS(event.TimeoutEventHandler):
 
         for f in valid_files:
             osd = self.config.py_lat_module.lat_host_sched_file()
+            """
             _osd = bin_map.get (f.name)
             if _osd != None:
                 osd = _osd
+            """
             f.set_location (osd)
             self.logger.info ("Placing file %s on AFE %d" % (f.name, osd))
         
@@ -561,6 +564,7 @@ class ActiveFS(event.TimeoutEventHandler):
                 self.logger.info ("Request file transfer: %s from AFE %d to %d (task: %s, size: %d)" % (f.name, f.location, task.osd, task.name, f.size))
                 transfer_from[f.location] += f.size
                 task.account_transfer(f)
+                self.num_transfers += 1
                 self.fq.append ((task, f))
                 e = event.TimeoutEvent ('filetransfreq', self.FILETRANSLATENCY, self)
                 desc = '{}-{}: transfer request to {}'. \

@@ -213,6 +213,7 @@ class ActiveSimulator(event.EventSimulator):
 
         print '\nTotal data transfer = %d bytes (%.3f MB)' % \
                     (total_transfer, float(total_transfer) / (2**20))
+        print 'Number of transfers: %d' % self.afs.num_transfers
         print 'SSD mean read = %d bytes (%.3f MB)' % \
                     (rmean, float(rmean) / (2**20))
         print 'SSD mean write = %d bytes (%.3f MB)' % \
