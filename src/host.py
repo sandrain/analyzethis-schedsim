@@ -50,7 +50,7 @@ class Server(event.TimeoutEventHandler):
         print '\n-----------------------------------------'
         print 'job: %s' % self.afs.job.name
         print 'scheduler: %s' % self.afs.config.scheduler
-        print 'device scheduler: %s' % self.afs.config.deviceScheduler
+#        print 'device scheduler: %s' % self.afs.config.deviceScheduler
         print 'core(s) per AFE: %d' % self.afs.config.cores
         print '\nTask statistics'
         for task in self.afs.job.tasks.values():

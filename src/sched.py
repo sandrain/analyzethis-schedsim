@@ -219,7 +219,11 @@ class SchedLib(Scheduler):
         sorted_tasks = list(map(lambda x: x[1],
                             sorted(self.afs.job.tasks.items())))
         for task in sorted_tasks:
-            osd = self.config.py_lat_module.lat_host_sched_task()
+            n_input = reduce(lambda x, y: x+y, [ f.size for f in task.input ])
+            _str = ""
+            for f in task.input:
+                _str = _str + f.name + ':' + str(f.size) + ':' + str(f.location) + ':'
+            osd = self.config.py_lat_module.lat_host_sched_task(task.name, _str)
             self.logger.debug ("Assigning AFE %d to task: %s" % \
                                (osd, task.name))
             task.osd = osd
