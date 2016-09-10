@@ -270,6 +270,10 @@ class ActiveFlash(event.TimeoutEventHandler):
             raise SystemExit('BUG')
         task = e.get_context()
         self.afs.task_completed(task, self)
+        for f in task.output:
+            if (f.size < 0):
+                # The file is now produced, mark it accordingly
+                f.size = -f.size
         self.update_data_rw(task)
         self.try_assign_task()
 
@@ -510,9 +514,11 @@ class ActiveFS(event.TimeoutEventHandler):
         for f in valid_files:
             osd = self.config.py_lat_module.lat_host_sched_file()
             """
+            GV: this code is used to mimic the emulator
             _osd = bin_map.get (f.name)
             if _osd != None:
                 osd = _osd
+            GV
             """
             f.set_location (osd)
             self.logger.info ("Placing file %s on AFE %d" % (f.name, osd))

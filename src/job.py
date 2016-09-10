@@ -187,7 +187,7 @@ class Workflow:
             for uses in job.findall('ns:uses', namespaces=ns):
                 if uses.attrib['link'] == 'output':
                     js['files'][uses.attrib['file']]['size'] = \
-                            int(uses.attrib['size'])
+                            -1 * int(uses.attrib['size'])
 
         return js
 
