@@ -58,7 +58,7 @@ class AFECore(event.TimeoutEventHandler):
     def try_execute_task(self):
         """ Function that tries to execute a new task from the task queue
         """
-
+ 
         # If an event is already running, we just pass
         if self.running != None:
             return
@@ -74,6 +74,8 @@ class AFECore(event.TimeoutEventHandler):
             # We set the execution start time of the task
             task.started(self.ev.now())
 
+            self.logger.info ('Executing task %s (runtime %.3f)' % (task.name, task.runtime))
+
             # We set an event that will simulate the task termination
             self.task_event.set_timeout(task.runtime)
             self.task_event.set_context(task)
@@ -82,10 +84,10 @@ class AFECore(event.TimeoutEventHandler):
 
             # We set an event at the activeflash device level so it can get
             # the task termination notification
-            self.activeflash.task_event.set_timeout(task.runtime)
-            self.activeflash.task_event.set_context(task)
-            self.activeflash.task_event.set_description(desc)
-            self.ev.register_event(self.activeflash.task_event)
+            #self.activeflash.task_event.set_timeout(task.runtime)
+            #self.activeflash.task_event.set_context(task)
+            #self.activeflash.task_event.set_description(desc)
+            #self.ev.register_event(self.activeflash.task_event)
 
     def submit_task(self, task):
         self.tq.append(task)
@@ -109,6 +111,7 @@ class AFECore(event.TimeoutEventHandler):
         if (task == None):
             raise SystemExit('BUG')
         self.logger.debug ("Task %s terminated" % task.name)
+        
         # We set the execution end time of the task
         task.completed(self.ev.now())
         # Run one execution iteration of the simulator (task_completed does
@@ -141,10 +144,11 @@ class AFECore(event.TimeoutEventHandler):
 class ActiveFlash(event.TimeoutEventHandler):
     """Active flash element
     """
-    def __init__(self, ev, id, afs):
+    def __init__(self, ev, id, config, afs):
         self.id = id
         self.ev = ev
         self.afs = afs
+        self.config = config
         self.tq = []
         self.cores = []
         self.ev.register_module(self)
@@ -227,7 +231,8 @@ class ActiveFlash(event.TimeoutEventHandler):
             return
 
         l = 0
-        while (len(self.tq) > 0):
+        #while (len(self.tq) > 0):
+        if (len (self.tq) > 0):
             # The scheduler is based on the following premise:
             # - we get the first task from the queue
             # - we try to scheduler the task on a core
@@ -238,19 +243,10 @@ class ActiveFlash(event.TimeoutEventHandler):
             task = self.tq[l]
 
             # Call the scheduler
-            core_id = self.device_scheduler.schedule_task(self, task)
-            if (core_id == self.device_scheduler.SCHED_LOOP_DONE):
-                # Scheduling loop ended, we exit
-                # [GV] This is not required anymore.
-                #self.set_idle_timeout()
-                return
-            elif (core_id == self.device_scheduler.SCHED_LOOP_CONT):
-                # The task could not be assigned but we can try to assign next task
-                l = l + 1
-                continue
-            else:
-                task = self.tq.pop(l)
-                self.cores[core_id].submit_task(task)
+            core_id = self.config.py_lat_module.lat_device_sched_task ()
+            task = self.tq.pop(l)
+            self.cores[core_id].submit_task(task)
+            l = l + 1
 
     # Handler executed when idle. Note that a core directly invoke that
     # function, not the event system.
@@ -274,6 +270,10 @@ class ActiveFlash(event.TimeoutEventHandler):
             if (f.size < 0):
                 # The file is now produced, mark it accordingly
                 f.size = -f.size
+            if (f.location < 0):
+                f.location = self.id
+            else:
+                print "Output file %s already exists? (%d vs %d)" % (f.name, f.location, self.id)
         self.update_data_rw(task)
         self.try_assign_task()
 
@@ -387,9 +387,11 @@ class ActiveHost(ActiveFlash):
             self.afs.osds[f.location].data_transfer_read(f.size)
         for f in task.output:
             if self.last_written_osd < self.afs.config.osds:
+                print "Nooooooooooooo"
                 f.location = self.last_written_osd
                 self.last_written_osd += 1
             else:
+                print "What?????????????"
                 f.location = self.last_written_osd = 0
             self.afs.osds[f.location].data_transfer_write(f.size)
 
@@ -410,8 +412,8 @@ class ActiveFS(event.TimeoutEventHandler):
 
         # Simulate the latency of invoking the thread handling the transfer of
         # files.
-        self.FILETRANSLATENCY = 0
-        
+        self.FILETRANSLATENCY = 0 
+
         """
         File transfers are serialized to match the implementation of the
         emulator. This variable allows us to track whether a file transfer
@@ -427,7 +429,7 @@ class ActiveFS(event.TimeoutEventHandler):
         """
         self.host = None
 
-        self.osds = [ ActiveFlash(ev, n, self) \
+        self.osds = [ ActiveFlash(ev, n, config, self) \
                         for n in range(self.config.osds) ]
         self.ev.register_module(self)
         self.pq = []    # pre(pared) q, all data files are ready
@@ -577,6 +579,8 @@ class ActiveFS(event.TimeoutEventHandler):
                         format (task.name, f.name, task.osd) 
                 e.set_description (desc)
                 self.ev.register_event (e)
+            else:
+                self.logger.debug ("File %s is already on AFE %d" % (f.name, f.location))
 
     def progress_file_transfers(self, evt):
         """
@@ -591,6 +595,7 @@ class ActiveFS(event.TimeoutEventHandler):
                 (t, f) = self.fq.pop (0)
                 #delay = 2.0 * (0.3 + float(f.size)*1.02 / self.config.netbw)
                 delay = self.iomod.get_transfer_cost (f)
+                #print "%s/%s - Transfer time: %f" % (t.name, f.name, delay)
                 e = event.TimeoutEvent('transfer', delay, self)
                 e.set_context((t, f, delay))
                 desc = 'Transfers {}({}) from {} to {} (time to transfer: {})'. \
@@ -672,7 +677,11 @@ class ActiveFS(event.TimeoutEventHandler):
             return
 
     def handle_prepared_tasks(self):
-        for task in self.tq:
+        #print "Critical section - start"
+        tasks = [ task for task in self.tq ]
+        sorted_tasks = sorted (tasks, key=lambda task: task.name)
+        for task in sorted_tasks:
+            #print "Checking task %s" % task.name
             if task.is_prepared():
                 self.tq.remove (task)
                 self.pq.append (task)
@@ -682,41 +691,45 @@ class ActiveFS(event.TimeoutEventHandler):
                 e = event.TimeoutEvent ('prepare', 0, self)
                 self.ev.register_event (e)
                 break
-        """
-        Some file transfers may have completed since the last execution of the
-        function so we check whether more tasks can transition to the
-        'prepared' state
-        """
-        tasks = [ task for task in self.tq ]
-        sorted_tasks = sorted (tasks, key=lambda task: task.name)
-        unsorted_prepared = [ task for task in self.tq if task.is_prepared() ]
-        prepared = sorted (unsorted_prepared, key=lambda task: task.name)
-        self.logger.debug ("%d task(s) are prepared" % len (prepared))
-        if len(prepared) > 0:
-            """
-            The queue 'tq' should only hold tasks that are submitted but
-            not wait prepared/ready. So we need to make sure that the
-            task that transition to the 'prepared' state are *not* in tq
-            """
-            #for task in sorted (self.tq[:]):
-            for task in sorted_tasks:
-                if task in prepared:
-                    self.tq.remove(task)
-            self.pq += prepared
-            # We schedule the task to an AFE
-            self.scheduler.task_prepared(prepared)
+            else:
+                self.logger.debug ("Task %s is not prepared yet" % task.name)
+        #print "Critical section - end"
 
-            """
-            Now that we have all the task in the 'prepared' state, we check
-            whether we can schedule a new file transfer.
-            """
-            for task in prepared:
-                # task.host is used to easily check whether all the files
-                # required to run the task are already available.
-                if task.host == False:
-                    self.logger.debug ("(%s) Checking input file..." % \
-                                       task.name)
-                    self.request_data_transfer(task)
+#        """
+#        Some file transfers may have completed since the last execution of the
+#        function so we check whether more tasks can transition to the
+#        'prepared' state
+#        """
+#        tasks = [ task for task in self.tq ]
+#        sorted_tasks = sorted (tasks, key=lambda task: task.name)
+#        unsorted_prepared = [ task for task in self.tq if task.is_prepared() ]
+#        prepared = sorted (unsorted_prepared, key=lambda task: task.name)
+#        self.logger.debug ("%d task(s) are prepared" % len (prepared))
+#        if len(prepared) > 0:
+#            """
+#            The queue 'tq' should only hold tasks that are submitted but
+#            not wait prepared/ready. So we need to make sure that the
+#            task that transition to the 'prepared' state are *not* in tq
+#            """
+#            #for task in sorted (self.tq[:]):
+#            for task in sorted_tasks:
+#                if task in prepared:
+#                    self.tq.remove(task)
+#            self.pq += prepared
+#            # We schedule the task to an AFE
+#            self.scheduler.task_prepared(prepared)
+#
+#            """
+#            Now that we have all the task in the 'prepared' state, we check
+#            whether we can schedule a new file transfer.
+#            """
+#            for task in prepared:
+#                # task.host is used to easily check whether all the files
+#                # required to run the task are already available.
+#                if task.host == False:
+#                    self.logger.debug ("(%s) Checking input file..." % \
+#                                       task.name)
+#                    self.request_data_transfer(task)
 
     def handle_ready_tasks(self):
         ready = [ task for task in self.pq if task.is_ready() ]
@@ -744,7 +757,6 @@ class ActiveFS(event.TimeoutEventHandler):
             self.handle_transfer_complete(e)
             self.ongoing_file_transfer = False
             # A file transfer just completed, checking if more are required
-            self.logger.debug ("Checking for more files to transfer...")
             self.progress_file_transfers (e)
         elif e.name == 'filetransfreq':
             self.progress_file_transfers (e)
