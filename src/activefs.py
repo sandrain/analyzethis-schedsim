@@ -17,7 +17,18 @@ bin_map = dict({    "fits.tbl":3,
                     "mImgtbl":1,
                     "mJPEG":2,
                     "mOverlaps":3,
-                    "mProjectPP":2  })
+                    "mProjectPP":2,
+                    "template.hdr":0,
+                    "rawdir/2mass-atlas-990214n-j1100244.fits":2,
+                    "rawdir/2mass-atlas-990214n-j1100256.fits":3,
+                    "rawdir/2mass-atlas-990214n-j1110032.fits":1,
+                    "rawdir/2mass-atlas-990214n-j1180244.fits":2,
+                    "rawdir/2mass-atlas-990214n-j1180256.fits":3,
+                    "rawdir/2mass-atlas-990214n-j1190032.fits":1,
+                    "rawdir/2mass-atlas-990214n-j1200244.fits":2,
+                    "rawdir/2mass-atlas-990214n-j1200256.fits":3,
+                    "rawdir/2mass-atlas-990214n-j1190021.fits":0,
+                    "rawdir/2mass-atlas-990214n-j1110021.fits":0    })
 
 class AFECore(event.TimeoutEventHandler):
     """afe core
@@ -387,11 +398,9 @@ class ActiveHost(ActiveFlash):
             self.afs.osds[f.location].data_transfer_read(f.size)
         for f in task.output:
             if self.last_written_osd < self.afs.config.osds:
-                print "Nooooooooooooo"
                 f.location = self.last_written_osd
                 self.last_written_osd += 1
             else:
-                print "What?????????????"
                 f.location = self.last_written_osd = 0
             self.afs.osds[f.location].data_transfer_write(f.size)
 
