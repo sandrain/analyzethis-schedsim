@@ -18,6 +18,7 @@ my $help;
 my $verbosity = "";
 my $core_range = "";
 my $afe_range = "";
+my $iters = 1;
 my $netbw = "45000000000";
 my $workflow = "/home/gvh/src/git/analyzethis-workflows/libconfig2xml/montage.job.xml";
 my $output_dir = "/home/gvh/src/git/afs-schedsim/data";
@@ -28,6 +29,7 @@ GetOptions (
     "afe-range=s"   => \$afe_range,
     "workflow=s"    => \$workflow,
     "netbw=s"       => \$netbw,
+    "iters=s"       => \$iters,
 );
 
 sub print_help ()
@@ -61,8 +63,9 @@ if (! -e $output_dir)
     mkdir ($output_dir) or die ("Impossible to create $output_dir\n");
 }
 
-my $n_afe_start = 1;
-my $n_afe_end = 1;
+# Default values are based on the configuration of the emulator that was based for our publications.
+my $n_afe_start = 4;
+my $n_afe_end = 4;
 my $n_core_start = 1;
 my $n_core_end = 1;
 
@@ -95,22 +98,32 @@ for ($i = $n_afe_start; $i <= $n_afe_end; $i = $i + 1)
     for ($j = $n_core_start; $j <= $n_core_end; $j = $j + 1)
     {
         if ($verbosity eq "info") {
-            $output = "$output_dir/$workflow_name\_$j\_$i\_$netbw\_info.log";
+            $output = "$output_dir/$workflow_name\_$j\_$i\_$netbw\_info";
 #           $cmd = "./sim.py -e info -c 1 -n 4 --netbw 44566000000 --scheduler schedlib --placement schedlib $workflow";
             $cmd = "$dir/sim.py -e info -c $j -n $i --netbw $netbw --scheduler schedlib --placement schedlib $workflow";
         } elsif ($verbosity eq "debug") {
-            $output = "$output_dir/$workflow_name\_$j\_$i\_$netbw\_debug.log";
+            $output = "$output_dir/$workflow_name\_$j\_$i\_$netbw\_debug";
             $cmd = "$dir/sim.py -e debug -c $j -n $i --netbw  $netbw --scheduler schedlib --placement schedlib $workflow";
         } else {
-            $output = "$output_dir/$workflow_name\_$j\_$i\_$netbw.log";
+            $output = "$output_dir/$workflow_name\_$j\_$i\_$netbw";
             $cmd = "$dir/sim.py -c $j -n $i --netbw $netbw --scheduler schedlib --placement schedlib $workflow";
         }
 
-        print "Executing: $cmd\n";
-        unlink $output if (-e $output);
-        $tee = IO::Tee->new(">>$output", \*STDOUT);
-        print $tee "$cmd\n";
-        print $tee `$cmd`;
+        for (my $i = 0; $i < $iters; $i = $i + 1)
+        {
+            my $o = "";
+            if ($iters > 1)
+            {
+                $o = $output . "_$i.log";
+            } else {
+                $o = $output . ".log";
+            }
+            print "Executing: $cmd\n";
+            unlink $o if (-e $o);
+            $tee = IO::Tee->new(">>$o", \*STDOUT);
+            print $tee "$cmd\n";
+            print $tee `$cmd`;
+        }
     }
 }
 
